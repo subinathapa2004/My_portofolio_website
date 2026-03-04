@@ -7,6 +7,9 @@
     
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
+    <!-- Devicon for programming language icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
     
@@ -21,8 +24,6 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
-
-
 
 <style>
 
@@ -109,7 +110,21 @@
   transform: scale(1.1);
 }
 
-
+/* Icon styling for skills */
+.skill-icon {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  color: #ffbd39;
+}
+.skill-item {
+  text-align: center;
+  padding: 1rem;
+}
+.skill-item p {
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: #fff;
+}
 </style>
 
 
@@ -318,56 +333,40 @@
           </div>
         </div>
 
+		<!-- ======= New Icon-based Skills Section ======= -->
 		<div class="row">
-			<h1 class="big-4">skills</h1>
-			<div class="underline"></div>
-		</div>
-		<br>
-		
-		<div class="row">
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<!--span class="date">2025-Present</span-->
-						<h2>Technical Skills</h2>
-						<span class="position"></span>
-						<p class="mt-4"> I have strong hands-on experience in cross-platform mobile and web application development. My core expertise lies in Flutter and Dart, where I build responsive, scalable, and user-friendly applications.
-
-On the backend side, I work with Django to design secure and efficient RESTful APIs. I have experience integrating Firebase services including Authentication and Firestore for real-time data handling.
-
-I also manage relational databases using PostgreSQL, perform query optimization, and handle structured data efficiently. Additionally, I am familiar with Next.js and TypeScript for modern web development.
-
-I use tools like Git & GitHub for version control, Postman for API testing, and follow clean architecture and best coding practices.. 
-							<ul>
-								<li>MVC / MVVM architecture understanding</li>
-								<li>Basic CI/CD knowledge.</li>
-								<li>JSON parsing and API response handling.</li>
-							</ul>
-						</p>
-					</div>
-
-				</div>
-
-				<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-						<!--span class="date">2018-2021</span-->
-						<h2>Professional Skills</h2>
-						<!--span class="position">iQuanti</span-->
-						<p class="mt-4">I possess strong problem-solving and analytical thinking abilities, which help me design efficient and scalable solutions. I am a quick learner who adapts easily to new technologies and development environments.
-
-I have good communication skills and enjoy working collaboratively in team-based Agile environments. I manage time effectively, meet project deadlines, and maintain high attention to detail in every project I work on.
-
-I am passionate about continuous learning and always strive to improve my technical and professional abilities. 
-							<ul>
-								<li>Continuous self-improvement mindset </li>
-								<li>Ability to handle multiple projects simultaneously.</li>
-								<li>Positive attitude and growth-oriented mindset.
-
-.</li>
-							</ul>
-						</p>
-					</div>
-
-				</div>
+			<div class="col-md-3 skill-item">
+				<i class="devicon-flutter-plain colored skill-icon"></i>
+				<p>Flutter</p>
+			</div>
+			<div class="col-md-3 skill-item">
+				<i class="devicon-dart-plain colored skill-icon"></i>
+				<p>Dart</p>
+			</div>
+			<div class="col-md-3 skill-item">
+				<i class="devicon-postgresql-plain colored skill-icon"></i>
+				<p>PostgreSQL</p>
+			</div>
+			<div class="col-md-3 skill-item">
+				<i class="devicon-django-plain colored skill-icon"></i>
+				<p>Django</p>
+			</div>
+			<div class="col-md-3 skill-item">
+				<i class="devicon-firebase-plain colored skill-icon"></i>
+				<p>Firebase</p>
+			</div>
+			<div class="col-md-3 skill-item">
+				<i class="devicon-nextjs-original colored skill-icon"></i>
+				<p>Next.js</p>
+			</div>
+			<div class="col-md-3 skill-item">
+				<i class="devicon-typescript-plain colored skill-icon"></i>
+				<p>TypeScript</p>
+			</div>
+			<div class="col-md-3 skill-item">
+				<i class="devicon-git-plain colored skill-icon"></i>
+				<p>Git</p>
+			</div>
 		</div>
 
 		<br>
@@ -402,7 +401,7 @@ I am passionate about continuous learning and always strive to improve my techni
             <div class="resume-wrap ftco-animate">
               <span class="date">2021 – 2023</span>
               <h2>+2 Computer Science</h2>
-              <span class="position">Nepal kasthmandap ss college</span>
+              <span class="position">Trinity International College, Kathmandu</span>
               <p class="mt-4">Completed +2 in Computer Science with major subjects: Mathematics, Physics, and Computer Science. Scored 3.6 GPA.</p>
             </div>
           </div>
@@ -456,7 +455,7 @@ I am passionate about continuous learning and always strive to improve my techni
         </div>
 	<br>
 		<!-- added justify-content-center to center align the last two projects -->
-		<!--div class="row d-flex justify-content-center">  
+		<div class="row d-flex justify-content-center">  
 			<div class="col-md-4 d-flex ftco-animate">
 				<div class="blog-entry justify-content-end">
 				<a href="https://github.com/rishabhnmishra/sales_forecasting/tree/main" class="block-20 zoom-effect" style="background-image: url('images/proj_4.jpg');">
