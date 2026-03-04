@@ -110,20 +110,54 @@
   transform: scale(1.1);
 }
 
-/* Icon styling for skills */
+/* Spinning circle for skills */
+.skill-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 3px solid #ffbd39;
+  margin: 0 auto 1rem auto;
+  transition: all 0.3s ease;
+}
+
+.skill-circle:hover {
+  border-color: #fff;
+  transform: scale(1.05);
+}
+
 .skill-icon {
   font-size: 4rem;
-  margin-bottom: 0.5rem;
   color: #ffbd39;
+  animation: spin 10s linear infinite;
 }
+
+.skill-icon:hover {
+  animation-play-state: paused;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .skill-item {
   text-align: center;
   padding: 1rem;
 }
+
 .skill-item p {
   margin-top: 0.5rem;
   font-weight: 500;
   color: #fff;
+  font-size: 1.1rem;
 }
 </style>
 
@@ -333,39 +367,105 @@
           </div>
         </div>
 
-		<!-- ======= New Icon-based Skills Section ======= -->
+		<!-- ======= Icon-based Skills with spinning circles ======= -->
 		<div class="row">
-			<div class="col-md-3 skill-item">
-				<i class="devicon-flutter-plain colored skill-icon"></i>
+			<!-- Flutter -->
+			<div class="col-md-3 col-6 skill-item">
+				<div class="skill-circle">
+					<i class="devicon-flutter-plain colored skill-icon"></i>
+				</div>
 				<p>Flutter</p>
 			</div>
-			<div class="col-md-3 skill-item">
-				<i class="devicon-dart-plain colored skill-icon"></i>
+			<!-- Dart -->
+			<div class="col-md-3 col-6 skill-item">
+				<div class="skill-circle">
+					<i class="devicon-dart-plain colored skill-icon"></i>
+				</div>
 				<p>Dart</p>
 			</div>
-			<div class="col-md-3 skill-item">
-				<i class="devicon-postgresql-plain colored skill-icon"></i>
+			<!-- PostgreSQL -->
+			<div class="col-md-3 col-6 skill-item">
+				<div class="skill-circle">
+					<i class="devicon-postgresql-plain colored skill-icon"></i>
+				</div>
 				<p>PostgreSQL</p>
 			</div>
-			<div class="col-md-3 skill-item">
-				<i class="devicon-django-plain colored skill-icon"></i>
+			<!-- Django -->
+			<div class="col-md-3 col-6 skill-item">
+				<div class="skill-circle">
+					<i class="devicon-django-plain colored skill-icon"></i>
+				</div>
 				<p>Django</p>
 			</div>
-			<div class="col-md-3 skill-item">
-				<i class="devicon-firebase-plain colored skill-icon"></i>
+			<!-- Firebase -->
+			<div class="col-md-3 col-6 skill-item">
+				<div class="skill-circle">
+					<i class="devicon-firebase-plain colored skill-icon"></i>
+				</div>
 				<p>Firebase</p>
 			</div>
-			<div class="col-md-3 skill-item">
-				<i class="devicon-nextjs-original colored skill-icon"></i>
+			<!-- Next.js -->
+			<div class="col-md-3 col-6 skill-item">
+				<div class="skill-circle">
+					<i class="devicon-nextjs-original colored skill-icon"></i>
+				</div>
 				<p>Next.js</p>
 			</div>
-			<div class="col-md-3 skill-item">
-				<i class="devicon-typescript-plain colored skill-icon"></i>
+			<!-- TypeScript -->
+			<div class="col-md-3 col-6 skill-item">
+				<div class="skill-circle">
+					<i class="devicon-typescript-plain colored skill-icon"></i>
+				</div>
 				<p>TypeScript</p>
 			</div>
-			<div class="col-md-3 skill-item">
-				<i class="devicon-git-plain colored skill-icon"></i>
+			<!-- Git -->
+			<div class="col-md-3 col-6 skill-item">
+				<div class="skill-circle">
+					<i class="devicon-git-plain colored skill-icon"></i>
+				</div>
 				<p>Git</p>
+			</div>
+			<!-- Python (new) -->
+			<div class="col-md-3 col-6 skill-item">
+				<div class="skill-circle">
+					<i class="devicon-python-plain colored skill-icon"></i>
+				</div>
+				<p>Python</p>
+			</div>
+			<!-- Java (new) -->
+			<div class="col-md-3 col-6 skill-item">
+				<div class="skill-circle">
+					<i class="devicon-java-plain colored skill-icon"></i>
+				</div>
+				<p>Java</p>
+			</div>
+			<!-- HTML5 (new) -->
+			<div class="col-md-3 col-6 skill-item">
+				<div class="skill-circle">
+					<i class="devicon-html5-plain colored skill-icon"></i>
+				</div>
+				<p>HTML5</p>
+			</div>
+			<!-- CSS3 (new) -->
+			<div class="col-md-3 col-6 skill-item">
+				<div class="skill-circle">
+					<i class="devicon-css3-plain colored skill-icon"></i>
+				</div>
+				<p>CSS3</p>
+			</div>
+			<!-- JavaScript (new) -->
+			<div class="col-md-3 col-6 skill-item">
+				<div class="skill-circle">
+					<i class="devicon-javascript-plain colored skill-icon"></i>
+				</div>
+				<p>JavaScript</p>
+			</div>
+			<!-- Node.js (new) -->
+			<div class="col-md-3 col-6 skill-item">
+				<div class="skill-circle">
+					<i class="devicon-nodejs-plain colored skill-icon"></i>
+				</div>
+				<p>Node.js</p>
 			</div>
 		</div>
 
@@ -455,7 +555,7 @@
         </div>
 	<br>
 		<!-- added justify-content-center to center align the last two projects -->
-		<div class="row d-flex justify-content-center">  
+		<!--div class="row d-flex justify-content-center">  
 			<div class="col-md-4 d-flex ftco-animate">
 				<div class="blog-entry justify-content-end">
 				<a href="https://github.com/rishabhnmishra/sales_forecasting/tree/main" class="block-20 zoom-effect" style="background-image: url('images/proj_4.jpg');">
