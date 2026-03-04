@@ -159,6 +159,37 @@
   color: #fff;
   font-size: 1.1rem;
 }
+
+/* Gita section custom styles */
+.gita-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-left: 5px solid #ffbd39;
+  transition: 0.3s;
+}
+.gita-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255,189,57,0.2);
+}
+.gita-card h3 {
+  color: #ffbd39;
+  margin-bottom: 1rem;
+}
+.verse-block {
+  background: rgba(255,189,57,0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #ffbd39;
+  font-style: italic;
+}
+.verse-sanskrit {
+  font-size: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1rem;
+  color: #ffbd39;
+}
 </style>
 
 
@@ -180,6 +211,7 @@
 	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>skills</span></a></li>
 	          <li class="nav-item"><a href="#education-section" class="nav-link"><span>Education</span></a></li>
 	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
+	          <li class="nav-item"><a href="#gita-section" class="nav-link"><span>Bhagavad Gita</span></a></li>
 	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
 	        </ul>
 	      </div>
@@ -554,44 +586,50 @@
           </div>
         </div>
         <br>
-        <!-- New row for Bhagavad Gita Knowledge card -->
-        <div class="row d-flex justify-content-center">
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry justify-content-end">
-              <a href="gita.html" class="block-20 zoom-effect" style="background-image: url('images/bg_1.jpg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="gita.html">Bhagavad Gita Knowledge</a></h3>
-                <p>Discover the eternal wisdom of the Bhagavad Gita – duty, devotion, and the path to self-realization.</p>
+        <!-- The Gita card is now replaced by a full section below, so we remove it from here -->
+      </div>
+    </section>
+
+    <!-- ======= New Bhagavad Gita Section (integrated) ======= -->
+    <section class="ftco-section" id="gita-section">
+      <div class="container">
+        <div class="row justify-content-center pb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Bhagavad Gita</h1>
+            <h2 class="mb-4">Eternal Wisdom</h2>
+            <p>The divine discourse between Lord Krishna and Arjuna – a guide to life, duty, and spirituality.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="gita-card">
+              <h3>What is the Gita?</h3>
+              <p>The Bhagavad Gita is a 700-verse Hindu scripture that is part of the Indian epic Mahabharata. It is a sacred text of the Hindu religion and considered one of the most important philosophical classics of the world.</p>
+              <p>The dialogue between Prince Arjuna and his guide Lord Krishna addresses the moral dilemmas of life and the paths to spiritual realization.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="gita-card">
+              <h3>Key Teachings</h3>
+              <ul>
+                <li><strong>Dharma (Duty):</strong> Perform your duty without attachment to results.</li>
+                <li><strong>Yoga:</strong> Paths of devotion (Bhakti), action (Karma), knowledge (Jnana), and meditation (Dhyana).</li>
+                <li><strong>Self-realization:</strong> The soul is eternal and beyond birth and death.</li>
+                <li><strong>Detachment:</strong> Act selflessly, offering the fruits of actions to the divine.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="gita-card">
+              <h3>Famous Verse</h3>
+              <div class="verse-block">
+                <p class="verse-sanskrit">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥</p>
+                <p><em>"You have a right to perform your prescribed duty, but you are not entitled to the fruits of action. Never consider yourself the cause of the results of your activities, and never be attached to not doing your duty."</em></p>
+                <p class="text-right">— Bhagavad Gita 2.47</p>
               </div>
             </div>
           </div>
         </div>
-        <!-- The following two projects are commented out – you can uncomment if needed -->
-        <!-- 
-        <div class="row d-flex justify-content-center">  
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry justify-content-end">
-              <a href="https://github.com/rishabhnmishra/sales_forecasting/tree/main" class="block-20 zoom-effect" style="background-image: url('images/proj_4.jpg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="https://github.com/rishabhnmishra/sales_forecasting/tree/main">Sales Forecast- Time Series Forecasting</a></h3>
-                <p>Used multiple machine learning models to forecast sales (retail store) and performed time series analysis.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-            <div class="blog-entry justify-content-end">
-              <a href="https://github.com/rishabhnmishra/customer_segmentation/blob/main/Customer_Segmentation-final.ipynb" class="block-20 zoom-effect" style="background-image: url('images/suss.png');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="https://github.com/rishabhnmishra/customer_segmentation/blob/main/Customer_Segmentation-final.ipynb">Customer Segmentation using clustering model</a></h3>
-                <p>Developed a ML model to give various recommendations of financial products &amp; services on target customer groups.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        -->
       </div>
     </section>
 
