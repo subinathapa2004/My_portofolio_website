@@ -46,8 +46,40 @@
     .verse-block { background: rgba(255,189,57,0.1); padding: 1.5rem; border-radius: 10px; border: 1px solid #ffbd39; font-style: italic; }
     .verse-sanskrit { font-size: 1.2rem; font-family: 'Poppins', sans-serif; margin-bottom: 1rem; color: #ffbd39; }
 
-    /* ===== SIDEBAR (like Santosh Adhikari) ===== */
-    body { overflow-x: hidden; background: #111; }
+    /* ===== RESPONSIVE SIDEBAR (like Santosh Adhikari) ===== */
+    body { overflow-x: hidden; background: #111; margin:0; padding:0; }
+
+    /* --- mobile top header (hidden on desktop) --- */
+    .mobile-header {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: #0a0a0a;
+      z-index: 1001;
+      align-items: center;
+      padding: 0 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      border-bottom: 1px solid #222;
+    }
+    .mobile-header .menu-btn {
+      background: none;
+      border: none;
+      color: #ffbd39;
+      font-size: 28px;
+      cursor: pointer;
+      margin-right: 15px;
+    }
+    .mobile-header .brand {
+      color: #ffbd39;
+      font-size: 1.3rem;
+      font-weight: 600;
+      flex-grow: 1;
+    }
+
+    /* --- sidebar (desktop) --- */
     .sidebar {
       position: fixed;
       top: 0;
@@ -60,6 +92,7 @@
       box-shadow: 4px 0 15px rgba(0,0,0,0.5);
       overflow-y: auto;
       border-right: 1px solid #222;
+      transition: transform 0.3s ease-in-out;
     }
     .profile-sidebar {
       text-align: center;
@@ -111,12 +144,15 @@
       border-color: #ffbd39;
       padding-left: 1.5rem;
     }
+
     /* main content */
     .main-content {
       margin-left: 280px;
       transition: margin-left 0.3s;
       background: #111;
     }
+
+    /* --- responsive breakpoints --- */
     @media (max-width: 992px) {
       .sidebar { width: 240px; padding: 1.5rem 1rem; }
       .profile-sidebar img { width: 100px; height: 100px; }
@@ -124,14 +160,36 @@
       .sidebar-nav .nav-link { font-size: 1rem; padding: 0.5rem 0.8rem; }
       .main-content { margin-left: 240px; }
     }
+
     @media (max-width: 768px) {
-      .sidebar { width: 200px; padding: 1rem 0.8rem; }
-      .profile-sidebar img { width: 80px; height: 80px; }
-      .profile-sidebar h3 { font-size: 1.1rem; }
-      .profile-sidebar p { font-size: 0.85rem; }
-      .sidebar-nav .nav-link { font-size: 0.9rem; padding: 0.4rem 0.6rem; }
-      .main-content { margin-left: 200px; }
+      /* hide desktop sidebar */
+      .sidebar {
+        transform: translateX(-100%);
+        width: 250px; /* drawer width */
+        box-shadow: none;
+      }
+      .sidebar.open {
+        transform: translateX(0);
+        box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+      }
+
+      /* show mobile header */
+      .mobile-header {
+        display: flex;
+      }
+
+      /* main content takes full width, pushed down for fixed header */
+      .main-content {
+        margin-left: 0;
+        padding-top: 70px; /* space for fixed header */
+      }
+
+      /* adjust hero for mobile */
+      .hero .slider-item .overlay {
+        z-index: 1;
+      }
     }
+
     /* hide original navbar */
     .ftco_navbar { display: none; }
 
@@ -150,12 +208,27 @@
       font-size: 1.1rem;
       line-height: 1.7;
     }
+    /* small fixes */
+    .btn-primary {
+      background: #ffbd39;
+      border: none;
+      color: #000;
+    }
+    .btn-primary:hover {
+      background: #e6a800;
+    }
   </style>
 </head>
 <body data-spy="scroll" data-target=".sidebar-nav" data-offset="300">
 
-  <!-- SIDEBAR (inspired by Santosh Adhikari) -->
-  <div class="sidebar site-navbar-target">
+  <!-- MOBILE HEADER (visible only on small screens) -->
+  <div class="mobile-header">
+    <button class="menu-btn" id="menuToggle" aria-label="Menu">☰</button>
+    <span class="brand">subina thapa</span>
+  </div>
+
+  <!-- SIDEBAR (drawer on mobile, fixed on desktop) -->
+  <div class="sidebar site-navbar-target" id="sidebar">
     <div class="profile-sidebar">
       <img src="images/gggg.jpg" alt="Subina Thapa">
       <h3>Subina Thapa</h3>
@@ -174,7 +247,7 @@
     </ul>
   </div>
 
-  <!-- MAIN CONTENT (shifted right) -->
+  <!-- MAIN CONTENT -->
   <div class="main-content">
 
     <!-- HOME SECTION -->
@@ -219,7 +292,7 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION (unchanged) -->
+    <!-- ABOUT SECTION -->
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
         <div class="row d-flex align-items-stretch">
@@ -280,7 +353,7 @@
       </div>
     </section>
 
-    <!-- MY APPS SECTION (placeholder, links to projects) -->
+    <!-- MY APPS SECTION -->
     <section class="ftco-section new-section" id="myapps-section">
       <div class="container">
         <h2>📱 My Apps</h2>
@@ -296,7 +369,7 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION (original spinning circles) with id="skills-section" -->
+    <!-- SKILLS SECTION -->
     <section class="ftco-section ftco-no-pb" id="skills-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
@@ -326,7 +399,7 @@
       </div>
     </section>
 
-    <!-- LANGUAGES SECTION (human languages) -->
+    <!-- LANGUAGES SECTION -->
     <section class="ftco-section new-section" id="languages-section">
       <div class="container">
         <h2>🗣️ Languages</h2>
@@ -369,7 +442,7 @@
       </div>
     </section>
 
-    <!-- PROGRAMMING SECTION (journey) -->
+    <!-- PROGRAMMING SECTION -->
     <section class="ftco-section new-section" id="programming-section">
       <div class="container">
         <h2>💻 Programming Journey</h2>
@@ -379,7 +452,7 @@
       </div>
     </section>
 
-    <!-- EDUCATION SECTION (unchanged) -->
+    <!-- EDUCATION SECTION -->
     <section class="ftco-section" id="education-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
@@ -410,7 +483,7 @@
       </div>
     </section>
 
-    <!-- PROJECT SECTION (original) -->
+    <!-- PROJECT SECTION -->
     <section class="ftco-section" id="project-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
@@ -549,5 +622,24 @@
   <script src="js/jquery.animateNumber.min.js"></script>
   <script src="js/scrollax.min.js"></script>
   <script src="js/main.js"></script>
+
+  <!-- simple script to toggle sidebar on mobile -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    if (menuToggle) {
+      menuToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('open');
+      });
+    }
+    // close sidebar when a nav link is clicked (optional)
+    document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          sidebar.classList.remove('open');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
