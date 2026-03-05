@@ -44,30 +44,51 @@
       .project-card {
         background: rgba(255,255,255,0.03);
         border-radius: 1rem;
-        padding: 1.5rem;
+        overflow: hidden;
         transition: all 0.3s ease;
         border: 1px solid rgba(255,189,57,0.1);
         height: 100%;
+        display: flex;
+        flex-direction: column;
       }
       .project-card:hover {
         transform: translateY(-5px);
         border-color: #ffbd39;
         box-shadow: 0 10px 30px -10px rgba(255,189,57,0.2);
       }
-      .project-icon {
-        font-size: 2.5rem;
-        color: #ffbd39;
-        margin-bottom: 1rem;
+      .project-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 2px solid #ffbd39;
       }
-      .project-card h3 {
+      .project-content {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .project-content h3 {
         font-size: 1.25rem;
         font-weight: 600;
         margin-bottom: 0.75rem;
       }
-      .project-card p {
+      .project-content p {
         color: rgba(255,255,255,0.7);
         font-size: 0.95rem;
         line-height: 1.6;
+        flex: 1;
+      }
+      .project-link {
+        margin-top: 1rem;
+        display: inline-block;
+        color: #ffbd39;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+      .project-link:hover {
+        color: #fff;
       }
       .edu-card {
         background: rgba(255,255,255,0.02);
@@ -250,7 +271,7 @@
       </div>
     </section>
 
-    <!-- Skills Section (revamped) -->
+    <!-- Skills Section (professional progress bars) -->
     <section class="ftco-section ftco-no-pb" id="skills-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
@@ -329,64 +350,90 @@
       </div>
     </section>
 
-    <!-- Projects Section (professional, with Flutter projects) -->
+    <!-- Projects Section with 6 real projects and images -->
     <section class="ftco-section" id="projects-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
           <div class="col-md-7 heading-section text-center ftco-animate">
             <h1 class="big big-2">Projects</h1>
-            <h2 class="mb-4">Featured Work</h2>
+            <h2 class="mb-4">My Work</h2>
             <p>Real-world applications built with Flutter and modern stacks</p>
           </div>
         </div>
         <div class="row">
+          <!-- Project A -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="project-card">
-              <div class="project-icon"><i class="fas fa-store"></i></div>
-              <h3>E-Commerce App</h3>
-              <p>Full-featured e-commerce mobile app with Flutter, Firebase Auth, Cloud Firestore, and integrated payment gateway. Includes product listing, cart, and order history.</p>
-              <div class="mt-3"><a href="#" class="btn btn-outline-primary btn-sm">View Code</a></div>
+              <img src="images/proj_a.jpg" alt="Project A" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Project+A'">
+              <div class="project-content">
+                <h3>Student Management System</h3>
+                <p>A comprehensive Flutter app for managing student records, attendance, and grades. Uses Firebase for backend and real-time updates.</p>
+                <a href="https://github.com/subinathapa2004/studentmanagementsystem" target="_blank" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+              </div>
             </div>
           </div>
+          <!-- Project B -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="project-card">
-              <div class="project-icon"><i class="fas fa-chart-line"></i></div>
-              <h3>Expense Tracker</h3>
-              <p>Cross-platform expense management app built with Flutter and BLoC pattern. Uses SQLite for local storage and syncs with REST API built with Django.</p>
-              <div class="mt-3"><a href="#" class="btn btn-outline-primary btn-sm">View Code</a></div>
+              <img src="images/proj_b.jpg" alt="Project B" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Project+B'">
+              <div class="project-content">
+                <h3>E-Commerce App</h3>
+                <p>Full-featured e-commerce mobile app with Flutter, Firebase Auth, Cloud Firestore, and integrated payment gateway.</p>
+                <a href="https://github.com/subinathapa2004" target="_blank" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+              </div>
             </div>
           </div>
+          <!-- Project C -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="project-card">
-              <div class="project-icon"><i class="fas fa-newspaper"></i></div>
-              <h3>News Aggregator</h3>
-              <p>News app consuming multiple REST APIs, with offline reading, search, and category filters. State management with Provider, and local caching using Hive.</p>
-              <div class="mt-3"><a href="#" class="btn btn-outline-primary btn-sm">View Code</a></div>
+              <img src="images/proj_c.jpg" alt="Project C" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Project+C'">
+              <div class="project-content">
+                <h3>Expense Tracker</h3>
+                <p>Cross-platform expense management app built with Flutter and BLoC pattern. Uses SQLite for local storage and syncs with Django REST API.</p>
+                <a href="https://github.com/subinathapa2004" target="_blank" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row mt-5 justify-content-center">
+        <div class="row mt-4">
+          <!-- Project D -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="project-card">
-              <div class="project-icon"><i class="fas fa-robot"></i></div>
-              <h3>Chatbot Interface</h3>
-              <p>Flutter-based chatbot UI integrated with Dialogflow for natural language processing, used for customer support automation in a local business.</p>
-              <div class="mt-3"><a href="#" class="btn btn-outline-primary btn-sm">View Code</a></div>
+              <img src="images/proj_d.jpg" alt="Project D" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Project+D'">
+              <div class="project-content">
+                <h3>News Aggregator</h3>
+                <p>News app consuming multiple REST APIs, with offline reading, search, and category filters. State management with Provider.</p>
+                <a href="https://github.com/subinathapa2004" target="_blank" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+              </div>
             </div>
           </div>
+          <!-- Project E -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="project-card">
-              <div class="project-icon"><i class="fas fa-tasks"></i></div>
-              <h3>Task Manager</h3>
-              <p>Collaborative task management app with real-time updates using Firebase Realtime Database. Includes user authentication, task assignment, and push notifications.</p>
-              <div class="mt-3"><a href="#" class="btn btn-outline-primary btn-sm">View Code</a></div>
+              <img src="images/proj_e.jpg" alt="Project E" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Project+E'">
+              <div class="project-content">
+                <h3>Chatbot Interface</h3>
+                <p>Flutter-based chatbot UI integrated with Dialogflow for natural language processing, used for customer support automation.</p>
+                <a href="https://github.com/subinathapa2004" target="_blank" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Project F -->
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="project-card">
+              <img src="images/proj_f.jpg" alt="Project F" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Project+F'">
+              <div class="project-content">
+                <h3>Task Manager</h3>
+                <p>Collaborative task management app with real-time updates using Firebase Realtime Database. Includes authentication and push notifications.</p>
+                <a href="https://github.com/subinathapa2004" target="_blank" class="project-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Hire Me / GitHub Callout (revamped) -->
+    <!-- Hire Me / GitHub Callout -->
     <section class="ftco-section ftco-hireme img" style="background-image: url(images/bg_1.jpg); margin-top: 2rem;">
       <div class="overlay"></div>
       <div class="container">
