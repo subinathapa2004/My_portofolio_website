@@ -217,6 +217,25 @@
     .btn-primary:hover {
       background: #e6a800;
     }
+    /* github button under projects */
+    .more-github {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .more-github .btn-github {
+      background: #333;
+      color: #ffbd39;
+      border: 2px solid #ffbd39;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .more-github .btn-github:hover {
+      background: #ffbd39;
+      color: #000;
+      border-color: #ffbd39;
+    }
   </style>
 </head>
 <body data-spy="scroll" data-target=".sidebar-nav" data-offset="300">
@@ -240,10 +259,9 @@
       <li class="nav-item"><a href="#myapps-section" class="nav-link">My Apps</a></li>
       <li class="nav-item"><a href="#skills-section" class="nav-link">Skills</a></li>
       <li class="nav-item"><a href="#languages-section" class="nav-link">Languages</a></li>
-      <!--li class="nav-item"><a href="#socialwork-section" class="nav-link">Social Work</a></li-->
-      <!--li class="nav-item"><a href="#experience-section" class="nav-link">Experience</a></li-->
+      <!-- Removed duplicate Programming, added correct Projects link -->
+      <li class="nav-item"><a href="#project-section" class="nav-link">Projects</a></li>
       <li class="nav-item"><a href="#programming-section" class="nav-link">Programming</a></li>
-       <li class="nav-item"><a href="#programming-section" class="nav-link">Projects</a></li>
       <li class="nav-item"><a href="#contact-section" class="nav-link">Contact</a></li>
     </ul>
   </div>
@@ -414,35 +432,6 @@
       </div>
     </section>
 
-    <!-- SOCIAL WORK SECTION >
-    <section class="ftco-section new-section" id="socialwork-section">
-      <div class="container">
-        <h2>🤝 Social Work</h2>
-        <div class="content">
-          <p>I actively participate in community coding workshops and tech awareness programs. I have volunteered as a mentor for <strong>“Code for Kids”</strong> initiative and contributed to open‑source projects that support education.</p>
-        </div>
-      </div>
-  </section-->
-
-    <!-- EXPERIENCE SECTION >
-    <section class="ftco-section new-section" id="experience-section">
-      <div class="container">
-        <h2>💼 Experience</h2>
-        <div class="content">
-          <div style="margin-bottom: 1.5rem;">
-            <h4 style="color:#ffbd39;">Flutter Developer Intern</h4>
-            <p><em>Tech Innovate Pvt. Ltd. | Jan 2024 – Apr 2024</em></p>
-            <p>Assisted in developing cross‑platform mobile apps, integrated REST APIs, and optimized app performance.</p>
-          </div>
-          <div>
-            <h4 style="color:#ffbd39;">Junior Frontend Developer (Freelance)</h4>
-            <p><em>Various clients | 2023 – present</em></p>
-            <p>Built responsive web interfaces using HTML, CSS, JavaScript and collaborated with backend team.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- PROGRAMMING SECTION -->
     <section class="ftco-section new-section" id="programming-section">
       <div class="container">
@@ -451,7 +440,7 @@
           <p>I started my programming journey in 2023 with Python. After learning the fundamentals,
             I expanded my skills into web development and mobile app development. Currently, I am focused on improving my full-stack flutter development skills and exploring Artificial Intelligence. 
             I am passionate about building real-world applications and creating innovative solutions with technology.
-.</p>
+          </p>
         </div>
       </div>
     </section>
@@ -487,14 +476,14 @@
       </div>
     </section>
 
-    <!-- PROJECT SECTION -->
+    <!-- PROJECT SECTION (with id="project-section") -->
     <section class="ftco-section" id="project-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
           <div class="col-md-7 heading-section text-center ftco-animate">
             <h1 class="big big-2">Projects</h1>
             <h2 class="mb-4">Projects</h2>
-            <p>Below are the sample app and web project.</p>
+            <p>Below are some of my recent works.</p>
           </div>
         </div>
         <div class="row d-flex">
@@ -502,9 +491,8 @@
             <div class="blog-entry justify-content-end">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a>
               <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="#">clinic website</a></h3>
-                <-p>I built a Clinic Website that allows patients to easily learn about clinic services and book appointments online. 
-                  The website includes pages for services information, contact details.</p-->
+                <h3 class="heading"><a href="#">Clinic Website</a></h3>
+                <p>A website for a local clinic that allows patients to learn about services and book appointments online. Built with HTML, CSS, JavaScript and integrated with a backend.</p>
               </div>
             </div>
           </div>
@@ -512,8 +500,8 @@
             <div class="blog-entry justify-content-end">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a>
               <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="#">cleaning website</a></h3>
-                <p>Performed exploratory data analysis on diwali sales data using Python to improve the customer experience.</p>
+                <h3 class="heading"><a href="#">Cleaning Service Website</a></h3>
+                <p>A responsive website for a cleaning company, featuring service details, pricing, and a contact form. Designed with a clean UI and optimized for mobile.</p>
               </div>
             </div>
           </div>
@@ -521,11 +509,15 @@
             <div class="blog-entry">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a>
               <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="#">Power BI Sales dashboard Project for Beginners</a></h3>
-                <p>Designed a power bi dashboard for Madhav Store to track and analyze the online sales data acorss India.</p>
+                <h3 class="heading"><a href="#">E-commerce Dashboard (Power BI)</a></h3>
+                <p>Designed an interactive Power BI dashboard to track and analyze online sales data across India, helping stakeholders make data-driven decisions.</p>
               </div>
             </div>
           </div>
+        </div>
+        <!-- More projects on GitHub button -->
+        <div class="more-github">
+          <a href="https://github.com/subinathapa2004" target="_blank" class="btn-github">🔗 More projects on GitHub</a>
         </div>
       </div>
     </section>
