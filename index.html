@@ -7,7 +7,7 @@
     
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-    <!-- Devicon for programming language icons -->
+    <!-- Devicon for programming language icons (kept in case you want them later) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
@@ -110,55 +110,6 @@
   transform: scale(1.1);
 }
 
-/* Spinning circle for skills */
-.skill-circle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 3px solid #ffbd39;
-  margin: 0 auto 1rem auto;
-  transition: all 0.3s ease;
-}
-
-.skill-circle:hover {
-  border-color: #fff;
-  transform: scale(1.05);
-}
-
-.skill-icon {
-  font-size: 4rem;
-  color: #ffbd39;
-  animation: spin 10s linear infinite;
-}
-
-.skill-icon:hover {
-  animation-play-state: paused;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.skill-item {
-  text-align: center;
-  padding: 1rem;
-}
-
-.skill-item p {
-  margin-top: 0.5rem;
-  font-weight: 500;
-  color: #fff;
-  font-size: 1.1rem;
-}
 
 /* Gita section custom styles */
 .gita-card {
@@ -211,7 +162,7 @@
 	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>skills</span></a></li>
 	          <li class="nav-item"><a href="#education-section" class="nav-link"><span>Education</span></a></li>
 	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
-	          <!--li class="nav-item"><a href="#gita-section" class="nav-link"><span>Bhagavad Gita</span></a></li-->
+	          <li class="nav-item"><a href="#gita-section" class="nav-link"><span>Bhagavad Gita</span></a></li>
 	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
 	        </ul>
 	      </div>
@@ -393,118 +344,46 @@
     	<div class="container">
     		<div class="row justify-content-center pb-5">
           <div class="col-md-10 heading-section text-center ftco-animate">
-          	<h1 class="big big-2">skills</h1>
-            <h2 class="mb-4">skills</h2>
-            <p> aspiring Full Stack Flutter Developer. I work with Flutter | Dart | REST APIs | Firebase | Django | PostgreSQL and various modern tools.</p>
+          	<h1 class="big big-2">Values & Collaboration</h1>
+            <h2 class="mb-4">What I Stand For</h2>
+            <p>Beyond technical skills, I bring strong values and a collaborative mindset to every team.</p>
           </div>
         </div>
 
-		<!-- ======= Icon-based Skills with spinning circles ======= -->
+		<!-- ======= New Values & Collaboration Section ======= -->
 		<div class="row">
-			<!-- Flutter -->
-			<div class="col-md-3 col-6 skill-item">
-				<div class="skill-circle">
-					<i class="devicon-flutter-plain colored skill-icon"></i>
+			<div class="col-md-6">
+				<div class="resume-wrap ftco-animate">
+					<h2>Core Values</h2>
+					<ul class="mt-4">
+						<li><strong>Integrity</strong> – I believe in honest and ethical work.</li>
+						<li><strong>Accountability</strong> – I take ownership of my tasks and results.</li>
+						<li><strong>Continuous Learning</strong> – I constantly update my skills and knowledge.</li>
+						<li><strong>Empathy</strong> – I understand and respect others' perspectives.</li>
+						<li><strong>Adaptability</strong> – I thrive in changing environments.</li>
+						<li><strong>Positive Attitude</strong> – I bring energy and optimism to work.</li>
+					</ul>
 				</div>
-				<p>Flutter</p>
 			</div>
-			<!-- Dart -->
-			<div class="col-md-3 col-6 skill-item">
-				<div class="skill-circle">
-					<i class="devicon-dart-plain colored skill-icon"></i>
+			<div class="col-md-6">
+				<div class="resume-wrap ftco-animate">
+					<h2>Collaborative Skills</h2>
+					<ul class="mt-4">
+						<li><strong>Teamwork</strong> – I work effectively in cross-functional teams.</li>
+						<li><strong>Communication</strong> – I express ideas clearly and listen actively.</li>
+						<li><strong>Conflict Resolution</strong> – I help find win-win solutions.</li>
+						<li><strong>Active Listening</strong> – I value others' input and feedback.</li>
+						<li><strong>Mentoring</strong> – I enjoy helping teammates grow.</li>
+						<li><strong>Feedback</strong> – I give and receive constructive feedback gracefully.</li>
+					</ul>
 				</div>
-				<p>Dart</p>
-			</div>
-			<!-- PostgreSQL -->
-			<div class="col-md-3 col-6 skill-item">
-				<div class="skill-circle">
-					<i class="devicon-postgresql-plain colored skill-icon"></i>
-				</div>
-				<p>PostgreSQL</p>
-			</div>
-			<!-- Django -->
-			<div class="col-md-3 col-6 skill-item">
-				<div class="skill-circle">
-					<i class="devicon-django-plain colored skill-icon"></i>
-				</div>
-				<p>Django</p>
-			</div>
-			<!-- Firebase -->
-			<div class="col-md-3 col-6 skill-item">
-				<div class="skill-circle">
-					<i class="devicon-firebase-plain colored skill-icon"></i>
-				</div>
-				<p>Firebase</p>
-			</div>
-			<!-- Next.js -->
-			<div class="col-md-3 col-6 skill-item">
-				<div class="skill-circle">
-					<i class="devicon-nextjs-original colored skill-icon"></i>
-				</div>
-				<p>Next.js</p>
-			</div>
-			<!-- TypeScript -->
-			<div class="col-md-3 col-6 skill-item">
-				<div class="skill-circle">
-					<i class="devicon-typescript-plain colored skill-icon"></i>
-				</div>
-				<p>TypeScript</p>
-			</div>
-			<!-- Git -->
-			<div class="col-md-3 col-6 skill-item">
-				<div class="skill-circle">
-					<i class="devicon-git-plain colored skill-icon"></i>
-				</div>
-				<p>Git</p>
-			</div>
-			<!-- Python (new) -->
-			<div class="col-md-3 col-6 skill-item">
-				<div class="skill-circle">
-					<i class="devicon-python-plain colored skill-icon"></i>
-				</div>
-				<p>Python</p>
-			</div>
-			<!-- Java (new) -->
-			<div class="col-md-3 col-6 skill-item">
-				<div class="skill-circle">
-					<i class="devicon-java-plain colored skill-icon"></i>
-				</div>
-				<p>Java</p>
-			</div>
-			<!-- HTML5 (new) -->
-			<div class="col-md-3 col-6 skill-item">
-				<div class="skill-circle">
-					<i class="devicon-html5-plain colored skill-icon"></i>
-				</div>
-				<p>HTML5</p>
-			</div>
-			<!-- CSS3 (new) -->
-			<div class="col-md-3 col-6 skill-item">
-				<div class="skill-circle">
-					<i class="devicon-css3-plain colored skill-icon"></i>
-				</div>
-				<p>CSS3</p>
-			</div>
-			<!-- JavaScript (new) -->
-			<div class="col-md-3 col-6 skill-item">
-				<div class="skill-circle">
-					<i class="devicon-javascript-plain colored skill-icon"></i>
-				</div>
-				<p>JavaScript</p>
-			</div>
-			<!-- Node.js (new) -->
-			<div class="col-md-3 col-6 skill-item">
-				<div class="skill-circle">
-					<i class="devicon-nodejs-plain colored skill-icon"></i>
-				</div>
-				<p>Node.js</p>
 			</div>
 		</div>
 
 		<br>
 		<br>
 
-		<!-- Removed the old commented education block from here -->
+		<!-- Removed the spinning icons and old content -->
 		
     	</div>
     </section>
