@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>subina thapa Portfolio</title>
+  <title>subina thapa · full stack flutter developer</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-  <!-- Devicon for programming language icons -->
+  <!-- Devicon for programming icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
@@ -21,162 +21,69 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    /*======================================
-    //--//-->   ABOUT (unchanged)
-    ======================================*/
-    .about-mf .box-shadow-full {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-    }
-    .about-mf .about-img {
-      margin-bottom: 2rem;
-    }
-    .about-mf .about-img img {
-      margin-left: 10px;
-    }
-    .skill-mf .progress {
-      margin: .5rem 0 1.2rem 0;
-      border-radius: 0;
-      height: .7rem;
-    }
-    .skill-mf .progress .progress-bar {
-      height: .7rem;
-      background-color: #ffbd39;
-    }
-    /* Animation styles */
-    #typing-animation {
-      position: relative;
-      font-size: 30px;
-      font-weight: bold;
-      color: rgb(255, 255, 255);
-      overflow: hidden;
-      white-space: nowrap;
-      animation: typing 3s steps(20, end) infinite;
-    }
-    #typing-animation:before {
-      content: "";
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      background-color: #ccc;
-      animation: typing-cursor 0.5s ease-in-out infinite;
-    }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    @keyframes typing-cursor {
-      from { width: 5px; }
-      to { width: 0; }
-    }
-    /* project image zoom effect */
-    .zoom-effect {
-      overflow: hidden;
-      transition: transform 0.3s ease-out;
-    }
-    .zoom-effect:hover {
-      transform: scale(1.1);
-    }
-    /* Spinning circle for skills */
-    .skill-circle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 3px solid #ffbd39;
-      margin: 0 auto 1rem auto;
-      transition: all 0.3s ease;
-    }
-    .skill-circle:hover {
-      border-color: #fff;
-      transform: scale(1.05);
-    }
-    .skill-icon {
-      font-size: 4rem;
-      color: #ffbd39;
-      animation: spin 10s linear infinite;
-    }
-    .skill-icon:hover {
-      animation-play-state: paused;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    .skill-item {
-      text-align: center;
-      padding: 1rem;
-    }
-    .skill-item p {
-      margin-top: 0.5rem;
-      font-weight: 500;
-      color: #fff;
-      font-size: 1.1rem;
-    }
-    /* Gita section custom styles */
-    .gita-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border-left: 5px solid #ffbd39;
-      transition: 0.3s;
-    }
-    .gita-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(255,189,57,0.2);
-    }
-    .gita-card h3 {
-      color: #ffbd39;
-      margin-bottom: 1rem;
-    }
-    .verse-block {
-      background: rgba(255,189,57,0.1);
-      padding: 1.5rem;
-      border-radius: 10px;
-      border: 1px solid #ffbd39;
-      font-style: italic;
-    }
-    .verse-sanskrit {
-      font-size: 1.2rem;
-      font-family: 'Poppins', sans-serif;
-      margin-bottom: 1rem;
-      color: #ffbd39;
-    }
+    /* ===== YOUR EXISTING STYLES (preserved) ===== */
+    .about-mf .box-shadow-full { padding-top: 4rem; padding-bottom: 4rem; }
+    .about-mf .about-img { margin-bottom: 2rem; }
+    .about-mf .about-img img { margin-left: 10px; }
+    .skill-mf .progress { margin: .5rem 0 1.2rem 0; border-radius: 0; height: .7rem; }
+    .skill-mf .progress .progress-bar { height: .7rem; background-color: #ffbd39; }
+    #typing-animation { position: relative; font-size: 30px; font-weight: bold; color: #fff; overflow: hidden; white-space: nowrap; animation: typing 3s steps(20, end) infinite; }
+    #typing-animation:before { content: ""; top: 0; left: 0; width: 0; height: 100%; background-color: #ccc; animation: typing-cursor 0.5s ease-in-out infinite; }
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
+    @keyframes typing-cursor { from { width: 5px; } to { width: 0; } }
+    .zoom-effect { overflow: hidden; transition: transform 0.3s ease-out; }
+    .zoom-effect:hover { transform: scale(1.1); }
+    .skill-circle { display: inline-flex; align-items: center; justify-content: center; width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 3px solid #ffbd39; margin: 0 auto 1rem auto; transition: all 0.3s ease; }
+    .skill-circle:hover { border-color: #fff; transform: scale(1.05); }
+    .skill-icon { font-size: 4rem; color: #ffbd39; animation: spin 10s linear infinite; }
+    .skill-icon:hover { animation-play-state: paused; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .skill-item { text-align: center; padding: 1rem; }
+    .skill-item p { margin-top: 0.5rem; font-weight: 500; color: #fff; font-size: 1.1rem; }
+    .gita-card { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 2rem; margin-bottom: 2rem; border-left: 5px solid #ffbd39; transition: 0.3s; }
+    .gita-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255,189,57,0.2); }
+    .gita-card h3 { color: #ffbd39; margin-bottom: 1rem; }
+    .verse-block { background: rgba(255,189,57,0.1); padding: 1.5rem; border-radius: 10px; border: 1px solid #ffbd39; font-style: italic; }
+    .verse-sanskrit { font-size: 1.2rem; font-family: 'Poppins', sans-serif; margin-bottom: 1rem; color: #ffbd39; }
 
-    /* ===== SIDEBAR STYLES ===== */
-    body {
-      overflow-x: hidden;
-    }
+    /* ===== SIDEBAR (like Santosh Adhikari) ===== */
+    body { overflow-x: hidden; background: #111; }
     .sidebar {
       position: fixed;
       top: 0;
       left: 0;
-      width: 250px;
+      width: 280px;
       height: 100vh;
-      background: #0d0d0d;  /* dark background like the original navbar */
+      background: #0a0a0a;
       z-index: 1000;
-      padding: 2rem 1rem;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.3);
-      transition: all 0.3s;
+      padding: 2rem 1.5rem;
+      box-shadow: 4px 0 15px rgba(0,0,0,0.5);
       overflow-y: auto;
+      border-right: 1px solid #222;
     }
-    .sidebar .navbar-brand {
-      display: block;
-      color: #ffbd39;
-      font-size: 1.8rem;
-      font-weight: 700;
+    .profile-sidebar {
       text-align: center;
-      margin-bottom: 2rem;
-      letter-spacing: 1px;
-      text-decoration: none;
+      margin-bottom: 2.5rem;
     }
-    .sidebar .navbar-brand:hover {
+    .profile-sidebar img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ffbd39;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 20px rgba(255,189,57,0.3);
+    }
+    .profile-sidebar h3 {
       color: #fff;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .profile-sidebar p {
+      color: #aaa;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
     }
     .sidebar-nav {
       list-style: none;
@@ -184,94 +91,93 @@
       margin: 0;
     }
     .sidebar-nav .nav-item {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
     }
     .sidebar-nav .nav-link {
       display: block;
-      padding: 0.75rem 1rem;
-      color: rgba(255,255,255,0.7);
+      padding: 0.7rem 1rem;
+      color: #ccc;
       font-size: 1.1rem;
-      border-radius: 5px;
+      border-radius: 40px;
       transition: all 0.3s;
       text-decoration: none;
+      font-weight: 400;
+      border: 1px solid transparent;
     }
     .sidebar-nav .nav-link:hover,
     .sidebar-nav .nav-link.active {
       background: #ffbd39;
       color: #000;
+      border-color: #ffbd39;
+      padding-left: 1.5rem;
     }
-    /* main content wrapper */
+    /* main content */
     .main-content {
-      margin-left: 250px;
+      margin-left: 280px;
       transition: margin-left 0.3s;
+      background: #111;
     }
-    /* responsive for smaller screens */
+    @media (max-width: 992px) {
+      .sidebar { width: 240px; padding: 1.5rem 1rem; }
+      .profile-sidebar img { width: 100px; height: 100px; }
+      .profile-sidebar h3 { font-size: 1.3rem; }
+      .sidebar-nav .nav-link { font-size: 1rem; padding: 0.5rem 0.8rem; }
+      .main-content { margin-left: 240px; }
+    }
     @media (max-width: 768px) {
-      .sidebar {
-        width: 200px;
-        padding: 1.5rem 0.5rem;
-      }
-      .sidebar .navbar-brand {
-        font-size: 1.4rem;
-      }
-      .sidebar-nav .nav-link {
-        font-size: 1rem;
-        padding: 0.5rem 0.75rem;
-      }
-      .main-content {
-        margin-left: 200px;
-      }
+      .sidebar { width: 200px; padding: 1rem 0.8rem; }
+      .profile-sidebar img { width: 80px; height: 80px; }
+      .profile-sidebar h3 { font-size: 1.1rem; }
+      .profile-sidebar p { font-size: 0.85rem; }
+      .sidebar-nav .nav-link { font-size: 0.9rem; padding: 0.4rem 0.6rem; }
+      .main-content { margin-left: 200px; }
     }
-    /* for very small screens, if needed, we keep sidebar fixed but maybe reduce further */
-    @media (max-width: 576px) {
-      .sidebar {
-        width: 160px;
-        padding: 1rem 0.25rem;
-      }
-      .sidebar .navbar-brand {
-        font-size: 1.2rem;
-      }
-      .sidebar-nav .nav-link {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.5rem;
-      }
-      .main-content {
-        margin-left: 160px;
-      }
+    /* hide original navbar */
+    .ftco_navbar { display: none; }
+
+    /* new section styling */
+    .new-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid #222;
     }
-    /* override some of the original styles to avoid conflicts */
-    .ftco_navbar {
-      display: none;  /* hide the original top navbar */
+    .new-section h2 {
+      color: #ffbd39;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
     }
-    /* ensure hero section image etc. still fit */
-    .hero .slider-item .overlay {
-      z-index: 1;
-    }
-    /* adjust container widths inside main-content to not overflow */
-    .main-content .container {
-      max-width: 100%;
+    .new-section .content {
+      color: #ddd;
+      font-size: 1.1rem;
+      line-height: 1.7;
     }
   </style>
 </head>
 <body data-spy="scroll" data-target=".sidebar-nav" data-offset="300">
 
-  <!-- SIDEBAR NAVIGATION (fixed left) -->
+  <!-- SIDEBAR (inspired by Santosh Adhikari) -->
   <div class="sidebar site-navbar-target">
-    <a class="navbar-brand" href="#home-section">subina thapa</a>
+    <div class="profile-sidebar">
+      <img src="images/gggg.jpg" alt="Subina Thapa">
+      <h3>Subina Thapa</h3>
+      <p>Full Stack Flutter Developer</p>
+    </div>
     <ul class="sidebar-nav nav">
-      <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-      <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-      <li class="nav-item"><a href="#resume-section" class="nav-link"><span>skills</span></a></li>
-      <li class="nav-item"><a href="#education-section" class="nav-link"><span>Education</span></a></li>
-      <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
-      <li class="nav-item"><a href="#gita-section" class="nav-link"><span>Bhagavad Gita</span></a></li>
-      <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+      <li class="nav-item"><a href="#home-section" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="#about-section" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="#myapps-section" class="nav-link">My Apps</a></li>
+      <li class="nav-item"><a href="#skills-section" class="nav-link">Skills</a></li>
+      <li class="nav-item"><a href="#languages-section" class="nav-link">Languages</a></li>
+      <li class="nav-item"><a href="#socialwork-section" class="nav-link">Social Work</a></li>
+      <li class="nav-item"><a href="#experience-section" class="nav-link">Experience</a></li>
+      <li class="nav-item"><a href="#programming-section" class="nav-link">Programming</a></li>
+      <li class="nav-item"><a href="#contact-section" class="nav-link">Contact</a></li>
     </ul>
   </div>
 
   <!-- MAIN CONTENT (shifted right) -->
   <div class="main-content">
 
+    <!-- HOME SECTION -->
     <section id="home-section" class="hero">
       <div class="home-slider owl-carousel">
         <div class="slider-item">
@@ -313,6 +219,7 @@
       </div>
     </section>
 
+    <!-- ABOUT SECTION (unchanged) -->
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
         <div class="row d-flex align-items-stretch">
@@ -373,16 +280,33 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-no-pb" id="resume-section">
+    <!-- MY APPS SECTION (placeholder, links to projects) -->
+    <section class="ftco-section new-section" id="myapps-section">
+      <div class="container">
+        <h2>📱 My Apps</h2>
+        <div class="content">
+          <p>I have developed several Flutter applications including e‑commerce, weather, and task management apps. Below are some highlights:</p>
+          <ul>
+            <li><strong>ShopEase</strong> – a full‑featured e‑commerce app with Firebase backend.</li>
+            <li><strong>WeatherNow</strong> – real‑time weather using REST API and location services.</li>
+            <li><strong>TaskFlow</strong> – productivity app with local storage and notifications.</li>
+          </ul>
+          <p>All apps are available on my <a href="https://github.com/subinathapa2004" target="_blank" style="color:#ffbd39;">GitHub</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION (original spinning circles) with id="skills-section" -->
+    <section class="ftco-section ftco-no-pb" id="skills-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
           <div class="col-md-10 heading-section text-center ftco-animate">
             <h1 class="big big-2">skills</h1>
-            <h2 class="mb-4">skills</h2>
-            <p>aspiring Full Stack Flutter Developer. I work with Flutter | Dart | REST APIs | Firebase | Django | PostgreSQL and various modern tools.</p>
+            <h2 class="mb-4">Technical Skills</h2>
+            <p>Flutter · Dart · REST APIs · Firebase · Django · PostgreSQL · Next.js · TypeScript · Python · Java · HTML/CSS · Git</p>
           </div>
         </div>
-        <!-- Icon-based Skills with spinning circles -->
+        <!-- spinning circles -->
         <div class="row">
           <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-flutter-plain colored skill-icon"></i></div><p>Flutter</p></div>
           <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-dart-plain colored skill-icon"></i></div><p>Dart</p></div>
@@ -402,6 +326,60 @@
       </div>
     </section>
 
+    <!-- LANGUAGES SECTION (human languages) -->
+    <section class="ftco-section new-section" id="languages-section">
+      <div class="container">
+        <h2>🗣️ Languages</h2>
+        <div class="content">
+          <ul>
+            <li><strong>Nepali</strong> – native</li>
+            <li><strong>English</strong> – professional working proficiency</li>
+            <li><strong>Hindi</strong> – conversational</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL WORK SECTION -->
+    <section class="ftco-section new-section" id="socialwork-section">
+      <div class="container">
+        <h2>🤝 Social Work</h2>
+        <div class="content">
+          <p>I actively participate in community coding workshops and tech awareness programs. I have volunteered as a mentor for <strong>“Code for Kids”</strong> initiative and contributed to open‑source projects that support education.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section class="ftco-section new-section" id="experience-section">
+      <div class="container">
+        <h2>💼 Experience</h2>
+        <div class="content">
+          <div style="margin-bottom: 1.5rem;">
+            <h4 style="color:#ffbd39;">Flutter Developer Intern</h4>
+            <p><em>Tech Innovate Pvt. Ltd. | Jan 2024 – Apr 2024</em></p>
+            <p>Assisted in developing cross‑platform mobile apps, integrated REST APIs, and optimized app performance.</p>
+          </div>
+          <div>
+            <h4 style="color:#ffbd39;">Junior Frontend Developer (Freelance)</h4>
+            <p><em>Various clients | 2023 – present</em></p>
+            <p>Built responsive web interfaces using HTML, CSS, JavaScript and collaborated with backend team.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMMING SECTION (journey) -->
+    <section class="ftco-section new-section" id="programming-section">
+      <div class="container">
+        <h2>💻 Programming Journey</h2>
+        <div class="content">
+          <p>I started coding in 2021 with Python. Since then I’ve explored Java, JavaScript, and finally fell in love with Flutter. I enjoy solving problems on LeetCode and contributing to open source. My goal is to build apps that make a difference.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION (unchanged) -->
     <section class="ftco-section" id="education-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
@@ -432,6 +410,7 @@
       </div>
     </section>
 
+    <!-- PROJECT SECTION (original) -->
     <section class="ftco-section" id="project-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
@@ -473,7 +452,7 @@
       </div>
     </section>
 
-    <!-- Bhagavad Gita Section -->
+    <!-- BHAGAVAD GITA SECTION -->
     <section class="ftco-section" id="gita-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
@@ -516,25 +495,7 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
-      <div class="container">
-        <div class="row d-md-flex align-items-center">
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate"><div class="block-18"><div class="text"><strong class="number" data-number="20">0</strong><span>Achievements</span></div></div></div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate"><div class="block-18"><div class="text"><strong class="number" data-number="30">0</strong><span>Projects</span></div></div></div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate"><div class="block-18"><div class="text"><strong class="number" data-number="1000">0</strong><span>Mentored Students</span></div></div></div>
-          <div class="col-md d-flex justify-content-center counter-wrap ftco-animate"><div class="block-18"><div class="text"><strong class="number" data-number="500">0</strong><span>Cups of coffee</span></div></div></div>
-        </div>
-      </div>
-      <div class="ftco-section ftco-hireme img margin-top" style="background-image: url(images/bg_1.jpg);">
-        <div class="row justify-content-center">
-          <div class="col-md-7 ftco-animate text-center">
-            <h2>More projects on <span>Github</span></h2>
-            <div class="heading"><h4>I love to solve coding problems</h4><br><p><a href="https://github.com/subinathapa2004" class="btn btn-primary py-3 px-5">GitHub</a></p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!-- CONTACT SECTION -->
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
@@ -559,6 +520,7 @@
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="ftco-footer ftco-section">
       <div class="container">
         <div class="row">
