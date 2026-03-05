@@ -7,9 +7,13 @@
     
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
+    <!-- Bootstrap CSS from CDN (ensures navbar works) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <!-- Template CSS (keep if you have these files, otherwise they're optional) -->
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -150,6 +154,11 @@
         color: #000;
         border-color: #ffbd39;
       }
+      /* Ensure navbar brand is visible */
+      .navbar-brand {
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
     </style>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -172,7 +181,7 @@
       </div>
     </nav>
 
-    <!-- Home Section (unchanged) -->
+    <!-- Home Section -->
     <section id="home-section" class="hero">
       <div class="home-slider owl-carousel">
         <div class="slider-item">
@@ -212,7 +221,7 @@
       </div>
     </section>
 
-    <!-- About Section (unchanged) -->
+    <!-- About Section -->
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
         <div class="row d-flex align-items-stretch">
@@ -271,7 +280,7 @@
       </div>
     </section>
 
-    <!-- Skills Section (professional progress bars) -->
+    <!-- Skills Section -->
     <section class="ftco-section ftco-no-pb" id="skills-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
@@ -319,7 +328,7 @@
       </div>
     </section>
 
-    <!-- Education Section (enhanced) -->
+    <!-- Education Section -->
     <section class="ftco-section" id="education-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
@@ -350,7 +359,7 @@
       </div>
     </section>
 
-    <!-- Projects Section with 6 real projects and images -->
+    <!-- Projects Section -->
     <section class="ftco-section" id="projects-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
@@ -364,7 +373,7 @@
           <!-- Project A -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="project-card">
-              <img src="images/proj_a.jpg" alt="Project A" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Project+A'">
+              <img src="images/proj_a.jpg" alt="Student Management System" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Student+Management'">
               <div class="project-content">
                 <h3>Student Management System</h3>
                 <p>A comprehensive Flutter app for managing student records, attendance, and grades. Uses Firebase for backend and real-time updates.</p>
@@ -375,7 +384,7 @@
           <!-- Project B -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="project-card">
-              <img src="images/proj_b.jpg" alt="Project B" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Project+B'">
+              <img src="images/proj_b.jpg" alt="E-Commerce App" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=E-Commerce+App'">
               <div class="project-content">
                 <h3>E-Commerce App</h3>
                 <p>Full-featured e-commerce mobile app with Flutter, Firebase Auth, Cloud Firestore, and integrated payment gateway.</p>
@@ -386,7 +395,7 @@
           <!-- Project C -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="project-card">
-              <img src="images/proj_c.jpg" alt="Project C" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Project+C'">
+              <img src="images/proj_c.jpg" alt="Expense Tracker" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Expense+Tracker'">
               <div class="project-content">
                 <h3>Expense Tracker</h3>
                 <p>Cross-platform expense management app built with Flutter and BLoC pattern. Uses SQLite for local storage and syncs with Django REST API.</p>
@@ -399,7 +408,7 @@
           <!-- Project D -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="project-card">
-              <img src="images/proj_d.jpg" alt="Project D" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Project+D'">
+              <img src="images/proj_d.jpg" alt="News Aggregator" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=News+Aggregator'">
               <div class="project-content">
                 <h3>News Aggregator</h3>
                 <p>News app consuming multiple REST APIs, with offline reading, search, and category filters. State management with Provider.</p>
@@ -410,7 +419,7 @@
           <!-- Project E -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="project-card">
-              <img src="images/proj_e.jpg" alt="Project E" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Project+E'">
+              <img src="images/proj_e.jpg" alt="Chatbot Interface" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Chatbot+Interface'">
               <div class="project-content">
                 <h3>Chatbot Interface</h3>
                 <p>Flutter-based chatbot UI integrated with Dialogflow for natural language processing, used for customer support automation.</p>
@@ -421,7 +430,7 @@
           <!-- Project F -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="project-card">
-              <img src="images/proj_f.jpg" alt="Project F" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Project+F'">
+              <img src="images/proj_f.jpg" alt="Task Manager" class="project-img" onerror="this.src='https://via.placeholder.com/400x200?text=Task+Manager'">
               <div class="project-content">
                 <h3>Task Manager</h3>
                 <p>Collaborative task management app with real-time updates using Firebase Realtime Database. Includes authentication and push notifications.</p>
@@ -447,7 +456,7 @@
       </div>
     </section>
 
-    <!-- Contact Section (polished) -->
+    <!-- Contact Section -->
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
@@ -510,13 +519,17 @@
       </div>
     </footer>
 
-    <!-- loader -->
+    <!-- loader (optional) -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
+    <!-- jQuery and Bootstrap JS from CDN (ensure menu works) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Template JS (keep if you have these files) -->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.easing.1.3.js"></script>
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="js/jquery.stellar.min.js"></script>
