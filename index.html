@@ -47,7 +47,7 @@
     .project-github:hover { background: #ffbd39; color: #000; }
     .ftco_navbar { display: none; } /* hide original */
 
-    /* ===== NEW TOP NAVBAR (Sadhana Panthi style) ===== */
+    /* ===== TOP NAVBAR (Sadhana Panthi style) ===== */
     .top-navbar {
       position: fixed;
       top: 0;
@@ -95,20 +95,20 @@
       background: #111;
     }
 
-    /* ----- HOME profile section (Sadhana style + yellow dress) ----- */
+    /* ----- HOME profile section – exactly like your image (with avatar) ----- */
     #home-section {
       min-height: 85vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: #111;
+      background: #111;  /* plain dark, no background image */
       padding: 2rem;
     }
     .profile-block .avatar {
       width: 160px;
       height: 160px;
-      margin: 0 auto 1.8rem;
+      margin: 0 auto 1.5rem;
       background: #1a1a1a;
       border-radius: 50%;
       padding: 6px;
@@ -119,6 +119,13 @@
       height: 100%;
       border-radius: 50%;
       background: #1e1e1e;
+    }
+    .profile-block .greeting {
+      font-size: 2rem;
+      font-weight: 400;
+      color: #ffbd39;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
     }
     .profile-block h1 {
       font-size: 4.2rem;
@@ -133,30 +140,21 @@
       font-size: 1.8rem;
       font-weight: 300;
       color: #aaa;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
     }
-    .profile-block .website-link {
-      font-size: 1.3rem;
-      color: #ffbd39;
-      border-bottom: 2px dotted #ffbd39;
-      padding-bottom: 2px;
-      display: inline-block;
-      margin-bottom: 2.2rem;
-      font-weight: 400;
-    }
-    .profile-block .website-link:hover { color: #fff; border-bottom-color: #fff; }
-    .btn-group { display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap; }
+    .btn-group { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
     .btn-custom {
       background: #ffbd39;
       color: #0a0a0a;
-      padding: 0.8rem 2.8rem;
+      padding: 0.9rem 3rem;
       border-radius: 50px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 1.5px;
       border: 2px solid #ffbd39;
       transition: 0.3s;
       box-shadow: 0 8px 20px rgba(255,189,57,0.2);
+      text-transform: uppercase;
     }
     .btn-custom.outline {
       background: transparent;
@@ -183,15 +181,16 @@
       .nav-links a { font-size: 0.9rem; }
       .profile-block h1 { font-size: 3rem; }
       .profile-block .subtitle { font-size: 1.5rem; }
+      .profile-block .greeting { font-size: 1.6rem; }
       .profile-block .avatar { width: 130px; height: 130px; }
-      .btn-custom { padding: 0.6rem 2rem; font-size: 1rem; }
+      .btn-custom { padding: 0.7rem 2.2rem; font-size: 1rem; }
     }
     @media (max-width: 480px) {
       .nav-links { gap: 0.5rem 1rem; }
       .profile-block h1 { font-size: 2.4rem; }
     }
 
-    /* hide old sidebar & mobile header (they are removed) */
+    /* hide old sidebar & mobile header */
     .sidebar, .mobile-header { display: none; }
 
     /* existing section styles (kept) */
@@ -271,7 +270,7 @@
 </head>
 <body>
 
-  <!-- TOP NAVBAR (like Sadhana Panthi) – no sidebar, no mobile header -->
+  <!-- TOP NAVBAR (like Sadhana Panthi) – no sidebar -->
   <nav class="top-navbar">
     <ul class="nav-links">
       <li><a href="#home-section" class="active">Home</a></li>
@@ -287,10 +286,10 @@
     </ul>
   </nav>
 
-  <!-- MAIN CONTENT (no sidebar offset) -->
+  <!-- MAIN CONTENT -->
   <div class="main-content">
 
-    <!-- HOME SECTION – Sadhana style with yellow dress avatar -->
+    <!-- HOME SECTION – exactly like your image: HELLO! + name + full stack + GITHUB / MY WORKS + yellow dress avatar -->
     <section id="home-section">
       <div class="profile-block">
         <div class="avatar">
@@ -303,12 +302,12 @@
             <path d="M32 20 Q50 10 68 20 L68 30 Q50 22 32 30 Z" fill="#2c2c2c" />
           </svg>
         </div>
-        <h1>Subina <span>Thapa</span></h1>
-        <div class="subtitle">full stack flutter developer</div>
-        <a href="#" class="website-link">subinathapa.com.np</a>
+        <div class="greeting">HELLO!</div>
+        <h1>I'm <span>Subina thapa</span></h1>
+        <div class="subtitle">full stack</div>
         <div class="btn-group">
-          <a href="https://github.com/subinathapa2004" class="btn-custom">GitHub</a>
-          <a href="https://github.com/subinathapa2004" class="btn-custom outline">My works</a>
+          <a href="https://github.com/subinathapa2004" class="btn-custom">GITHUB</a>
+          <a href="https://github.com/subinathapa2004" class="btn-custom outline">MY WORKS</a>
         </div>
       </div>
     </section>
