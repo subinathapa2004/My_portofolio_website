@@ -1,705 +1,679 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subina Thapa · Full Stack Flutter Developer</title>
-  <!-- Google Fonts & Devicon -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>subina thapa · full stack flutter developer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <!-- Devicon for programming icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/style.css">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    /* navbar */
-    .navbar {
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-      z-index: 1000;
-      padding: 1rem 0;
-    }
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #5f4b8b, #8a6bbf);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .nav-menu {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      list-style: none;
-    }
-    .nav-menu a {
-      font-weight: 500;
-      font-size: 1rem;
-      transition: 0.3s;
-      border-bottom: 2px solid transparent;
-      padding-bottom: 4px;
-    }
-    .nav-menu a:hover {
-      border-bottom-color: #5f4b8b;
-      color: #5f4b8b;
-    }
-    .menu-toggle {
+    /* ===== YOUR EXISTING STYLES (preserved) ===== */
+    .about-mf .box-shadow-full { padding-top: 4rem; padding-bottom: 4rem; }
+    .about-mf .about-img { margin-bottom: 2rem; }
+    .about-mf .about-img img { margin-left: 10px; }
+    .skill-mf .progress { margin: .5rem 0 1.2rem 0; border-radius: 0; height: .7rem; }
+    .skill-mf .progress .progress-bar { height: .7rem; background-color: #ffbd39; }
+    #typing-animation { position: relative; font-size: 30px; font-weight: bold; color: #fff; overflow: hidden; white-space: nowrap; animation: typing 3s steps(20, end) infinite; }
+    #typing-animation:before { content: ""; top: 0; left: 0; width: 0; height: 100%; background-color: #ccc; animation: typing-cursor 0.5s ease-in-out infinite; }
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
+    @keyframes typing-cursor { from { width: 5px; } to { width: 0; } }
+    .zoom-effect { overflow: hidden; transition: transform 0.3s ease-out; }
+    .zoom-effect:hover { transform: scale(1.1); }
+    .skill-circle { display: inline-flex; align-items: center; justify-content: center; width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 3px solid #ffbd39; margin: 0 auto 1rem auto; transition: all 0.3s ease; }
+    .skill-circle:hover { border-color: #fff; transform: scale(1.05); }
+    .skill-icon { font-size: 4rem; color: #ffbd39; animation: spin 10s linear infinite; }
+    .skill-icon:hover { animation-play-state: paused; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .skill-item { text-align: center; padding: 1rem; }
+    .skill-item p { margin-top: 0.5rem; font-weight: 500; color: #fff; font-size: 1.1rem; }
+    .gita-card { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 2rem; margin-bottom: 2rem; border-left: 5px solid #ffbd39; transition: 0.3s; }
+    .gita-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255,189,57,0.2); }
+    .gita-card h3 { color: #ffbd39; margin-bottom: 1rem; }
+    .verse-block { background: rgba(255,189,57,0.1); padding: 1.5rem; border-radius: 10px; border: 1px solid #ffbd39; font-style: italic; }
+    .verse-sanskrit { font-size: 1.2rem; font-family: 'Poppins', sans-serif; margin-bottom: 1rem; color: #ffbd39; }
+
+    /* ===== RESPONSIVE SIDEBAR (like Santosh Adhikari) ===== */
+    body { overflow-x: hidden; background: #111; margin:0; padding:0; }
+
+    /* --- mobile top header (hidden on desktop) --- */
+    .mobile-header {
       display: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #5f4b8b;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: #0a0a0a;
+      z-index: 1001;
+      align-items: center;
+      padding: 0 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      border-bottom: 1px solid #222;
     }
+    .mobile-header .menu-btn {
+      background: none;
+      border: none;
+      color: #ffbd39;
+      font-size: 28px;
+      cursor: pointer;
+      margin-right: 15px;
+    }
+    .mobile-header .brand {
+      color: #ffbd39;
+      font-size: 1.3rem;
+      font-weight: 600;
+      flex-grow: 1;
+    }
+
+    /* --- sidebar (desktop) --- */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: #0a0a0a;
+      z-index: 1000;
+      padding: 2rem 1.5rem;
+      box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+      overflow-y: auto;
+      border-right: 1px solid #222;
+      transition: transform 0.3s ease-in-out;
+    }
+    .profile-sidebar {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .profile-sidebar img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ffbd39;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 20px rgba(255,189,57,0.3);
+    }
+    .profile-sidebar h3 {
+      color: #fff;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .profile-sidebar p {
+      color: #aaa;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+    .sidebar-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar-nav .nav-item {
+      margin-bottom: 0.6rem;
+    }
+    .sidebar-nav .nav-link {
+      display: block;
+      padding: 0.7rem 1rem;
+      color: #ccc;
+      font-size: 1.1rem;
+      border-radius: 40px;
+      transition: all 0.3s;
+      text-decoration: none;
+      font-weight: 400;
+      border: 1px solid transparent;
+    }
+    .sidebar-nav .nav-link:hover,
+    .sidebar-nav .nav-link.active {
+      background: #ffbd39;
+      color: #000;
+      border-color: #ffbd39;
+      padding-left: 1.5rem;
+    }
+
+    /* main content */
+    .main-content {
+      margin-left: 280px;
+      transition: margin-left 0.3s;
+      background: #111;
+    }
+
+    /* --- responsive breakpoints --- */
+    @media (max-width: 992px) {
+      .sidebar { width: 240px; padding: 1.5rem 1rem; }
+      .profile-sidebar img { width: 100px; height: 100px; }
+      .profile-sidebar h3 { font-size: 1.3rem; }
+      .sidebar-nav .nav-link { font-size: 1rem; padding: 0.5rem 0.8rem; }
+      .main-content { margin-left: 240px; }
+    }
+
     @media (max-width: 768px) {
-      .nav-menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        gap: 1rem;
-        margin-top: 1rem;
+      /* hide desktop sidebar */
+      .sidebar {
+        transform: translateX(-100%);
+        width: 250px; /* drawer width */
+        box-shadow: none;
       }
-      .nav-menu.active {
+      .sidebar.open {
+        transform: translateX(0);
+        box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+      }
+
+      /* show mobile header */
+      .mobile-header {
         display: flex;
       }
-      .menu-toggle {
-        display: block;
+
+      /* main content takes full width, pushed down for fixed header */
+      .main-content {
+        margin-left: 0;
+        padding-top: 70px; /* space for fixed header */
+      }
+
+      /* adjust hero for mobile */
+      .hero .slider-item .overlay {
+        z-index: 1;
       }
     }
-    /* sections */
-    section {
+
+    /* hide original navbar */
+    .ftco_navbar { display: none; }
+
+    /* new section styling */
+    .new-section {
       padding: 5rem 0;
+      border-bottom: 1px solid #222;
     }
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 3rem;
-      text-align: center;
-      background: linear-gradient(135deg, #5f4b8b, #8a6bbf);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .new-section h2 {
+      color: #ffbd39;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
     }
-    .section-subtitle {
-      text-align: center;
-      color: #64748b;
-      margin-bottom: 2rem;
+    .new-section .content {
+      color: #ddd;
+      font-size: 1.1rem;
+      line-height: 1.7;
     }
-    /* hero */
-    .hero {
-      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-    }
-    .hero-container {
-      display: flex;
-      align-items: center;
-      gap: 4rem;
-      flex-wrap: wrap;
-    }
-    .hero-content {
-      flex: 1 1 400px;
-    }
-    .hero-content .greeting {
-      font-size: 1.2rem;
-      color: #5f4b8b;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    .hero-content h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin: 0.5rem 0 1rem;
-      line-height: 1.2;
-    }
-    .hero-content h1 span {
-      background: linear-gradient(135deg, #5f4b8b, #8a6bbf);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero-content p {
-      font-size: 1.2rem;
-      color: #334155;
-      max-width: 500px;
-      margin-bottom: 2rem;
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.9rem 2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: 0.3s;
-      margin-right: 1rem;
-      margin-bottom: 0.5rem;
-    }
+    /* small fixes */
     .btn-primary {
-      background: #5f4b8b;
-      color: #fff;
-      box-shadow: 0 10px 20px rgba(95,75,139,0.3);
+      background: #ffbd39;
+      border: none;
+      color: #000;
     }
     .btn-primary:hover {
-      background: #4a3a6e;
-      transform: translateY(-2px);
+      background: #e6a800;
     }
-    .btn-outline {
-      border: 2px solid #5f4b8b;
-      color: #5f4b8b;
-      background: transparent;
-    }
-    .btn-outline:hover {
-      background: #5f4b8b;
-      color: #fff;
-    }
-    .hero-image {
-      flex: 1 1 300px;
+    /* github button under projects */
+    .more-github {
       text-align: center;
+      margin-top: 3rem;
     }
-    .hero-image img {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 30px;
-      box-shadow: 0 20px 30px rgba(0,0,0,0.1);
-    }
-    /* cards */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 1.8rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    .more-github .btn-github {
+      background: #333;
+      color: #ffbd39;
+      border: 2px solid #ffbd39;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
       transition: 0.3s;
-      border: 1px solid #e9eef2;
     }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 30px rgba(95,75,139,0.1);
-      border-color: #5f4b8b;
+    .more-github .btn-github:hover {
+      background: #ffbd39;
+      color: #000;
+      border-color: #ffbd39;
     }
-    .card-icon {
-      font-size: 2.5rem;
-      color: #5f4b8b;
-      margin-bottom: 1rem;
-    }
-    .card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-    }
-    .card .meta {
-      color: #5f4b8b;
+    /* individual project github link */
+    .project-github {
+      display: inline-block;
+      margin-top: 0.8rem;
+      color: #ffbd39;
       font-weight: 500;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-    }
-    .card p {
-      color: #475569;
-    }
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0;
-    }
-    .tag {
-      background: #e9eef2;
+      text-decoration: none;
+      border: 1px solid #ffbd39;
       padding: 0.3rem 1rem;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-    /* progress skills */
-    .skill-bars {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .skill-item {
-      margin-bottom: 1.5rem;
-    }
-    .skill-info {
-      display: flex;
-      justify-content: space-between;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-    .progress-bar {
-      width: 100%;
-      height: 10px;
-      background: #e2e8f0;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #5f4b8b, #8a6bbf);
-      border-radius: 10px;
-      width: 0%;
-    }
-    /* about */
-    .about-grid {
-      display: flex;
-      gap: 3rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    .about-img {
-      flex: 1 1 250px;
-    }
-    .about-img img {
-      width: 100%;
       border-radius: 30px;
-      box-shadow: 0 20px 30px rgba(0,0,0,0.1);
-    }
-    .about-content {
-      flex: 2 1 400px;
-    }
-    .about-content h3 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    .about-content .highlight {
-      color: #5f4b8b;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-    /* contact form */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-    .contact-info .info-item {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .info-item i {
-      font-size: 1.8rem;
-      color: #5f4b8b;
-      width: 40px;
-    }
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 1rem;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      font-family: inherit;
       transition: 0.3s;
     }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #5f4b8b;
-      box-shadow: 0 0 0 3px rgba(95,75,139,0.2);
+    .project-github:hover {
+      background: #ffbd39;
+      color: #000;
     }
-    button[type="submit"] {
-      background: #5f4b8b;
-      color: #fff;
-      border: none;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button[type="submit"]:hover {
-      background: #4a3a6e;
-    }
-    footer {
-      background: #1e293b;
-      color: #94a3b8;
-      text-align: center;
-      padding: 2rem;
-    }
-    /* utilities */
-    .text-center { text-align: center; }
-    .mt-3 { margin-top: 1rem; }
-    .mb-2 { margin-bottom: 0.5rem; }
   </style>
 </head>
-<body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container nav-container">
-      <div class="logo">Subina Thapa</div>
-      <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#competitions">Competitions</a></li>
-        <li><a href="#awards">Awards</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+<body data-spy="scroll" data-target=".sidebar-nav" data-offset="300">
 
-  <!-- HOME -->
-  <section class="hero" id="home">
-    <div class="container hero-container">
-      <div class="hero-content">
-        <span class="greeting">Hello!</span>
-        <h1>I'm <span>Subina Thapa</span></h1>
-        <p>Full Stack Flutter Developer · building useful apps with Dart, Firebase, and Django.</p>
-        <div>
-          <a href="https://github.com/subinathapa2004" class="btn btn-primary"><i class="fab fa-github"></i> GitHub</a>
-          <a href="#projects" class="btn btn-outline">My Works</a>
+  <!-- MOBILE HEADER (visible only on small screens) -->
+  <div class="mobile-header">
+    <button class="menu-btn" id="menuToggle" aria-label="Menu">☰</button>
+    <span class="brand">subina thapa</span>
+  </div>
+
+  <!-- SIDEBAR (drawer on mobile, fixed on desktop) -->
+  <div class="sidebar site-navbar-target" id="sidebar">
+    <div class="profile-sidebar">
+      <img src="images/gggg.jpg" alt="Subina Thapa">
+      <h3>Subina Thapa</h3>
+      <p>Full Stack Flutter Developer</p>
+    </div>
+    <ul class="sidebar-nav nav">
+      <li class="nav-item"><a href="#home-section" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="#about-section" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="#myapps-section" class="nav-link">My Apps</a></li>
+      <li class="nav-item"><a href="#skills-section" class="nav-link">Skills</a></li>
+      <li class="nav-item"><a href="#languages-section" class="nav-link">Languages</a></li>
+      <li class="nav-item"><a href="#programming-section" class="nav-link">Programming</a></li>
+      <li class="nav-item"><a href="#education-section" class="nav-link">Education</a></li>
+      <li class="nav-item"><a href="#values-section" class="nav-link">Values</a></li>
+      <li class="nav-item"><a href="#project-section" class="nav-link">Project</a></li>
+      <li class="nav-item"><a href="#contact-section" class="nav-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+    <!-- HOME SECTION -->
+    <section id="home-section" class="hero">
+      <div class="home-slider owl-carousel">
+        <div class="slider-item">
+          <div class="overlay"></div>
+          <div class="container">
+            <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+              <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/farhinaa.jpg);">
+                <div class="overlay"></div>
+              </div>
+              <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <div class="text">
+                  <span class="subheading">Hello!</span>
+                  <h1 class="mb-4 mt-3">I'm <span>Subina thapa</span></h1>
+                  <span id="typing-animation"></span>
+                  <script>
+                    const typingAnimationElement = document.getElementById('typing-animation');
+                    const typingTexts = ['full stack flutter developer  '];
+                    function playTypingAnimation(text) {
+                      for (let i = 0; i < text.length; i++) {
+                        setTimeout(() => {
+                          typingAnimationElement.textContent += text[i];
+                        }, i * 200);
+                      }
+                      setTimeout(() => {
+                        typingAnimationElement.textContent = '';
+                        playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
+                      }, text.length * 200);
+                    }
+                    playTypingAnimation(typingTexts[0]);
+                  </script>
+                  <br><br>
+                  <p><a href="https://github.com/subinathapa2004" class="btn btn-primary py-3 px-4">github</a> 
+                    <a href="https://github.com/subinathapa2004" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="hero-image">
-        <img src="images/gggg.jpg" alt="Subina Thapa">
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ABOUT (original content) -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-grid">
-        <div class="about-img">
-          <img src="images/gggg.jpg" alt="Subina">
+    <!-- ABOUT SECTION -->
+    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+      <div class="container">
+        <div class="row d-flex align-items-stretch">
+          <div class="col-md-6 col-lg-5 d-flex">
+            <div class="img-about img d-flex align-items-stretch">
+              <div class="overlay">
+                <div class="row">
+                  <div class="col-sm-6 col-md-5">
+                    <div class="about-img">
+                      <img src="images/gggg.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-7">
+                    <div class="about-info">
+                      <p><span class="title-s">Name: </span> <span>subina thapa</span></p>
+                      <p><span class="title-s">Job Role: </span> <span>full stack flutter developer</span></p>
+                      <p><span class="title-s">Address: </span> <span>Kathmandu,suyuchatar</span></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="skill-mf">
+                  <p class="title-s">Skills</p>
+                  <span>flutter <span class="pull-right">75%</span></span>
+                  <div class="progress"><div class="progress-bar" style="width:95%"></div></div>
+                  <span>Postgresql <span class="pull-right">60%</span></span>
+                  <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+                  <span>Djangoo <span class="pull-right">70%</span></span>
+                  <div class="progress"><div class="progress-bar" style="width:90%"></div></div>
+                  <span>REST API and Firebase <span class="pull-right">70%</span></span>
+                  <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+                  <span>Next.js and Typescript <span class="pull-right">50%</span></span>
+                  <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+            <div class="row justify-content-start pb-3">
+              <div class="col-md-12 heading-section ftco-animate">
+                <h1 class="big">About</h1>
+                <h2 class="mb-4">About Me</h2>
+                <p>Hi! I’m Subina Thapa, an aspiring Full Stack Flutter Developer. I work with Flutter | Dart | REST APIs | Firebase | Django | PostgreSQL and various modern tools. I love exploring new technologies and turning ideas into functional, creative projects. My passion is building useful and innovative applications that solve real problems.</p>
+                <ul class="about-info mt-4 px-md-0 px-2">
+                  <li class="d-flex"><span>Profile:</span> <span>full stack flutter developer</span></li>
+                  <li class="d-flex"><span>Education:</span> <span>Bachelor of computer application</span></li>
+                  <li class="d-flex"><span>Language:</span> <span>English, Nepali</span></li>
+                  <li class="d-flex"><span>Interest:</span> <span>Traveling, Travel Photography</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="counter-wrap ftco-animate d-flex mt-md-3">
+              <div class="text">
+                <p class="mb-4"><span class="number" data-number="30">0</span> <span>+</span> <span>&nbsp; Projects completed</span></p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="about-content">
-          <h3>Subina Thapa</h3>
-          <p class="highlight">"Turning ideas into functional, creative projects."</p>
-          <p>Hi! I'm Subina Thapa, an aspiring Full Stack Flutter Developer. I work with Flutter | Dart | REST APIs | Firebase | Django | PostgreSQL and various modern tools. I love exploring new technologies and turning ideas into functional, creative projects. My passion is building useful and innovative applications that solve real problems.</p>
-          <ul style="margin-top: 1.5rem; list-style: none;">
-            <li><strong>Profile:</strong> Full Stack Flutter Developer</li>
-            <li><strong>Education:</strong> Bachelor of Computer Application</li>
-            <li><strong>Languages:</strong> English, Nepali</li>
-            <li><strong>Interests:</strong> Traveling, Photography</li>
+      </div>
+    </section>
+
+    <!-- MY APPS SECTION -->
+    <section class="ftco-section new-section" id="myapps-section">
+      <div class="container">
+        <h2> My Apps</h2>
+        <div class="content">
+          <p>I have developed several Flutter applications including e‑commerce, weather, consultancy apps. Below are some highlights:</p>
+          <ul>
+            <li><strong>ShopEase</strong> – a full‑featured e‑commerce app with Firebase backend.</li>
+            <li><strong>WeatherNow</strong> – real‑time weather using REST API and location services.</li>
+            <li><strong>TaskFlow</strong> – productivity app with local storage and notifications.</li>
+          </ul>
+          <p>All apps are available on my <a href="https://github.com/subinathapa2004" target="_blank" style="color:#ffbd39;">GitHub</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="ftco-section ftco-no-pb" id="skills-section">
+      <div class="container">
+        <div class="row justify-content-center pb-5">
+          <div class="col-md-10 heading-section text-center ftco-animate">
+            <h1 class="big big-2">skills</h1>
+            <h2 class="mb-4">Technical Skills</h2>
+            <p>Flutter · Dart · REST APIs · Firebase · Django · PostgreSQL · Next.js · TypeScript · Python · Java · HTML/CSS · Git</p>
+          </div>
+        </div>
+        <!-- spinning circles -->
+        <div class="row">
+          <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-flutter-plain colored skill-icon"></i></div><p>Flutter</p></div>
+          <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-dart-plain colored skill-icon"></i></div><p>Dart</p></div>
+          <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-postgresql-plain colored skill-icon"></i></div><p>PostgreSQL</p></div>
+          <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-django-plain colored skill-icon"></i></div><p>Django</p></div>
+          <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-firebase-plain colored skill-icon"></i></div><p>Firebase</p></div>
+          <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-nextjs-original colored skill-icon"></i></div><p>Next.js</p></div>
+          <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-typescript-plain colored skill-icon"></i></div><p>TypeScript</p></div>
+          <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-git-plain colored skill-icon"></i></div><p>Git</p></div>
+          <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-python-plain colored skill-icon"></i></div><p>Python</p></div>
+          <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-java-plain colored skill-icon"></i></div><p>Java</p></div>
+          <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-html5-plain colored skill-icon"></i></div><p>HTML5</p></div>
+          <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-css3-plain colored skill-icon"></i></div><p>CSS3</p></div>
+          <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-javascript-plain colored skill-icon"></i></div><p>JavaScript</p></div>
+          <div class="col-md-3 col-6 skill-item"><div class="skill-circle"><i class="devicon-nodejs-plain colored skill-icon"></i></div><p>Node.js</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGUAGES SECTION -->
+    <section class="ftco-section new-section" id="languages-section">
+      <div class="container">
+        <h2> Languages</h2>
+        <div class="content">
+          <ul>
+            <li><strong>Nepali</strong> – native</li>
+            <li><strong>English</strong> – professional working proficiency</li>
+            <li><strong>Hindi</strong> – Basic (Learning)</li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- EXPERIENCE (new) -->
-  <section id="experience">
-    <div class="container">
-      <h2 class="section-title">Experience</h2>
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-icon"><i class="fas fa-briefcase"></i></div>
-          <h3>Flutter Developer Intern</h3>
-          <div class="meta">Tech Company · 2024 - Present</div>
-          <p>Developed cross-platform mobile apps using Flutter, integrated REST APIs, and managed state with Provider.</p>
-          <div class="tag-list"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Firebase</span></div>
-        </div>
-        <div class="card">
-          <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
-          <h3>Freelance Web Developer</h3>
-          <div class="meta">Self-employed · 2023 - 2024</div>
-          <p>Built responsive websites for local businesses using HTML/CSS, JavaScript, and Django.</p>
-          <div class="tag-list"><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">Bootstrap</span></div>
-        </div>
-        <div class="card">
-          <div class="card-icon"><i class="fas fa-robot"></i></div>
-          <h3>AI/ML Enthusiast</h3>
-          <div class="meta">Personal Projects · 2023</div>
-          <p>Explored Python, TensorFlow, and built small ML models for crop recommendation and sentiment analysis.</p>
-          <div class="tag-list"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span></div>
+    <!-- PROGRAMMING SECTION -->
+    <section class="ftco-section new-section" id="programming-section">
+      <div class="container">
+        <h2>Programming Journey</h2>
+        <div class="content">
+          <p>I started my programming journey in 2023 with Python. After learning the fundamentals,
+            I expanded my skills into web development and mobile app development. Currently, I am focused on improving my full-stack flutter development skills and exploring Artificial Intelligence. 
+            I am passionate about building real-world applications and creating innovative solutions with technology.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SKILLS (progress bars + original spinning circles) -->
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-title">Technical Skills</h2>
-      <div class="skill-bars">
-        <div class="skill-item">
-          <div class="skill-info"><span>Flutter</span><span>80%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:80%"></div></div>
+    <!-- EDUCATION SECTION -->
+    <section class="ftco-section" id="education-section">
+      <div class="container">
+        <div class="row justify-content-center pb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Education</h1>
+            <h2 class="mb-4">Education</h2>
+            <p>My academic background and qualifications.</p>
+          </div>
         </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>Firebase</span><span>70%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>Django</span><span>65%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>PostgreSQL</span><span>60%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-info"><span>Python</span><span>75%</span></div>
-          <div class="progress-bar"><div class="progress-fill" style="width:75%"></div></div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="resume-wrap ftco-animate">
+              <span class="date">2023 – Present</span>
+              <h2>Bachelor of Computer Application (BCA)</h2>
+              <span class="position">Tribhuvan University, Kathmandu</span>
+              <p class="mt-4">Through my Bachelor of Computer Applications (BCA), I learned programming, web development, database management, and software development.
+                I gained practical knowledge of building websites, applications, and solving technical problems using different technologies.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="resume-wrap ftco-animate">
+              <span class="date">2021 – 2023</span>
+              <h2>+2 Computer Science</h2>
+              <span class="position">Nepal Kasthamandap SS/College, Kathmandu</span>
+              <p class="mt-4">I completed my +2 in the Management faculty with Computer Science, 
+                where I learned computer fundamentals, basic programming, office applications, and basic information technology concepts.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- Also keep the spinning circles (optional) -->
-      <div class="text-center" style="margin-top: 3rem;">
-        <p style="color: #5f4b8b; font-weight: 600;">Technologies I use</p>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 1.5rem;">
-          <i class="devicon-flutter-plain colored" style="font-size: 3rem;"></i>
-          <i class="devicon-dart-plain colored" style="font-size: 3rem;"></i>
-          <i class="devicon-firebase-plain colored" style="font-size: 3rem;"></i>
-          <i class="devicon-django-plain colored" style="font-size: 3rem;"></i>
-          <i class="devicon-postgresql-plain colored" style="font-size: 3rem;"></i>
-          <i class="devicon-python-plain colored" style="font-size: 3rem;"></i>
+    </section>
+
+    <!-- VALUES SECTION (new) -->
+    <section class="ftco-section new-section" id="values-section">
+      <div class="container">
+        <h2>My Values</h2>
+        <div class="content">
+          <p>Beyond technical skills, I believe in the following core values that guide my work and life:</p>
+          <ul>
+            <li><strong>Integrity</strong> – I strive to be honest, ethical, and transparent in everything I do.</li>
+            <li><strong>Continuous Learning</strong> – Technology evolves fast; I am committed to constantly upgrading my knowledge.</li>
+            <li><strong>Creativity</strong> – I enjoy thinking outside the box to build innovative solutions.</li>
+            <li><strong>Teamwork</strong> – Great things are achieved together; I value collaboration and respect for others.</li>
+            <li><strong>User‑Centric Design</strong> – I build apps with the end‑user in mind, focusing on usability and accessibility.</li>
+            <li><strong>Resilience</strong> – I embrace challenges and learn from failures to grow stronger.</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- LANGUAGES (original) -->
-  <section id="languages" style="background: #f1f5f9;">
-    <div class="container">
-      <h2 class="section-title">Languages</h2>
-      <div class="card-grid" style="grid-template-columns: repeat(3,1fr);">
-        <div class="card text-center">
-          <h3>🇳🇵 Nepali</h3>
-          <p>Native</p>
+    <!-- PROJECT SECTION (6 projects with images a,b,c,d,e,f) -->
+    <section class="ftco-section" id="project-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Projects</h1>
+            <h2 class="mb-4">Projects</h2>
+            <p>Below are some of my recent works.</p>
+          </div>
         </div>
-        <div class="card text-center">
-          <h3>🇬🇧 English</h3>
-          <p>Professional working</p>
+        <div class="row d-flex">
+          <!-- Project 1 - E-commerce Website (image a) -->
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry justify-content-end">
+              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a>
+              <div class="text mt-3 float-right d-block">
+                <h3 class="heading"><a href="#">clinic website</a></h3>
+                <p>It is mobile-friendly and designed with SEO best practices to improve visibility on search engines.
+                  The site includes a consent form and provides healthcare-related information, appointment scheduling, and other clinical services..</p>
+                <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 2 - Company Website (image b) -->
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry justify-content-end">
+              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a>
+              <div class="text mt-3 float-right d-block">
+                <h3 class="heading"><a href="#">Cleaning Website</a></h3>
+                <p>The website features a clean, user-friendly design that highlights services, pricing, contact options, and customer testimonials to build trust and encourage bookings.</p>
+                <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 3 - Portfolio Theme (image c) -->
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry">
+              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a>
+              <div class="text mt-3 float-right d-block">
+                <h3 class="heading"><a href="#">Montessori website </a></h3>
+                <p>The website features a clean, child-friendly design with images of classrooms, learning materials, and 
+                  testimonials to build trust with parents and promote a nurturing educational environment..</p>
+                <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card text-center">
-          <h3>🇮🇳 Hindi</h3>
-          <p>Basic (Learning)</p>
+        <div class="row d-flex mt-4">
+          <!-- Project 4 - Blog Platform (image d) -->
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry justify-content-end">
+              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></a>
+              <div class="text mt-3 float-right d-block">
+                <h3 class="heading"><a href="#">Real  estate </a></h3>
+                <p>This is a real estate website developed using React.js, designed to showcase properties for sale or rent..</p>
+                <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 5 - Task Manager App (image e) -->
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry justify-content-end">
+              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></a>
+              <div class="text mt-3 float-right d-block">
+                <h3 class="heading"><a href="#">Company website</a></h3>
+                <p>The website highlights the company’s professionalism and credibility with a clean, user-friendly interface, interactive elements, and engaging visuals, making it a powerful tool for branding, lead generation, and customer engagement.</p>.</p>
+                <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 6 - Weather Dashboard (image f) -->
+          <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry">
+              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/f.png');"></a>
+              <div class="text mt-3 float-right d-block">
+                <h3 class="heading"><a href="#">Weather Dashboard</a></h3>
+                <p>Real‑time weather app using OpenWeatherMap API. Displays current conditions, 5‑day forecast, and interactive maps.</p>
+                <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- More projects on GitHub button -->
+        <div class="more-github">
+          <a href="https://github.com/subinathapa2004" target="_blank" class="btn-github">🔗 More projects on GitHub</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PROGRAMMING JOURNEY (original) -->
-  <section id="programming">
-    <div class="container">
-      <h2 class="section-title">Programming Journey</h2>
-      <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center;">
-        <p>I started my programming journey in 2023 with Python. After learning the fundamentals, I expanded into web and mobile development. Currently focused on full-stack Flutter and exploring AI.</p>
+    <!-- BHAGAVAD GITA SECTION (commented out as original) -->
+    <!-- ... (kept as is) ... -->
+
+    <!-- CONTACT SECTION -->
+    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Contact</h1>
+            <h2 class="mb-4">Contact Me</h2>
+            <p>Below are the details to reach out to me!</p>
+          </div>
+        </div>
+        <div class="row d-flex contact-info mb-5">
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate"><div class="align-self-stretch box p-4 text-center"><div class="icon d-flex align-items-center justify-content-center"><span class="icon-map-signs"></span></div><h3 class="mb-4">Address</h3><p>kathmandu,suyuchatar</p></div></div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate"><div class="align-self-stretch box p-4 text-center"><div class="icon d-flex align-items-center justify-content-center"><span class="icon-phone2"></span></div><h3 class="mb-4">Contact Number</h3><p><a href="tel://9741698460">9741698460</a></p></div></div>
+          <div class="col-md-6 col-lg-3 d-flex ftco-animate"><div class="align-self-stretch box p-4 text-center"><div class="icon d-flex align-items-center justify-content-center"><span class="icon-paper-plane"></span></div><h3 class="mb-4">Email Address</h3><p><a href="mailto:subinathapa5510@gmail.com">subinathapa5510@gmail.com</a></p></div></div>
+        </div>
+        <ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
+          <li class="ftco-animate normal-txt">Find me on</li>
+          <li class="ftco-animate"><a href="https://github.com/subinathapa2004"><span class="icon-github"></span></a></li>
+          <li class="ftco-animate"><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/"><span class="icon-linkedin"></span></a></li>  
+          <li class="ftco-animate"><a href="https://www.facebook.com/subina.thapa.769940"><span class="icon-facebook"></span></a></li>
+          <li class="ftco-animate"><a href="https://www.instagram.com/stories/subinathapa22/"><span class="icon-instagram"></span></a></li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- EDUCATION (original) -->
-  <section id="education">
-    <div class="container">
-      <h2 class="section-title">Education</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Bachelor of Computer Application (BCA)</h3>
-          <div class="meta">Tribhuvan University · 2023 – Present</div>
-          <p>Programming, web development, database management, software engineering.</p>
-        </div>
-        <div class="card">
-          <h3>+2 Computer Science</h3>
-          <div class="meta">Nepal Kasthamandap College · 2021 – 2023</div>
-          <p>Computer fundamentals, basic programming, IT concepts.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VALUES (original) -->
-  <section id="values" style="background: #f1f5f9;">
-    <div class="container">
-      <h2 class="section-title">My Values</h2>
-      <div class="card-grid">
-        <div class="card"><i class="fas fa-handshake card-icon"></i><h3>Integrity</h3><p>Honest and transparent in everything.</p></div>
-        <div class="card"><i class="fas fa-book-open card-icon"></i><h3>Continuous Learning</h3><p>Always upgrading knowledge.</p></div>
-        <div class="card"><i class="fas fa-lightbulb card-icon"></i><h3>Creativity</h3><p>Innovative solutions.</p></div>
-        <div class="card"><i class="fas fa-users card-icon"></i><h3>Teamwork</h3><p>Collaboration and respect.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS (original 6 with images) -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <div class="card-grid">
-        <!-- Project 1 -->
-        <div class="card">
-          <div style="height: 180px; background: #ddd; border-radius: 12px; margin-bottom: 1rem; background-image: url('images/AAAAa.png'); background-size: cover; background-position: center;"></div>
-          <h3>Clinic Website</h3>
-          <p>Mobile-friendly healthcare site with consent form and appointment scheduling.</p>
-          <a href="https://github.com/subinathapa2004" class="tag" style="display: inline-block; margin-top: 1rem;">🔗 GitHub</a>
-        </div>
-        <!-- Project 2 -->
-        <div class="card">
-          <div style="height: 180px; background: #ddd; border-radius: 12px; margin-bottom: 1rem; background-image: url('images/cccc.png'); background-size: cover;"></div>
-          <h3>Cleaning Website</h3>
-          <p>User-friendly design highlighting services, pricing, testimonials.</p>
-          <a href="#" class="tag">🔗 GitHub</a>
-        </div>
-        <!-- Project 3 -->
-        <div class="card">
-          <div style="height: 180px; background: #ddd; border-radius: 12px; margin-bottom: 1rem; background-image: url('images/mmm.png'); background-size: cover;"></div>
-          <h3>Montessori Website</h3>
-          <p>Child-friendly design for a Montessori school.</p>
-          <a href="#" class="tag">🔗 GitHub</a>
-        </div>
-        <!-- Project 4 -->
-        <div class="card">
-          <div style="height: 180px; background: #ddd; border-radius: 12px; margin-bottom: 1rem; background-image: url('images/GGG.png'); background-size: cover;"></div>
-          <h3>Real Estate</h3>
-          <p>React-based property listing platform.</p>
-          <a href="#" class="tag">🔗 GitHub</a>
-        </div>
-        <!-- Project 5 -->
-        <div class="card">
-          <div style="height: 180px; background: #ddd; border-radius: 12px; margin-bottom: 1rem; background-image: url('images/jjj.png'); background-size: cover;"></div>
-          <h3>Company Website</h3>
-          <p>Professional corporate site with interactive elements.</p>
-          <a href="#" class="tag">🔗 GitHub</a>
-        </div>
-        <!-- Project 6 -->
-        <div class="card">
-          <div style="height: 180px; background: #ddd; border-radius: 12px; margin-bottom: 1rem; background-image: url('images/f.png'); background-size: cover;"></div>
-          <h3>Weather Dashboard</h3>
-          <p>Real-time weather using OpenWeatherMap API.</p>
-          <a href="#" class="tag">🔗 GitHub</a>
+    <!-- FOOTER -->
+    <footer class="ftco-footer ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made by <a href="https://colorlib.com" target="_blank">subina thapa</a></p>
+          </div>
         </div>
       </div>
-      <div class="text-center mt-3">
-        <a href="https://github.com/subinathapa2004" class="btn btn-outline">More on GitHub</a>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- COMPETITIONS (new) -->
-  <section id="competitions" style="background: #f1f5f9;">
-    <div class="container">
-      <h2 class="section-title">Competitions</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Tech4Good 2024</h3>
-          <div class="meta">Asia-Pacific · People's Choice Award</div>
-          <p>AI-assisted portable ultrasound device for rural Nepal.</p>
-        </div>
-        <div class="card">
-          <h3>All Female Hackathon</h3>
-          <div class="meta">Shequal Foundation</div>
-          <p>Illegal poaching detection system.</p>
-        </div>
-        <div class="card">
-          <h3>Spirathon</h3>
-          <div class="meta">Top 5 Finalist</div>
-          <p>Vegetable price prediction mobile app.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div> <!-- .main-content -->
 
-  <!-- AWARDS (new) -->
-  <section id="awards">
-    <div class="container">
-      <h2 class="section-title">Awards</h2>
-      <div class="card-grid">
-        <div class="card"><i class="fas fa-trophy card-icon" style="color: #ffb347;"></i><h3>People's Choice Award</h3><p>Seeds For The Future 2024</p></div>
-        <div class="card"><i class="fas fa-medal card-icon" style="color: #c0c0c0;"></i><h3>Best Presentation</h3><p>Hackademia 2024</p></div>
-        <div class="card"><i class="fas fa-award card-icon" style="color: #cd7f32;"></i><h3>Geek-A-Thon Runner Up</h3><p>Geeks For Geeks</p></div>
-      </div>
-    </div>
-  </section>
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-  <!-- BLOG (new) -->
-  <section id="blog" style="background: #f1f5f9;">
-    <div class="container">
-      <h2 class="section-title">Blog</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Harnessing Data Science for Agriculture</h3>
-          <div class="meta">June 19, 2023</div>
-          <p>Crop recommendation using ML.</p>
-          <a href="#" class="tag">Read more</a>
-        </div>
-        <div class="card">
-          <h3>Navigating Harvard WECode</h3>
-          <div class="meta">Dec 18, 2023</div>
-          <p>Empowering women in tech.</p>
-          <a href="#" class="tag">Read more</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/main.js"></script>
 
-  <!-- CONTACT (original + form) -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact Me</h2>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="info-item"><i class="fas fa-map-marker-alt"></i><div><h4>Address</h4><p>Kathmandu, Suyuchatar</p></div></div>
-          <div class="info-item"><i class="fas fa-phone-alt"></i><div><h4>Phone</h4><p><a href="tel:9741698460">9741698460</a></p></div></div>
-          <div class="info-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><p><a href="mailto:subinathapa5510@gmail.com">subinathapa5510@gmail.com</a></p></div></div>
-          <div class="info-item"><i class="fab fa-github"></i><div><h4>GitHub</h4><p><a href="https://github.com/subinathapa2004">/subinathapa2004</a></p></div></div>
-        </div>
-        <form class="contact-form">
-          <div class="form-group"><input type="text" placeholder="Your Name" required></div>
-          <div class="form-group"><input type="email" placeholder="Your Email" required></div>
-          <div class="form-group"><textarea rows="5" placeholder="Your Message" required></textarea></div>
-          <button type="submit">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>Copyright © 2025 Subina Thapa. All rights reserved. Inspired by sadhanapanthi.com.np</p>
-  </footer>
-
+  <!-- simple script to toggle sidebar on mobile -->
   <script>
-    // mobile menu toggle
-    const toggle = document.getElementById('menuToggle');
-    const menu = document.getElementById('navMenu');
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
-    });
-
-    // smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-          // close mobile menu
-          if (window.innerWidth <= 768) menu.classList.remove('active');
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    if (menuToggle) {
+      menuToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('open');
+      });
+    }
+    // close sidebar when a nav link is clicked (optional)
+    document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          sidebar.classList.remove('open');
         }
       });
     });
