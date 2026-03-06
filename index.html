@@ -253,26 +253,34 @@
       color: #000;
     }
 
-    /* ===== NEW STYLES: compact animated skills, contact form & map ===== */
-    /* compact skills grid */
-    .skills-compact .skill-item {
-      padding: 0.35rem;
+    /* ===== COMPACT SKILLS SECTION (ultra‑compact, smaller circles) ===== */
+    .skills-ultra-compact .skill-item {
+      padding: 0.2rem;
     }
-    .skills-compact .skill-circle {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 0.5rem;
+    .skills-ultra-compact .skill-circle {
+      width: 85px;
+      height: 85px;
+      margin-bottom: 0.2rem;
+      border-width: 2px;
     }
-    .skills-compact .skill-icon {
-      font-size: 3.2rem;
+    .skills-ultra-compact .skill-icon {
+      font-size: 2.8rem;
     }
+    .skills-ultra-compact p {
+      font-size: 0.75rem;
+      margin-top: 0.2rem;
+    }
+    /* even smaller on mobile */
     @media (max-width: 768px) {
-      .skills-compact .skill-circle {
-        width: 80px;
-        height: 80px;
+      .skills-ultra-compact .skill-circle {
+        width: 65px;
+        height: 65px;
       }
-      .skills-compact .skill-icon {
-        font-size: 2.6rem;
+      .skills-ultra-compact .skill-icon {
+        font-size: 2.2rem;
+      }
+      .skills-ultra-compact p {
+        font-size: 0.7rem;
       }
     }
     /* contact form and map styling */
@@ -481,7 +489,7 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION - MODIFIED: compact + animated with AOS -->
+    <!-- SKILLS SECTION - MODIFIED: ultra‑compact + smaller circles + round icons -->
     <section class="ftco-section ftco-no-pb" id="skills-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
@@ -491,8 +499,8 @@
             <p>Flutter · Dart · REST APIs · Firebase · Django · PostgreSQL · Next.js · TypeScript · Python · Java · HTML/CSS · Git</p>
           </div>
         </div>
-        <!-- spinning circles with compact grid and AOS fade animation -->
-        <div class="row justify-content-center skills-compact">
+        <!-- ultra‑compact spinning circles with AOS fade animation -->
+        <div class="row justify-content-center skills-ultra-compact">
           <div class="col-md-3 col-4 skill-item" data-aos="fade-up" data-aos-delay="100"><div class="skill-circle"><i class="devicon-flutter-plain colored skill-icon"></i></div><p>Flutter</p></div>
           <div class="col-md-3 col-4 skill-item" data-aos="fade-up" data-aos-delay="150"><div class="skill-circle"><i class="devicon-dart-plain colored skill-icon"></i></div><p>Dart</p></div>
           <div class="col-md-3 col-4 skill-item" data-aos="fade-up" data-aos-delay="200"><div class="skill-circle"><i class="devicon-postgresql-plain colored skill-icon"></i></div><p>PostgreSQL</p></div>
@@ -676,7 +684,7 @@
       </div>
     </section>
 
-    <!-- CONTACT SECTION (modified: added send message form and map) -->
+    <!-- CONTACT SECTION (fixed: message form + map) -->
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
@@ -693,7 +701,7 @@
           <div class="col-md-6 col-lg-3 d-flex ftco-animate"><div class="align-self-stretch box p-4 text-center"><div class="icon d-flex align-items-center justify-content-center"><span class="icon-paper-plane"></span></div><h3 class="mb-4">Email Address</h3><p><a href="mailto:subinathapa5510@gmail.com">subinathapa5510@gmail.com</a></p></div></div>
         </div>
 
-        <!-- NEW ROW: SEND MESSAGE & MAP -->
+        <!-- NEW ROW: SEND MESSAGE & MAP (fixed) -->
         <div class="row contact-map-row">
           <!-- send message form -->
           <div class="col-md-6 ftco-animate">
@@ -717,13 +725,13 @@
               </form>
             </div>
           </div>
-          <!-- google map embed >
+          <!-- google map embed (fixed) -->
           <div class="col-md-6 ftco-animate">
             <div class="map-container">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.607485123456!2d85.3!3d27.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1855c6c6c6c7%3A0x8b0c9c7b7b7b7b7b!2sKathmandu%2C%20Nepal!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
-        </div-->
+        </div>
 
         <!-- social icons (unchanged) -->
         <ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
