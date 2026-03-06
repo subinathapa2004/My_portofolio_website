@@ -183,6 +183,11 @@
         margin-left: 0;
         padding-top: 70px; /* space for fixed header */
       }
+
+      /* adjust hero for mobile */
+      .hero .slider-item .overlay {
+        z-index: 1;
+      }
     }
 
     /* hide original navbar */
@@ -247,29 +252,6 @@
       background: #ffbd39;
       color: #000;
     }
-
-    /* ===== NEW STYLE FOR HERO IMAGE (no box/overlay) ===== */
-    .hero-img-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%; /* take full height of parent */
-    }
-    .hero-img-wrapper img {
-      width: 350px;
-      height: 350px;
-      object-fit: cover;
-      border-radius: 50%; /* makes it circular */
-      /* no border, no box shadow – clean */
-      box-shadow: none;
-      border: none;
-    }
-    /* adjust text alignment on large screens */
-    @media (min-width: 768px) {
-      .slider-text .one-forth {
-        padding-right: 2rem;
-      }
-    }
   </style>
 </head>
 <body data-spy="scroll" data-target=".sidebar-nav" data-offset="300">
@@ -283,7 +265,6 @@
   <!-- SIDEBAR (drawer on mobile, fixed on desktop) -->
   <div class="sidebar site-navbar-target" id="sidebar">
     <div class="profile-sidebar">
-      <!-- This is the sidebar profile image – keep as is or replace too -->
       <img src="images/gggg.jpg" alt="Subina Thapa">
       <h3>Subina Thapa</h3>
       <p>Full Stack Flutter Developer</p>
@@ -305,21 +286,16 @@
   <!-- MAIN CONTENT -->
   <div class="main-content">
 
-    <!-- HOME SECTION (modified hero) -->
+    <!-- HOME SECTION -->
     <section id="home-section" class="hero">
       <div class="home-slider owl-carousel">
         <div class="slider-item">
-          <!-- OVERLAY REMOVED -->
+          <div class="overlay"></div>
           <div class="container">
             <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-              <!-- Right side: image (no background, no overlay) -->
-              <div class="one-third js-fullheight order-md-last d-flex align-items-center justify-content-center">
-                <div class="hero-img-wrapper">
-                  <!-- 👇 REPLACE 'images/your-photo.jpg' WITH YOUR ACTUAL PHOTO PATH -->
-                  <img src="images/your-photo.jpg" alt="Subina Thapa">
-                </div>
+              <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/farhinaa.jpg);">
+                <div class="overlay"></div>
               </div>
-              <!-- Left side: text -->
               <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
                 <div class="text">
                   <span class="subheading">Hello!</span>
@@ -362,7 +338,7 @@
                 <div class="row">
                   <div class="col-sm-6 col-md-5">
                     <div class="about-img">
-                      <img src="images/farhinaa.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                      <img src="images/gggg.jpg" class="img-fluid rounded b-shadow-a" alt="">
                     </div>
                   </div>
                   <div class="col-sm-6 col-md-7">
@@ -519,7 +495,7 @@
       </div>
     </section>
 
-    <!-- VALUES SECTION -->
+    <!-- VALUES SECTION (new) -->
     <section class="ftco-section new-section" id="values-section">
       <div class="container">
         <h2>My Values</h2>
@@ -548,7 +524,7 @@
           </div>
         </div>
         <div class="row d-flex">
-          <!-- Project 1 -->
+          <!-- Project 1 - E-commerce Website (image a) -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry justify-content-end">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a>
@@ -560,7 +536,7 @@
               </div>
             </div>
           </div>
-          <!-- Project 2 -->
+          <!-- Project 2 - Company Website (image b) -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry justify-content-end">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a>
@@ -571,7 +547,7 @@
               </div>
             </div>
           </div>
-          <!-- Project 3 -->
+          <!-- Project 3 - Portfolio Theme (image c) -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a>
@@ -585,29 +561,29 @@
           </div>
         </div>
         <div class="row d-flex mt-4">
-          <!-- Project 4 -->
+          <!-- Project 4 - Blog Platform (image d) -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry justify-content-end">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></a>
               <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="#">Real estate </a></h3>
+                <h3 class="heading"><a href="#">Real  estate </a></h3>
                 <p>This is a real estate website developed using React.js, designed to showcase properties for sale or rent..</p>
                 <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
               </div>
             </div>
           </div>
-          <!-- Project 5 -->
+          <!-- Project 5 - Task Manager App (image e) -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry justify-content-end">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></a>
               <div class="text mt-3 float-right d-block">
                 <h3 class="heading"><a href="#">Company website</a></h3>
-                <p>The website highlights the company’s professionalism and credibility with a clean, user-friendly interface, interactive elements, and engaging visuals, making it a powerful tool for branding, lead generation, and customer engagement.</p>
+                <p>The website highlights the company’s professionalism and credibility with a clean, user-friendly interface, interactive elements, and engaging visuals, making it a powerful tool for branding, lead generation, and customer engagement.</p>.</p>
                 <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
               </div>
             </div>
           </div>
-          <!-- Project 6 -->
+          <!-- Project 6 - Weather Dashboard (image f) -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/f.png');"></a>
@@ -625,6 +601,9 @@
         </div>
       </div>
     </section>
+
+    <!-- BHAGAVAD GITA SECTION (commented out as original) -->
+    <!-- ... (kept as is) ... -->
 
     <!-- CONTACT SECTION -->
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
