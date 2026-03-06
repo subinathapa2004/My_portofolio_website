@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Subina Thapa · full stack flutter developer</title>
+  <title>subina thapa · full stack flutter developer</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- fonts & icons -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <!-- Devicon for programming icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -20,111 +21,16 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    /* ----- base reset & dark theme ----- */
-    body { background: #111; color: #fff; overflow-x: hidden; margin:0; padding:0; font-family: 'Poppins', sans-serif; }
-    
-    /* ----- top navbar (like Sadhana Panthi) ----- */
-    .top-navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #0a0a0a;
-      padding: 0.8rem 2rem;
-      z-index: 1100;
-      border-bottom: 1px solid #222;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2rem 1.8rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .nav-links a {
-      color: #ddd;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 400;
-      letter-spacing: 0.3px;
-      padding: 0.3rem 0;
-      border-bottom: 2px solid transparent;
-      transition: 0.2s;
-    }
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #ffbd39;
-      border-bottom-color: #ffbd39;
-    }
-
-    /* ----- main content (push down below fixed navbar) ----- */
-    .main-content {
-      margin-left: 0;
-      padding-top: 80px; /* space for fixed navbar */
-      background: #111;
-    }
-
-    /* ----- HOME profile section (Sadhana style + yellow dress avatar) ----- */
-    #home-section {
-      min-height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: #111;  /* plain dark background */
-      padding: 3rem 1.5rem;
-    }
-    .profile-block .profile-img {
-      margin-bottom: 1.5rem;
-    }
-    .profile-block svg {
-      border-radius: 50%;
-      background: #1e1e1e; /* dark circle background */
-      padding: 5px;
-      box-shadow: 0 0 20px rgba(255,189,57,0.3);
-      width: 140px;
-      height: 140px;
-    }
-    .profile-block h1 {
-      font-size: 4rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
-    }
-    .profile-block h1 span {
-      color: #ffbd39;
-    }
-    .profile-block .subtitle {
-      font-size: 1.8rem;
-      font-weight: 300;
-      color: #ccc;
-      margin-bottom: 1rem;
-    }
-    .profile-block .website-link {
-      font-size: 1.3rem;
-      color: #ffbd39;
-      text-decoration: none;
-      border-bottom: 2px dotted #ffbd39;
-      padding-bottom: 2px;
-    }
-    .profile-block .website-link:hover {
-      color: #fff;
-      border-bottom-color: #fff;
-    }
-
-    /* ----- existing sections (preserved) ----- */
+    /* ===== YOUR EXISTING STYLES (preserved) ===== */
     .about-mf .box-shadow-full { padding-top: 4rem; padding-bottom: 4rem; }
+    .about-mf .about-img { margin-bottom: 2rem; }
     .about-mf .about-img img { margin-left: 10px; }
     .skill-mf .progress { margin: .5rem 0 1.2rem 0; border-radius: 0; height: .7rem; }
     .skill-mf .progress .progress-bar { height: .7rem; background-color: #ffbd39; }
+    #typing-animation { position: relative; font-size: 30px; font-weight: bold; color: #fff; overflow: hidden; white-space: nowrap; animation: typing 3s steps(20, end) infinite; }
+    #typing-animation:before { content: ""; top: 0; left: 0; width: 0; height: 100%; background-color: #ccc; animation: typing-cursor 0.5s ease-in-out infinite; }
+    @keyframes typing { from { width: 0; } to { width: 100%; } }
+    @keyframes typing-cursor { from { width: 5px; } to { width: 0; } }
     .zoom-effect { overflow: hidden; transition: transform 0.3s ease-out; }
     .zoom-effect:hover { transform: scale(1.1); }
     .skill-circle { display: inline-flex; align-items: center; justify-content: center; width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.05); border: 3px solid #ffbd39; margin: 0 auto 1rem auto; transition: all 0.3s ease; }
@@ -140,84 +46,289 @@
     .verse-block { background: rgba(255,189,57,0.1); padding: 1.5rem; border-radius: 10px; border: 1px solid #ffbd39; font-style: italic; }
     .verse-sanskrit { font-size: 1.2rem; font-family: 'Poppins', sans-serif; margin-bottom: 1rem; color: #ffbd39; }
 
-    .new-section { padding: 5rem 0; border-bottom: 1px solid #222; }
-    .new-section h2 { color: #ffbd39; font-size: 2rem; margin-bottom: 1.5rem; }
-    .new-section .content { color: #ddd; font-size: 1.1rem; line-height: 1.7; }
-    .btn-primary { background: #ffbd39; border: none; color: #000; }
-    .btn-primary:hover { background: #e6a800; }
-    .more-github { text-align: center; margin-top: 3rem; }
-    .more-github .btn-github { background: #333; color: #ffbd39; border: 2px solid #ffbd39; padding: 0.8rem 2rem; border-radius: 40px; font-weight: 600; transition: 0.3s; text-decoration: none; display: inline-block; }
-    .more-github .btn-github:hover { background: #ffbd39; color: #000; }
-    .project-github { display: inline-block; margin-top: 0.8rem; color: #ffbd39; font-weight: 500; text-decoration: none; border: 1px solid #ffbd39; padding: 0.3rem 1rem; border-radius: 30px; transition: 0.3s; }
-    .project-github:hover { background: #ffbd39; color: #000; }
+    /* ===== RESPONSIVE SIDEBAR (like Santosh Adhikari) ===== */
+    body { overflow-x: hidden; background: #111; margin:0; padding:0; }
 
-    /* responsive adjustments */
+    /* --- mobile top header (hidden on desktop) --- */
+    .mobile-header {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: #0a0a0a;
+      z-index: 1001;
+      align-items: center;
+      padding: 0 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      border-bottom: 1px solid #222;
+    }
+    .mobile-header .menu-btn {
+      background: none;
+      border: none;
+      color: #ffbd39;
+      font-size: 28px;
+      cursor: pointer;
+      margin-right: 15px;
+    }
+    .mobile-header .brand {
+      color: #ffbd39;
+      font-size: 1.3rem;
+      font-weight: 600;
+      flex-grow: 1;
+    }
+
+    /* --- sidebar (desktop) --- */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: #0a0a0a;
+      z-index: 1000;
+      padding: 2rem 1.5rem;
+      box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+      overflow-y: auto;
+      border-right: 1px solid #222;
+      transition: transform 0.3s ease-in-out;
+    }
+    .profile-sidebar {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .profile-sidebar img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ffbd39;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 20px rgba(255,189,57,0.3);
+    }
+    .profile-sidebar h3 {
+      color: #fff;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .profile-sidebar p {
+      color: #aaa;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+    .sidebar-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar-nav .nav-item {
+      margin-bottom: 0.6rem;
+    }
+    .sidebar-nav .nav-link {
+      display: block;
+      padding: 0.7rem 1rem;
+      color: #ccc;
+      font-size: 1.1rem;
+      border-radius: 40px;
+      transition: all 0.3s;
+      text-decoration: none;
+      font-weight: 400;
+      border: 1px solid transparent;
+    }
+    .sidebar-nav .nav-link:hover,
+    .sidebar-nav .nav-link.active {
+      background: #ffbd39;
+      color: #000;
+      border-color: #ffbd39;
+      padding-left: 1.5rem;
+    }
+
+    /* main content */
+    .main-content {
+      margin-left: 280px;
+      transition: margin-left 0.3s;
+      background: #111;
+    }
+
+    /* --- responsive breakpoints --- */
+    @media (max-width: 992px) {
+      .sidebar { width: 240px; padding: 1.5rem 1rem; }
+      .profile-sidebar img { width: 100px; height: 100px; }
+      .profile-sidebar h3 { font-size: 1.3rem; }
+      .sidebar-nav .nav-link { font-size: 1rem; padding: 0.5rem 0.8rem; }
+      .main-content { margin-left: 240px; }
+    }
+
     @media (max-width: 768px) {
-      .top-navbar { padding: 0.6rem 1rem; }
-      .nav-links { gap: 0.8rem 1.2rem; }
-      .nav-links a { font-size: 0.9rem; }
-      .profile-block h1 { font-size: 3rem; }
-      .profile-block .subtitle { font-size: 1.4rem; }
-      .profile-block svg { width: 120px; height: 120px; }
-      .main-content { padding-top: 70px; }
-    }
-    @media (max-width: 480px) {
-      .nav-links { gap: 0.5rem 0.8rem; }
-      .nav-links a { font-size: 0.8rem; }
-      .profile-block h1 { font-size: 2.4rem; }
-      .profile-block svg { width: 100px; height: 100px; }
+      /* hide desktop sidebar */
+      .sidebar {
+        transform: translateX(-100%);
+        width: 250px; /* drawer width */
+        box-shadow: none;
+      }
+      .sidebar.open {
+        transform: translateX(0);
+        box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+      }
+
+      /* show mobile header */
+      .mobile-header {
+        display: flex;
+      }
+
+      /* main content takes full width, pushed down for fixed header */
+      .main-content {
+        margin-left: 0;
+        padding-top: 70px; /* space for fixed header */
+      }
+
+      /* adjust hero for mobile */
+      .hero .slider-item .overlay {
+        z-index: 1;
+      }
     }
 
-    /* hide any leftover sidebar / mobile header (they are removed) */
-    .sidebar, .mobile-header { display: none; }
+    /* hide original navbar */
+    .ftco_navbar { display: none; }
+
+    /* new section styling */
+    .new-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid #222;
+    }
+    .new-section h2 {
+      color: #ffbd39;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .new-section .content {
+      color: #ddd;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    /* small fixes */
+    .btn-primary {
+      background: #ffbd39;
+      border: none;
+      color: #000;
+    }
+    .btn-primary:hover {
+      background: #e6a800;
+    }
+    /* github button under projects */
+    .more-github {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .more-github .btn-github {
+      background: #333;
+      color: #ffbd39;
+      border: 2px solid #ffbd39;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .more-github .btn-github:hover {
+      background: #ffbd39;
+      color: #000;
+      border-color: #ffbd39;
+    }
+    /* individual project github link */
+    .project-github {
+      display: inline-block;
+      margin-top: 0.8rem;
+      color: #ffbd39;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid #ffbd39;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+    .project-github:hover {
+      background: #ffbd39;
+      color: #000;
+    }
   </style>
 </head>
-<body>
+<body data-spy="scroll" data-target=".sidebar-nav" data-offset="300">
 
-  <!-- TOP NAVBAR (like Sadhana Panthi) -->
-  <nav class="top-navbar">
-    <ul class="nav-links">
-      <li><a href="#home-section" class="active">Home</a></li>
-      <li><a href="#about-section">About</a></li>
-      <li><a href="#skills-section">Skills</a></li>
-      <li><a href="#education-section">Education</a></li>
-      <li><a href="#project-section">Projects</a></li>
-      <li><a href="#myapps-section">Apps</a></li>
-      <li><a href="#values-section">Values</a></li>
-      <li><a href="#contact-section">Contact</a></li>
+  <!-- MOBILE HEADER (visible only on small screens) -->
+  <div class="mobile-header">
+    <button class="menu-btn" id="menuToggle" aria-label="Menu">☰</button>
+    <span class="brand">subina thapa</span>
+  </div>
+
+  <!-- SIDEBAR (drawer on mobile, fixed on desktop) -->
+  <div class="sidebar site-navbar-target" id="sidebar">
+    <div class="profile-sidebar">
+      <img src="images/gggg.jpg" alt="Subina Thapa">
+      <h3>Subina Thapa</h3>
+      <p>Full Stack Flutter Developer</p>
+    </div>
+    <ul class="sidebar-nav nav">
+      <li class="nav-item"><a href="#home-section" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="#about-section" class="nav-link">About</a></li>
+      <li class="nav-item"><a href="#myapps-section" class="nav-link">My Apps</a></li>
+      <li class="nav-item"><a href="#skills-section" class="nav-link">Skills</a></li>
+      <li class="nav-item"><a href="#languages-section" class="nav-link">Languages</a></li>
+      <li class="nav-item"><a href="#programming-section" class="nav-link">Programming</a></li>
+      <li class="nav-item"><a href="#education-section" class="nav-link">Education</a></li>
+      <li class="nav-item"><a href="#values-section" class="nav-link">Values</a></li>
+      <li class="nav-item"><a href="#project-section" class="nav-link">Project</a></li>
+      <li class="nav-item"><a href="#contact-section" class="nav-link">Contact</a></li>
     </ul>
-  </nav>
+  </div>
 
   <!-- MAIN CONTENT -->
   <div class="main-content">
 
-    <!-- HOME SECTION (Sadhana style + yellow dress avatar) -->
-    <section id="home-section">
-      <div class="profile-block">
-        <!-- Yellow dress avatar (SVG) -->
-        <div class="profile-img">
-          <svg viewBox="0 0 100 100">
-            <!-- dark circle background (already provided by svg background) -->
-            <!-- head with skin tone -->
-            <circle cx="50" cy="32" r="18" fill="#f1c27d" stroke="#fff" stroke-width="1.5"/>
-            <!-- neck -->
-            <rect x="47" y="42" width="6" height="12" fill="#f1c27d" />
-            <!-- yellow dress (trapezoid shape) -->
-            <path d="M32 54 L68 54 L62 90 L38 90 Z" fill="#ffbd39" stroke="#fff" stroke-width="1"/>
-            <!-- sleeves / shoulders (optional) -->
-            <circle cx="32" cy="51" r="6" fill="#ffbd39" stroke="#fff" stroke-width="1"/>
-            <circle cx="68" cy="51" r="6" fill="#ffbd39" stroke="#fff" stroke-width="1"/>
-            <!-- simple black hair (bob) -->
-            <path d="M32 20 Q50 10 68 20 L68 30 Q50 22 32 30 Z" fill="#2c2c2c" />
-          </svg>
+    <!-- HOME SECTION -->
+    <section id="home-section" class="hero">
+      <div class="home-slider owl-carousel">
+        <div class="slider-item">
+          <div class="overlay"></div>
+          <div class="container">
+            <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+              <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/farhinaa.jpg);">
+                <div class="overlay"></div>
+              </div>
+              <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <div class="text">
+                  <span class="subheading">Hello!</span>
+                  <h1 class="mb-4 mt-3">I'm <span>Subina thapa</span></h1>
+                  <span id="typing-animation"></span>
+                  <script>
+                    const typingAnimationElement = document.getElementById('typing-animation');
+                    const typingTexts = ['full stack flutter developer  '];
+                    function playTypingAnimation(text) {
+                      for (let i = 0; i < text.length; i++) {
+                        setTimeout(() => {
+                          typingAnimationElement.textContent += text[i];
+                        }, i * 200);
+                      }
+                      setTimeout(() => {
+                        typingAnimationElement.textContent = '';
+                        playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
+                      }, text.length * 200);
+                    }
+                    playTypingAnimation(typingTexts[0]);
+                  </script>
+                  <br><br>
+                  <p><a href="https://github.com/subinathapa2004" class="btn btn-primary py-3 px-4">github</a> 
+                    <a href="https://github.com/subinathapa2004" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <h1>Subina <span>Thapa</span></h1>
-        <div class="subtitle">full stack flutter developer</div>
-        <a href="#" class="website-link">subinathapa.com.np</a>
       </div>
     </section>
 
-    <!-- ABOUT SECTION (unchanged) -->
+    <!-- ABOUT SECTION -->
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
         <div class="row d-flex align-items-stretch">
@@ -234,7 +345,7 @@
                     <div class="about-info">
                       <p><span class="title-s">Name: </span> <span>subina thapa</span></p>
                       <p><span class="title-s">Job Role: </span> <span>full stack flutter developer</span></p>
-                      <p><span class="title-s">Address: </span> <span>Kathmandu, suyuchatar</span></p>
+                      <p><span class="title-s">Address: </span> <span>Kathmandu,suyuchatar</span></p>
                     </div>
                   </div>
                 </div>
@@ -294,7 +405,7 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION (spinning circles) -->
+    <!-- SKILLS SECTION -->
     <section class="ftco-section ftco-no-pb" id="skills-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
@@ -384,7 +495,7 @@
       </div>
     </section>
 
-    <!-- VALUES SECTION -->
+    <!-- VALUES SECTION (new) -->
     <section class="ftco-section new-section" id="values-section">
       <div class="container">
         <h2>My Values</h2>
@@ -402,7 +513,7 @@
       </div>
     </section>
 
-    <!-- PROJECT SECTION (6 projects) -->
+    <!-- PROJECT SECTION (6 projects with images a,b,c,d,e,f) -->
     <section class="ftco-section" id="project-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5">
@@ -413,82 +524,88 @@
           </div>
         </div>
         <div class="row d-flex">
-          <!-- Project 1 -->
+          <!-- Project 1 - E-commerce Website (image a) -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry justify-content-end">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a>
               <div class="text mt-3 float-right d-block">
                 <h3 class="heading"><a href="#">clinic website</a></h3>
-                <p>Mobile-friendly healthcare site with consent form, SEO, appointment scheduling.</p>
+                <p>It is mobile-friendly and designed with SEO best practices to improve visibility on search engines.
+                  The site includes a consent form and provides healthcare-related information, appointment scheduling, and other clinical services..</p>
                 <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
               </div>
             </div>
           </div>
-          <!-- Project 2 -->
+          <!-- Project 2 - Company Website (image b) -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry justify-content-end">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a>
               <div class="text mt-3 float-right d-block">
                 <h3 class="heading"><a href="#">Cleaning Website</a></h3>
-                <p>Clean design highlighting services, pricing, testimonials for bookings.</p>
+                <p>The website features a clean, user-friendly design that highlights services, pricing, contact options, and customer testimonials to build trust and encourage bookings.</p>
                 <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
               </div>
             </div>
           </div>
-          <!-- Project 3 -->
+          <!-- Project 3 - Portfolio Theme (image c) -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a>
               <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="#">Montessori website</a></h3>
-                <p>Child-friendly design with classroom images, testimonials for parents.</p>
+                <h3 class="heading"><a href="#">Montessori website </a></h3>
+                <p>The website features a clean, child-friendly design with images of classrooms, learning materials, and 
+                  testimonials to build trust with parents and promote a nurturing educational environment..</p>
                 <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
               </div>
             </div>
           </div>
         </div>
         <div class="row d-flex mt-4">
-          <!-- Project 4 -->
+          <!-- Project 4 - Blog Platform (image d) -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry justify-content-end">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></a>
               <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="#">Real estate</a></h3>
-                <p>React.js property showcase for sale/rent with listings.</p>
+                <h3 class="heading"><a href="#">Real  estate </a></h3>
+                <p>This is a real estate website developed using React.js, designed to showcase properties for sale or rent..</p>
                 <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
               </div>
             </div>
           </div>
-          <!-- Project 5 -->
+          <!-- Project 5 - Task Manager App (image e) -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry justify-content-end">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></a>
               <div class="text mt-3 float-right d-block">
                 <h3 class="heading"><a href="#">Company website</a></h3>
-                <p>Professional corporate site with branding, lead generation.</p>
+                <p>The website highlights the company’s professionalism and credibility with a clean, user-friendly interface, interactive elements, and engaging visuals, making it a powerful tool for branding, lead generation, and customer engagement.</p>.</p>
                 <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
               </div>
             </div>
           </div>
-          <!-- Project 6 -->
+          <!-- Project 6 - Weather Dashboard (image f) -->
           <div class="col-md-4 d-flex ftco-animate">
             <div class="blog-entry">
               <a href="#" class="block-20 zoom-effect" style="background-image: url('images/f.png');"></a>
               <div class="text mt-3 float-right d-block">
                 <h3 class="heading"><a href="#">Weather Dashboard</a></h3>
-                <p>Real‑time weather using OpenWeatherMap API, 5‑day forecast.</p>
+                <p>Real‑time weather app using OpenWeatherMap API. Displays current conditions, 5‑day forecast, and interactive maps.</p>
                 <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
               </div>
             </div>
           </div>
         </div>
+        <!-- More projects on GitHub button -->
         <div class="more-github">
           <a href="https://github.com/subinathapa2004" target="_blank" class="btn-github">🔗 More projects on GitHub</a>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT SECTION (now last, as requested) -->
+    <!-- BHAGAVAD GITA SECTION (commented out as original) -->
+    <!-- ... (kept as is) ... -->
+
+    <!-- CONTACT SECTION -->
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
@@ -526,10 +643,9 @@
 
   </div> <!-- .main-content -->
 
-  <!-- loader (optional) -->
+  <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-  <!-- scripts -->
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/popper.min.js"></script>
@@ -544,24 +660,20 @@
   <script src="js/scrollax.min.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- simple active link highlight on scroll (optional) -->
+  <!-- simple script to toggle sidebar on mobile -->
   <script>
-    // highlight active nav link while scrolling
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".nav-links a");
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-          current = section.getAttribute("id");
-        }
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    if (menuToggle) {
+      menuToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('open');
       });
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${current}`) {
-          link.classList.add("active");
+    }
+    // close sidebar when a nav link is clicked (optional)
+    document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          sidebar.classList.remove('open');
         }
       });
     });
