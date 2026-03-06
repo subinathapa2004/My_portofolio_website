@@ -165,7 +165,7 @@
       /* hide desktop sidebar */
       .sidebar {
         transform: translateX(-100%);
-        width: 250px;
+        width: 250px; /* drawer width */
         box-shadow: none;
       }
       .sidebar.open {
@@ -181,7 +181,12 @@
       /* main content takes full width, pushed down for fixed header */
       .main-content {
         margin-left: 0;
-        padding-top: 70px;
+        padding-top: 70px; /* space for fixed header */
+      }
+
+      /* adjust hero for mobile */
+      .hero .slider-item .overlay {
+        z-index: 1;
       }
     }
 
@@ -225,8 +230,6 @@
       border-radius: 40px;
       font-weight: 600;
       transition: 0.3s;
-      text-decoration: none;
-      display: inline-block;
     }
     .more-github .btn-github:hover {
       background: #ffbd39;
@@ -248,96 +251,6 @@
     .project-github:hover {
       background: #ffbd39;
       color: #000;
-    }
-
-    /* ===== NEW HOME PROFILE STYLE (Sadhana Panthi like) ===== */
-    #home-section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: #111;  /* pure dark, no image */
-      padding: 2rem;
-    }
-    .profile-block .profile-img {
-      margin-bottom: 1.5rem;
-    }
-    .profile-block svg {
-      border-radius: 50%;
-      background: #1e1e1e;
-      padding: 5px;
-      box-shadow: 0 0 20px rgba(255,189,57,0.3);
-      width: 140px;
-      height: 140px;
-    }
-    .profile-block h1 {
-      font-size: 4rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
-    }
-    .profile-block h1 span {
-      color: #ffbd39;
-    }
-    .profile-block .subtitle {
-      font-size: 1.8rem;
-      font-weight: 300;
-      color: #ccc;
-      margin-bottom: 1rem;
-    }
-    .profile-block .website-link {
-      font-size: 1.3rem;
-      color: #ffbd39;
-      text-decoration: none;
-      border-bottom: 2px dotted #ffbd39;
-      padding-bottom: 2px;
-      display: inline-block;
-      margin-bottom: 2rem;
-    }
-    .profile-block .website-link:hover {
-      color: #fff;
-      border-bottom-color: #fff;
-    }
-    .profile-block .btn-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .profile-block .btn-custom {
-      background: #ffbd39;
-      color: #000;
-      padding: 0.8rem 2rem;
-      border-radius: 40px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s;
-      border: 2px solid #ffbd39;
-    }
-    .profile-block .btn-custom.outline {
-      background: transparent;
-      color: #ffbd39;
-      border: 2px solid #ffbd39;
-    }
-    .profile-block .btn-custom:hover {
-      background: #e6a800;
-      color: #000;
-      border-color: #e6a800;
-    }
-    .profile-block .btn-custom.outline:hover {
-      background: #ffbd39;
-      color: #000;
-    }
-    /* adjust for mobile */
-    @media (max-width: 768px) {
-      .profile-block h1 { font-size: 3rem; }
-      .profile-block .subtitle { font-size: 1.4rem; }
-      .profile-block svg { width: 120px; height: 120px; }
-    }
-    @media (max-width: 480px) {
-      .profile-block h1 { font-size: 2.4rem; }
     }
   </style>
 </head>
@@ -373,32 +286,44 @@
   <!-- MAIN CONTENT -->
   <div class="main-content">
 
-    <!-- HOME SECTION – redesigned like Sadhana Panthi with yellow dress avatar -->
-    <section id="home-section">
-      <div class="profile-block">
-        <!-- Yellow dress avatar (SVG) -->
-        <div class="profile-img">
-          <svg viewBox="0 0 100 100">
-            <!-- dark circle background (already provided by svg background) -->
-            <!-- head with skin tone -->
-            <circle cx="50" cy="32" r="18" fill="#f1c27d" stroke="#fff" stroke-width="1.5"/>
-            <!-- neck -->
-            <rect x="47" y="42" width="6" height="12" fill="#f1c27d" />
-            <!-- yellow dress (trapezoid shape) -->
-            <path d="M32 54 L68 54 L62 90 L38 90 Z" fill="#ffbd39" stroke="#fff" stroke-width="1"/>
-            <!-- sleeves / shoulders (optional) -->
-            <circle cx="32" cy="51" r="6" fill="#ffbd39" stroke="#fff" stroke-width="1"/>
-            <circle cx="68" cy="51" r="6" fill="#ffbd39" stroke="#fff" stroke-width="1"/>
-            <!-- simple black hair (bob) -->
-            <path d="M32 20 Q50 10 68 20 L68 30 Q50 22 32 30 Z" fill="#2c2c2c" />
-          </svg>
-        </div>
-        <h1>Subina <span>Thapa</span></h1>
-        <div class="subtitle">full stack flutter developer</div>
-        <a href="#" class="website-link">subinathapa.com.np</a>
-        <div class="btn-group">
-          <a href="https://github.com/subinathapa2004" class="btn-custom">GitHub</a>
-          <a href="https://github.com/subinathapa2004" class="btn-custom outline">My works</a>
+    <!-- HOME SECTION -->
+    <section id="home-section" class="hero">
+      <div class="home-slider owl-carousel">
+        <div class="slider-item">
+          <div class="overlay"></div>
+          <div class="container">
+            <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+              <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/farhinaa.jpg);">
+                <div class="overlay"></div>
+              </div>
+              <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <div class="text">
+                  <span class="subheading">Hello!</span>
+                  <h1 class="mb-4 mt-3">I'm <span>Subina thapa</span></h1>
+                  <span id="typing-animation"></span>
+                  <script>
+                    const typingAnimationElement = document.getElementById('typing-animation');
+                    const typingTexts = ['full stack flutter developer  '];
+                    function playTypingAnimation(text) {
+                      for (let i = 0; i < text.length; i++) {
+                        setTimeout(() => {
+                          typingAnimationElement.textContent += text[i];
+                        }, i * 200);
+                      }
+                      setTimeout(() => {
+                        typingAnimationElement.textContent = '';
+                        playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
+                      }, text.length * 200);
+                    }
+                    playTypingAnimation(typingTexts[0]);
+                  </script>
+                  <br><br>
+                  <p><a href="https://github.com/subinathapa2004" class="btn btn-primary py-3 px-4">github</a> 
+                    <a href="https://github.com/subinathapa2004" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -677,7 +602,10 @@
       </div>
     </section>
 
-    <!-- CONTACT SECTION (last) -->
+    <!-- BHAGAVAD GITA SECTION (commented out as original) -->
+    <!-- ... (kept as is) ... -->
+
+    <!-- CONTACT SECTION -->
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
