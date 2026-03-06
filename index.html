@@ -58,11 +58,7 @@
       border-bottom: 2px solid transparent;
       transition: 0.2s;
     }
-    .nav-links a:hover {
-      color: #ffbd39;
-      border-bottom-color: #ffbd39;
-    }
-    /* active link – optional */
+    .nav-links a:hover,
     .nav-links a.active {
       color: #ffbd39;
       border-bottom-color: #ffbd39;
@@ -75,15 +71,26 @@
       background: #111;
     }
 
-    /* ----- home profile section (Sadhana style) ----- */
+    /* ----- HOME profile section (Sadhana style + yellow dress avatar) ----- */
     #home-section {
-      min-height: 60vh;
+      min-height: 70vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: #111;  /* plain dark background – no image */
+      background: #111;  /* plain dark background */
       padding: 3rem 1.5rem;
+    }
+    .profile-block .profile-img {
+      margin-bottom: 1.5rem;
+    }
+    .profile-block svg {
+      border-radius: 50%;
+      background: #1e1e1e; /* dark circle background */
+      padding: 5px;
+      box-shadow: 0 0 20px rgba(255,189,57,0.3);
+      width: 140px;
+      height: 140px;
     }
     .profile-block h1 {
       font-size: 4rem;
@@ -151,12 +158,14 @@
       .nav-links a { font-size: 0.9rem; }
       .profile-block h1 { font-size: 3rem; }
       .profile-block .subtitle { font-size: 1.4rem; }
+      .profile-block svg { width: 120px; height: 120px; }
       .main-content { padding-top: 70px; }
     }
     @media (max-width: 480px) {
       .nav-links { gap: 0.5rem 0.8rem; }
       .nav-links a { font-size: 0.8rem; }
       .profile-block h1 { font-size: 2.4rem; }
+      .profile-block svg { width: 100px; height: 100px; }
     }
 
     /* hide any leftover sidebar / mobile header (they are removed) */
@@ -173,23 +182,38 @@
       <li><a href="#skills-section">Skills</a></li>
       <li><a href="#education-section">Education</a></li>
       <li><a href="#project-section">Projects</a></li>
-      <li><a href="#contact-section">Contact</a></li>
-      <!-- additional links to match Sadhana style (can be extended) -->
       <li><a href="#myapps-section">Apps</a></li>
       <li><a href="#values-section">Values</a></li>
+      <li><a href="#contact-section">Contact</a></li>
     </ul>
   </nav>
 
   <!-- MAIN CONTENT -->
   <div class="main-content">
 
-    <!-- HOME SECTION (Sadhana Panthi style profile) -->
+    <!-- HOME SECTION (Sadhana style + yellow dress avatar) -->
     <section id="home-section">
       <div class="profile-block">
+        <!-- Yellow dress avatar (SVG) -->
+        <div class="profile-img">
+          <svg viewBox="0 0 100 100">
+            <!-- dark circle background (already provided by svg background) -->
+            <!-- head with skin tone -->
+            <circle cx="50" cy="32" r="18" fill="#f1c27d" stroke="#fff" stroke-width="1.5"/>
+            <!-- neck -->
+            <rect x="47" y="42" width="6" height="12" fill="#f1c27d" />
+            <!-- yellow dress (trapezoid shape) -->
+            <path d="M32 54 L68 54 L62 90 L38 90 Z" fill="#ffbd39" stroke="#fff" stroke-width="1"/>
+            <!-- sleeves / shoulders (optional) -->
+            <circle cx="32" cy="51" r="6" fill="#ffbd39" stroke="#fff" stroke-width="1"/>
+            <circle cx="68" cy="51" r="6" fill="#ffbd39" stroke="#fff" stroke-width="1"/>
+            <!-- simple black hair (bob) -->
+            <path d="M32 20 Q50 10 68 20 L68 30 Q50 22 32 30 Z" fill="#2c2c2c" />
+          </svg>
+        </div>
         <h1>Subina <span>Thapa</span></h1>
         <div class="subtitle">full stack flutter developer</div>
         <a href="#" class="website-link">subinathapa.com.np</a>
-        <!-- optional subtle social icons (can be added later) -->
       </div>
     </section>
 
@@ -464,7 +488,7 @@
       </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT SECTION (now last, as requested) -->
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
