@@ -252,6 +252,29 @@
       background: #ffbd39;
       color: #000;
     }
+
+    /* ===== NEW STYLE FOR HERO IMAGE (no box/overlay) ===== */
+    .hero-img-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%; /* take full height of parent */
+    }
+    .hero-img-wrapper img {
+      width: 350px;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 50%; /* makes it circular */
+      /* no border, no box shadow – clean */
+      box-shadow: none;
+      border: none;
+    }
+    /* adjust text alignment on large screens */
+    @media (min-width: 768px) {
+      .slider-text .one-forth {
+        padding-right: 2rem;
+      }
+    }
   </style>
 </head>
 <body data-spy="scroll" data-target=".sidebar-nav" data-offset="300">
@@ -286,16 +309,21 @@
   <!-- MAIN CONTENT -->
   <div class="main-content">
 
-    <!-- HOME SECTION -->
+    <!-- HOME SECTION (modified hero) -->
     <section id="home-section" class="hero">
       <div class="home-slider owl-carousel">
         <div class="slider-item">
-          <div class="overlay"></div>
+          <!-- OVERLAY REMOVED -->
           <div class="container">
             <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-              <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/farhinaa.jpg);">
-                <div class="overlay"></div>
+              <!-- Right side: image (no background, no overlay) -->
+              <div class="one-third js-fullheight order-md-last d-flex align-items-center justify-content-center">
+                <div class="hero-img-wrapper">
+                  <!-- Replace with your own photo -->
+                  <img src="images/myphoto.jpg" alt="Subina Thapa">
+                </div>
               </div>
+              <!-- Left side: text -->
               <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
                 <div class="text">
                   <span class="subheading">Hello!</span>
