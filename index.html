@@ -79,7 +79,7 @@
       flex-grow: 1;
     }
 
-    /* --- sidebar (desktop) with refined "line by line" menu --- */
+    /* --- sidebar (desktop) --- */
     .sidebar {
       position: fixed;
       top: 0;
@@ -124,7 +124,7 @@
       margin: 0;
     }
     .sidebar-nav .nav-item {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
     }
     .sidebar-nav .nav-link {
       display: block;
@@ -136,8 +136,6 @@
       text-decoration: none;
       font-weight: 400;
       border: 1px solid transparent;
-      /* make each item distinct with a subtle separator */
-      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     .sidebar-nav .nav-link:hover,
     .sidebar-nav .nav-link.active {
@@ -145,7 +143,6 @@
       color: #000;
       border-color: #ffbd39;
       padding-left: 1.5rem;
-      border-bottom-color: #ffbd39;
     }
 
     /* main content */
@@ -185,6 +182,11 @@
       .main-content {
         margin-left: 0;
         padding-top: 70px; /* space for fixed header */
+      }
+
+      /* adjust hero for mobile */
+      .hero .slider-item .overlay {
+        z-index: 1;
       }
     }
 
@@ -228,8 +230,6 @@
       border-radius: 40px;
       font-weight: 600;
       transition: 0.3s;
-      text-decoration: none;
-      display: inline-block;
     }
     .more-github .btn-github:hover {
       background: #ffbd39;
@@ -252,96 +252,6 @@
       background: #ffbd39;
       color: #000;
     }
-
-    /* ===== NEW HOME PROFILE (matching your image) ===== */
-    #home-section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: #111;  /* pure dark, no image */
-      padding: 2rem;
-    }
-    .profile-block .avatar {
-      width: 160px;
-      height: 160px;
-      margin: 0 auto 1.5rem;
-      background: #1a1a1a;
-      border-radius: 50%;
-      padding: 6px;
-      box-shadow: 0 0 25px rgba(255,189,57,0.3);
-    }
-    .profile-block svg {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: #1e1e1e;
-    }
-    .profile-block .greeting {
-      font-size: 2rem;
-      font-weight: 400;
-      color: #ffbd39;
-      margin-bottom: 0.5rem;
-      letter-spacing: 2px;
-    }
-    .profile-block h1 {
-      font-size: 4.2rem;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
-      letter-spacing: -1px;
-    }
-    .profile-block h1 span { color: #ffbd39; }
-    .profile-block .subtitle {
-      font-size: 1.8rem;
-      font-weight: 300;
-      color: #aaa;
-      margin-bottom: 2rem;
-    }
-    .btn-group { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
-    .btn-custom {
-      background: #ffbd39;
-      color: #0a0a0a;
-      padding: 0.9rem 3rem;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 1.2rem;
-      letter-spacing: 1.5px;
-      border: 2px solid #ffbd39;
-      transition: 0.3s;
-      box-shadow: 0 8px 20px rgba(255,189,57,0.2);
-      text-transform: uppercase;
-    }
-    .btn-custom.outline {
-      background: transparent;
-      color: #ffbd39;
-      border: 2px solid #ffbd39;
-      box-shadow: none;
-    }
-    .btn-custom:hover {
-      background: #e6a800;
-      border-color: #e6a800;
-      color: #0a0a0a;
-      transform: translateY(-3px);
-      box-shadow: 0 12px 25px rgba(255,189,57,0.4);
-    }
-    .btn-custom.outline:hover {
-      background: #ffbd39;
-      color: #0a0a0a;
-    }
-
-    @media (max-width: 768px) {
-      .profile-block h1 { font-size: 3rem; }
-      .profile-block .subtitle { font-size: 1.5rem; }
-      .profile-block .greeting { font-size: 1.6rem; }
-      .profile-block .avatar { width: 130px; height: 130px; }
-      .btn-custom { padding: 0.7rem 2.2rem; font-size: 1rem; }
-    }
-    @media (max-width: 480px) {
-      .profile-block h1 { font-size: 2.4rem; }
-    }
   </style>
 </head>
 <body data-spy="scroll" data-target=".sidebar-nav" data-offset="300">
@@ -352,7 +262,7 @@
     <span class="brand">subina thapa</span>
   </div>
 
-  <!-- SIDEBAR (drawer on mobile, fixed on desktop) with line-by-line menu -->
+  <!-- SIDEBAR (drawer on mobile, fixed on desktop) -->
   <div class="sidebar site-navbar-target" id="sidebar">
     <div class="profile-sidebar">
       <img src="images/gggg.jpg" alt="Subina Thapa">
@@ -376,30 +286,49 @@
   <!-- MAIN CONTENT -->
   <div class="main-content">
 
-    <!-- HOME SECTION – new profile matching your image (avatar, HELLO!, full stack, buttons) -->
-    <section id="home-section">
-      <div class="profile-block">
-        <div class="avatar">
-          <svg viewBox="0 0 100 100">
-            <circle cx="50" cy="32" r="18" fill="#f1c27d" stroke="#fff" stroke-width="1.5"/>
-            <rect x="47" y="42" width="6" height="12" fill="#f1c27d" />
-            <path d="M32 54 L68 54 L62 90 L38 90 Z" fill="#ffbd39" stroke="#fff" stroke-width="1"/>
-            <circle cx="32" cy="51" r="6" fill="#ffbd39" stroke="#fff" stroke-width="1"/>
-            <circle cx="68" cy="51" r="6" fill="#ffbd39" stroke="#fff" stroke-width="1"/>
-            <path d="M32 20 Q50 10 68 20 L68 30 Q50 22 32 30 Z" fill="#2c2c2c" />
-          </svg>
-        </div>
-        <div class="greeting">HELLO!</div>
-        <h1>I'm <span>Subina thapa</span></h1>
-        <div class="subtitle">full stack</div>
-        <div class="btn-group">
-          <a href="https://github.com/subinathapa2004" class="btn-custom">GITHUB</a>
-          <a href="https://github.com/subinathapa2004" class="btn-custom outline">MY WORKS</a>
+    <!-- HOME SECTION -->
+    <section id="home-section" class="hero">
+      <div class="home-slider owl-carousel">
+        <div class="slider-item">
+          <div class="overlay"></div>
+          <div class="container">
+            <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+              <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/farhinaa.jpg);">
+                <div class="overlay"></div>
+              </div>
+              <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <div class="text">
+                  <span class="subheading">Hello!</span>
+                  <h1 class="mb-4 mt-3">I'm <span>Subina thapa</span></h1>
+                  <span id="typing-animation"></span>
+                  <script>
+                    const typingAnimationElement = document.getElementById('typing-animation');
+                    const typingTexts = ['full stack flutter developer  '];
+                    function playTypingAnimation(text) {
+                      for (let i = 0; i < text.length; i++) {
+                        setTimeout(() => {
+                          typingAnimationElement.textContent += text[i];
+                        }, i * 200);
+                      }
+                      setTimeout(() => {
+                        typingAnimationElement.textContent = '';
+                        playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
+                      }, text.length * 200);
+                    }
+                    playTypingAnimation(typingTexts[0]);
+                  </script>
+                  <br><br>
+                  <p><a href="https://github.com/subinathapa2004" class="btn btn-primary py-3 px-4">github</a> 
+                    <a href="https://github.com/subinathapa2004" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT SECTION (unchanged) -->
+    <!-- ABOUT SECTION -->
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
         <div class="row d-flex align-items-stretch">
@@ -673,7 +602,10 @@
       </div>
     </section>
 
-    <!-- CONTACT SECTION (last) -->
+    <!-- BHAGAVAD GITA SECTION (commented out as original) -->
+    <!-- ... (kept as is) ... -->
+
+    <!-- CONTACT SECTION -->
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
@@ -742,19 +674,6 @@
       link.addEventListener('click', () => {
         if (window.innerWidth <= 768) {
           sidebar.classList.remove('open');
-        }
-      });
-    });
-
-    // active link highlight on scroll
-    window.addEventListener('scroll', () => {
-      let scrollPos = window.scrollY + 100;
-      document.querySelectorAll('section[id]').forEach(section => {
-        if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
-          document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + section.id) link.classList.add('active');
-          });
         }
       });
     });
