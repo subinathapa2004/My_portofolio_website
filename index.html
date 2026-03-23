@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    /* ===== BASE RESPONSIVE STYLES ===== */
+    /* ===== BASE RESPONSIVE STYLES & IMPROVEMENTS ===== */
     body { overflow-x: hidden; background: #111; margin:0; padding:0; font-family: 'Poppins', sans-serif; }
     
     /* mobile top header (hidden on desktop) */
@@ -218,76 +218,34 @@
       border-color: #ffbd39;
     }
 
-    /* ===== SKILLS SECTION - EXACTLY LIKE PICTURE + ENHANCED ANIMATIONS ===== */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 2rem 1.5rem;
-      margin-top: 2rem;
+    /* ===== COMPACT SKILLS SECTION ===== */
+    .skills-ultra-compact .skill-item {
+      padding: 0.2rem;
     }
-    .skill-card {
-      background: rgba(255,255,255,0.03);
-      border-radius: 20px;
-      padding: 1.2rem 0.8rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255,189,57,0.25);
-      backdrop-filter: blur(2px);
+    .skills-ultra-compact .skill-circle {
+      width: 85px;
+      height: 85px;
+      margin-bottom: 0.2rem;
+      border-width: 2px;
     }
-    .skill-card:hover {
-      transform: translateY(-5px);
-      border-color: #ffbd39;
-      background: rgba(255,189,57,0.05);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    .skills-ultra-compact .skill-icon {
+      font-size: 2.8rem;
     }
-    .skill-icon-large {
-      font-size: 3rem;
-      margin-bottom: 0.8rem;
-      color: #ffbd39;
-      transition: transform 0.3s ease;
-    }
-    .skill-card:hover .skill-icon-large {
-      transform: scale(1.05);
-    }
-    .skill-name {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #fff;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.5px;
-    }
-    .skill-rating {
-      display: inline-block;
-      background: #ffbd39;
-      color: #000;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 0.2rem 0.9rem;
-      border-radius: 40px;
-      margin-top: 0.3rem;
-      letter-spacing: 0.5px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-    }
-    /* Pulse animation on rating badge hover */
-    .skill-rating:hover {
-      animation: pulse 0.5s ease-in-out;
-      background: #ffbd39;
-      color: #000;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); background: #ffc857; box-shadow: 0 0 8px #ffbd39; }
-      100% { transform: scale(1); }
+    .skills-ultra-compact p {
+      font-size: 0.75rem;
+      margin-top: 0.2rem;
     }
     @media (max-width: 768px) {
-      .skills-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        gap: 1rem;
+      .skills-ultra-compact .skill-circle {
+        width: 65px;
+        height: 65px;
       }
-      .skill-icon-large { font-size: 2.4rem; }
-      .skill-name { font-size: 0.85rem; }
-      .skill-rating { font-size: 0.8rem; padding: 0.15rem 0.7rem; }
+      .skills-ultra-compact .skill-icon {
+        font-size: 2.2rem;
+      }
+      .skills-ultra-compact p {
+        font-size: 0.7rem;
+      }
     }
 
     /* contact form + map styling */
@@ -372,10 +330,25 @@
       .new-section h2 { font-size: 1.6rem; }
       .about-info li { font-size: 0.9rem; }
     }
+    .skill-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      border: 3px solid #ffbd39;
+      margin: 0 auto 1rem auto;
+      transition: all 0.3s ease;
+    }
+    .skill-icon { animation: none; }
+    .skill-icon:hover { animation-play-state: paused; }
+    .gita-card { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 2rem; margin-bottom: 2rem; border-left: 5px solid #ffbd39; }
 
-    /* social links styling */
+    /* ADDITIONAL STYLES FOR SOCIAL LINKS - more spacing & visibility */
     .ftco-footer-social {
-      margin-top: 4rem !important;
+      margin-top: 4rem !important;      /* pushes it lower */
       margin-bottom: 2rem;
       padding-top: 1rem;
       border-top: 1px solid rgba(255,255,255,0.1);
@@ -493,7 +466,7 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT SECTION (fixed progress consistency) -->
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
         <div class="row d-flex align-items-stretch">
@@ -570,31 +543,31 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION (exactly like picture + smooth scroll animation and hover pulse) -->
+    <!-- SKILLS SECTION (compact responsive) -->
     <section class="ftco-section ftco-no-pb" id="skills-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
           <div class="col-md-10 heading-section text-center ftco-animate">
             <h1 class="big big-2">skills</h1>
             <h2 class="mb-4">Technical Skills</h2>
-            <p>Proficiency ratings</p>
+            <p>Flutter · Dart · REST APIs · Firebase · Django · PostgreSQL · Next.js · TypeScript · Python · Java · HTML/CSS · Git</p>
           </div>
         </div>
-        <div class="skills-grid">
-          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0"><div class="skill-icon-large"><i class="devicon-flutter-plain colored"></i></div><div class="skill-name">Flutter</div><div class="skill-rating">9.5</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="50"><div class="skill-icon-large"><i class="devicon-dart-plain colored"></i></div><div class="skill-name">Dart</div><div class="skill-rating">9.5</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100"><div class="skill-icon-large"><i class="devicon-postgresql-plain colored"></i></div><div class="skill-name">PostgreSQL</div><div class="skill-rating">8.5</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="150"><div class="skill-icon-large"><i class="devicon-django-plain colored"></i></div><div class="skill-name">Django</div><div class="skill-rating">9.0</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200"><div class="skill-icon-large"><i class="devicon-firebase-plain colored"></i></div><div class="skill-name">Firebase</div><div class="skill-rating">8.5</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="250"><div class="skill-icon-large"><i class="devicon-nextjs-original colored"></i></div><div class="skill-name">Next.js</div><div class="skill-rating">8.0</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300"><div class="skill-icon-large"><i class="devicon-typescript-plain colored"></i></div><div class="skill-name">TypeScript</div><div class="skill-rating">8.0</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="350"><div class="skill-icon-large"><i class="devicon-git-plain colored"></i></div><div class="skill-name">Git</div><div class="skill-rating">8.5</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400"><div class="skill-icon-large"><i class="devicon-python-plain colored"></i></div><div class="skill-name">Python</div><div class="skill-rating">8.0</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="450"><div class="skill-icon-large"><i class="devicon-java-plain colored"></i></div><div class="skill-name">Java</div><div class="skill-rating">7.5</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="500"><div class="skill-icon-large"><i class="devicon-html5-plain colored"></i></div><div class="skill-name">HTML5</div><div class="skill-rating">9.0</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="550"><div class="skill-icon-large"><i class="devicon-css3-plain colored"></i></div><div class="skill-name">CSS3</div><div class="skill-rating">9.0</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="600"><div class="skill-icon-large"><i class="devicon-javascript-plain colored"></i></div><div class="skill-name">JavaScript</div><div class="skill-rating">8.5</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="650"><div class="skill-icon-large"><i class="devicon-nodejs-plain colored"></i></div><div class="skill-name">Node.js</div><div class="skill-rating">7.5</div></div>
+        <div class="row justify-content-center skills-ultra-compact">
+          <div class="col-4 col-sm-4 col-md-3 col-lg-2 skill-item"><div class="skill-circle"><i class="devicon-flutter-plain colored skill-icon"></i></div><p>Flutter</p></div>
+          <div class="col-4 col-sm-4 col-md-3 col-lg-2 skill-item"><div class="skill-circle"><i class="devicon-dart-plain colored skill-icon"></i></div><p>Dart</p></div>
+          <div class="col-4 col-sm-4 col-md-3 col-lg-2 skill-item"><div class="skill-circle"><i class="devicon-postgresql-plain colored skill-icon"></i></div><p>PostgreSQL</p></div>
+          <div class="col-4 col-sm-4 col-md-3 col-lg-2 skill-item"><div class="skill-circle"><i class="devicon-django-plain colored skill-icon"></i></div><p>Django</p></div>
+          <div class="col-4 col-sm-4 col-md-3 col-lg-2 skill-item"><div class="skill-circle"><i class="devicon-firebase-plain colored skill-icon"></i></div><p>Firebase</p></div>
+          <div class="col-4 col-sm-4 col-md-3 col-lg-2 skill-item"><div class="skill-circle"><i class="devicon-nextjs-original colored skill-icon"></i></div><p>Next.js</p></div>
+          <div class="col-4 col-sm-4 col-md-3 col-lg-2 skill-item"><div class="skill-circle"><i class="devicon-typescript-plain colored skill-icon"></i></div><p>TypeScript</p></div>
+          <div class="col-4 col-sm-4 col-md-3 col-lg-2 skill-item"><div class="skill-circle"><i class="devicon-git-plain colored skill-icon"></i></div><p>Git</p></div>
+          <div class="col-4 col-sm-4 col-md-3 col-lg-2 skill-item"><div class="skill-circle"><i class="devicon-python-plain colored skill-icon"></i></div><p>Python</p></div>
+          <div class="col-4 col-sm-4 col-md-3 col-lg-2 skill-item"><div class="skill-circle"><i class="devicon-java-plain colored skill-icon"></i></div><p>Java</p></div>
+          <div class="col-4 col-sm-4 col-md-3 col-lg-2 skill-item"><div class="skill-circle"><i class="devicon-html5-plain colored skill-icon"></i></div><p>HTML5</p></div>
+          <div class="col-4 col-sm-4 col-md-3 col-lg-2 skill-item"><div class="skill-circle"><i class="devicon-css3-plain colored skill-icon"></i></div><p>CSS3</p></div>
+          <div class="col-4 col-sm-4 col-md-3 col-lg-2 skill-item"><div class="skill-circle"><i class="devicon-javascript-plain colored skill-icon"></i></div><p>JavaScript</p></div>
+          <div class="col-4 col-sm-4 col-md-3 col-lg-2 skill-item"><div class="skill-circle"><i class="devicon-nodejs-plain colored skill-icon"></i></div><p>Node.js</p></div>
         </div>
       </div>
     </section>
@@ -675,7 +648,7 @@
             </div>
           </div>
         </div>
-        <!-- SOCIAL LINKS -->
+        <!-- SOCIAL LINKS - now with extra spacing and improved visibility -->
         <ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center flex-wrap">
           <li class="ftco-animate normal-txt">Find me on</li>
           <li class="ftco-animate"><a href="https://github.com/subinathapa2004"><span class="icon-github"></span></a></li>
@@ -720,9 +693,9 @@
     document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
       link.addEventListener('click', () => { if (window.innerWidth <= 768) sidebar.classList.remove('open'); });
     });
-    AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+    AOS.init({ duration: 800, easing: 'slide', once: true });
 
-    // CONTACT FORM SEND MESSAGE
+    // CONTACT FORM SEND MESSAGE (working simulation)
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
@@ -734,6 +707,7 @@
           alert('Please fill all fields.');
           return;
         }
+        // simulate sending (toast success)
         const toast = document.createElement('div');
         toast.className = 'toast-msg';
         toast.innerText = `✨ Thanks ${name}, your message has been sent! I'll reply soon.`;
