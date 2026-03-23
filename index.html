@@ -210,82 +210,53 @@
       border-color: #ffbd39;
     }
 
-    /* NEW SKILLS SECTION – NO ANIMATIONS */
-    .skills-category {
-      margin-bottom: 3rem;
+    /* ===== COMPACT SKILLS SECTION – 4 LINES ===== */
+    .compact-skills {
+      margin: 2rem 0 1rem;
     }
-    .skills-category h3 {
-      color: #ffbd39;
-      font-size: 1.6rem;
-      margin-bottom: 1.8rem;
-      position: relative;
-      display: inline-block;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid rgba(255,189,57,0.4);
-    }
-    .skills-grid-cat {
+    .compact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.8rem;
+      margin-top: 1rem;
     }
-    .skill-card-new {
+    .compact-skill {
       background: rgba(255,255,255,0.03);
-      border-radius: 20px;
-      padding: 1.2rem;
-      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border-radius: 16px;
+      padding: 0.6rem 0.4rem;
+      text-align: center;
+      transition: all 0.3s;
       border: 1px solid rgba(255,189,57,0.2);
-      backdrop-filter: blur(2px);
     }
-    .skill-card-new:hover {
-      transform: translateY(-8px);
+    .compact-skill:hover {
+      transform: translateY(-3px);
       border-color: #ffbd39;
       background: rgba(255,189,57,0.08);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
     }
-    .skill-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    .skill-icon {
-      font-size: 2.4rem;
+    .compact-icon {
+      font-size: 1.8rem;
       color: #ffbd39;
-      transition: transform 0.3s;
+      margin-bottom: 0.2rem;
     }
-    .skill-card-new:hover .skill-icon {
-      transform: scale(1.1);
-    }
-    .skill-name {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: 0.3px;
-    }
-    .skill-bar-container {
-      background: #222;
-      border-radius: 30px;
-      height: 10px;
-      margin: 0.8rem 0 0.4rem;
-      overflow: hidden;
-    }
-    .skill-bar {
-      width: 0%;
-      height: 100%;
-      background: #ffbd39;
-      border-radius: 30px;
-      transition: none; /* no transition – static */
-    }
-    .skill-percent {
-      text-align: right;
+    .compact-name {
       font-size: 0.8rem;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.2px;
+    }
+    .compact-percent {
+      font-size: 0.7rem;
       color: #ffbd39;
       font-weight: 500;
+      margin-top: 0.1rem;
     }
     @media (max-width: 768px) {
-      .skills-grid-cat { grid-template-columns: 1fr; }
-      .skill-icon { font-size: 2rem; }
-      .skill-name { font-size: 1rem; }
+      .compact-grid { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+      .compact-icon { font-size: 1.5rem; }
+      .compact-name { font-size: 0.7rem; }
+    }
+    @media (max-width: 480px) {
+      .compact-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* about me progress bars (static) */
@@ -576,63 +547,37 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION – STATIC BARS, NO ANIMATIONS -->
+    <!-- COMPACT SKILLS SECTION – 4 LINES (grid with 4 columns) -->
     <section class="ftco-section ftco-no-pb" id="skills-new-section">
       <div class="container">
-        <div class="row justify-content-center pb-3">
+        <div class="row justify-content-center pb-2">
           <div class="col-md-12 heading-section text-center ftco-animate">
             <h1 class="big big-2">Expertise</h1>
-            <h2 class="mb-4">Technical Arsenal</h2>
-            <p>Skills with icons & proficiency levels</p>
+            <h2 class="mb-4">Technical Skills</h2>
+            <p>Core competencies with proficiency levels</p>
           </div>
         </div>
-
-        <div class="skills-category">
-          <h3>💻 Programming Languages</h3>
-          <div class="skills-grid-cat">
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-dart-plain colored skill-icon"></i><span class="skill-name">Dart</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:95%"></div></div><div class="skill-percent">95%</div></div>
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-flutter-plain colored skill-icon"></i><span class="skill-name">Flutter</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:95%"></div></div><div class="skill-percent">95%</div></div>
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-javascript-plain colored skill-icon"></i><span class="skill-name">JavaScript</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:85%"></div></div><div class="skill-percent">85%</div></div>
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-typescript-plain colored skill-icon"></i><span class="skill-name">TypeScript</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:80%"></div></div><div class="skill-percent">80%</div></div>
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-python-plain colored skill-icon"></i><span class="skill-name">Python</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:80%"></div></div><div class="skill-percent">80%</div></div>
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-java-plain colored skill-icon"></i><span class="skill-name">Java</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:75%"></div></div><div class="skill-percent">75%</div></div>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3>📱 Frontend & Mobile</h3>
-          <div class="skills-grid-cat">
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-html5-plain colored skill-icon"></i><span class="skill-name">HTML5</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:90%"></div></div><div class="skill-percent">90%</div></div>
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-css3-plain colored skill-icon"></i><span class="skill-name">CSS3</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:90%"></div></div><div class="skill-percent">90%</div></div>
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-nextjs-original colored skill-icon"></i><span class="skill-name">Next.js</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:80%"></div></div><div class="skill-percent">80%</div></div>
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-react-original colored skill-icon"></i><span class="skill-name">React</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:85%"></div></div><div class="skill-percent">85%</div></div>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3>⚙️ Backend & Databases</h3>
-          <div class="skills-grid-cat">
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-django-plain colored skill-icon"></i><span class="skill-name">Django</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:90%"></div></div><div class="skill-percent">90%</div></div>
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-postgresql-plain colored skill-icon"></i><span class="skill-name">PostgreSQL</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:85%"></div></div><div class="skill-percent">85%</div></div>
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-firebase-plain colored skill-icon"></i><span class="skill-name">Firebase</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:85%"></div></div><div class="skill-percent">85%</div></div>
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-nodejs-plain colored skill-icon"></i><span class="skill-name">Node.js</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:75%"></div></div><div class="skill-percent">75%</div></div>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3>🔧 Version Control & Tools</h3>
-          <div class="skills-grid-cat">
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-git-plain colored skill-icon"></i><span class="skill-name">Git</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:85%"></div></div><div class="skill-percent">85%</div></div>
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-github-original colored skill-icon"></i><span class="skill-name">GitHub</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:80%"></div></div><div class="skill-percent">80%</div></div>
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-vscode-plain colored skill-icon"></i><span class="skill-name">VS Code</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:70%"></div></div><div class="skill-percent">70%</div></div>
-          </div>
-        </div>
-
-        <div class="skills-category">
-          <h3>🎨 Design & UI</h3>
-          <div class="skills-grid-cat">
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-figma-plain colored skill-icon"></i><span class="skill-name">Figma</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:70%"></div></div><div class="skill-percent">70%</div></div>
-            <div class="skill-card-new"><div class="skill-header"><i class="devicon-illustrator-plain colored skill-icon"></i><span class="skill-name">Adobe XD</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:65%"></div></div><div class="skill-percent">65%</div></div>
+        <div class="compact-skills">
+          <div class="compact-grid">
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-dart-plain colored"></i></div><div class="compact-name">Dart</div><div class="compact-percent">95%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-flutter-plain colored"></i></div><div class="compact-name">Flutter</div><div class="compact-percent">95%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-javascript-plain colored"></i></div><div class="compact-name">JavaScript</div><div class="compact-percent">85%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-typescript-plain colored"></i></div><div class="compact-name">TypeScript</div><div class="compact-percent">80%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-python-plain colored"></i></div><div class="compact-name">Python</div><div class="compact-percent">80%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-java-plain colored"></i></div><div class="compact-name">Java</div><div class="compact-percent">75%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-html5-plain colored"></i></div><div class="compact-name">HTML5</div><div class="compact-percent">90%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-css3-plain colored"></i></div><div class="compact-name">CSS3</div><div class="compact-percent">90%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-react-original colored"></i></div><div class="compact-name">React</div><div class="compact-percent">85%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-nextjs-original colored"></i></div><div class="compact-name">Next.js</div><div class="compact-percent">80%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-django-plain colored"></i></div><div class="compact-name">Django</div><div class="compact-percent">90%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-postgresql-plain colored"></i></div><div class="compact-name">PostgreSQL</div><div class="compact-percent">85%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-firebase-plain colored"></i></div><div class="compact-name">Firebase</div><div class="compact-percent">85%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-nodejs-plain colored"></i></div><div class="compact-name">Node.js</div><div class="compact-percent">75%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-git-plain colored"></i></div><div class="compact-name">Git</div><div class="compact-percent">85%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-github-original colored"></i></div><div class="compact-name">GitHub</div><div class="compact-percent">80%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-vscode-plain colored"></i></div><div class="compact-name">VS Code</div><div class="compact-percent">70%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-figma-plain colored"></i></div><div class="compact-name">Figma</div><div class="compact-percent">70%</div></div>
+            <div class="compact-skill"><div class="compact-icon"><i class="devicon-illustrator-plain colored"></i></div><div class="compact-name">Adobe XD</div><div class="compact-percent">65%</div></div>
           </div>
         </div>
       </div>
