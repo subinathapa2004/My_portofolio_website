@@ -218,7 +218,7 @@
       border-color: #ffbd39;
     }
 
-    /* ===== SKILLS SECTION - EXACTLY LIKE PICTURE ===== */
+    /* ===== SKILLS SECTION - EXACTLY LIKE PICTURE + ENHANCED ANIMATIONS ===== */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -244,6 +244,10 @@
       font-size: 3rem;
       margin-bottom: 0.8rem;
       color: #ffbd39;
+      transition: transform 0.3s ease;
+    }
+    .skill-card:hover .skill-icon-large {
+      transform: scale(1.05);
     }
     .skill-name {
       font-size: 1rem;
@@ -263,6 +267,18 @@
       margin-top: 0.3rem;
       letter-spacing: 0.5px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    /* Pulse animation on rating badge hover */
+    .skill-rating:hover {
+      animation: pulse 0.5s ease-in-out;
+      background: #ffbd39;
+      color: #000;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); background: #ffc857; box-shadow: 0 0 8px #ffbd39; }
+      100% { transform: scale(1); }
     }
     @media (max-width: 768px) {
       .skills-grid {
@@ -554,7 +570,7 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION (exactly like picture: icon, name, rating number) with AOS animation -->
+    <!-- SKILLS SECTION (exactly like picture + smooth scroll animation and hover pulse) -->
     <section class="ftco-section ftco-no-pb" id="skills-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
@@ -565,20 +581,20 @@
           </div>
         </div>
         <div class="skills-grid">
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="0"><div class="skill-icon-large"><i class="devicon-flutter-plain colored"></i></div><div class="skill-name">Flutter</div><div class="skill-rating">9.5</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="50"><div class="skill-icon-large"><i class="devicon-dart-plain colored"></i></div><div class="skill-name">Dart</div><div class="skill-rating">9.5</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="100"><div class="skill-icon-large"><i class="devicon-postgresql-plain colored"></i></div><div class="skill-name">PostgreSQL</div><div class="skill-rating">8.5</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="150"><div class="skill-icon-large"><i class="devicon-django-plain colored"></i></div><div class="skill-name">Django</div><div class="skill-rating">9.0</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="200"><div class="skill-icon-large"><i class="devicon-firebase-plain colored"></i></div><div class="skill-name">Firebase</div><div class="skill-rating">8.5</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="250"><div class="skill-icon-large"><i class="devicon-nextjs-original colored"></i></div><div class="skill-name">Next.js</div><div class="skill-rating">8.0</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="300"><div class="skill-icon-large"><i class="devicon-typescript-plain colored"></i></div><div class="skill-name">TypeScript</div><div class="skill-rating">8.0</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="350"><div class="skill-icon-large"><i class="devicon-git-plain colored"></i></div><div class="skill-name">Git</div><div class="skill-rating">8.5</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="400"><div class="skill-icon-large"><i class="devicon-python-plain colored"></i></div><div class="skill-name">Python</div><div class="skill-rating">8.0</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="450"><div class="skill-icon-large"><i class="devicon-java-plain colored"></i></div><div class="skill-name">Java</div><div class="skill-rating">7.5</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="500"><div class="skill-icon-large"><i class="devicon-html5-plain colored"></i></div><div class="skill-name">HTML5</div><div class="skill-rating">9.0</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="550"><div class="skill-icon-large"><i class="devicon-css3-plain colored"></i></div><div class="skill-name">CSS3</div><div class="skill-rating">9.0</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="600"><div class="skill-icon-large"><i class="devicon-javascript-plain colored"></i></div><div class="skill-name">JavaScript</div><div class="skill-rating">8.5</div></div>
-          <div class="skill-card" data-aos="fade-up" data-aos-delay="650"><div class="skill-icon-large"><i class="devicon-nodejs-plain colored"></i></div><div class="skill-name">Node.js</div><div class="skill-rating">7.5</div></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="0"><div class="skill-icon-large"><i class="devicon-flutter-plain colored"></i></div><div class="skill-name">Flutter</div><div class="skill-rating">9.5</div></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="50"><div class="skill-icon-large"><i class="devicon-dart-plain colored"></i></div><div class="skill-name">Dart</div><div class="skill-rating">9.5</div></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100"><div class="skill-icon-large"><i class="devicon-postgresql-plain colored"></i></div><div class="skill-name">PostgreSQL</div><div class="skill-rating">8.5</div></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="150"><div class="skill-icon-large"><i class="devicon-django-plain colored"></i></div><div class="skill-name">Django</div><div class="skill-rating">9.0</div></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200"><div class="skill-icon-large"><i class="devicon-firebase-plain colored"></i></div><div class="skill-name">Firebase</div><div class="skill-rating">8.5</div></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="250"><div class="skill-icon-large"><i class="devicon-nextjs-original colored"></i></div><div class="skill-name">Next.js</div><div class="skill-rating">8.0</div></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300"><div class="skill-icon-large"><i class="devicon-typescript-plain colored"></i></div><div class="skill-name">TypeScript</div><div class="skill-rating">8.0</div></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="350"><div class="skill-icon-large"><i class="devicon-git-plain colored"></i></div><div class="skill-name">Git</div><div class="skill-rating">8.5</div></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400"><div class="skill-icon-large"><i class="devicon-python-plain colored"></i></div><div class="skill-name">Python</div><div class="skill-rating">8.0</div></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="450"><div class="skill-icon-large"><i class="devicon-java-plain colored"></i></div><div class="skill-name">Java</div><div class="skill-rating">7.5</div></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="500"><div class="skill-icon-large"><i class="devicon-html5-plain colored"></i></div><div class="skill-name">HTML5</div><div class="skill-rating">9.0</div></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="550"><div class="skill-icon-large"><i class="devicon-css3-plain colored"></i></div><div class="skill-name">CSS3</div><div class="skill-rating">9.0</div></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="600"><div class="skill-icon-large"><i class="devicon-javascript-plain colored"></i></div><div class="skill-name">JavaScript</div><div class="skill-rating">8.5</div></div>
+          <div class="skill-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="650"><div class="skill-icon-large"><i class="devicon-nodejs-plain colored"></i></div><div class="skill-name">Node.js</div><div class="skill-rating">7.5</div></div>
         </div>
       </div>
     </section>
@@ -704,7 +720,7 @@
     document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
       link.addEventListener('click', () => { if (window.innerWidth <= 768) sidebar.classList.remove('open'); });
     });
-    AOS.init({ duration: 800, easing: 'slide', once: true });
+    AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
 
     // CONTACT FORM SEND MESSAGE
     const contactForm = document.getElementById('contactForm');
