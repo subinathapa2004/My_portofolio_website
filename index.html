@@ -210,53 +210,59 @@
       border-color: #ffbd39;
     }
 
-    /* ===== COMPACT SKILLS SECTION – 4 LINES ===== */
-    .compact-skills {
-      margin: 2rem 0 1rem;
+    /* ===== LIST‑STYLE SKILLS SECTION (like the about progress bars) ===== */
+    .skill-list-section {
+      padding: 4rem 0;
     }
-    .compact-grid {
+    .skill-list-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.8rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
       margin-top: 1rem;
     }
-    .compact-skill {
-      background: rgba(255,255,255,0.03);
-      border-radius: 16px;
-      padding: 0.6rem 0.4rem;
-      text-align: center;
-      transition: all 0.3s;
-      border: 1px solid rgba(255,189,57,0.2);
+    .skill-item {
+      margin-bottom: 1rem;
     }
-    .compact-skill:hover {
-      transform: translateY(-3px);
-      border-color: #ffbd39;
-      background: rgba(255,189,57,0.08);
+    .skill-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.3rem;
     }
-    .compact-icon {
-      font-size: 1.8rem;
+    .skill-icon-small {
+      font-size: 1.5rem;
       color: #ffbd39;
-      margin-bottom: 0.2rem;
+      width: 2rem;
     }
-    .compact-name {
-      font-size: 0.8rem;
+    .skill-name {
+      font-size: 1rem;
       font-weight: 500;
-      color: #fff;
-      letter-spacing: 0.2px;
+      color: #ddd;
+      flex: 1;
     }
-    .compact-percent {
-      font-size: 0.7rem;
+    .skill-percent {
       color: #ffbd39;
       font-weight: 500;
-      margin-top: 0.1rem;
+      font-size: 0.9rem;
+    }
+    .progress {
+      background-color: #222;
+      border-radius: 30px;
+      height: 8px;
+      margin-top: 0.2rem;
+      overflow: hidden;
+    }
+    .progress-bar {
+      background-color: #ffbd39;
+      border-radius: 30px;
+      width: 0%;
+      transition: none; /* no animation */
     }
     @media (max-width: 768px) {
-      .compact-grid { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
-      .compact-icon { font-size: 1.5rem; }
-      .compact-name { font-size: 0.7rem; }
-    }
-    @media (max-width: 480px) {
-      .compact-grid { grid-template-columns: repeat(2, 1fr); }
+      .skill-list-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
     }
 
     /* about me progress bars (static) */
@@ -547,8 +553,8 @@
       </div>
     </section>
 
-    <!-- COMPACT SKILLS SECTION – 4 LINES (grid with 4 columns) -->
-    <section class="ftco-section ftco-no-pb" id="skills-new-section">
+    <!-- SKILLS SECTION – LIST STYLE WITH ICONS (like the about progress bars) -->
+    <section class="ftco-section skill-list-section" id="skills-new-section">
       <div class="container">
         <div class="row justify-content-center pb-2">
           <div class="col-md-12 heading-section text-center ftco-animate">
@@ -557,27 +563,166 @@
             <p>Core competencies with proficiency levels</p>
           </div>
         </div>
-        <div class="compact-skills">
-          <div class="compact-grid">
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-dart-plain colored"></i></div><div class="compact-name">Dart</div><div class="compact-percent">95%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-flutter-plain colored"></i></div><div class="compact-name">Flutter</div><div class="compact-percent">95%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-javascript-plain colored"></i></div><div class="compact-name">JavaScript</div><div class="compact-percent">85%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-typescript-plain colored"></i></div><div class="compact-name">TypeScript</div><div class="compact-percent">80%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-python-plain colored"></i></div><div class="compact-name">Python</div><div class="compact-percent">80%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-java-plain colored"></i></div><div class="compact-name">Java</div><div class="compact-percent">75%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-html5-plain colored"></i></div><div class="compact-name">HTML5</div><div class="compact-percent">90%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-css3-plain colored"></i></div><div class="compact-name">CSS3</div><div class="compact-percent">90%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-react-original colored"></i></div><div class="compact-name">React</div><div class="compact-percent">85%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-nextjs-original colored"></i></div><div class="compact-name">Next.js</div><div class="compact-percent">80%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-django-plain colored"></i></div><div class="compact-name">Django</div><div class="compact-percent">90%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-postgresql-plain colored"></i></div><div class="compact-name">PostgreSQL</div><div class="compact-percent">85%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-firebase-plain colored"></i></div><div class="compact-name">Firebase</div><div class="compact-percent">85%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-nodejs-plain colored"></i></div><div class="compact-name">Node.js</div><div class="compact-percent">75%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-git-plain colored"></i></div><div class="compact-name">Git</div><div class="compact-percent">85%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-github-original colored"></i></div><div class="compact-name">GitHub</div><div class="compact-percent">80%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-vscode-plain colored"></i></div><div class="compact-name">VS Code</div><div class="compact-percent">70%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-figma-plain colored"></i></div><div class="compact-name">Figma</div><div class="compact-percent">70%</div></div>
-            <div class="compact-skill"><div class="compact-icon"><i class="devicon-illustrator-plain colored"></i></div><div class="compact-name">Adobe XD</div><div class="compact-percent">65%</div></div>
+
+        <div class="skill-list-grid">
+          <!-- left column -->
+          <div class="skill-list-col">
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-dart-plain colored skill-icon-small"></i>
+                <span class="skill-name">Dart</span>
+                <span class="skill-percent">95%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:95%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-flutter-plain colored skill-icon-small"></i>
+                <span class="skill-name">Flutter</span>
+                <span class="skill-percent">95%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:95%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-javascript-plain colored skill-icon-small"></i>
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-typescript-plain colored skill-icon-small"></i>
+                <span class="skill-name">TypeScript</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-python-plain colored skill-icon-small"></i>
+                <span class="skill-name">Python</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-java-plain colored skill-icon-small"></i>
+                <span class="skill-name">Java</span>
+                <span class="skill-percent">75%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:75%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-html5-plain colored skill-icon-small"></i>
+                <span class="skill-name">HTML5</span>
+                <span class="skill-percent">90%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-css3-plain colored skill-icon-small"></i>
+                <span class="skill-name">CSS3</span>
+                <span class="skill-percent">90%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:90%"></div></div>
+            </div>
+          </div>
+
+          <!-- right column -->
+          <div class="skill-list-col">
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-react-original colored skill-icon-small"></i>
+                <span class="skill-name">React</span>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-nextjs-original colored skill-icon-small"></i>
+                <span class="skill-name">Next.js</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-django-plain colored skill-icon-small"></i>
+                <span class="skill-name">Django</span>
+                <span class="skill-percent">90%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-postgresql-plain colored skill-icon-small"></i>
+                <span class="skill-name">PostgreSQL</span>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-firebase-plain colored skill-icon-small"></i>
+                <span class="skill-name">Firebase</span>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-nodejs-plain colored skill-icon-small"></i>
+                <span class="skill-name">Node.js</span>
+                <span class="skill-percent">75%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:75%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-git-plain colored skill-icon-small"></i>
+                <span class="skill-name">Git</span>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-github-original colored skill-icon-small"></i>
+                <span class="skill-name">GitHub</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-vscode-plain colored skill-icon-small"></i>
+                <span class="skill-name">VS Code</span>
+                <span class="skill-percent">70%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:70%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-figma-plain colored skill-icon-small"></i>
+                <span class="skill-name">Figma</span>
+                <span class="skill-percent">70%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:70%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-illustrator-plain colored skill-icon-small"></i>
+                <span class="skill-name">Adobe XD</span>
+                <span class="skill-percent">65%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" style="width:65%"></div></div>
+            </div>
           </div>
         </div>
       </div>
