@@ -345,6 +345,46 @@
     .skill-icon { animation: none; }
     .skill-icon:hover { animation-play-state: paused; }
     .gita-card { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 2rem; margin-bottom: 2rem; border-left: 5px solid #ffbd39; }
+
+    /* ADDITIONAL STYLES FOR SOCIAL LINKS - more spacing & visibility */
+    .ftco-footer-social {
+      margin-top: 4rem !important;      /* pushes it lower */
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .ftco-footer-social li.normal-txt {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #ffbd39;
+      margin-right: 15px;
+    }
+    .ftco-footer-social li a {
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
+    .ftco-footer-social li a:hover {
+      background: #ffbd39;
+      color: #000;
+      transform: translateY(-3px);
+    }
+    @media (max-width: 768px) {
+      .ftco-footer-social {
+        margin-top: 2.5rem !important;
+      }
+      .ftco-footer-social li.normal-txt {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body data-spy="scroll" data-target=".sidebar-nav" data-offset="300">
@@ -608,7 +648,8 @@
             </div>
           </div>
         </div>
-        <ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center mb-0">
+        <!-- SOCIAL LINKS - now with extra spacing and improved visibility -->
+        <ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center flex-wrap">
           <li class="ftco-animate normal-txt">Find me on</li>
           <li class="ftco-animate"><a href="https://github.com/subinathapa2004"><span class="icon-github"></span></a></li>
           <li class="ftco-animate"><a href="https://x.com/ThapaSubina22"><span class="icon-twitter"></span></a></li>
@@ -673,7 +714,6 @@
         document.body.appendChild(toast);
         contactForm.reset();
         setTimeout(() => toast.remove(), 3000);
-        // optional: console log
         console.log(`Message from ${name} (${email}): ${msg}`);
       });
     }
