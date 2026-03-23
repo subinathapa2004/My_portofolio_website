@@ -218,7 +218,84 @@
       border-color: #ffbd39;
     }
 
-    /* ===== SKILLS SECTION REMOVED - ONLY PROGRESS BARS REMAIN ===== */
+    /* ===== NEW SKILLS SECTION WITH ANIMATIONS & ICONS ===== */
+    .skills-category {
+      margin-bottom: 3rem;
+    }
+    .skills-category h3 {
+      color: #ffbd39;
+      font-size: 1.6rem;
+      margin-bottom: 1.8rem;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(255,189,57,0.4);
+    }
+    .skills-grid-cat {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card-new {
+      background: rgba(255,255,255,0.03);
+      border-radius: 20px;
+      padding: 1.2rem;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      border: 1px solid rgba(255,189,57,0.2);
+      backdrop-filter: blur(2px);
+    }
+    .skill-card-new:hover {
+      transform: translateY(-8px);
+      border-color: #ffbd39;
+      background: rgba(255,189,57,0.08);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+    .skill-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .skill-icon {
+      font-size: 2.4rem;
+      color: #ffbd39;
+      transition: transform 0.3s;
+    }
+    .skill-card-new:hover .skill-icon {
+      transform: scale(1.1);
+    }
+    .skill-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }
+    .skill-bar-container {
+      background: #222;
+      border-radius: 30px;
+      height: 10px;
+      margin: 0.8rem 0 0.4rem;
+      overflow: hidden;
+    }
+    .skill-bar {
+      width: 0%;
+      height: 100%;
+      background: #ffbd39;
+      border-radius: 30px;
+      transition: width 1.2s cubic-bezier(0.22, 0.97, 0.36, 1.02);
+    }
+    .skill-percent {
+      text-align: right;
+      font-size: 0.8rem;
+      color: #ffbd39;
+      font-weight: 500;
+    }
+    @media (max-width: 768px) {
+      .skills-grid-cat { grid-template-columns: 1fr; }
+      .skill-icon { font-size: 2rem; }
+      .skill-name { font-size: 1rem; }
+    }
+
     /* about me progress bars (static, no animations) */
     .skill-mf .progress {
       background-color: #222;
@@ -380,7 +457,7 @@
       <li class="nav-item"><a href="#home-section" class="nav-link">Home</a></li>
       <li class="nav-item"><a href="#about-section" class="nav-link">About</a></li>
       <li class="nav-item"><a href="#myapps-section" class="nav-link">My Apps</a></li>
-      <!-- Skills nav link removed - only one skills section (progress bars inside About) remains -->
+      <li class="nav-item"><a href="#skills-new-section" class="nav-link">Skills</a></li> <!-- NEW SKILLS LINK -->
       <li class="nav-item"><a href="#languages-section" class="nav-link">Languages</a></li>
       <li class="nav-item"><a href="#programming-section" class="nav-link">Programming</a></li>
       <li class="nav-item"><a href="#education-section" class="nav-link">Education</a></li>
@@ -440,7 +517,7 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION (contains the only skills display - progress bars, no animations) -->
+    <!-- ABOUT SECTION (contains static progress bars, no animations) -->
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
         <div class="row d-flex align-items-stretch">
@@ -461,7 +538,7 @@
                     </div>
                   </div>
                 </div>
-                <!-- SKILL-MF: The only skills block, exactly as kept, animations removed -->
+                <!-- Static progress bars (no animation) -->
                 <div class="skill-mf">
                   <p class="title-s">Skills</p>
                   <span>Flutter <span class="pull-right">95%</span></span>
@@ -518,7 +595,72 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION (GRID) REMOVED COMPLETELY - ONLY PROGRESS BARS REMAIN -->
+    <!-- NEW SKILLS SECTION (icons, categories, animated progress bars) -->
+    <section class="ftco-section ftco-no-pb" id="skills-new-section">
+      <div class="container">
+        <div class="row justify-content-center pb-3">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Expertise</h1>
+            <h2 class="mb-4">Technical Arsenal</h2>
+            <p>Skills with interactive ratings & smooth animations</p>
+          </div>
+        </div>
+
+        <!-- Category 1: Programming Languages -->
+        <div class="skills-category" data-aos="fade-up" data-aos-duration="800">
+          <h3>💻 Programming Languages</h3>
+          <div class="skills-grid-cat" id="skills-cat-1">
+            <div class="skill-card-new" data-percent="95"><div class="skill-header"><i class="devicon-dart-plain colored skill-icon"></i><span class="skill-name">Dart</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">95%</div></div>
+            <div class="skill-card-new" data-percent="95"><div class="skill-header"><i class="devicon-flutter-plain colored skill-icon"></i><span class="skill-name">Flutter</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">95%</div></div>
+            <div class="skill-card-new" data-percent="85"><div class="skill-header"><i class="devicon-javascript-plain colored skill-icon"></i><span class="skill-name">JavaScript</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">85%</div></div>
+            <div class="skill-card-new" data-percent="80"><div class="skill-header"><i class="devicon-typescript-plain colored skill-icon"></i><span class="skill-name">TypeScript</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">80%</div></div>
+            <div class="skill-card-new" data-percent="80"><div class="skill-header"><i class="devicon-python-plain colored skill-icon"></i><span class="skill-name">Python</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">80%</div></div>
+            <div class="skill-card-new" data-percent="75"><div class="skill-header"><i class="devicon-java-plain colored skill-icon"></i><span class="skill-name">Java</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">75%</div></div>
+          </div>
+        </div>
+
+        <!-- Category 2: Frontend & Mobile -->
+        <div class="skills-category" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+          <h3>📱 Frontend & Mobile</h3>
+          <div class="skills-grid-cat" id="skills-cat-2">
+            <div class="skill-card-new" data-percent="90"><div class="skill-header"><i class="devicon-html5-plain colored skill-icon"></i><span class="skill-name">HTML5</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">90%</div></div>
+            <div class="skill-card-new" data-percent="90"><div class="skill-header"><i class="devicon-css3-plain colored skill-icon"></i><span class="skill-name">CSS3</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">90%</div></div>
+            <div class="skill-card-new" data-percent="80"><div class="skill-header"><i class="devicon-nextjs-original colored skill-icon"></i><span class="skill-name">Next.js</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">80%</div></div>
+            <div class="skill-card-new" data-percent="85"><div class="skill-header"><i class="devicon-react-original colored skill-icon"></i><span class="skill-name">React</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">85%</div></div>
+          </div>
+        </div>
+
+        <!-- Category 3: Backend & Databases -->
+        <div class="skills-category" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+          <h3>⚙️ Backend & Databases</h3>
+          <div class="skills-grid-cat" id="skills-cat-3">
+            <div class="skill-card-new" data-percent="90"><div class="skill-header"><i class="devicon-django-plain colored skill-icon"></i><span class="skill-name">Django</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">90%</div></div>
+            <div class="skill-card-new" data-percent="85"><div class="skill-header"><i class="devicon-postgresql-plain colored skill-icon"></i><span class="skill-name">PostgreSQL</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">85%</div></div>
+            <div class="skill-card-new" data-percent="85"><div class="skill-header"><i class="devicon-firebase-plain colored skill-icon"></i><span class="skill-name">Firebase</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">85%</div></div>
+            <div class="skill-card-new" data-percent="75"><div class="skill-header"><i class="devicon-nodejs-plain colored skill-icon"></i><span class="skill-name">Node.js</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">75%</div></div>
+          </div>
+        </div>
+
+        <!-- Category 4: Version Control & Tools -->
+        <div class="skills-category" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+          <h3>🔧 Version Control & Tools</h3>
+          <div class="skills-grid-cat" id="skills-cat-4">
+            <div class="skill-card-new" data-percent="85"><div class="skill-header"><i class="devicon-git-plain colored skill-icon"></i><span class="skill-name">Git</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">85%</div></div>
+            <div class="skill-card-new" data-percent="80"><div class="skill-header"><i class="devicon-github-original colored skill-icon"></i><span class="skill-name">GitHub</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">80%</div></div>
+            <div class="skill-card-new" data-percent="70"><div class="skill-header"><i class="devicon-vscode-plain colored skill-icon"></i><span class="skill-name">VS Code</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">70%</div></div>
+          </div>
+        </div>
+
+        <!-- Category 5: Design & UI -->
+        <div class="skills-category" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+          <h3>🎨 Design & UI</h3>
+          <div class="skills-grid-cat" id="skills-cat-5">
+            <div class="skill-card-new" data-percent="70"><div class="skill-header"><i class="devicon-figma-plain colored skill-icon"></i><span class="skill-name">Figma</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">70%</div></div>
+            <div class="skill-card-new" data-percent="65"><div class="skill-header"><i class="devicon-illustrator-plain colored skill-icon"></i><span class="skill-name">Adobe XD</span></div><div class="skill-bar-container"><div class="skill-bar" style="width:0%"></div></div><div class="skill-percent">65%</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- LANGUAGES -->
     <section class="ftco-section new-section" id="languages-section">
@@ -549,7 +691,7 @@
       <div class="container"><h2>My Values</h2><div class="content"><ul><li><strong>Integrity</strong> – honest, ethical, transparent</li><li><strong>Continuous Learning</strong> – constantly upgrading knowledge</li><li><strong>Creativity</strong> – innovative solutions</li><li><strong>Teamwork</strong> – collaboration and respect</li><li><strong>User‑Centric Design</strong> – focus on usability</li><li><strong>Resilience</strong> – embrace challenges</li></ul></div></div>
     </section>
 
-    <!-- PROJECTS SECTION (6 projects) -->
+    <!-- PROJECTS SECTION (unchanged) -->
     <section class="ftco-section" id="project-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Projects</h1><h2 class="mb-4">Projects</h2><p>Below are some of my recent works.</p></div></div>
@@ -567,7 +709,7 @@
       </div>
     </section>
 
-    <!-- CONTACT + MAP with functional message send -->
+    <!-- CONTACT + MAP -->
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Contact</h1><h2 class="mb-4">Contact Me</h2><p>Below are the details to reach out to me!</p></div></div>
@@ -641,10 +783,42 @@
     document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
       link.addEventListener('click', () => { if (window.innerWidth <= 768) sidebar.classList.remove('open'); });
     });
-    // AOS initialized but skills grid removed - no conflict
     AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
 
-    // CONTACT FORM SEND MESSAGE
+    // Animate skill bars when they come into view (using waypoints)
+    function animateSkillBars() {
+      $('.skill-card-new').each(function() {
+        var $card = $(this);
+        var percent = parseInt($card.data('percent'));
+        var $bar = $card.find('.skill-bar');
+        var $percentSpan = $card.find('.skill-percent');
+        
+        // Use waypoint to trigger animation
+        $card.waypoint({
+          handler: function(direction) {
+            if (direction === 'down') {
+              $bar.css('width', percent + '%');
+              // optionally add number increment for percent
+              let current = 0;
+              const target = percent;
+              const updatePercent = () => {
+                if (current < target) {
+                  current++;
+                  $percentSpan.text(current + '%');
+                  setTimeout(updatePercent, 12);
+                }
+              };
+              updatePercent();
+              this.destroy(); // trigger only once
+            }
+          },
+          offset: '80%'
+        });
+      });
+    }
+    animateSkillBars();
+    
+    // Contact form
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
