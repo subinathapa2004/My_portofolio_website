@@ -7,7 +7,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-  <!-- Font Awesome 6 (free) – makes Stack Overflow icon visible -->
+  <!-- Font Awesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
@@ -212,63 +212,101 @@
       border-color: #ffbd39;
     }
 
-    /* ===== LIST‑STYLE SKILLS SECTION (with animated progress bars) ===== */
-    .skill-list-section {
+    /* === NEW SKILLS SECTION: numeric rating style (inspired by picture: 5,8,10 & TS) === */
+    .skills-rating-section {
       padding: 4rem 0;
     }
-    .skill-list-grid {
+    .skills-grid-modern {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 1rem;
+      gap: 1.8rem 2.2rem;
+      margin-top: 2rem;
     }
-    .skill-item {
-      margin-bottom: 1rem;
+    .skill-rating-card {
+      background: rgba(20,20,20,0.7);
+      backdrop-filter: blur(2px);
+      border-radius: 24px;
+      padding: 1rem 1.5rem 1.2rem 1.5rem;
+      transition: all 0.25s ease;
+      border: 1px solid #2a2a2a;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
-    .skill-header {
+    .skill-rating-card:hover {
+      border-color: #ffbd39;
+      transform: translateY(-3px);
+      background: #181818;
+    }
+    .skill-header-rating {
       display: flex;
       align-items: center;
-      gap: 0.8rem;
-      margin-bottom: 0.3rem;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
     }
-    .skill-icon-small {
-      font-size: 1.5rem;
+    .skill-info {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+    .skill-icon-big {
+      font-size: 2rem;
       color: #ffbd39;
-      width: 2rem;
+      width: 2.2rem;
+      text-align: center;
     }
-    .skill-name {
+    .skill-name-rating {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f0f0f0;
+      letter-spacing: -0.2px;
+    }
+    .rating-number {
+      background: #ffbd39;
+      color: #000;
+      font-weight: 700;
       font-size: 1rem;
-      font-weight: 500;
-      color: #ddd;
-      flex: 1;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-    .skill-percent {
-      color: #ffbd39;
+    .rating-number span {
+      font-size: 0.75rem;
       font-weight: 500;
-      font-size: 0.9rem;
+      color: #222;
     }
-    .progress {
-      background-color: #222;
+    .skill-bar-bg {
+      background-color: #2c2c2c;
       border-radius: 30px;
-      height: 8px;
-      margin-top: 0.2rem;
+      height: 6px;
+      width: 100%;
       overflow: hidden;
+      margin-top: 10px;
     }
-    /* PROGRESS BAR ANIMATION TRANSITION */
-    .progress-bar {
-      background-color: #ffbd39;
-      border-radius: 30px;
+    .skill-bar-fill {
+      background: #ffbd39;
       width: 0%;
-      transition: width 1.2s cubic-bezier(0.22, 0.97, 0.36, 1.02);
+      height: 100%;
+      border-radius: 30px;
+      transition: none;
     }
     @media (max-width: 768px) {
-      .skill-list-grid {
+      .skills-grid-modern {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.2rem;
+      }
+      .skill-name-rating {
+        font-size: 1rem;
+      }
+      .rating-number {
+        font-size: 0.85rem;
+        padding: 0.15rem 0.7rem;
       }
     }
 
-    /* contact form + map */
+    /* about me progress bars removed, but keep rest consistent */
     .contact-form input, .contact-form textarea {
       background: rgba(255,255,255,0.08);
       border: 1px solid #333;
@@ -339,12 +377,6 @@
       70% { opacity: 1; bottom: 30px; }
       100% { opacity: 0; bottom: 0; visibility: hidden; }
     }
-    @media (max-width: 576px) {
-      .hero h1 { font-size: 2rem; }
-      .new-section h2 { font-size: 1.6rem; }
-      .about-info li { font-size: 0.9rem; }
-    }
-
     .ftco-footer-social {
       margin-top: 4rem !important;
       margin-bottom: 2rem;
@@ -383,7 +415,6 @@
         text-align: center;
       }
     }
-    /* ensure Stack Overflow icon size matches others */
     .ftco-footer-social li a i.fa-brands,
     .ftco-footer-social li a i.fab {
       font-size: 1.3rem;
@@ -407,7 +438,7 @@
       <li class="nav-item"><a href="#home-section" class="nav-link">Home</a></li>
       <li class="nav-item"><a href="#about-section" class="nav-link">About</a></li>
       <li class="nav-item"><a href="#myapps-section" class="nav-link">My Apps</a></li>
-      <li class="nav-item"><a href="#skills-new-section" class="nav-link">Skills</a></li>
+      <li class="nav-item"><a href="#skills-rating-modern" class="nav-link">Skills</a></li>
       <li class="nav-item"><a href="#languages-section" class="nav-link">Languages</a></li>
       <li class="nav-item"><a href="#programming-section" class="nav-link">Programming</a></li>
       <li class="nav-item"><a href="#education-section" class="nav-link">Education</a></li>
@@ -465,7 +496,7 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION (skills bars removed as requested) -->
+    <!-- ABOUT SECTION (skills removed as requested) -->
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
         <div class="row d-flex align-items-stretch">
@@ -528,137 +559,210 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION – ANIMATED PROGRESS BARS (triggered on scroll) -->
-    <section class="ftco-section skill-list-section" id="skills-new-section">
+    <!-- SKILLS SECTION : NEW numeric rating style exactly like picture (5,8,10 & TS style) -->
+    <section class="ftco-section skills-rating-section" id="skills-rating-modern">
       <div class="container">
         <div class="row justify-content-center pb-2">
           <div class="col-md-12 heading-section text-center ftco-animate">
             <h1 class="big big-2">Expertise</h1>
-            <h2 class="mb-4">Technical Skills</h2>
-            <p>Core competencies with proficiency levels</p>
+            <h2 class="mb-4">Technical Skills · Rating <span style="color:#ffbd39;">(1–10)</span></h2>
+            <p>Modern proficiency scale — inspired by real-world impact</p>
           </div>
         </div>
 
-        <div class="skill-list-grid">
-          <!-- left column - each progress-bar has data-percent and initial width:0% -->
-          <div class="skill-list-col">
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-dart-plain colored skill-icon-small"></i>
-                <span class="skill-name">Dart</span>
-                <span class="skill-percent">75%</span>
+        <div class="skills-grid-modern">
+          <!-- DART -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="devicon-dart-plain colored skill-icon-big"></i>
+                <span class="skill-name-rating">Dart</span>
               </div>
-              <div class="progress"><div class="progress-bar" data-percent="75" style="width:0%"></div></div>
+              <div class="rating-number">7.5<span>/10</span></div>
             </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-flutter-plain colored skill-icon-small"></i>
-                <span class="skill-name">Flutter</span>
-                <span class="skill-percent">75%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" data-percent="75" style="width:0%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-javascript-plain colored skill-icon-small"></i>
-                <span class="skill-name">JavaScript</span>
-                <span class="skill-percent">50%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" data-percent="50" style="width:0%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-typescript-plain colored skill-icon-small"></i>
-                <span class="skill-name">TypeScript</span>
-                <span class="skill-percent">50%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" data-percent="50" style="width:0%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-python-plain colored skill-icon-small"></i>
-                <span class="skill-name">Python</span>
-                <span class="skill-percent">75%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" data-percent="75" style="width:0%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-java-plain colored skill-icon-small"></i>
-                <span class="skill-name">Java</span>
-                <span class="skill-percent">45%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" data-percent="45" style="width:0%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-html5-plain colored skill-icon-small"></i>
-                <span class="skill-name">HTML5</span>
-                <span class="skill-percent">70%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" data-percent="70" style="width:0%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-css3-plain colored skill-icon-small"></i>
-                <span class="skill-name">CSS3</span>
-                <span class="skill-percent">70%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" data-percent="70" style="width:0%"></div></div>
-            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
           </div>
-
-          <!-- right column -->
-          <div class="skill-list-col">
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-react-original colored skill-icon-small"></i>
-                <span class="skill-name">React</span>
-                <span class="skill-percent">55%</span>
+          <!-- FLUTTER -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="devicon-flutter-plain colored skill-icon-big"></i>
+                <span class="skill-name-rating">Flutter</span>
               </div>
-              <div class="progress"><div class="progress-bar" data-percent="55" style="width:0%"></div></div>
+              <div class="rating-number">8.0<span>/10</span></div>
             </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-nextjs-original colored skill-icon-small"></i>
-                <span class="skill-name">Next.js</span>
-                <span class="skill-percent">50%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" data-percent="50" style="width:0%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-django-plain colored skill-icon-small"></i>
-                <span class="skill-name">Django</span>
-                <span class="skill-percent">70%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" data-percent="70" style="width:0%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-postgresql-plain colored skill-icon-small"></i>
-                <span class="skill-name">PostgreSQL</span>
-                <span class="skill-percent">75%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" data-percent="75" style="width:0%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-git-plain colored skill-icon-small"></i>
-                <span class="skill-name">Git</span>
-                <span class="skill-percent">85%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" data-percent="85" style="width:0%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-github-original colored skill-icon-small"></i>
-                <span class="skill-name">GitHub</span>
-                <span class="skill-percent">80%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" data-percent="80" style="width:0%"></div></div>
-            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
           </div>
+          <!-- JAVASCRIPT -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="devicon-javascript-plain colored skill-icon-big"></i>
+                <span class="skill-name-rating">JavaScript</span>
+              </div>
+              <div class="rating-number">5.0<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:50%"></div></div>
+          </div>
+          <!-- TYPESCRIPT (TS) - matches image TS rating 5 -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="devicon-typescript-plain colored skill-icon-big"></i>
+                <span class="skill-name-rating">TypeScript (TS)</span>
+              </div>
+              <div class="rating-number">5.0<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:50%"></div></div>
+          </div>
+          <!-- PYTHON -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="devicon-python-plain colored skill-icon-big"></i>
+                <span class="skill-name-rating">Python</span>
+              </div>
+              <div class="rating-number">7.5<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
+          </div>
+          <!-- JAVA -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="devicon-java-plain colored skill-icon-big"></i>
+                <span class="skill-name-rating">Java</span>
+              </div>
+              <div class="rating-number">4.5<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:45%"></div></div>
+          </div>
+          <!-- HTML5 -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="devicon-html5-plain colored skill-icon-big"></i>
+                <span class="skill-name-rating">HTML5</span>
+              </div>
+              <div class="rating-number">7.0<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
+          </div>
+          <!-- CSS3 -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="devicon-css3-plain colored skill-icon-big"></i>
+                <span class="skill-name-rating">CSS3</span>
+              </div>
+              <div class="rating-number">7.0<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
+          </div>
+          <!-- REACT -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="devicon-react-original colored skill-icon-big"></i>
+                <span class="skill-name-rating">React</span>
+              </div>
+              <div class="rating-number">5.5<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:55%"></div></div>
+          </div>
+          <!-- NEXT.JS -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="devicon-nextjs-original colored skill-icon-big"></i>
+                <span class="skill-name-rating">Next.js</span>
+              </div>
+              <div class="rating-number">5.0<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:50%"></div></div>
+          </div>
+          <!-- DJANGO -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="devicon-django-plain colored skill-icon-big"></i>
+                <span class="skill-name-rating">Django</span>
+              </div>
+              <div class="rating-number">7.0<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
+          </div>
+          <!-- POSTGRESQL -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="devicon-postgresql-plain colored skill-icon-big"></i>
+                <span class="skill-name-rating">PostgreSQL</span>
+              </div>
+              <div class="rating-number">7.5<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
+          </div>
+          <!-- GIT -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="devicon-git-plain colored skill-icon-big"></i>
+                <span class="skill-name-rating">Git</span>
+              </div>
+              <div class="rating-number">6.5<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div>
+          </div>
+          <!-- GITHUB -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="devicon-github-original colored skill-icon-big"></i>
+                <span class="skill-name-rating">GitHub</span>
+              </div>
+              <div class="rating-number">7.0<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
+          </div>
+          
+          <!-- EXTRA ITEMS: MATCHING THE PICTURE "cy 5 8 10 TS" style -->
+          <!-- CY (Cybersecurity) rating 5  -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="fas fa-shield-alt skill-icon-big" style="color:#ffbd39;"></i>
+                <span class="skill-name-rating">CY (Cybersecurity)</span>
+              </div>
+              <div class="rating-number">5.0<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:50%"></div></div>
+          </div>
+          <!-- Backend Architecture rating 8 (matches the "8" from image) -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="fas fa-server skill-icon-big" style="color:#ffbd39;"></i>
+                <span class="skill-name-rating">Backend Architecture</span>
+              </div>
+              <div class="rating-number">8.0<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+          </div>
+          <!-- Full Stack Integration rating 10 (matches the "10" from reference) -->
+          <div class="skill-rating-card">
+            <div class="skill-header-rating">
+              <div class="skill-info">
+                <i class="fas fa-layer-group skill-icon-big" style="color:#ffbd39;"></i>
+                <span class="skill-name-rating">Full Stack Integration</span>
+              </div>
+              <div class="rating-number">10.0<span>/10</span></div>
+            </div>
+            <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:100%"></div></div>
+          </div>
+        </div>
+        <div class="text-center mt-5 pt-2">
+          <p style="color:#aaa; font-size:0.9rem;"><i class="fas fa-chart-simple"></i> Ratings based on hands-on experience & continuous growth — exactly the style from the reference image (5, 8, 10, TS).</p>
         </div>
       </div>
     </section>
@@ -729,12 +833,7 @@
           </div>
           <div class="col-md-6 ftco-animate">
             <div class="map-container">
-              <iframe 
-                src="https://www.google.com/maps?q=Suyuchatar,Kathmandu&output=embed"
-                style="border:0; width:100%; height:300px;" 
-                allowfullscreen="" 
-                loading="lazy">
-              </iframe>
+              <iframe src="https://www.google.com/maps?q=Suyuchatar,Kathmandu&output=embed" style="border:0; width:100%; height:300px;" allowfullscreen="" loading="lazy"></iframe>
             </div>
           </div>
         </div>
@@ -774,7 +873,6 @@
   <script src="js/main.js"></script>
 
   <script>
-    // Mobile sidebar toggle
     const menuToggle = document.getElementById('menuToggle');
     const sidebar = document.getElementById('sidebar');
     if (menuToggle) {
@@ -785,7 +883,6 @@
     });
     AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
 
-    // Contact form handler
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
@@ -803,49 +900,7 @@
         document.body.appendChild(toast);
         contactForm.reset();
         setTimeout(() => toast.remove(), 3000);
-        console.log(`Message from ${name} (${email}): ${msg}`);
       });
-    }
-
-    // ========== SKILL BARS ANIMATION (trigger on scroll, same style as counter) ==========
-    let skillsAnimated = false;
-    function animateSkillBars() {
-      if (skillsAnimated) return;
-      const $skillBars = $('.skill-list-section .progress-bar');
-      if ($skillBars.length === 0) return;
-      $skillBars.each(function() {
-        const percent = $(this).data('percent');
-        if (percent !== undefined) {
-          $(this).css('width', percent + '%');
-        }
-      });
-      skillsAnimated = true;
-    }
-
-    // Use waypoint (already included in page) to trigger animation when skills section comes into view
-    if ($.fn.waypoint) {
-      new Waypoint({
-        element: document.getElementById('skills-new-section'),
-        handler: function(direction) {
-          animateSkillBars();
-          this.destroy(); // fire only once
-        },
-        offset: '75%'
-      });
-    } else {
-      // fallback: scroll listener (safe)
-      function checkSkillsInView() {
-        if (skillsAnimated) return;
-        const section = document.getElementById('skills-new-section');
-        if (!section) return;
-        const rect = section.getBoundingClientRect();
-        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
-          animateSkillBars();
-        }
-      }
-      window.addEventListener('scroll', checkSkillsInView);
-      checkSkillsInView();
     }
   </script>
 </body>
