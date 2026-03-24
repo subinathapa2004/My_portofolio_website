@@ -7,6 +7,7 @@
 
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <!-- Font Awesome 6 (free) – makes Stack Overflow icon visible -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
@@ -211,7 +212,7 @@
       border-color: #ffbd39;
     }
 
-    /* ===== LIST‑STYLE SKILLS SECTION ===== */
+    /* ===== LIST‑STYLE SKILLS SECTION (with animated progress bars) ===== */
     .skill-list-section {
       padding: 4rem 0;
     }
@@ -253,40 +254,18 @@
       margin-top: 0.2rem;
       overflow: hidden;
     }
+    /* PROGRESS BAR ANIMATION TRANSITION */
     .progress-bar {
       background-color: #ffbd39;
       border-radius: 30px;
       width: 0%;
-      transition: none;
+      transition: width 1.2s cubic-bezier(0.22, 0.97, 0.36, 1.02);
     }
     @media (max-width: 768px) {
       .skill-list-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
       }
-    }
-
-    /* Hover animation for project cards */
-    .blog-entry {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      background: #0f0f0f;
-      border-radius: 20px;
-      overflow: hidden;
-      margin-bottom: 30px;
-    }
-    .blog-entry:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.6);
-    }
-    .blog-entry .block-20 {
-      transition: transform 0.4s ease;
-    }
-    .blog-entry:hover .block-20 {
-      transform: scale(1.02);
-    }
-    .blog-entry .text {
-      background: #0f0f0f;
-      padding: 1.5rem;
     }
 
     /* contact form + map */
@@ -404,6 +383,7 @@
         text-align: center;
       }
     }
+    /* ensure Stack Overflow icon size matches others */
     .ftco-footer-social li a i.fa-brands,
     .ftco-footer-social li a i.fab {
       font-size: 1.3rem;
@@ -485,8 +465,8 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section" data-aos="fade-up">
+    <!-- ABOUT SECTION (skills bars removed as requested) -->
+    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
         <div class="row d-flex align-items-stretch">
           <div class="col-md-6 col-lg-5 d-flex">
@@ -533,7 +513,7 @@
       </div>
     </section>
 
-    <section class="ftco-section new-section" id="myapps-section" data-aos="fade-up">
+    <section class="ftco-section new-section" id="myapps-section">
       <div class="container">
         <h2>My Apps</h2>
         <div class="content">
@@ -548,8 +528,8 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION -->
-    <section class="ftco-section skill-list-section" id="skills-new-section" data-aos="fade-up">
+    <!-- SKILLS SECTION – ANIMATED PROGRESS BARS (triggered on scroll) -->
+    <section class="ftco-section skill-list-section" id="skills-new-section">
       <div class="container">
         <div class="row justify-content-center pb-2">
           <div class="col-md-12 heading-section text-center ftco-animate">
@@ -560,40 +540,141 @@
         </div>
 
         <div class="skill-list-grid">
+          <!-- left column - each progress-bar has data-percent and initial width:0% -->
           <div class="skill-list-col">
-            <div class="skill-item"><div class="skill-header"><i class="devicon-dart-plain colored skill-icon-small"></i><span class="skill-name">Dart</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-flutter-plain colored skill-icon-small"></i><span class="skill-name">Flutter</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-javascript-plain colored skill-icon-small"></i><span class="skill-name">JavaScript</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-typescript-plain colored skill-icon-small"></i><span class="skill-name">TypeScript</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-python-plain colored skill-icon-small"></i><span class="skill-name">Python</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-java-plain colored skill-icon-small"></i><span class="skill-name">Java</span><span class="skill-percent">45%</span></div><div class="progress"><div class="progress-bar" style="width:45%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-html5-plain colored skill-icon-small"></i><span class="skill-name">HTML5</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-css3-plain colored skill-icon-small"></i><span class="skill-name">CSS3</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-dart-plain colored skill-icon-small"></i>
+                <span class="skill-name">Dart</span>
+                <span class="skill-percent">75%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" data-percent="75" style="width:0%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-flutter-plain colored skill-icon-small"></i>
+                <span class="skill-name">Flutter</span>
+                <span class="skill-percent">75%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" data-percent="75" style="width:0%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-javascript-plain colored skill-icon-small"></i>
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-percent">50%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" data-percent="50" style="width:0%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-typescript-plain colored skill-icon-small"></i>
+                <span class="skill-name">TypeScript</span>
+                <span class="skill-percent">50%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" data-percent="50" style="width:0%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-python-plain colored skill-icon-small"></i>
+                <span class="skill-name">Python</span>
+                <span class="skill-percent">75%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" data-percent="75" style="width:0%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-java-plain colored skill-icon-small"></i>
+                <span class="skill-name">Java</span>
+                <span class="skill-percent">45%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" data-percent="45" style="width:0%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-html5-plain colored skill-icon-small"></i>
+                <span class="skill-name">HTML5</span>
+                <span class="skill-percent">70%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" data-percent="70" style="width:0%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-css3-plain colored skill-icon-small"></i>
+                <span class="skill-name">CSS3</span>
+                <span class="skill-percent">70%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" data-percent="70" style="width:0%"></div></div>
+            </div>
           </div>
+
+          <!-- right column -->
           <div class="skill-list-col">
-            <div class="skill-item"><div class="skill-header"><i class="devicon-react-original colored skill-icon-small"></i><span class="skill-name">React</span><span class="skill-percent">55%</span></div><div class="progress"><div class="progress-bar" style="width:55%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-nextjs-original colored skill-icon-small"></i><span class="skill-name">Next.js</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-django-plain colored skill-icon-small"></i><span class="skill-name">Django</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-postgresql-plain colored skill-icon-small"></i><span class="skill-name">PostgreSQL</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-git-plain colored skill-icon-small"></i><span class="skill-name">Git</span><span class="skill-percent">65%</span></div><div class="progress"><div class="progress-bar" style="width:85%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-github-original colored skill-icon-small"></i><span class="skill-name">GitHub</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:80%"></div></div></div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-react-original colored skill-icon-small"></i>
+                <span class="skill-name">React</span>
+                <span class="skill-percent">55%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" data-percent="55" style="width:0%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-nextjs-original colored skill-icon-small"></i>
+                <span class="skill-name">Next.js</span>
+                <span class="skill-percent">50%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" data-percent="50" style="width:0%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-django-plain colored skill-icon-small"></i>
+                <span class="skill-name">Django</span>
+                <span class="skill-percent">70%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" data-percent="70" style="width:0%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-postgresql-plain colored skill-icon-small"></i>
+                <span class="skill-name">PostgreSQL</span>
+                <span class="skill-percent">75%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" data-percent="75" style="width:0%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-git-plain colored skill-icon-small"></i>
+                <span class="skill-name">Git</span>
+                <span class="skill-percent">85%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" data-percent="85" style="width:0%"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-header">
+                <i class="devicon-github-original colored skill-icon-small"></i>
+                <span class="skill-name">GitHub</span>
+                <span class="skill-percent">80%</span>
+              </div>
+              <div class="progress"><div class="progress-bar" data-percent="80" style="width:0%"></div></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="ftco-section new-section" id="languages-section" data-aos="fade-up">
+    <section class="ftco-section new-section" id="languages-section">
       <div class="container">
         <h2>Languages</h2>
         <div class="content"><ul><li><strong>Nepali</strong> – native</li><li><strong>English</strong> – professional working proficiency</li><li><strong>Hindi</strong> – Basic (Learning)</li></ul></div>
       </div>
     </section>
 
-    <section class="ftco-section new-section" id="programming-section" data-aos="fade-up">
+    <section class="ftco-section new-section" id="programming-section">
       <div class="container"><h2>Programming Journey</h2><div class="content"><p>I started my programming journey in 2023 with Python. After learning the fundamentals, I expanded my skills into web development and mobile app development. Currently, I am focused on improving my full-stack flutter development skills and exploring Artificial Intelligence. I am passionate about building real-world applications and creating innovative solutions with technology.</p></div></div>
     </section>
 
-    <section class="ftco-section" id="education-section" data-aos="fade-up">
+    <section class="ftco-section" id="education-section">
       <div class="container">
         <div class="row justify-content-center pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Education</h1><h2 class="mb-4">Education</h2><p>My academic background and qualifications.</p></div></div>
         <div class="row">
@@ -603,82 +684,28 @@
       </div>
     </section>
 
-    <section class="ftco-section new-section" id="values-section" data-aos="fade-up">
+    <section class="ftco-section new-section" id="values-section">
       <div class="container"><h2>My Values</h2><div class="content"><ul><li><strong>Integrity</strong> – honest, ethical, transparent</li><li><strong>Continuous Learning</strong> – constantly upgrading knowledge</li><li><strong>Creativity</strong> – innovative solutions</li><li><strong>Teamwork</strong> – collaboration and respect</li><li><strong>User‑Centric Design</strong> – focus on usability</li><li><strong>Resilience</strong> – embrace challenges</li></ul></div></div>
     </section>
 
-    <!-- PROJECT SECTION with AOS animations -->
     <section class="ftco-section" id="project-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Projects</h1><h2 class="mb-4">Projects</h2><p>Below are some of my recent works.</p></div></div>
         <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate" data-aos="fade-up" data-aos-delay="100">
-            <div class="blog-entry justify-content-end">
-              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a>
-              <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="#">Clinic Website</a></h3>
-                <p>Mobile-friendly healthcare site with consent form, appointment scheduling, and SEO best practices.</p>
-                <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate" data-aos="fade-up" data-aos-delay="200">
-            <div class="blog-entry justify-content-end">
-              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a>
-              <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="#">Cleaning Website</a></h3>
-                <p>Clean design highlighting services, pricing, and customer testimonials to build trust.</p>
-                <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate" data-aos="fade-up" data-aos-delay="300">
-            <div class="blog-entry">
-              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a>
-              <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="#">Montessori Website</a></h3>
-                <p>Child-friendly design with classroom images, learning materials, and testimonials.</p>
-                <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
-              </div>
-            </div>
-          </div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Clinic Website</a></h3><p>Mobile-friendly healthcare site with consent form, appointment scheduling, and SEO best practices.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Cleaning Website</a></h3><p>Clean design highlighting services, pricing, and customer testimonials to build trust.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Montessori Website</a></h3><p>Child-friendly design with classroom images, learning materials, and testimonials.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
         </div>
         <div class="row d-flex mt-4">
-          <div class="col-md-4 d-flex ftco-animate" data-aos="fade-up" data-aos-delay="100">
-            <div class="blog-entry justify-content-end">
-              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></a>
-              <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="#">Real Estate</a></h3>
-                <p>React.js based property showcase for sale/rent with interactive UI.</p>
-                <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate" data-aos="fade-up" data-aos-delay="200">
-            <div class="blog-entry justify-content-end">
-              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></a>
-              <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="#">Company Website</a></h3>
-                <p>Professional corporate site with interactive elements and lead generation focus.</p>
-                <a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate" data-aos="fade-up" data-aos-delay="300">
-            <div class="blog-entry">
-              <a href="#" class="block-20 zoom-effect" style="background-image: url('images/ooo.png');"></a>
-              <div class="text mt-3 float-right d-block">
-                <h3 class="heading"><a href="#">E‑commerce App</a></h3>
-                <p>Coming soon: full-stack shopping experience.</p>
-              </div>
-            </div>
-          </div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Real Estate</a></h3><p>React.js based property showcase for sale/rent with interactive UI.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Company Website</a></h3><p>Professional corporate site with interactive elements and lead generation focus.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/ooo.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">E‑commerce App</a></h3><p>Coming soon: full-stack shopping experience.</p></div></div></div>
         </div>
         <div class="more-github"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-github">🔗 More projects on GitHub</a></div>
       </div>
     </section>
 
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section" data-aos="fade-up">
+    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Contact</h1><h2 class="mb-4">Contact Me</h2><p>Below are the details to reach out to me!</p></div></div>
         <div class="row d-flex contact-info mb-5">
@@ -747,6 +774,7 @@
   <script src="js/main.js"></script>
 
   <script>
+    // Mobile sidebar toggle
     const menuToggle = document.getElementById('menuToggle');
     const sidebar = document.getElementById('sidebar');
     if (menuToggle) {
@@ -755,8 +783,9 @@
     document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
       link.addEventListener('click', () => { if (window.innerWidth <= 768) sidebar.classList.remove('open'); });
     });
-    AOS.init({ duration: 800, easing: 'ease-in-out', once: true, offset: 100 });
+    AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
 
+    // Contact form handler
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
@@ -776,6 +805,47 @@
         setTimeout(() => toast.remove(), 3000);
         console.log(`Message from ${name} (${email}): ${msg}`);
       });
+    }
+
+    // ========== SKILL BARS ANIMATION (trigger on scroll, same style as counter) ==========
+    let skillsAnimated = false;
+    function animateSkillBars() {
+      if (skillsAnimated) return;
+      const $skillBars = $('.skill-list-section .progress-bar');
+      if ($skillBars.length === 0) return;
+      $skillBars.each(function() {
+        const percent = $(this).data('percent');
+        if (percent !== undefined) {
+          $(this).css('width', percent + '%');
+        }
+      });
+      skillsAnimated = true;
+    }
+
+    // Use waypoint (already included in page) to trigger animation when skills section comes into view
+    if ($.fn.waypoint) {
+      new Waypoint({
+        element: document.getElementById('skills-new-section'),
+        handler: function(direction) {
+          animateSkillBars();
+          this.destroy(); // fire only once
+        },
+        offset: '75%'
+      });
+    } else {
+      // fallback: scroll listener (safe)
+      function checkSkillsInView() {
+        if (skillsAnimated) return;
+        const section = document.getElementById('skills-new-section');
+        if (!section) return;
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        if (rect.top <= windowHeight * 0.8 && rect.bottom >= 0) {
+          animateSkillBars();
+        }
+      }
+      window.addEventListener('scroll', checkSkillsInView);
+      checkSkillsInView();
     }
   </script>
 </body>
