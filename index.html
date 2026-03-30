@@ -100,22 +100,39 @@
       margin-bottom: 0.6rem;
     }
     .sidebar-nav .nav-link {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 12px;
       padding: 0.7rem 1rem;
       color: #ccc;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       border-radius: 40px;
       transition: all 0.3s;
       text-decoration: none;
       font-weight: 400;
       border: 1px solid transparent;
     }
+    /* icon styling inside sidebar */
+    .sidebar-nav .nav-link i {
+      width: 24px;
+      font-size: 1.25rem;
+      text-align: center;
+      color: #ffbd39;
+      transition: 0.2s;
+    }
+    .sidebar-nav .nav-link:hover i,
+    .sidebar-nav .nav-link.active i {
+      color: #000;
+    }
     .sidebar-nav .nav-link:hover,
     .sidebar-nav .nav-link.active {
       background: #ffbd39;
       color: #000;
       border-color: #ffbd39;
-      padding-left: 1.5rem;
+      padding-left: 1.3rem;
+    }
+    .sidebar-nav .nav-link span {
+      flex: 1;
     }
 
     .main-content {
@@ -128,7 +145,8 @@
       .sidebar { width: 240px; padding: 1.5rem 1rem; }
       .profile-sidebar img { width: 100px; height: 100px; }
       .profile-sidebar h3 { font-size: 1.3rem; }
-      .sidebar-nav .nav-link { font-size: 1rem; padding: 0.5rem 0.8rem; }
+      .sidebar-nav .nav-link { font-size: 1rem; padding: 0.55rem 0.8rem; gap: 8px; }
+      .sidebar-nav .nav-link i { font-size: 1.1rem; width: 22px; }
       .main-content { margin-left: 240px; }
     }
 
@@ -212,7 +230,7 @@
       border-color: #ffbd39;
     }
 
-    /* ===== LIST‑STYLE SKILLS SECTION ===== */
+    /* SKILLS LIST STYLE */
     .skill-list-section {
       padding: 4rem 0;
     }
@@ -387,6 +405,7 @@
       justify-content: center;
       transition: 0.3s;
       text-decoration: none;
+      color: #ffbd39;
     }
     .ftco-footer-social li a:hover {
       background: #ffbd39;
@@ -396,10 +415,6 @@
     .ftco-footer-social li a i,
     .ftco-footer-social li a span {
       font-size: 1.3rem;
-    }
-    /* ensure FontAwesome icons inherit color */
-    .ftco-footer-social li a i {
-      color: inherit;
     }
     @media (max-width: 768px) {
       .ftco-footer-social {
@@ -428,16 +443,17 @@
       <p>Full Stack Flutter Developer</p>
     </div>
     <ul class="sidebar-nav nav">
-      <li class="nav-item"><a href="#home-section" class="nav-link">Home</a></li>
-      <li class="nav-item"><a href="#about-section" class="nav-link">About</a></li>
-      <li class="nav-item"><a href="#myapps-section" class="nav-link">My Apps</a></li>
-      <li class="nav-item"><a href="#skills-new-section" class="nav-link">Skills</a></li>
-      <li class="nav-item"><a href="#languages-section" class="nav-link">Languages</a></li>
-      <li class="nav-item"><a href="#programming-section" class="nav-link">Programming</a></li>
-      <li class="nav-item"><a href="#education-section" class="nav-link">Education</a></li>
-      <li class="nav-item"><a href="#values-section" class="nav-link">Values</a></li>
-      <li class="nav-item"><a href="#project-section" class="nav-link">Project</a></li>
-      <li class="nav-item"><a href="#contact-section" class="nav-link">Contact</a></li>
+      <!-- Added icons for all sections - mobile responsive, stylish -->
+      <li class="nav-item"><a href="#home-section" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+      <li class="nav-item"><a href="#about-section" class="nav-link"><i class="fas fa-user"></i><span>About</span></a></li>
+      <li class="nav-item"><a href="#myapps-section" class="nav-link"><i class="fas fa-mobile-alt"></i><span>My Apps</span></a></li>
+      <li class="nav-item"><a href="#skills-new-section" class="nav-link"><i class="fas fa-code"></i><span>Skills</span></a></li>
+      <li class="nav-item"><a href="#languages-section" class="nav-link"><i class="fas fa-language"></i><span>Languages</span></a></li>
+      <li class="nav-item"><a href="#programming-section" class="nav-link"><i class="fas fa-laptop-code"></i><span>Programming</span></a></li>
+      <li class="nav-item"><a href="#education-section" class="nav-link"><i class="fas fa-graduation-cap"></i><span>Education</span></a></li>
+      <li class="nav-item"><a href="#values-section" class="nav-link"><i class="fas fa-heart"></i><span>Values</span></a></li>
+      <li class="nav-item"><a href="#project-section" class="nav-link"><i class="fas fa-project-diagram"></i><span>Project</span></a></li>
+      <li class="nav-item"><a href="#contact-section" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
     </ul>
   </div>
 
@@ -489,7 +505,7 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION: SKILLS REMOVED (only personal info) -->
+    <!-- ABOUT SECTION: personal info only -->
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
         <div class="row d-flex align-items-stretch">
@@ -552,7 +568,7 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION – LIST STYLE WITH ICONS (fully intact) -->
+    <!-- SKILLS SECTION – LIST STYLE WITH ICONS (fully intact and responsive) -->
     <section class="ftco-section skill-list-section" id="skills-new-section">
       <div class="container">
         <div class="row justify-content-center pb-2">
@@ -670,7 +686,7 @@
                 <span class="skill-name">Git</span>
                 <span class="skill-percent">65%</span>
               </div>
-              <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
+              <div class="progress"><div class="progress-bar" style="width:65%"></div></div>
             </div>
             <div class="skill-item">
               <div class="skill-header">
@@ -678,7 +694,7 @@
                 <span class="skill-name">GitHub</span>
                 <span class="skill-percent">70%</span>
               </div>
-              <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+              <div class="progress"><div class="progress-bar" style="width:70%"></div></div>
             </div>
           </div>
         </div>
@@ -764,9 +780,7 @@
           <li class="ftco-animate normal-txt">Find me on</li>
           <li class="ftco-animate"><a href="https://github.com/subinathapa2004"><span class="icon-github"></span></a></li>
           <li class="ftco-animate"><a href="https://x.com/ThapaSubina22"><span class="icon-twitter"></span></a></li>
-          <!-- Dev.to icon: fixed with FontAwesome (fully visible) -->
           <li class="ftco-animate"><a href="https://dev.to/thapasubina22"><i class="fab fa-dev"></i></a></li>
-          <!-- Medium icon: fixed with FontAwesome -->
           <li class="ftco-animate"><a href="https://medium.com/@subinathapa5510"><i class="fab fa-medium"></i></a></li>
           <li class="ftco-animate"><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/"><span class="icon-linkedin"></span></a></li>
           <li class="ftco-animate"><a href="https://stackoverflow.com/users/31152593/subina-thapa/"><i class="fa-brands fa-stack-overflow"></i></a></li>
