@@ -3,13 +3,15 @@
 <head>
   <title>Subina Thapa · Full Stack Flutter Developer</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
 
+  <!-- Google Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-  <!-- Font Awesome 6 (free) – makes Dev.to, Medium, Stack Overflow icons visible -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+  <!-- Vendor Styles (kept for existing structure) -->
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -22,8 +24,115 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    body { overflow-x: hidden; background: #111; margin:0; padding:0; font-family: 'Poppins', sans-serif; }
-    
+    /* ---------- GLOBAL RESET / BETTER RESPONSIVE ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      overflow-x: hidden;
+      background: #111;
+      font-family: 'Poppins', sans-serif;
+      color: #ddd;
+    }
+
+    /* ------ SIDEBAR (mobile-first improvements) ------ */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: #0a0a0a;
+      z-index: 1000;
+      padding: 2rem 1.2rem;
+      overflow-y: auto;
+      border-right: 1px solid #222;
+      transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transform: translateX(0);
+      box-shadow: 4px 0 20px rgba(0,0,0,0.6);
+    }
+
+    /* mobile sidebar hidden by default */
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        width: 270px;
+        padding: 1.5rem 1rem;
+      }
+      .sidebar.open {
+        transform: translateX(0);
+        box-shadow: 8px 0 30px rgba(0,0,0,0.8);
+      }
+      /* overlay backdrop when sidebar open */
+      .sidebar.open::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 270px;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.6);
+        z-index: -1;
+        pointer-events: none;
+      }
+    }
+
+    /* desktop always visible */
+    @media (min-width: 769px) {
+      .sidebar {
+        transform: translateX(0) !important;
+      }
+    }
+
+    .profile-sidebar {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .profile-sidebar img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ffbd39;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 15px rgba(255,189,57,0.2);
+    }
+    .profile-sidebar h3 {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .profile-sidebar p {
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .sidebar-nav .nav-item {
+      margin-bottom: 0.4rem;
+    }
+    .sidebar-nav .nav-link {
+      display: block;
+      padding: 0.7rem 1rem;
+      color: #ccc;
+      font-size: 1rem;
+      border-radius: 40px;
+      transition: all 0.25s;
+      text-decoration: none;
+      font-weight: 400;
+      border: 1px solid transparent;
+    }
+    .sidebar-nav .nav-link:hover,
+    .sidebar-nav .nav-link.active {
+      background: #ffbd39;
+      color: #000;
+      border-color: #ffbd39;
+      padding-left: 1.3rem;
+    }
+
+    /* mobile header */
     .mobile-header {
       display: none;
       position: fixed;
@@ -34,9 +143,10 @@
       background: #0a0a0a;
       z-index: 1001;
       align-items: center;
-      padding: 0 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      padding: 0 18px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
       border-bottom: 1px solid #222;
+      backdrop-filter: blur(2px);
     }
     .mobile-header .menu-btn {
       background: none;
@@ -44,7 +154,9 @@
       color: #ffbd39;
       font-size: 28px;
       cursor: pointer;
-      margin-right: 15px;
+      margin-right: 12px;
+      width: 40px;
+      text-align: center;
     }
     .mobile-header .brand {
       color: #ffbd39;
@@ -52,96 +164,7 @@
       font-weight: 600;
       flex-grow: 1;
     }
-
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 280px;
-      height: 100vh;
-      background: #0a0a0a;
-      z-index: 1000;
-      padding: 2rem 1.5rem;
-      box-shadow: 4px 0 15px rgba(0,0,0,0.5);
-      overflow-y: auto;
-      border-right: 1px solid #222;
-      transition: transform 0.3s ease-in-out;
-    }
-    .profile-sidebar {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-    .profile-sidebar img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #ffbd39;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 20px rgba(255,189,57,0.3);
-    }
-    .profile-sidebar h3 {
-      color: #fff;
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-    .profile-sidebar p {
-      color: #aaa;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-    }
-    .sidebar-nav {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .sidebar-nav .nav-item {
-      margin-bottom: 0.6rem;
-    }
-    .sidebar-nav .nav-link {
-      display: block;
-      padding: 0.7rem 1rem;
-      color: #ccc;
-      font-size: 1.1rem;
-      border-radius: 40px;
-      transition: all 0.3s;
-      text-decoration: none;
-      font-weight: 400;
-      border: 1px solid transparent;
-    }
-    .sidebar-nav .nav-link:hover,
-    .sidebar-nav .nav-link.active {
-      background: #ffbd39;
-      color: #000;
-      border-color: #ffbd39;
-      padding-left: 1.5rem;
-    }
-
-    .main-content {
-      margin-left: 280px;
-      transition: margin-left 0.3s;
-      background: #111;
-    }
-
-    @media (max-width: 992px) {
-      .sidebar { width: 240px; padding: 1.5rem 1rem; }
-      .profile-sidebar img { width: 100px; height: 100px; }
-      .profile-sidebar h3 { font-size: 1.3rem; }
-      .sidebar-nav .nav-link { font-size: 1rem; padding: 0.5rem 0.8rem; }
-      .main-content { margin-left: 240px; }
-    }
-
     @media (max-width: 768px) {
-      .sidebar {
-        transform: translateX(-100%);
-        width: 260px;
-        box-shadow: none;
-      }
-      .sidebar.open {
-        transform: translateX(0);
-        box-shadow: 4px 0 15px rgba(0,0,0,0.5);
-      }
       .mobile-header {
         display: flex;
       }
@@ -151,716 +174,586 @@
       }
     }
 
-    .ftco_navbar { display: none; }
-
-    .new-section {
-      padding: 5rem 0;
-      border-bottom: 1px solid #222;
+    /* main content */
+    .main-content {
+      margin-left: 280px;
+      transition: margin-left 0.2s;
+      background: #111;
     }
-    .new-section h2 {
-      color: #ffbd39;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
+    @media (max-width: 992px) {
+      .main-content {
+        margin-left: 240px;
+      }
     }
-    .new-section .content {
-      color: #ddd;
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-    .btn-primary {
-      background: #ffbd39;
-      border: none;
-      color: #000;
-    }
-    .btn-primary:hover {
-      background: #e6a800;
-    }
-    .project-github {
-      display: inline-block;
-      margin-top: 0.8rem;
-      color: #ffbd39;
-      font-weight: 500;
-      text-decoration: none;
-      border: 1px solid #ffbd39;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
-      transition: 0.3s;
-    }
-    .project-github:hover {
-      background: #ffbd39;
-      color: #000;
-    }
-    .more-github {
-      text-align: center;
-      margin-top: 3rem;
-    }
-    .more-github .btn-github {
-      background: #333;
-      color: #ffbd39;
-      border: 2px solid #ffbd39;
-      padding: 0.8rem 2rem;
-      border-radius: 40px;
-      font-weight: 600;
-      transition: 0.3s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .more-github .btn-github:hover {
-      background: #ffbd39;
-      color: #000;
-      border-color: #ffbd39;
+    @media (max-width: 768px) {
+      .main-content {
+        margin-left: 0;
+      }
     }
 
-    /* ===== LIST‑STYLE SKILLS SECTION ===== */
-    .skill-list-section {
+    /* hero section (full responsive) */
+    .hero .slider-item {
+      min-height: 85vh;
+      position: relative;
+    }
+    .hero .slider-item .img {
+      background-size: cover;
+      background-position: center 30%;
+      height: 85vh;
+      width: 100%;
+    }
+    .hero .one-forth {
+      padding: 2rem;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    @media (max-width: 768px) {
+      .hero .slider-item {
+        min-height: 70vh;
+      }
+      .hero .slider-item .img {
+        height: 50vh;
+        background-position: top center;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .hero .one-forth {
+        text-align: center;
+        padding: 1rem;
+      }
+      .hero .btn {
+        margin: 0.3rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      #typing-animation {
+        font-size: 1.3rem !important;
+      }
+    }
+
+    /* general sections */
+    .new-section, .ftco-section {
       padding: 4rem 0;
     }
+    .new-section h2, .heading-section h2 {
+      color: #ffbd39;
+      font-size: 1.9rem;
+      margin-bottom: 1.2rem;
+    }
+    .content p, .content li {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    @media (max-width: 768px) {
+      .new-section, .ftco-section {
+        padding: 2.5rem 0;
+      }
+      .new-section h2, .heading-section h2 {
+        font-size: 1.6rem;
+      }
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
+    /* about section images & layout */
+    .img-about .about-img img {
+      max-width: 100%;
+      border-radius: 12px;
+      height: auto;
+    }
+    .about-info li {
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .counter-wrap .number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffbd39;
+    }
+
+    /* skill list grid (already responsive) */
     .skill-list-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 1rem;
+      gap: 1.8rem;
     }
-    .skill-item {
-      margin-bottom: 1rem;
-    }
-    .skill-header {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      margin-bottom: 0.3rem;
-    }
-    .skill-icon-small {
-      font-size: 1.5rem;
-      color: #ffbd39;
-      width: 2rem;
-    }
-    .skill-name {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #ddd;
-      flex: 1;
-    }
-    .skill-percent {
-      color: #ffbd39;
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-    .progress {
-      background-color: #222;
-      border-radius: 30px;
-      height: 8px;
-      margin-top: 0.2rem;
-      overflow: hidden;
-    }
-    .progress-bar {
-      background-color: #ffbd39;
-      border-radius: 30px;
-      width: 0%;
-      transition: none;
-    }
-    @media (max-width: 768px) {
+    @media (max-width: 680px) {
       .skill-list-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
       }
     }
-
-    /* Blog Cards */
-    .blog-card {
-      background: #1a1a1a;
-      border-radius: 20px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      height: 100%;
+    .skill-item {
+      margin-bottom: 0.8rem;
+    }
+    .skill-header {
       display: flex;
-      flex-direction: column;
-      border: 1px solid #2a2a2a;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
-    .blog-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-      border-color: #ffbd39;
-    }
-    .blog-card-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      background: #0a0a0a;
-      border-bottom: 1px solid #333;
-    }
-    .blog-card-content {
-      padding: 1.5rem;
+    .skill-name {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .blog-card-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #ffbd39;
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
-    }
-    .blog-card-excerpt {
-      color: #bbb;
       font-size: 0.9rem;
-      line-height: 1.5;
-      margin-bottom: 1.2rem;
-      flex: 1;
+      font-weight: 500;
     }
-    .blog-card-meta {
-      font-size: 0.75rem;
-      color: #888;
-      margin-bottom: 1rem;
-    }
-    .blog-read-link {
+    .skill-percent {
       color: #ffbd39;
       font-weight: 500;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: 0.2s;
     }
-    .blog-read-link:hover {
-      color: #fff;
-      gap: 0.7rem;
-    }
-    .blog-section .row > div {
-      margin-bottom: 30px;
-    }
-    .medium-placeholder {
-      text-align: center;
-      background: #1e1e1e;
-      padding: 2rem;
+    .progress {
+      background-color: #222;
       border-radius: 30px;
-      color: #ffbd39;
+      height: 8px;
     }
-    .medium-placeholder i {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+    .progress-bar {
+      background-color: #ffbd39;
+      border-radius: 30px;
     }
 
-    /* contact form + map */
+    /* projects cards */
+    .blog-entry .block-20 {
+      background-size: cover;
+      background-position: center;
+      height: 200px;
+      border-radius: 16px;
+      transition: 0.2s;
+      display: block;
+    }
+    .blog-entry .text {
+      background: #1a1a1a;
+      padding: 1.2rem;
+      border-radius: 20px;
+      margin-top: -30px;
+      position: relative;
+      z-index: 2;
+    }
+    .project-github {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #ffbd39;
+      font-size: 0.85rem;
+      border: 1px solid #ffbd39;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      text-decoration: none;
+    }
+    .more-github .btn-github {
+      background: #222;
+      color: #ffbd39;
+      border: 2px solid #ffbd39;
+      padding: 0.6rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 500;
+    }
+    @media (max-width: 768px) {
+      .blog-entry .block-20 {
+        height: 170px;
+      }
+      .blog-entry .text {
+        padding: 1rem;
+      }
+      .row.d-flex > [class*="col-"] {
+        margin-bottom: 1.8rem;
+      }
+    }
+
+    /* contact + map */
     .contact-form input, .contact-form textarea {
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.07);
       border: 1px solid #333;
       color: #fff;
       border-radius: 40px;
-      padding: 0.7rem 1.5rem;
+      padding: 0.7rem 1.2rem;
       margin-bottom: 1rem;
       width: 100%;
-      font-size: 1rem;
     }
     .contact-form input:focus, .contact-form textarea:focus {
+      border-color: #ffbd39;
       outline: none;
-      border-color: #ffbd39;
-      background: rgba(255,189,57,0.05);
     }
-    .contact-form textarea {
-      border-radius: 25px;
-      resize: vertical;
-    }
-    .contact-form .btn-send {
+    .btn-send {
       background: #ffbd39;
-      color: #000;
       border: none;
-      border-radius: 40px;
       padding: 0.7rem 2rem;
+      border-radius: 40px;
       font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-      border: 2px solid transparent;
-    }
-    .contact-form .btn-send:hover {
-      background: transparent;
-      color: #ffbd39;
-      border-color: #ffbd39;
+      color: #000;
     }
     .map-container {
-      border: 2px solid #333;
-      border-radius: 20px;
+      border-radius: 24px;
       overflow: hidden;
       height: 100%;
-      min-height: 320px;
-    }
-    .map-container iframe {
-      width: 100%;
-      height: 100%;
-      display: block;
-      min-height: 320px;
+      min-height: 280px;
     }
     .contact-map-row {
-      margin-top: 3rem;
-      margin-bottom: 2rem;
+      margin: 2rem 0;
     }
-    .toast-msg {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ffbd39;
-      color: #000;
-      padding: 12px 24px;
-      border-radius: 50px;
-      font-weight: 500;
-      z-index: 9999;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      animation: fadeOut 3s forwards;
-    }
-    @keyframes fadeOut {
-      0% { opacity: 1; bottom: 30px; }
-      70% { opacity: 1; bottom: 30px; }
-      100% { opacity: 0; bottom: 0; visibility: hidden; }
-    }
-    @media (max-width: 576px) {
-      .hero h1 { font-size: 2rem; }
-      .new-section h2 { font-size: 1.6rem; }
-      .about-info li { font-size: 0.9rem; }
+    @media (max-width: 768px) {
+      .contact-map-row .col-md-6:first-child {
+        margin-bottom: 2rem;
+      }
+      .map-container {
+        min-height: 280px;
+      }
+      .contact-info .box {
+        margin-bottom: 1rem;
+      }
     }
 
+    /* social footer */
     .ftco-footer-social {
-      margin-top: 4rem !important;
-      margin-bottom: 2rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin: 2rem 0 1rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
-    .ftco-footer-social li.normal-txt {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #ffbd39;
-      margin-right: 15px;
+    .ftco-footer-social li {
+      list-style: none;
     }
     .ftco-footer-social li a {
       background: rgba(255,255,255,0.05);
-      border-radius: 50%;
       width: 42px;
       height: 42px;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: 0.3s;
-      text-decoration: none;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      color: #ffbd39;
+      transition: 0.2s;
     }
     .ftco-footer-social li a:hover {
       background: #ffbd39;
       color: #000;
       transform: translateY(-3px);
     }
-    .ftco-footer-social li a i,
-    .ftco-footer-social li a span {
-      font-size: 1.3rem;
+    .ftco-footer-social .normal-txt {
+      font-size: 1rem;
+      color: #ffbd39;
+      margin-right: 5px;
     }
-    /* ensure FontAwesome icons inherit color */
-    .ftco-footer-social li a i {
-      color: inherit;
+    @media (max-width: 560px) {
+      .ftco-footer-social {
+        gap: 0.5rem;
+      }
+      .ftco-footer-social li a {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+      }
+      .ftco-footer-social .normal-txt {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.8rem;
+      }
+    }
+
+    /* toast message */
+    .toast-msg {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffbd39;
+      color: #000;
+      padding: 12px 22px;
+      border-radius: 50px;
+      font-weight: 500;
+      z-index: 9999;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      max-width: 90vw;
+      white-space: normal;
+      text-align: center;
+    }
+    @media (max-width: 550px) {
+      .toast-msg {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+        white-space: normal;
+        width: auto;
+      }
+    }
+
+    /* additional touch ups */
+    .btn-primary, .btn-white {
+      border-radius: 40px;
+      padding: 0.7rem 1.6rem;
+      font-weight: 500;
+    }
+    img, iframe {
+      max-width: 100%;
+    }
+    .ftco-animate {
+      visibility: visible;
+    }
+    .heading-section .big {
+      font-size: 5rem;
     }
     @media (max-width: 768px) {
-      .ftco-footer-social {
-        margin-top: 2.5rem !important;
+      .heading-section .big {
+        font-size: 3rem;
       }
-      .ftco-footer-social li.normal-txt {
-        display: block;
-        width: 100%;
-        margin-bottom: 15px;
-        text-align: center;
-      }
+    }
+    .resume-wrap {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
     }
   </style>
 </head>
 <body data-spy="scroll" data-target=".sidebar-nav" data-offset="300">
 
-  <div class="mobile-header">
-    <button class="menu-btn" id="menuToggle" aria-label="Menu">☰</button>
-    <span class="brand">Subina Thapa</span>
+<div class="mobile-header">
+  <button class="menu-btn" id="menuToggle" aria-label="Menu">☰</button>
+  <span class="brand">Subina Thapa</span>
+</div>
+
+<div class="sidebar site-navbar-target" id="sidebar">
+  <div class="profile-sidebar">
+    <img src="images/gggg.jpg" alt="Subina Thapa" onerror="this.src='https://placehold.co/400x400?text=ST'">
+    <h3>Subina Thapa</h3>
+    <p>Full Stack Flutter Developer</p>
   </div>
+  <ul class="sidebar-nav nav">
+    <li class="nav-item"><a href="#home-section" class="nav-link">Home</a></li>
+    <li class="nav-item"><a href="#about-section" class="nav-link">About</a></li>
+    <li class="nav-item"><a href="#myapps-section" class="nav-link">My Apps</a></li>
+    <li class="nav-item"><a href="#skills-new-section" class="nav-link">Skills</a></li>
+    <li class="nav-item"><a href="#languages-section" class="nav-link">Languages</a></li>
+    <li class="nav-item"><a href="#programming-section" class="nav-link">Programming</a></li>
+    <li class="nav-item"><a href="#education-section" class="nav-link">Education</a></li>
+    <li class="nav-item"><a href="#values-section" class="nav-link">Values</a></li>
+    <li class="nav-item"><a href="#project-section" class="nav-link">Project</a></li>
+    <li class="nav-item"><a href="#contact-section" class="nav-link">Contact</a></li>
+  </ul>
+</div>
 
-  <div class="sidebar site-navbar-target" id="sidebar">
-    <div class="profile-sidebar">
-      <img src="images/gggg.jpg" alt="Subina Thapa">
-      <h3>Subina Thapa</h3>
-      <p>Full Stack Flutter Developer</p>
-    </div>
-    <ul class="sidebar-nav nav">
-      <li class="nav-item"><a href="#home-section" class="nav-link">Home</a></li>
-      <li class="nav-item"><a href="#about-section" class="nav-link">About</a></li>
-      <li class="nav-item"><a href="#myapps-section" class="nav-link">My Apps</a></li>
-      <li class="nav-item"><a href="#skills-new-section" class="nav-link">Skills</a></li>
-      <li class="nav-item"><a href="#languages-section" class="nav-link">Languages</a></li>
-      <li class="nav-item"><a href="#programming-section" class="nav-link">Programming</a></li>
-      <li class="nav-item"><a href="#education-section" class="nav-link">Education</a></li>
-      <li class="nav-item"><a href="#values-section" class="nav-link">Values</a></li>
-      <li class="nav-item"><a href="#project-section" class="nav-link">Project</a></li>
-      <li class="nav-item"><a href="#blog-section" class="nav-link">Blog</a></li>   <!-- NEW BLOG LINK -->
-      <li class="nav-item"><a href="#contact-section" class="nav-link">Contact</a></li>
-    </ul>
-  </div>
-
-  <div class="main-content">
-
-    <section id="home-section" class="hero">
-      <div class="home-slider owl-carousel">
-        <div class="slider-item">
-          <div class="overlay"></div>
-          <div class="container">
-            <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-              <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/farhinaa.jpg);">
-                <div class="overlay"></div>
-              </div>
-              <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                <div class="text">
-                  <span class="subheading">Hello!</span>
-                  <h1 class="mb-4 mt-3">I'm <span>Subina Thapa</span></h1>
-                  <span id="typing-animation" style="font-size: 28px; font-weight: bold; color:#ffbd39;"></span>
-                  <script>
-                    const typingAnimationElement = document.getElementById('typing-animation');
-                    const typingTexts = ['Full Stack Flutter Developer'];
-                    function playTypingAnimation(text) {
-                      let i = 0;
-                      typingAnimationElement.textContent = '';
-                      function typeChar() {
-                        if (i < text.length) {
-                          typingAnimationElement.textContent += text[i];
-                          i++;
-                          setTimeout(typeChar, 120);
-                        } else {
-                          setTimeout(() => {
-                            playTypingAnimation(typingTexts[0]);
-                          }, 2000);
-                        }
-                      }
-                      typeChar();
-                    }
-                    playTypingAnimation(typingTexts[0]);
-                  </script>
-                  <br><br>
-                  <p><a href="https://github.com/subinathapa2004" class="btn btn-primary py-3 px-4">GitHub</a> 
-                    <a href="https://github.com/subinathapa2004" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT SECTION: SKILLS REMOVED (only personal info) -->
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-      <div class="container">
-        <div class="row d-flex align-items-stretch">
-          <div class="col-md-6 col-lg-5 d-flex">
-            <div class="img-about img d-flex align-items-stretch">
-              <div class="overlay">
-                <div class="row">
-                  <div class="col-sm-6 col-md-5">
-                    <div class="about-img">
-                      <img src="images/gggg.jpg" class="img-fluid rounded b-shadow-a" alt="">
-                    </div>
-                  </div>
-                  <div class="col-sm-6 col-md-7">
-                    <div class="about-info">
-                      <p><span class="title-s">Name: </span> <span>Subina Thapa</span></p>
-                      <p><span class="title-s">Job Role: </span> <span>Full Stack Flutter Developer</span></p>
-                      <p><span class="title-s">Address: </span> <span>Kathmandu, Suyuchatar</span></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-            <div class="row justify-content-start pb-3">
-              <div class="col-md-12 heading-section ftco-animate">
-                <h1 class="big">About</h1>
-                <h2 class="mb-4">About Me</h2>
-                <p>Hi! I’m Subina Thapa, an aspiring Full Stack Flutter Developer. I work with Flutter | Dart | REST APIs | Firebase | Django | PostgreSQL and various modern tools. I love exploring new technologies and turning ideas into functional, creative projects. My passion is building useful and innovative applications that solve real problems.</p>
-                <ul class="about-info mt-4 px-md-0 px-2">
-                  <li class="d-flex"><span>Profile:</span> <span>Full Stack Flutter Developer</span></li>
-                  <li class="d-flex"><span>Education:</span> <span>Bachelor of Computer Application</span></li>
-                  <li class="d-flex"><span>Language:</span> <span>English, Nepali</span></li>
-                  <li class="d-flex"><span>Interest:</span> <span>Traveling, Travel Photography</span></li>
-                </ul>
-              </div>
-            </div>
-            <div class="counter-wrap ftco-animate d-flex mt-md-3">
+<div class="main-content">
+  <!-- HOME SECTION -->
+  <section id="home-section" class="hero">
+    <div class="home-slider owl-carousel">
+      <div class="slider-item">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+            <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/farhinaa.jpg);"></div>
+            <div class="one-forth d-flex align-items-center ftco-animate">
               <div class="text">
-                <p class="mb-4"><span class="number" data-number="30">0</span> <span>+</span> <span>&nbsp; Projects completed</span></p>
+                <span class="subheading">Hello!</span>
+                <h1 class="mb-4 mt-3">I'm <span>Subina Thapa</span></h1>
+                <span id="typing-animation" style="font-size: 28px; font-weight: bold; color:#ffbd39;"></span>
+                <br><br>
+                <p><a href="https://github.com/subinathapa2004" class="btn btn-primary py-3 px-4">GitHub</a> 
+                  <a href="https://github.com/subinathapa2004" class="btn btn-white btn-outline-white py-3 px-4">My works</a></p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="ftco-section new-section" id="myapps-section">
-      <div class="container">
-        <h2>My Apps</h2>
-        <div class="content">
-          <p>I have developed several Flutter applications including e‑commerce, weather, consultancy apps. Below are some highlights:</p>
-          <ul>
-            <li><strong>ShopEase</strong> – full‑featured e‑commerce app with Firebase backend.</li>
-            <li><strong>WeatherNow</strong> – real‑time weather using REST API and location services.</li>
-            <li><strong>TaskFlow</strong> – productivity app with local storage and notifications.</li>
-          </ul>
-          <p>All apps are available on my <a href="https://github.com/subinathapa2004" target="_blank" style="color:#ffbd39;">GitHub</a>.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS SECTION – LIST STYLE WITH ICONS -->
-    <section class="ftco-section skill-list-section" id="skills-new-section">
-      <div class="container">
-        <div class="row justify-content-center pb-2">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Expertise</h1>
-            <h2 class="mb-4">Technical Skills</h2>
-            <p>Core competencies with proficiency levels</p>
-          </div>
-        </div>
-
-        <div class="skill-list-grid">
-          <div class="skill-list-col">
-            <div class="skill-item"><div class="skill-header"><i class="devicon-dart-plain colored skill-icon-small"></i><span class="skill-name">Dart</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-flutter-plain colored skill-icon-small"></i><span class="skill-name">Flutter</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-javascript-plain colored skill-icon-small"></i><span class="skill-name">JavaScript</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-typescript-plain colored skill-icon-small"></i><span class="skill-name">TypeScript</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-python-plain colored skill-icon-small"></i><span class="skill-name">Python</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-java-plain colored skill-icon-small"></i><span class="skill-name">Java</span><span class="skill-percent">45%</span></div><div class="progress"><div class="progress-bar" style="width:45%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-html5-plain colored skill-icon-small"></i><span class="skill-name">HTML5</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-css3-plain colored skill-icon-small"></i><span class="skill-name">CSS3</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
-          </div>
-          <div class="skill-list-col">
-            <div class="skill-item"><div class="skill-header"><i class="devicon-react-original colored skill-icon-small"></i><span class="skill-name">React</span><span class="skill-percent">55%</span></div><div class="progress"><div class="progress-bar" style="width:55%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-nextjs-original colored skill-icon-small"></i><span class="skill-name">Next.js</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-django-plain colored skill-icon-small"></i><span class="skill-name">Django</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-postgresql-plain colored skill-icon-small"></i><span class="skill-name">PostgreSQL</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-git-plain colored skill-icon-small"></i><span class="skill-name">Git</span><span class="skill-percent">65%</span></div><div class="progress"><div class="progress-bar" style="width:85%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-github-original colored skill-icon-small"></i><span class="skill-name">GitHub</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:80%"></div></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section new-section" id="languages-section">
-      <div class="container"><h2>Languages</h2><div class="content"><ul><li><strong>Nepali</strong> – native</li><li><strong>English</strong> – professional working proficiency</li><li><strong>Hindi</strong> – Basic (Learning)</li></ul></div></div>
-    </section>
-
-    <section class="ftco-section new-section" id="programming-section">
-      <div class="container"><h2>Programming Journey</h2><div class="content"><p>I started my programming journey in 2023 with Python. After learning the fundamentals, I expanded my skills into web development and mobile app development. Currently, I am focused on improving my full-stack flutter development skills and exploring Artificial Intelligence. I am passionate about building real-world applications and creating innovative solutions with technology.</p></div></div>
-    </section>
-
-    <section class="ftco-section" id="education-section">
-      <div class="container">
-        <div class="row justify-content-center pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Education</h1><h2 class="mb-4">Education</h2><p>My academic background and qualifications.</p></div></div>
-        <div class="row">
-          <div class="col-md-6"><div class="resume-wrap ftco-animate"><span class="date">2023 – Present</span><h2>Bachelor of Computer Application (BCA)</h2><span class="position">Tribhuvan University, Kathmandu</span><p class="mt-4">Through my Bachelor of Computer Applications (BCA), I learned programming, web development, database management, and software development.</p></div></div>
-          <div class="col-md-6"><div class="resume-wrap ftco-animate"><span class="date">2021 – 2023</span><h2>+2 Computer Science</h2><span class="position">Nepal Kasthamandap SS/College, Kathmandu</span><p class="mt-4">I completed my +2 in the Management faculty with Computer Science, learning computer fundamentals, basic programming, and information technology concepts.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section new-section" id="values-section">
-      <div class="container"><h2>My Values</h2><div class="content"><ul><li><strong>Integrity</strong> – honest, ethical, transparent</li><li><strong>Continuous Learning</strong> – constantly upgrading knowledge</li><li><strong>Creativity</strong> – innovative solutions</li><li><strong>Teamwork</strong> – collaboration and respect</li><li><strong>User‑Centric Design</strong> – focus on usability</li><li><strong>Resilience</strong> – embrace challenges</li></ul></div></div>
-    </section>
-
-    <section class="ftco-section" id="project-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Projects</h1><h2 class="mb-4">Projects</h2><p>Below are some of my recent works.</p></div></div>
-        <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Clinic Website</a></h3><p>Mobile-friendly healthcare site with consent form, appointment scheduling, and SEO best practices.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Cleaning Website</a></h3><p>Clean design highlighting services, pricing, and customer testimonials to build trust.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Montessori Website</a></h3><p>Child-friendly design with classroom images, learning materials, and testimonials.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
-        </div>
-        <div class="row d-flex mt-4">
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Real Estate</a></h3><p>React.js based property showcase for sale/rent with interactive UI.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Company Website</a></h3><p>Professional corporate site with interactive elements and lead generation focus.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/ooo.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">E‑commerce App</a></h3><p>Coming soon: full-stack shopping experience.</p></div></div></div>
-        </div>
-        <div class="more-github"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-github">🔗 More projects on GitHub</a></div>
-      </div>
-    </section>
-
-    <!-- ========== NEW BLOG SECTION (Medium feed) ========== -->
-    <section class="ftco-section blog-section" id="blog-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Writings</h1>
-            <h2 class="mb-4">📝 My Blogs</h2>
-            <p>Stories, tutorials, and thoughts from my tech journey — published on Medium</p>
-          </div>
-        </div>
-        <div id="blog-container" class="row">
-          <div class="col-12 text-center medium-placeholder">
-            <i class="fab fa-medium fa-3x"></i>
-            <p>Loading latest articles from Medium...</p>
-          </div>
-        </div>
-        <div class="more-github mt-4">
-          <a href="https://medium.com/@subinathapa5510" target="_blank" class="btn-github" style="background:#1a1a1a;">
-            <i class="fab fa-medium"></i> Read all on Medium
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Contact</h1><h2 class="mb-4">Contact Me</h2><p>Below are the details to reach out to me!</p></div></div>
-        <div class="row d-flex contact-info mb-5">
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate"><div class="align-self-stretch box p-4 text-center"><div class="icon d-flex align-items-center justify-content-center"><span class="icon-map-signs"></span></div><h3 class="mb-4">Address</h3><p>Kathmandu, Suyuchatar</p></div></div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate"><div class="align-self-stretch box p-4 text-center"><div class="icon d-flex align-items-center justify-content-center"><span class="icon-phone2"></span></div><h3 class="mb-4">Contact Number</h3><p><a href="tel://9741698460">9741698460</a></p></div></div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate"><div class="align-self-stretch box p-4 text-center"><div class="icon d-flex align-items-center justify-content-center"><span class="icon-paper-plane"></span></div><h3 class="mb-4">Email Address</h3><p><a href="mailto:subinathapa5510@gmail.com">subinathapa5510@gmail.com</a></p></div></div>
-        </div>
-        <div class="row contact-map-row">
-          <div class="col-md-6 ftco-animate">
-            <div class="contact-form">
-              <h3 class="mb-4" style="color:#ffbd39;">Send a message</h3>
-              <form id="contactForm" action="#" method="post">
-                <div class="row">
-                  <div class="col-md-6"><input type="text" id="name" class="form-control" placeholder="Your name" required></div>
-                  <div class="col-md-6"><input type="email" id="email" class="form-control" placeholder="Your email" required></div>
-                  <div class="col-md-12"><textarea id="message" class="form-control" rows="5" placeholder="Your message" required></textarea></div>
-                  <div class="col-md-12"><button type="submit" class="btn-send">Send Message</button></div>
+  <!-- ABOUT (only personal info, skills removed) -->
+  <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+    <div class="container">
+      <div class="row d-flex align-items-stretch">
+        <div class="col-md-6 col-lg-5 d-flex">
+          <div class="img-about img d-flex align-items-stretch">
+            <div class="overlay">
+              <div class="row">
+                <div class="col-sm-6 col-md-5">
+                  <div class="about-img">
+                    <img src="images/gggg.jpg" class="img-fluid rounded b-shadow-a" alt="Subina" onerror="this.src='https://placehold.co/400x400?text=Profile'">
+                  </div>
                 </div>
-              </form>
-            </div>
-          </div>
-          <div class="col-md-6 ftco-animate">
-            <div class="map-container">
-              <iframe src="https://www.google.com/maps?q=Suyuchatar,Kathmandu&output=embed" style="border:0; width:100%; height:100%; min-height:320px;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-          </div>
-        </div>
-        <ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center flex-wrap">
-          <li class="ftco-animate normal-txt">Find me on</li>
-          <li class="ftco-animate"><a href="https://github.com/subinathapa2004"><span class="icon-github"></span></a></li>
-          <li class="ftco-animate"><a href="https://x.com/ThapaSubina22"><span class="icon-twitter"></span></a></li>
-          <li class="ftco-animate"><a href="https://dev.to/thapasubina22"><i class="fab fa-dev"></i></a></li>
-          <li class="ftco-animate"><a href="https://medium.com/@subinathapa5510"><i class="fab fa-medium"></i></a></li>
-          <li class="ftco-animate"><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/"><span class="icon-linkedin"></span></a></li>
-          <li class="ftco-animate"><a href="https://stackoverflow.com/users/31152593/subina-thapa/"><i class="fa-brands fa-stack-overflow"></i></a></li>
-          <li class="ftco-animate"><a href="https://www.facebook.com/subina.thapa.769940"><span class="icon-facebook"></span></a></li>
-          <li class="ftco-animate"><a href="https://www.instagram.com/stories/subinathapa22/"><span class="icon-instagram"></span></a></li>
-          <li class="ftco-animate"><a href="https://www.youtube.com/@Subina--11-nxx"><span class="icon-youtube"></span></a></li>
-        </ul>
-      </div>
-    </section>
-
-    <footer class="ftco-footer ftco-section">
-      <div class="container"><div class="row"><div class="col-md-12 text-center"><p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made by <a href="https://colorlib.com" target="_blank">Subina Thapa</a></p></div></div></div>
-    </footer>
-  </div>
-
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="js/main.js"></script>
-
-  <script>
-    // Sidebar toggle for mobile
-    const menuToggle = document.getElementById('menuToggle');
-    const sidebar = document.getElementById('sidebar');
-    if (menuToggle) {
-      menuToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
-    }
-    document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
-      link.addEventListener('click', () => { if (window.innerWidth <= 768) sidebar.classList.remove('open'); });
-    });
-    AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
-
-    // Contact form toast
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('name')?.value.trim();
-        const email = document.getElementById('email')?.value.trim();
-        const msg = document.getElementById('message')?.value.trim();
-        if (!name || !email || !msg) {
-          alert('Please fill all fields.');
-          return;
-        }
-        const toast = document.createElement('div');
-        toast.className = 'toast-msg';
-        toast.innerText = `Thanks ${name}, your message has been sent! I'll reply soon.`;
-        document.body.appendChild(toast);
-        contactForm.reset();
-        setTimeout(() => toast.remove(), 3000);
-        console.log(`Message from ${name} (${email}): ${msg}`);
-      });
-    }
-
-    // BLOG: fetch Medium RSS via rss2json
-    async function fetchMediumBlogs() {
-      const container = document.getElementById('blog-container');
-      const mediumUsername = '@subinathapa5510'; // Medium handle
-      const rssUrl = `https://medium.com/feed/${mediumUsername}`;
-      const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
-      
-      try {
-        const response = await fetch(proxyUrl);
-        const data = await response.json();
-        if (data.status === 'ok' && data.items && data.items.length > 0) {
-          const posts = data.items.slice(0, 3); // show 3 latest
-          let html = '';
-          posts.forEach(post => {
-            // extract image from post thumbnail or use default
-            let imgUrl = post.thumbnail || post.enclosure?.link || 'https://miro.medium.com/v2/resize:fit:1200/1*J3eOZc6LKTQqI3Zojq2QwQ.png';
-            // remove weird duplicate if exists
-            const title = post.title || 'Untitled';
-            const description = post.description ? post.description.replace(/<[^>]*>?/gm, '').substring(0, 120) + '...' : 'Read this article on Medium.';
-            const link = post.link;
-            const pubDate = new Date(post.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-            html += `
-              <div class="col-md-4 d-flex ftco-animate">
-                <div class="blog-card">
-                  <img class="blog-card-img" src="${imgUrl}" alt="${title}" onerror="this.onerror=null;this.src='https://miro.medium.com/v2/resize:fit:1200/1*J3eOZc6LKTQqI3Zojq2QwQ.png';">
-                  <div class="blog-card-content">
-                    <div class="blog-card-title">${escapeHtml(title)}</div>
-                    <div class="blog-card-meta"><i class="far fa-calendar-alt"></i> ${pubDate}</div>
-                    <div class="blog-card-excerpt">${escapeHtml(description)}</div>
-                    <a href="${link}" target="_blank" class="blog-read-link">Read on Medium <i class="fas fa-arrow-right"></i></a>
+                <div class="col-sm-6 col-md-7">
+                  <div class="about-info">
+                    <p><span class="title-s">Name: </span> <span>Subina Thapa</span></p>
+                    <p><span class="title-s">Job Role: </span> <span>Full Stack Flutter Developer</span></p>
+                    <p><span class="title-s">Address: </span> <span>Kathmandu, Suyuchatar</span></p>
                   </div>
                 </div>
               </div>
-            `;
-          });
-          container.innerHTML = html;
-        } else {
-          container.innerHTML = `<div class="col-12 text-center medium-placeholder"><i class="fab fa-medium"></i><p>No articles found yet. Stay tuned for tech blogs!</p><a href="https://medium.com/@subinathapa5510" target="_blank" style="color:#ffbd39;">Visit Medium profile →</a></div>`;
-        }
-      } catch (error) {
-        console.error('Failed to load Medium feed:', error);
-        container.innerHTML = `<div class="col-12 text-center medium-placeholder"><i class="fas fa-rss"></i><p>Unable to load articles. You can still check my Medium page!</p><a href="https://medium.com/@subinathapa5510" target="_blank" style="color:#ffbd39;">📖 Read on Medium</a></div>`;
-      }
-    }
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+          <div class="row justify-content-start pb-3">
+            <div class="col-md-12 heading-section ftco-animate">
+              <h1 class="big">About</h1>
+              <h2 class="mb-4">About Me</h2>
+              <p>Hi! I’m Subina Thapa, an aspiring Full Stack Flutter Developer. I work with Flutter | Dart | REST APIs | Firebase | Django | PostgreSQL and various modern tools. I love exploring new technologies and turning ideas into functional, creative projects. My passion is building useful and innovative applications that solve real problems.</p>
+              <ul class="about-info mt-4 px-md-0 px-2">
+                <li class="d-flex"><span>Profile:</span> <span>Full Stack Flutter Developer</span></li>
+                <li class="d-flex"><span>Education:</span> <span>Bachelor of Computer Application</span></li>
+                <li class="d-flex"><span>Language:</span> <span>English, Nepali</span></li>
+                <li class="d-flex"><span>Interest:</span> <span>Traveling, Travel Photography</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="counter-wrap ftco-animate d-flex mt-md-3">
+            <div class="text">
+              <p class="mb-4"><span class="number" data-number="30">0</span> <span>+</span> <span>&nbsp; Projects completed</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    function escapeHtml(str) {
-      if (!str) return '';
-      return str.replace(/[&<>]/g, function(m) {
-        if (m === '&') return '&amp;';
-        if (m === '<') return '&lt;';
-        if (m === '>') return '&gt;';
-        return m;
-      }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
-        return c;
-      });
-    }
+  <!-- MY APPS -->
+  <section class="ftco-section new-section" id="myapps-section">
+    <div class="container">
+      <h2>My Apps</h2>
+      <div class="content">
+        <p>I have developed several Flutter applications including e‑commerce, weather, consultancy apps. Below are some highlights:</p>
+        <ul>
+          <li><strong>ShopEase</strong> – full‑featured e‑commerce app with Firebase backend.</li>
+          <li><strong>WeatherNow</strong> – real‑time weather using REST API and location services.</li>
+          <li><strong>TaskFlow</strong> – productivity app with local storage and notifications.</li>
+        </ul>
+        <p>All apps are available on my <a href="https://github.com/subinathapa2004" target="_blank" style="color:#ffbd39;">GitHub</a>.</p>
+      </div>
+    </div>
+  </section>
 
-    fetchMediumBlogs();
-  </script>
+  <!-- SKILLS LIST -->
+  <section class="ftco-section skill-list-section" id="skills-new-section">
+    <div class="container">
+      <div class="row justify-content-center pb-2">
+        <div class="col-md-12 heading-section text-center ftco-animate">
+          <h1 class="big big-2">Expertise</h1>
+          <h2 class="mb-4">Technical Skills</h2>
+          <p>Core competencies with proficiency levels</p>
+        </div>
+      </div>
+      <div class="skill-list-grid">
+        <div class="skill-list-col">
+          <div class="skill-item"><div class="skill-header"><i class="devicon-dart-plain colored skill-icon-small"></i><span class="skill-name">Dart</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><i class="devicon-flutter-plain colored skill-icon-small"></i><span class="skill-name">Flutter</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><i class="devicon-javascript-plain colored skill-icon-small"></i><span class="skill-name">JavaScript</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><i class="devicon-typescript-plain colored skill-icon-small"></i><span class="skill-name">TypeScript</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><i class="devicon-python-plain colored skill-icon-small"></i><span class="skill-name">Python</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><i class="devicon-java-plain colored skill-icon-small"></i><span class="skill-name">Java</span><span class="skill-percent">45%</span></div><div class="progress"><div class="progress-bar" style="width:45%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><i class="devicon-html5-plain colored skill-icon-small"></i><span class="skill-name">HTML5</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><i class="devicon-css3-plain colored skill-icon-small"></i><span class="skill-name">CSS3</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+        </div>
+        <div class="skill-list-col">
+          <div class="skill-item"><div class="skill-header"><i class="devicon-react-original colored skill-icon-small"></i><span class="skill-name">React</span><span class="skill-percent">55%</span></div><div class="progress"><div class="progress-bar" style="width:55%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><i class="devicon-nextjs-original colored skill-icon-small"></i><span class="skill-name">Next.js</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><i class="devicon-django-plain colored skill-icon-small"></i><span class="skill-name">Django</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><i class="devicon-postgresql-plain colored skill-icon-small"></i><span class="skill-name">PostgreSQL</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><i class="devicon-git-plain colored skill-icon-small"></i><span class="skill-name">Git</span><span class="skill-percent">65%</span></div><div class="progress"><div class="progress-bar" style="width:65%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><i class="devicon-github-original colored skill-icon-small"></i><span class="skill-name">GitHub</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-section new-section" id="languages-section"><div class="container"><h2>Languages</h2><div class="content"><ul><li><strong>Nepali</strong> – native</li><li><strong>English</strong> – professional working proficiency</li><li><strong>Hindi</strong> – Basic (Learning)</li></ul></div></div></section>
+  <section class="ftco-section new-section" id="programming-section"><div class="container"><h2>Programming Journey</h2><div class="content"><p>I started my programming journey in 2023 with Python. After learning the fundamentals, I expanded my skills into web development and mobile app development. Currently, I am focused on improving my full-stack flutter development skills and exploring Artificial Intelligence. I am passionate about building real-world applications and creating innovative solutions with technology.</p></div></div></section>
+
+  <section class="ftco-section" id="education-section"><div class="container"><div class="row justify-content-center pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Education</h1><h2 class="mb-4">Education</h2><p>My academic background and qualifications.</p></div></div><div class="row"><div class="col-md-6"><div class="resume-wrap ftco-animate"><span class="date">2023 – Present</span><h2>Bachelor of Computer Application (BCA)</h2><span class="position">Tribhuvan University, Kathmandu</span><p class="mt-4">Through my Bachelor of Computer Applications (BCA), I learned programming, web development, database management, and software development.</p></div></div><div class="col-md-6"><div class="resume-wrap ftco-animate"><span class="date">2021 – 2023</span><h2>+2 Computer Science</h2><span class="position">Nepal Kasthamandap SS/College, Kathmandu</span><p class="mt-4">I completed my +2 in the Management faculty with Computer Science, learning computer fundamentals, basic programming, and information technology concepts.</p></div></div></div></div></section>
+  <section class="ftco-section new-section" id="values-section"><div class="container"><h2>My Values</h2><div class="content"><ul><li><strong>Integrity</strong> – honest, ethical, transparent</li><li><strong>Continuous Learning</strong> – constantly upgrading knowledge</li><li><strong>Creativity</strong> – innovative solutions</li><li><strong>Teamwork</strong> – collaboration and respect</li><li><strong>User‑Centric Design</strong> – focus on usability</li><li><strong>Resilience</strong> – embrace challenges</li></ul></div></div></section>
+
+  <!-- PROJECTS -->
+  <section class="ftco-section" id="project-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5 pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Projects</h1><h2 class="mb-4">Projects</h2><p>Below are some of my recent works.</p></div></div>
+      <div class="row d-flex">
+        <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><div class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></div><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Clinic Website</a></h3><p>Mobile-friendly healthcare site with consent form, appointment scheduling.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+        <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><div class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></div><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Cleaning Website</a></h3><p>Clean design highlighting services, pricing, and testimonials.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+        <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><div class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></div><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Montessori Website</a></h3><p>Child-friendly design with classroom images and learning materials.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+        <div class="col-md-4 d-flex ftco-animate mt-4"><div class="blog-entry justify-content-end"><div class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></div><div class="text"><h3 class="heading"><a href="#">Real Estate</a></h3><p>React.js based property showcase for sale/rent.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+        <div class="col-md-4 d-flex ftco-animate mt-4"><div class="blog-entry justify-content-end"><div class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></div><div class="text"><h3 class="heading"><a href="#">Company Website</a></h3><p>Professional corporate site with lead generation focus.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+        <div class="col-md-4 d-flex ftco-animate mt-4"><div class="blog-entry"><div class="block-20 zoom-effect" style="background-image: url('images/ooo.png');"></div><div class="text"><h3 class="heading"><a href="#">E‑commerce App</a></h3><p>Coming soon: full-stack shopping experience.</p></div></div></div>
+      </div>
+      <div class="more-github text-center mt-5"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-github">🔗 More projects on GitHub</a></div>
+    </div>
+  </section>
+
+  <!-- CONTACT + MAP -->
+  <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5 pb-3"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Contact</h1><h2 class="mb-4">Contact Me</h2><p>Below are the details to reach out to me!</p></div></div>
+      <div class="row d-flex contact-info mb-5">
+        <div class="col-md-6 col-lg-3 d-flex ftco-animate"><div class="align-self-stretch box p-4 text-center"><div class="icon d-flex align-items-center justify-content-center"><span class="icon-map-signs"></span></div><h3 class="mb-4">Address</h3><p>Kathmandu, Suyuchatar</p></div></div>
+        <div class="col-md-6 col-lg-3 d-flex ftco-animate"><div class="align-self-stretch box p-4 text-center"><div class="icon d-flex align-items-center justify-content-center"><span class="icon-phone2"></span></div><h3 class="mb-4">Contact Number</h3><p><a href="tel://9741698460">9741698460</a></p></div></div>
+        <div class="col-md-6 col-lg-3 d-flex ftco-animate"><div class="align-self-stretch box p-4 text-center"><div class="icon d-flex align-items-center justify-content-center"><span class="icon-paper-plane"></span></div><h3 class="mb-4">Email Address</h3><p><a href="mailto:subinathapa5510@gmail.com">subinathapa5510@gmail.com</a></p></div></div>
+      </div>
+      <div class="row contact-map-row">
+        <div class="col-md-6 ftco-animate">
+          <div class="contact-form"><h3 class="mb-4" style="color:#ffbd39;">Send a message</h3>
+            <form id="contactForm"><div class="row"><div class="col-md-6"><input type="text" id="name" placeholder="Your name" required></div><div class="col-md-6"><input type="email" id="email" placeholder="Your email" required></div><div class="col-md-12"><textarea id="message" rows="4" placeholder="Your message" required></textarea></div><div class="col-md-12"><button type="submit" class="btn-send">Send Message</button></div></div></form>
+          </div>
+        </div>
+        <div class="col-md-6 ftco-animate"><div class="map-container"><iframe src="https://www.google.com/maps?q=Suyuchatar,Kathmandu&output=embed" style="border:0; width:100%; height:100%; min-height:280px;" allowfullscreen="" loading="lazy"></iframe></div></div>
+      </div>
+      <ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center flex-wrap">
+        <li class="ftco-animate normal-txt">Find me on</li>
+        <li><a href="https://github.com/subinathapa2004"><span class="icon-github"></span></a></li>
+        <li><a href="https://x.com/ThapaSubina22"><span class="icon-twitter"></span></a></li>
+        <li><a href="https://dev.to/thapasubina22"><i class="fab fa-dev"></i></a></li>
+        <li><a href="https://medium.com/@subinathapa5510"><i class="fab fa-medium"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/"><span class="icon-linkedin"></span></a></li>
+        <li><a href="https://stackoverflow.com/users/31152593/subina-thapa/"><i class="fa-brands fa-stack-overflow"></i></a></li>
+        <li><a href="https://www.facebook.com/subina.thapa.769940"><span class="icon-facebook"></span></a></li>
+        <li><a href="https://www.instagram.com/stories/subinathapa22/"><span class="icon-instagram"></span></a></li>
+        <li><a href="https://www.youtube.com/@Subina--11-nxx"><span class="icon-youtube"></span></a></li>
+      </ul>
+    </div>
+  </section>
+  <footer class="ftco-footer ftco-section"><div class="container"><div class="row"><div class="col-md-12 text-center"><p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made by <a href="https://colorlib.com" target="_blank">Subina Thapa</a></p></div></div></div></footer>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate-3.0.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/jquery.animateNumber.min.js"></script>
+<script src="js/scrollax.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+  const menuBtn = document.getElementById('menuToggle');
+  const side = document.getElementById('sidebar');
+  if(menuBtn) menuBtn.addEventListener('click', () => side.classList.toggle('open'));
+  document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', () => { if(window.innerWidth <= 768) side.classList.remove('open'); });
+  });
+  AOS.init({ duration: 700, once: true });
+  const form = document.getElementById('contactForm');
+  if(form) form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    if(!name || !document.getElementById('email').value.trim() || !document.getElementById('message').value.trim()) return alert('Please fill all fields');
+    let toast = document.createElement('div'); toast.className = 'toast-msg'; toast.innerText = `Thanks ${name}, your message has been sent! I'll reply soon.`;
+    document.body.appendChild(toast); form.reset(); setTimeout(() => toast.remove(), 3500);
+  });
+  const typingElement = document.getElementById('typing-animation');
+  if(typingElement) { const text = 'Full Stack Flutter Developer'; let i = 0; function type() { if(i < text.length) { typingElement.textContent += text.charAt(i); i++; setTimeout(type, 100); } else setTimeout(() => { typingElement.textContent = ''; i = 0; type(); }, 2500); } type(); }
+</script>
 </body>
 </html>
