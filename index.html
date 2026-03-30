@@ -149,7 +149,6 @@
         margin-left: 0;
         padding-top: 70px;
       }
-      .hero .slider-item .overlay { z-index: 1; }
     }
 
     .ftco_navbar { display: none; }
@@ -267,24 +266,80 @@
       }
     }
 
-    .skill-mf .progress {
-      background-color: #222;
-      border-radius: 30px;
-      height: 10px;
-      margin-bottom: 1.2rem;
+    /* Blog Cards */
+    .blog-card {
+      background: #1a1a1a;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #2a2a2a;
     }
-    .skill-mf .progress-bar {
-      background-color: #ffbd39;
-      border-radius: 30px;
-      transition: none;
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+      border-color: #ffbd39;
     }
-    .skill-mf span {
-      color: #ddd;
-      font-weight: 500;
+    .blog-card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #0a0a0a;
+      border-bottom: 1px solid #333;
     }
-    .skill-mf .pull-right {
-      float: right;
+    .blog-card-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
       color: #ffbd39;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+    .blog-card-excerpt {
+      color: #bbb;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+      flex: 1;
+    }
+    .blog-card-meta {
+      font-size: 0.75rem;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+    .blog-read-link {
+      color: #ffbd39;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: 0.2s;
+    }
+    .blog-read-link:hover {
+      color: #fff;
+      gap: 0.7rem;
+    }
+    .blog-section .row > div {
+      margin-bottom: 30px;
+    }
+    .medium-placeholder {
+      text-align: center;
+      background: #1e1e1e;
+      padding: 2rem;
+      border-radius: 30px;
+      color: #ffbd39;
+    }
+    .medium-placeholder i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
     }
 
     /* contact form + map */
@@ -437,6 +492,7 @@
       <li class="nav-item"><a href="#education-section" class="nav-link">Education</a></li>
       <li class="nav-item"><a href="#values-section" class="nav-link">Values</a></li>
       <li class="nav-item"><a href="#project-section" class="nav-link">Project</a></li>
+      <li class="nav-item"><a href="#blog-section" class="nav-link">Blog</a></li>   <!-- NEW BLOG LINK -->
       <li class="nav-item"><a href="#contact-section" class="nav-link">Contact</a></li>
     </ul>
   </div>
@@ -552,7 +608,7 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION – LIST STYLE WITH ICONS (fully intact) -->
+    <!-- SKILLS SECTION – LIST STYLE WITH ICONS -->
     <section class="ftco-section skill-list-section" id="skills-new-section">
       <div class="container">
         <div class="row justify-content-center pb-2">
@@ -565,131 +621,29 @@
 
         <div class="skill-list-grid">
           <div class="skill-list-col">
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-dart-plain colored skill-icon-small"></i>
-                <span class="skill-name">Dart</span>
-                <span class="skill-percent">75%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" style="width:75%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-flutter-plain colored skill-icon-small"></i>
-                <span class="skill-name">Flutter</span>
-                <span class="skill-percent">75%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" style="width:75%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-javascript-plain colored skill-icon-small"></i>
-                <span class="skill-name">JavaScript</span>
-                <span class="skill-percent">50%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" style="width:50%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-typescript-plain colored skill-icon-small"></i>
-                <span class="skill-name">TypeScript</span>
-                <span class="skill-percent">50%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" style="width:50%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-python-plain colored skill-icon-small"></i>
-                <span class="skill-name">Python</span>
-                <span class="skill-percent">75%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" style="width:75%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-java-plain colored skill-icon-small"></i>
-                <span class="skill-name">Java</span>
-                <span class="skill-percent">45%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" style="width:45%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-html5-plain colored skill-icon-small"></i>
-                <span class="skill-name">HTML5</span>
-                <span class="skill-percent">70%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" style="width:70%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-css3-plain colored skill-icon-small"></i>
-                <span class="skill-name">CSS3</span>
-                <span class="skill-percent">70%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" style="width:70%"></div></div>
-            </div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-dart-plain colored skill-icon-small"></i><span class="skill-name">Dart</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-flutter-plain colored skill-icon-small"></i><span class="skill-name">Flutter</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-javascript-plain colored skill-icon-small"></i><span class="skill-name">JavaScript</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-typescript-plain colored skill-icon-small"></i><span class="skill-name">TypeScript</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-python-plain colored skill-icon-small"></i><span class="skill-name">Python</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-java-plain colored skill-icon-small"></i><span class="skill-name">Java</span><span class="skill-percent">45%</span></div><div class="progress"><div class="progress-bar" style="width:45%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-html5-plain colored skill-icon-small"></i><span class="skill-name">HTML5</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-css3-plain colored skill-icon-small"></i><span class="skill-name">CSS3</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
           </div>
-
           <div class="skill-list-col">
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-react-original colored skill-icon-small"></i>
-                <span class="skill-name">React</span>
-                <span class="skill-percent">55%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" style="width:55%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-nextjs-original colored skill-icon-small"></i>
-                <span class="skill-name">Next.js</span>
-                <span class="skill-percent">50%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" style="width:50%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-django-plain colored skill-icon-small"></i>
-                <span class="skill-name">Django</span>
-                <span class="skill-percent">70%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" style="width:70%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-postgresql-plain colored skill-icon-small"></i>
-                <span class="skill-name">PostgreSQL</span>
-                <span class="skill-percent">75%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" style="width:75%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-git-plain colored skill-icon-small"></i>
-                <span class="skill-name">Git</span>
-                <span class="skill-percent">65%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" style="width:85%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-header">
-                <i class="devicon-github-original colored skill-icon-small"></i>
-                <span class="skill-name">GitHub</span>
-                <span class="skill-percent">70%</span>
-              </div>
-              <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
-            </div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-react-original colored skill-icon-small"></i><span class="skill-name">React</span><span class="skill-percent">55%</span></div><div class="progress"><div class="progress-bar" style="width:55%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-nextjs-original colored skill-icon-small"></i><span class="skill-name">Next.js</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-django-plain colored skill-icon-small"></i><span class="skill-name">Django</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-postgresql-plain colored skill-icon-small"></i><span class="skill-name">PostgreSQL</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-git-plain colored skill-icon-small"></i><span class="skill-name">Git</span><span class="skill-percent">65%</span></div><div class="progress"><div class="progress-bar" style="width:85%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-github-original colored skill-icon-small"></i><span class="skill-name">GitHub</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:80%"></div></div></div>
           </div>
         </div>
       </div>
     </section>
 
     <section class="ftco-section new-section" id="languages-section">
-      <div class="container">
-        <h2>Languages</h2>
-        <div class="content"><ul><li><strong>Nepali</strong> – native</li><li><strong>English</strong> – professional working proficiency</li><li><strong>Hindi</strong> – Basic (Learning)</li></ul></div>
-      </div>
+      <div class="container"><h2>Languages</h2><div class="content"><ul><li><strong>Nepali</strong> – native</li><li><strong>English</strong> – professional working proficiency</li><li><strong>Hindi</strong> – Basic (Learning)</li></ul></div></div>
     </section>
 
     <section class="ftco-section new-section" id="programming-section">
@@ -727,6 +681,30 @@
       </div>
     </section>
 
+    <!-- ========== NEW BLOG SECTION (Medium feed) ========== -->
+    <section class="ftco-section blog-section" id="blog-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Writings</h1>
+            <h2 class="mb-4">📝 My Blogs</h2>
+            <p>Stories, tutorials, and thoughts from my tech journey — published on Medium</p>
+          </div>
+        </div>
+        <div id="blog-container" class="row">
+          <div class="col-12 text-center medium-placeholder">
+            <i class="fab fa-medium fa-3x"></i>
+            <p>Loading latest articles from Medium...</p>
+          </div>
+        </div>
+        <div class="more-github mt-4">
+          <a href="https://medium.com/@subinathapa5510" target="_blank" class="btn-github" style="background:#1a1a1a;">
+            <i class="fab fa-medium"></i> Read all on Medium
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Contact</h1><h2 class="mb-4">Contact Me</h2><p>Below are the details to reach out to me!</p></div></div>
@@ -751,12 +729,7 @@
           </div>
           <div class="col-md-6 ftco-animate">
             <div class="map-container">
-              <iframe 
-                src="https://www.google.com/maps?q=Suyuchatar,Kathmandu&output=embed"
-                style="border:0; width:100%; height:100%; min-height:320px;" 
-                allowfullscreen="" 
-                loading="lazy">
-              </iframe>
+              <iframe src="https://www.google.com/maps?q=Suyuchatar,Kathmandu&output=embed" style="border:0; width:100%; height:100%; min-height:320px;" allowfullscreen="" loading="lazy"></iframe>
             </div>
           </div>
         </div>
@@ -764,9 +737,7 @@
           <li class="ftco-animate normal-txt">Find me on</li>
           <li class="ftco-animate"><a href="https://github.com/subinathapa2004"><span class="icon-github"></span></a></li>
           <li class="ftco-animate"><a href="https://x.com/ThapaSubina22"><span class="icon-twitter"></span></a></li>
-          <!-- Dev.to icon: fixed with FontAwesome (fully visible) -->
           <li class="ftco-animate"><a href="https://dev.to/thapasubina22"><i class="fab fa-dev"></i></a></li>
-          <!-- Medium icon: fixed with FontAwesome -->
           <li class="ftco-animate"><a href="https://medium.com/@subinathapa5510"><i class="fab fa-medium"></i></a></li>
           <li class="ftco-animate"><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/"><span class="icon-linkedin"></span></a></li>
           <li class="ftco-animate"><a href="https://stackoverflow.com/users/31152593/subina-thapa/"><i class="fa-brands fa-stack-overflow"></i></a></li>
@@ -799,6 +770,7 @@
   <script src="js/main.js"></script>
 
   <script>
+    // Sidebar toggle for mobile
     const menuToggle = document.getElementById('menuToggle');
     const sidebar = document.getElementById('sidebar');
     if (menuToggle) {
@@ -809,6 +781,7 @@
     });
     AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
 
+    // Contact form toast
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
@@ -829,6 +802,65 @@
         console.log(`Message from ${name} (${email}): ${msg}`);
       });
     }
+
+    // BLOG: fetch Medium RSS via rss2json
+    async function fetchMediumBlogs() {
+      const container = document.getElementById('blog-container');
+      const mediumUsername = '@subinathapa5510'; // Medium handle
+      const rssUrl = `https://medium.com/feed/${mediumUsername}`;
+      const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+      
+      try {
+        const response = await fetch(proxyUrl);
+        const data = await response.json();
+        if (data.status === 'ok' && data.items && data.items.length > 0) {
+          const posts = data.items.slice(0, 3); // show 3 latest
+          let html = '';
+          posts.forEach(post => {
+            // extract image from post thumbnail or use default
+            let imgUrl = post.thumbnail || post.enclosure?.link || 'https://miro.medium.com/v2/resize:fit:1200/1*J3eOZc6LKTQqI3Zojq2QwQ.png';
+            // remove weird duplicate if exists
+            const title = post.title || 'Untitled';
+            const description = post.description ? post.description.replace(/<[^>]*>?/gm, '').substring(0, 120) + '...' : 'Read this article on Medium.';
+            const link = post.link;
+            const pubDate = new Date(post.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+            html += `
+              <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-card">
+                  <img class="blog-card-img" src="${imgUrl}" alt="${title}" onerror="this.onerror=null;this.src='https://miro.medium.com/v2/resize:fit:1200/1*J3eOZc6LKTQqI3Zojq2QwQ.png';">
+                  <div class="blog-card-content">
+                    <div class="blog-card-title">${escapeHtml(title)}</div>
+                    <div class="blog-card-meta"><i class="far fa-calendar-alt"></i> ${pubDate}</div>
+                    <div class="blog-card-excerpt">${escapeHtml(description)}</div>
+                    <a href="${link}" target="_blank" class="blog-read-link">Read on Medium <i class="fas fa-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+          container.innerHTML = html;
+        } else {
+          container.innerHTML = `<div class="col-12 text-center medium-placeholder"><i class="fab fa-medium"></i><p>No articles found yet. Stay tuned for tech blogs!</p><a href="https://medium.com/@subinathapa5510" target="_blank" style="color:#ffbd39;">Visit Medium profile →</a></div>`;
+        }
+      } catch (error) {
+        console.error('Failed to load Medium feed:', error);
+        container.innerHTML = `<div class="col-12 text-center medium-placeholder"><i class="fas fa-rss"></i><p>Unable to load articles. You can still check my Medium page!</p><a href="https://medium.com/@subinathapa5510" target="_blank" style="color:#ffbd39;">📖 Read on Medium</a></div>`;
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+      }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+        return c;
+      });
+    }
+
+    fetchMediumBlogs();
   </script>
 </body>
 </html>
