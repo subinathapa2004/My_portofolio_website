@@ -22,257 +22,431 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    /* ========== GLOBAL WHITE BACKGROUND OVERRIDE ========== */
-    body, .main-content, .sidebar, .ftco-section, .new-section, .skill-list-section,
-    .ftco-about, .ftco-footer, .ftco-footer.ftco-section, .hero, .slider-item,
-    .resume-wrap, .blog-entry, .box, .counter-wrap, .about-info, .img-about,
-    .ftco-animate, .contact-form, .contact-form input, .contact-form textarea,
-    .map-container, .ftco-footer-social li a, .skill-mf .progress, .progress,
-    .ftco-navbar, .site-navbar-target, .mobile-header, #ftco-loader {
-      background: #ffffff !important;
-      background-color: #ffffff !important;
-    }
+    body { overflow-x: hidden; background: #111; margin:0; padding:0; font-family: 'Poppins', sans-serif; }
     
-    /* Text colors – dark for readability */
-    body, .main-content, .ftco-section, .new-section, p, li, .content,
-    .about-info p, .about-info .title-s, .resume-wrap p, .blog-entry p,
-    .box p, .box h3, .counter-wrap .text p, .skill-name, .skill-percent,
-    .ftco-footer p, .ftco-footer a, .contact-info p, .contact-info a,
-    .sidebar-nav .nav-link span, .sidebar .profile-sidebar p,
-    .sidebar .profile-sidebar h3, .resume-wrap .position, .resume-wrap .date,
-    .ftco-footer-social li a i, .ftco-footer-social li a span {
-      color: #1e1e2f !important;
+    .mobile-header {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: #0a0a0a;
+      z-index: 1001;
+      align-items: center;
+      padding: 0 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      border-bottom: 1px solid #222;
     }
-    
-    /* Headings with accent touch */
-    h1, h2, h3, h4, .heading, .blog-entry .heading a, .box h3 {
-      color: #111 !important;
+    .mobile-header .menu-btn {
+      background: none;
+      border: none;
+      color: #ffbd39;
+      font-size: 28px;
+      cursor: pointer;
+      margin-right: 15px;
     }
-    
-    /* Sidebar profile & border */
+    .mobile-header .brand {
+      color: #ffbd39;
+      font-size: 1.3rem;
+      font-weight: 600;
+      flex-grow: 1;
+    }
+
     .sidebar {
-      border-right: 1px solid #e0e0e0 !important;
-      box-shadow: none !important;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: #0a0a0a;
+      z-index: 1000;
+      padding: 2rem 1.5rem;
+      box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+      overflow-y: auto;
+      border-right: 1px solid #222;
+      transition: transform 0.3s ease-in-out;
+    }
+    .profile-sidebar {
+      text-align: center;
+      margin-bottom: 2.5rem;
     }
     .profile-sidebar img {
-      border-color: #ffbd39;
-      box-shadow: 0 0 0 4px rgba(255,189,57,0.2);
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ffbd39;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 20px rgba(255,189,57,0.3);
+    }
+    .profile-sidebar h3 {
+      color: #fff;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .profile-sidebar p {
+      color: #aaa;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+    .sidebar-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar-nav .nav-item {
+      margin-bottom: 0.6rem;
     }
     .sidebar-nav .nav-link {
-      color: #2c3e50 !important;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0.7rem 1rem;
+      color: #ccc;
+      font-size: 1.05rem;
+      border-radius: 40px;
+      transition: all 0.3s;
+      text-decoration: none;
+      font-weight: 400;
       border: 1px solid transparent;
     }
+    /* icon styling inside sidebar */
     .sidebar-nav .nav-link i {
-      color: #ffbd39 !important;
-    }
-    .sidebar-nav .nav-link:hover, 
-    .sidebar-nav .nav-link.active {
-      background: #ffbd39 !important;
-      color: #000000 !important;
-      border-color: #ffbd39 !important;
+      width: 24px;
+      font-size: 1.25rem;
+      text-align: center;
+      color: #ffbd39;
+      transition: 0.2s;
     }
     .sidebar-nav .nav-link:hover i,
     .sidebar-nav .nav-link.active i {
-      color: #000000 !important;
+      color: #000;
     }
-    .sidebar-nav .nav-link:hover span,
-    .sidebar-nav .nav-link.active span {
-      color: #000000 !important;
+    .sidebar-nav .nav-link:hover,
+    .sidebar-nav .nav-link.active {
+      background: #ffbd39;
+      color: #000;
+      border-color: #ffbd39;
+      padding-left: 1.3rem;
     }
-    
-    /* Hero overlay: make light so text is readable */
-    .hero .slider-item .overlay,
-    .img-about .overlay {
-      background: rgba(255, 255, 255, 0.85) !important;
+    .sidebar-nav .nav-link span {
+      flex: 1;
     }
-    .hero .slider-item .text h1,
-    .hero .slider-item .text .subheading,
-    .hero .slider-item .text p {
-      color: #111 !important;
+
+    .main-content {
+      margin-left: 280px;
+      transition: margin-left 0.3s;
+      background: #111;
     }
-    .hero .slider-item .text h1 span {
-      color: #ffbd39 !important;
+
+    @media (max-width: 992px) {
+      .sidebar { width: 240px; padding: 1.5rem 1rem; }
+      .profile-sidebar img { width: 100px; height: 100px; }
+      .profile-sidebar h3 { font-size: 1.3rem; }
+      .sidebar-nav .nav-link { font-size: 1rem; padding: 0.55rem 0.8rem; gap: 8px; }
+      .sidebar-nav .nav-link i { font-size: 1.1rem; width: 22px; }
+      .main-content { margin-left: 240px; }
     }
-    .btn-white.btn-outline-white {
-      border: 2px solid #ffbd39 !important;
-      color: #ffbd39 !important;
-      background: transparent !important;
-    }
-    .btn-white.btn-outline-white:hover {
-      background: #ffbd39 !important;
-      color: #000 !important;
-    }
-    
-    /* Progress bars (skills) */
-    .progress {
-      background-color: #e9ecef !important;
-    }
-    .progress-bar {
-      background-color: #ffbd39 !important;
-    }
-    
-    /* Cards, resume, blog entries */
-    .resume-wrap, .blog-entry, .box {
-      background: #ffffff !important;
-      border: 1px solid #f0f0f0 !important;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.02) !important;
-    }
-    .blog-entry .block-20 {
-      background-size: cover;
-      background-position: center;
-    }
-    
-    /* Form fields */
-    .contact-form input, .contact-form textarea {
-      background: #f8f9fa !important;
-      border: 1px solid #ddd !important;
-      color: #1e1e2f !important;
-    }
-    .contact-form input:focus, .contact-form textarea:focus {
-      border-color: #ffbd39 !important;
-      background: #fff !important;
-    }
-    .btn-send {
-      background: #ffbd39 !important;
-      color: #000 !important;
-    }
-    .btn-send:hover {
-      background: transparent !important;
-      color: #ffbd39 !important;
-      border: 2px solid #ffbd39 !important;
-    }
-    
-    /* map container border */
-    .map-container {
-      border: 1px solid #eaeaea !important;
-    }
-    
-    /* footer social icons */
-    .ftco-footer-social li a {
-      background: #f5f5f5 !important;
-      color: #ffbd39 !important;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-    }
-    .ftco-footer-social li a:hover {
-      background: #ffbd39 !important;
-      color: #000 !important;
-    }
-    .ftco-footer-social li.normal-txt {
-      color: #ffbd39 !important;
-    }
-    
-    /* section headings */
-    .heading-section h1.big {
-      color: rgba(0,0,0,0.05) !important;
-    }
-    .heading-section h2, .heading-section p {
-      color: #222 !important;
-    }
-    
-    /* additional borders */
-    .new-section, .ftco-section {
-      border-bottom: 1px solid #f0f0f0 !important;
-    }
-    .edu-extras {
-      border-top: 1px solid #eaeaea !important;
-    }
-    
-    /* mobile header */
-    .mobile-header {
-      background: #ffffff !important;
-      border-bottom: 1px solid #eee !important;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02) !important;
-    }
-    .mobile-header .brand {
-      color: #ffbd39 !important;
-    }
-    .mobile-header .menu-btn {
-      color: #ffbd39 !important;
-    }
-    
-    /* links & buttons */
-    a, .project-github, .more-github .btn-github {
-      color: #ffbd39 !important;
-    }
-    .project-github {
-      border-color: #ffbd39 !important;
-    }
-    .project-github:hover, .more-github .btn-github:hover {
-      background: #ffbd39 !important;
-      color: #000 !important;
-    }
-    .more-github .btn-github {
-      background: #fff !important;
-      border: 2px solid #ffbd39 !important;
-    }
-    .btn-primary {
-      background: #ffbd39 !important;
-      border: none;
-      color: #000 !important;
-    }
-    .btn-primary:hover {
-      background: #e6a800 !important;
-    }
-    
-    /* about section adjustments */
-    .img-about .about-img img {
-      border: 4px solid #ffbd39;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    }
-    .about-info li span:first-child {
-      color: #555 !important;
-    }
-    .counter-wrap .number {
-      color: #ffbd39 !important;
-    }
-    
-    /* programming journey etc */
-    .content, .skill-list-grid .skill-header .skill-name {
-      color: #2d3436 !important;
-    }
-    .skill-percent {
-      color: #ffbd39 !important;
-    }
-    .ftco-footer p, .ftco-footer a {
-      color: #4a4a4a !important;
-    }
-    /* fix for resume wrap text */
-    .resume-wrap h2, .resume-wrap span, .resume-wrap p {
-      color: #2c3e50 !important;
-    }
-    .resume-wrap .date {
-      color: #ffbd39 !important;
-      font-weight: 600;
-    }
-    /* loader background */
-    #ftco-loader {
-      background: white !important;
-    }
-    /* ensure sidebar toggler on small screens uses white */
+
     @media (max-width: 768px) {
       .sidebar {
-        background: #ffffff !important;
-        box-shadow: 2px 0 15px rgba(0,0,0,0.05) !important;
+        transform: translateX(-100%);
+        width: 260px;
+        box-shadow: none;
+      }
+      .sidebar.open {
+        transform: translateX(0);
+        box-shadow: 4px 0 15px rgba(0,0,0,0.5);
+      }
+      .mobile-header {
+        display: flex;
+      }
+      .main-content {
+        margin-left: 0;
+        padding-top: 70px;
+      }
+      .hero .slider-item .overlay { z-index: 1; }
+    }
+
+    .ftco_navbar { display: none; }
+
+    .new-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid #222;
+    }
+    .new-section h2 {
+      color: #ffbd39;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .new-section .content {
+      color: #ddd;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    .btn-primary {
+      background: #ffbd39;
+      border: none;
+      color: #000;
+    }
+    .btn-primary:hover {
+      background: #e6a800;
+    }
+    .project-github {
+      display: inline-block;
+      margin-top: 0.8rem;
+      color: #ffbd39;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid #ffbd39;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+    .project-github:hover {
+      background: #ffbd39;
+      color: #000;
+    }
+    .more-github {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .more-github .btn-github {
+      background: #333;
+      color: #ffbd39;
+      border: 2px solid #ffbd39;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .more-github .btn-github:hover {
+      background: #ffbd39;
+      color: #000;
+      border-color: #ffbd39;
+    }
+
+    /* SKILLS LIST STYLE */
+    .skill-list-section {
+      padding: 4rem 0;
+    }
+    .skill-list-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .skill-item {
+      margin-bottom: 1rem;
+    }
+    .skill-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.3rem;
+    }
+    .skill-icon-small {
+      font-size: 1.5rem;
+      color: #ffbd39;
+      width: 2rem;
+    }
+    .skill-name {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #ddd;
+      flex: 1;
+    }
+    .skill-percent {
+      color: #ffbd39;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    .progress {
+      background-color: #222;
+      border-radius: 30px;
+      height: 8px;
+      margin-top: 0.2rem;
+      overflow: hidden;
+    }
+    .progress-bar {
+      background-color: #ffbd39;
+      border-radius: 30px;
+      width: 0%;
+      transition: none;
+    }
+    @media (max-width: 768px) {
+      .skill-list-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
       }
     }
-    /* additional fix for any dark text in hero typing */
-    #typing-animation {
-      color: #ffbd39 !important;
+
+    .skill-mf .progress {
+      background-color: #222;
+      border-radius: 30px;
+      height: 10px;
+      margin-bottom: 1.2rem;
     }
-    /* some sliders text colors */
-    .slider-item .one-forth .text .subheading {
-      color: #ffbd39 !important;
+    .skill-mf .progress-bar {
+      background-color: #ffbd39;
+      border-radius: 30px;
+      transition: none;
     }
-    /* ensure no dark backgrounds from external css */
-    .ftco-navbar-light, .navbar, .ftco-footer-social li a span {
-      background: transparent !important;
+    .skill-mf span {
+      color: #ddd;
+      font-weight: 500;
     }
-    .bg-light {
-      background: #ffffff !important;
-    }
-    /* clean code for the counters */
-    .ftco-animate .number {
+    .skill-mf .pull-right {
+      float: right;
       color: #ffbd39;
+    }
+
+    /* contact form + map */
+    .contact-form input, .contact-form textarea {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 40px;
+      padding: 0.7rem 1.5rem;
+      margin-bottom: 1rem;
+      width: 100%;
+      font-size: 1rem;
+    }
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: none;
+      border-color: #ffbd39;
+      background: rgba(255,189,57,0.05);
+    }
+    .contact-form textarea {
+      border-radius: 25px;
+      resize: vertical;
+    }
+    .contact-form .btn-send {
+      background: #ffbd39;
+      color: #000;
+      border: none;
+      border-radius: 40px;
+      padding: 0.7rem 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 2px solid transparent;
+    }
+    .contact-form .btn-send:hover {
+      background: transparent;
+      color: #ffbd39;
+      border-color: #ffbd39;
+    }
+    .map-container {
+      border: 2px solid #333;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 100%;
+      min-height: 320px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      min-height: 320px;
+    }
+    .contact-map-row {
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+    }
+    .toast-msg {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffbd39;
+      color: #000;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 500;
+      z-index: 9999;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      animation: fadeOut 3s forwards;
+    }
+    @keyframes fadeOut {
+      0% { opacity: 1; bottom: 30px; }
+      70% { opacity: 1; bottom: 30px; }
+      100% { opacity: 0; bottom: 0; visibility: hidden; }
+    }
+    @media (max-width: 576px) {
+      .hero h1 { font-size: 2rem; }
+      .new-section h2 { font-size: 1.6rem; }
+      .about-info li { font-size: 0.9rem; }
+    }
+
+    .ftco-footer-social {
+      margin-top: 4rem !important;
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .ftco-footer-social li.normal-txt {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #ffbd39;
+      margin-right: 15px;
+    }
+    .ftco-footer-social li a {
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+      text-decoration: none;
+      color: #ffbd39;
+    }
+    .ftco-footer-social li a:hover {
+      background: #ffbd39;
+      color: #000;
+      transform: translateY(-3px);
+    }
+    .ftco-footer-social li a i,
+    .ftco-footer-social li a span {
+      font-size: 1.3rem;
+    }
+    @media (max-width: 768px) {
+      .ftco-footer-social {
+        margin-top: 2.5rem !important;
+      }
+      .ftco-footer-social li.normal-txt {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+    }
+
+    /* inner extra blocks inside education */
+    .edu-extras {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #333;
+    }
+    .edu-extras h3 {
+      color: #ffbd39;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    .edu-extras ul {
+      color: #ddd;
+      font-size: 1rem;
+      line-height: 1.6;
+      padding-left: 1.2rem;
+    }
+    .edu-extras ul li {
+      margin-bottom: 0.4rem;
     }
   </style>
 </head>
@@ -290,10 +464,12 @@
       <p>Full Stack Flutter Developer</p>
     </div>
     <ul class="sidebar-nav nav">
+      <!-- Icons for all sections: Languages & Values removed as requested -->
       <li class="nav-item"><a href="#home-section" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
       <li class="nav-item"><a href="#about-section" class="nav-link"><i class="fas fa-user"></i><span>About</span></a></li>
       <li class="nav-item"><a href="#myapps-section" class="nav-link"><i class="fas fa-mobile-alt"></i><span>My Apps</span></a></li>
       <li class="nav-item"><a href="#skills-new-section" class="nav-link"><i class="fas fa-code"></i><span>Skills</span></a></li>
+      <!-- Languages & Values nav items removed (integrated into Education) -->
       <li class="nav-item"><a href="#programming-section" class="nav-link"><i class="fas fa-laptop-code"></i><span>Programming</span></a></li>
       <li class="nav-item"><a href="#education-section" class="nav-link"><i class="fas fa-graduation-cap"></i><span>Education</span></a></li>
       <li class="nav-item"><a href="#project-section" class="nav-link"><i class="fas fa-project-diagram"></i><span>Project</span></a></li>
@@ -450,7 +626,7 @@
     </section>
 
     <!-- EDUCATION SECTION: now includes Languages & Values content -->
-    <section class="ftco-section" id="education-section">
+    <section class=" id="education-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
           <div class="col-md-7 heading-section text-center ftco-animate">
@@ -463,10 +639,10 @@
           <div class="col-md-6"><div class="resume-wrap ftco-animate"><span class="date">2023 – Present</span><h2>Bachelor of Computer Application (BCA)</h2><span class="position">Tribhuvan University, Kathmandu</span><p class="mt-4">Through my Bachelor of Computer Applications (BCA), I learned programming, web development, database management, and software development.</p></div></div>
           <div class="col-md-6"><div class="resume-wrap ftco-animate"><span class="date">2021 – 2023</span><h2>+2 Computer Science</h2><span class="position">Nepal Kasthamandap SS/College, Kathmandu</span><p class="mt-4">I completed my +2 in the Management faculty with Computer Science, learning computer fundamentals, basic programming, and information technology concepts.</p></div></div>
         </div>
-        <!-- Languages & Values integrated here -->
+        <!-- Languages & Values integrated here (no separate sections) -->
         <div class="row edu-extras">
           <div class="col-md-6">
-            <h3><i class="fas fa-language" style="color:#ffbd39; margin-right:10px;"></i> Languages</h3>
+            <h3><i class="language" style="color:#ffbd39; margin-right:10px;"></i> Languages</h3>
             <ul>
               <li><strong>Nepali</strong> – native</li>
               <li><strong>English</strong> – professional working proficiency</li>
@@ -474,7 +650,7 @@
             </ul>
           </div>
           <div class="col-md-6">
-            <h3><i class="fas fa-heart" style="color:#ffbd39; margin-right:10px;"></i> My Values</h3>
+            <h3><i class=" style="color:#ffbd39; margin-right:10px;"></i> My Values</h3>
             <ul>
               <li><strong>Integrity</strong> – honest, ethical, transparent</li>
               <li><strong>Continuous Learning</strong> – constantly upgrading knowledge</li>
