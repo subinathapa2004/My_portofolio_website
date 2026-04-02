@@ -448,6 +448,96 @@
     .edu-extras ul li {
       margin-bottom: 0.4rem;
     }
+
+    /* BLOG CARDS STYLES */
+    .blog-card-link {
+      text-decoration: none;
+      display: block;
+      height: 100%;
+      transition: transform 0.2s ease;
+    }
+    .blog-card-link:hover {
+      transform: translateY(-5px);
+    }
+    .blog-card {
+      background: #1a1a1a;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #2a2a2a;
+      transition: all 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      border-color: #ffbd39;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
+    }
+    .blog-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+    .blog-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      padding: 1rem;
+    }
+    .blog-category {
+      display: inline-block;
+      background: #ffbd39;
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      letter-spacing: 0.5px;
+    }
+    .blog-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+    .blog-excerpt {
+      color: #bbb;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+      flex: 1;
+    }
+    .blog-read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #ffbd39;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: gap 0.2s;
+      margin-top: auto;
+    }
+    .blog-read-more i {
+      font-size: 0.8rem;
+      transition: transform 0.2s;
+    }
+    .blog-card-link:hover .blog-read-more i {
+      transform: translateX(5px);
+    }
+    @media (max-width: 768px) {
+      .blog-img { height: 180px; }
+    }
   </style>
 </head>
 <body data-spy="scroll" data-target=".sidebar-nav" data-offset="300">
@@ -464,15 +554,14 @@
       <p>Full Stack Flutter Developer</p>
     </div>
     <ul class="sidebar-nav nav">
-      <!-- Icons for all sections: Languages & Values removed as requested -->
       <li class="nav-item"><a href="#home-section" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
       <li class="nav-item"><a href="#about-section" class="nav-link"><i class="fas fa-user"></i><span>About</span></a></li>
       <li class="nav-item"><a href="#myapps-section" class="nav-link"><i class="fas fa-mobile-alt"></i><span>My Apps</span></a></li>
       <li class="nav-item"><a href="#skills-new-section" class="nav-link"><i class="fas fa-code"></i><span>Skills</span></a></li>
-      <!-- Languages & Values nav items removed (integrated into Education) -->
       <li class="nav-item"><a href="#programming-section" class="nav-link"><i class="fas fa-laptop-code"></i><span>Programming</span></a></li>
       <li class="nav-item"><a href="#education-section" class="nav-link"><i class="fas fa-graduation-cap"></i><span>Education</span></a></li>
       <li class="nav-item"><a href="#project-section" class="nav-link"><i class="fas fa-project-diagram"></i><span>Project</span></a></li>
+      <li class="nav-item"><a href="#blogs-section" class="nav-link"><i class="fab fa-medium"></i><span>Blogs</span></a></li>
       <li class="nav-item"><a href="#contact-section" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
     </ul>
   </div>
@@ -625,8 +714,8 @@
       <div class="container"><h2>Programming Journey</h2><div class="content"><p>I started my programming journey in 2023 with Python. After learning the fundamentals, I expanded my skills into web development and mobile app development. Currently, I am focused on improving my full-stack flutter development skills and exploring Artificial Intelligence. I am passionate about building real-world applications and creating innovative solutions with technology.</p></div></div>
     </section>
 
-    <!-- EDUCATION SECTION: now includes Languages & Values content -->
-    <section class=" id="education-section">
+    <!-- EDUCATION SECTION (includes Languages & Values) -->
+    <section id="education-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
           <div class="col-md-7 heading-section text-center ftco-animate">
@@ -639,10 +728,9 @@
           <div class="col-md-6"><div class="resume-wrap ftco-animate"><span class="date">2023 – Present</span><h2>Bachelor of Computer Application (BCA)</h2><span class="position">Tribhuvan University, Kathmandu</span><p class="mt-4">Through my Bachelor of Computer Applications (BCA), I learned programming, web development, database management, and software development.</p></div></div>
           <div class="col-md-6"><div class="resume-wrap ftco-animate"><span class="date">2021 – 2023</span><h2>+2 Computer Science</h2><span class="position">Nepal Kasthamandap SS/College, Kathmandu</span><p class="mt-4">I completed my +2 in the Management faculty with Computer Science, learning computer fundamentals, basic programming, and information technology concepts.</p></div></div>
         </div>
-        <!-- Languages & Values integrated here (no separate sections) -->
         <div class="row edu-extras">
           <div class="col-md-6">
-            <h3><i class="language" style="color:#ffbd39; margin-right:10px;"></i> Languages</h3>
+            <h3><i class="fas fa-language" style="color:#ffbd39; margin-right:10px;"></i> Languages</h3>
             <ul>
               <li><strong>Nepali</strong> – native</li>
               <li><strong>English</strong> – professional working proficiency</li>
@@ -650,7 +738,7 @@
             </ul>
           </div>
           <div class="col-md-6">
-            <h3><i class=" style="color:#ffbd39; margin-right:10px;"></i> My Values</h3>
+            <h3><i class="fas fa-heart" style="color:#ffbd39; margin-right:10px;"></i> My Values</h3>
             <ul>
               <li><strong>Integrity</strong> – honest, ethical, transparent</li>
               <li><strong>Continuous Learning</strong> – constantly upgrading knowledge</li>
@@ -678,6 +766,58 @@
           <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/ooo.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">E‑commerce App</a></h3><p>Coming soon: full-stack shopping experience.</p></div></div></div>
         </div>
         <div class="more-github"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-github">🔗 More projects on GitHub</a></div>
+      </div>
+    </section>
+
+    <!-- BLOGS SECTION (new) -->
+    <section class="ftco-section" id="blogs-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Blogs</h1>
+            <h2 class="mb-4">Tech Insights & Guides</h2>
+            <p>Thoughts, tutorials and deep dives on development</p>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Blog 1: Flutter Architecture -->
+          <div class="col-md-6 d-flex ftco-animate mb-4">
+            <a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100">
+              <div class="blog-card">
+                <div class="blog-img" style="background-image: url('images/aci.jpg');">
+                  <div class="blog-overlay">
+                    <span class="blog-category">Flutter · Architecture</span>
+                  </div>
+                </div>
+                <div class="blog-content">
+                  <h3 class="blog-title">Flutter App Architecture: MVVM vs Clean Architecture (Complete Guide for Developers)</h3>
+                  <p class="blog-excerpt">Explore the differences between MVVM and Clean Architecture in Flutter. Learn which pattern suits your next project and improve scalability, testability, and maintainability.</p>
+                  <div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- Blog 2: How to Become a Good Coder -->
+          <div class="col-md-6 d-flex ftco-animate mb-4">
+            <a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100">
+              <div class="blog-card">
+                <div class="blog-img" style="background-image: url('images/A.jpg');">
+                  <div class="blog-overlay">
+                    <span class="blog-category">Career · Mindset</span>
+                  </div>
+                </div>
+                <div class="blog-content">
+                  <h3 class="blog-title">How to Become a Good Coder: A Step-by-Step Guide</h3>
+                  <p class="blog-excerpt">Practical steps, habits, and resources to level up your coding skills. From mastering fundamentals to building real projects and contributing to open source.</p>
+                  <div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="more-github mt-3">
+          <a href="https://medium.com/@subinathapa5510" target="_blank" class="btn-github" style="background:#222;"><i class="fab fa-medium"></i> Visit my Medium profile</a>
+        </div>
       </div>
     </section>
 
