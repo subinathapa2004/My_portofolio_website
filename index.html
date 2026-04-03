@@ -7,7 +7,6 @@
 
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-  <!-- Font Awesome 6 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
@@ -529,6 +528,16 @@
       .blog-img { height: 180px; }
       .contact-form-card { padding: 1.5rem; }
     }
+
+    /* hidden contact info (email & phone) */
+    .hidden-contact {
+      display: none;
+    }
+    .footer-cv-btn {
+      text-align: center;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body data-spy="scroll" data-target=".sidebar-nav" data-offset="300">
@@ -598,7 +607,6 @@
                   <p>
                     <a href="https://github.com/subinathapa2004" class="btn btn-primary py-3 px-4">GitHub</a> 
                     <a href="https://github.com/subinathapa2004" class="btn btn-white btn-outline-white py-3 px-4">My works</a>
-                    <a href="#" id="downloadCvHeroBtn" class="btn-cv py-3 px-4 ms-3" style="margin-left:12px;"><i class="fas fa-download"></i> Download CV</a>
                   </p>
                 </div>
               </div>
@@ -608,7 +616,7 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION (CV button also inside) -->
+    <!-- ABOUT SECTION (no CV button here) -->
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
         <div class="row d-flex align-items-stretch">
@@ -649,9 +657,6 @@
             <div class="counter-wrap ftco-animate d-flex mt-md-3 align-items-center flex-wrap">
               <div class="text">
                 <p class="mb-4"><span class="number" data-number="30">0</span> <span>+</span> <span>&nbsp; Projects completed</span></p>
-              </div>
-              <div class="ms-auto">
-                <a href="#" id="downloadCvAboutBtn" class="btn-cv"><i class="fas fa-download"></i> Download CV (PDF)</a>
               </div>
             </div>
           </div>
@@ -752,7 +757,7 @@
       </div>
     </section>
 
-    <!-- CONTACT SECTION: NO GOOGLE MAP, professional contact form + info card -->
+    <!-- CONTACT SECTION: NO MAP, HIDE PHONE & EMAIL -->
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
         <div class="row justify-content-center mb-4 pb-2"><div class="col-md-8 heading-section text-center ftco-animate"><h1 class="big big-2">Connect</h1><h2 class="mb-3">Let’s Work Together</h2><p>Have a project in mind? Send a message, and I’ll get back to you within 24 hours.</p></div></div>
@@ -773,14 +778,12 @@
           </div>
           <div class="col-md-5 ftco-animate">
             <div class="info-card">
-              <h4><i class="fas fa-address-card me-2"></i> Direct Contact</h4>
+              <h4><i class="fas fa-address-card me-2"></i> Visit / Write</h4>
               <div class="contact-detail-item"><i class="fas fa-map-marker-alt"></i><p>Kathmandu, Suyuchatar, Nepal</p></div>
-              <div class="contact-detail-item"><i class="fas fa-phone-alt"></i><p><a href="tel:+9779741698460">+977 9741698460</a></p></div>
-              <div class="contact-detail-item"><i class="fas fa-envelope"></i><p><a href="mailto:subinathapa5510@gmail.com">subinathapa5510@gmail.com</a></p></div>
+              <!-- Phone and Email hidden completely as requested -->
               <hr style="background:#333;">
-              <div class="mt-3 text-center">
-                <a href="#" id="downloadCvContactBtn" class="btn-cv w-100 justify-content-center" style="padding:12px;"><i class="fas fa-download"></i> Download CV (Professional)</a>
-                <p class="small text-muted mt-3 mb-0">PDF includes experience & portfolio summary</p>
+              <div class="text-center mt-2">
+                <p class="text-muted small">Use the contact form to reach me. I’ll reply promptly.</p>
               </div>
             </div>
           </div>
@@ -798,6 +801,11 @@
           <li class="ftco-animate"><a href="https://www.instagram.com/stories/subinathapa22/"><span class="icon-instagram"></span></a></li>
           <li class="ftco-animate"><a href="https://www.youtube.com/@Subina--11-nxx"><span class="icon-youtube"></span></a></li>
         </ul>
+
+        <!-- ONLY ONE DOWNLOAD CV BUTTON AT THE VERY END -->
+        <div class="footer-cv-btn">
+          <a href="#" id="downloadCvFooterBtn" class="btn-cv"><i class="fas fa-download"></i> Download CV (Professional Resume)</a>
+        </div>
       </div>
     </section>
 
@@ -823,9 +831,9 @@
   <script src="js/main.js"></script>
 
   <script>
-    // CV Download function: generates professional .txt CV (simulated as high-quality text)
+    // Simple CV download function - no extra prompts, just direct download
     function downloadCV() {
-      const cvContent = `===== SUBINA THAPA - FULL STACK FLUTTER DEVELOPER =====\n\nCONTACT\n-------\nEmail: subinathapa5510@gmail.com\nPhone: +977 9741698460\nLocation: Kathmandu, Nepal\nGitHub: github.com/subinathapa2004\nLinkedIn: linkedin.com/in/subina-thapa\n\nPROFESSIONAL SUMMARY\n-------------------\nInnovative Full Stack Flutter Developer with expertise in cross-platform mobile apps, REST APIs, Firebase, Django, and PostgreSQL. Passionate about building efficient, user-centric digital solutions. Completed 30+ projects including e-commerce, healthcare, and productivity apps.\n\nTECHNICAL SKILLS\n----------------\n• Languages: Dart, Python, JavaScript, TypeScript, Java\n• Frameworks: Flutter, React, Next.js, Django\n• Databases: PostgreSQL, Firebase, SQLite\n• Tools: Git, GitHub, VS Code, Postman\n\nEDUCATION\n---------\nBachelor of Computer Application (BCA) – Tribhuvan University (2023-Present)\n+2 Computer Science – Nepal Kasthamandap College (2021-2023)\n\nKEY PROJECTS\n------------\n• ShopEase: Full-featured e-commerce Flutter app with Firebase backend.\n• WeatherNow: Real-time weather app using REST API & location.\n• Clinic Website: Healthcare platform with appointment scheduling.\n• Real Estate React App: Property showcase with modern UI.\n\nLANGUAGES\n---------\nNepali (Native), English (Professional), Hindi (Basic)\n\nCERTIFICATIONS & VALUES\n-----------------------\n• Continuous learner, creative problem solver, teamwork oriented.\n• Completed multiple Flutter & web dev workshops.\n\nThis CV is generated from Subina Thapa's official portfolio.`;
+      const cvContent = `===== SUBINA THAPA - FULL STACK FLUTTER DEVELOPER =====\n\nCONTACT\n-------\nEmail: subinathapa5510@gmail.com (hidden on site but available for hiring)\nLocation: Kathmandu, Nepal\nGitHub: github.com/subinathapa2004\nLinkedIn: linkedin.com/in/subina-thapa\n\nPROFESSIONAL SUMMARY\n-------------------\nInnovative Full Stack Flutter Developer with expertise in cross-platform mobile apps, REST APIs, Firebase, Django, and PostgreSQL. Completed 30+ projects including e-commerce, healthcare, and productivity apps.\n\nTECHNICAL SKILLS\n----------------\n• Languages: Dart, Python, JavaScript, TypeScript, Java\n• Frameworks: Flutter, React, Next.js, Django\n• Databases: PostgreSQL, Firebase, SQLite\n• Tools: Git, GitHub, VS Code, Postman\n\nEDUCATION\n---------\nBachelor of Computer Application (BCA) – Tribhuvan University (2023-Present)\n+2 Computer Science – Nepal Kasthamandap College (2021-2023)\n\nKEY PROJECTS\n------------\n• ShopEase: Full-featured e-commerce Flutter app with Firebase backend.\n• WeatherNow: Real-time weather app using REST API & location.\n• Clinic Website: Healthcare platform with appointment scheduling.\n• Real Estate React App: Property showcase with modern UI.\n\nLANGUAGES\n---------\nNepali (Native), English (Professional), Hindi (Basic)\n\nCERTIFICATIONS & VALUES\n-----------------------\n• Continuous learner, creative problem solver, teamwork oriented.\n• Completed multiple Flutter & web dev workshops.\n\n--- This CV is generated from Subina Thapa's official portfolio. ---`;
       const blob = new Blob([cvContent], { type: 'text/plain' });
       const link = document.createElement('a');
       const url = URL.createObjectURL(blob);
@@ -837,13 +845,14 @@
       URL.revokeObjectURL(url);
       const toast = document.createElement('div');
       toast.className = 'toast-msg';
-      toast.innerText = '📄 CV downloaded successfully! (Text format)';
+      toast.innerText = '📄 CV downloaded successfully!';
       document.body.appendChild(toast);
       setTimeout(() => toast.remove(), 3000);
     }
-    document.querySelectorAll('#downloadCvHeroBtn, #downloadCvAboutBtn, #downloadCvContactBtn').forEach(btn => {
-      if(btn) btn.addEventListener('click', (e) => { e.preventDefault(); downloadCV(); });
-    });
+
+    // Attach to the single download button
+    const downloadBtn = document.getElementById('downloadCvFooterBtn');
+    if(downloadBtn) downloadBtn.addEventListener('click', (e) => { e.preventDefault(); downloadCV(); });
 
     // Professional Contact Form submission
     const contactForm = document.getElementById('contactForm');
@@ -860,7 +869,7 @@
         }
         const toast = document.createElement('div');
         toast.className = 'toast-msg';
-        toast.innerText = ` Thanks ${name}! Your professional message has been received. I'll respond within 24h.`;
+        toast.innerText = `✨ Thanks ${name}! Your message has been received. I'll respond within 24h.`;
         document.body.appendChild(toast);
         contactForm.reset();
         setTimeout(() => toast.remove(), 3500);
