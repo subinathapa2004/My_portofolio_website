@@ -1,3 +1,5 @@
+Here is the final HTML code with exactly 6 projects displayed, a single CV download button at the bottom, and the contact number & email hidden as requested.
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -382,10 +384,6 @@
       font-size: 0.95rem;
       word-break: break-word;
     }
-    .contact-detail-item a {
-      color: #ffbd39;
-      text-decoration: none;
-    }
     .toast-msg {
       position: fixed;
       bottom: 30px;
@@ -529,10 +527,6 @@
       .contact-form-card { padding: 1.5rem; }
     }
 
-    /* hidden contact info (email & phone) */
-    .hidden-contact {
-      display: none;
-    }
     .footer-cv-btn {
       text-align: center;
       margin-top: 3rem;
@@ -616,7 +610,7 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION (no CV button here) -->
+    <!-- ABOUT SECTION (no CV button) -->
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
         <div class="row d-flex align-items-stretch">
@@ -734,13 +728,19 @@
       </div>
     </section>
 
+    <!-- PROJECTS SECTION: EXACTLY 6 PROJECTS -->
     <section class="ftco-section" id="project-section">
       <div class="container">
-        <div class="row justify-content-center mb-5 pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Projects</h1><h2 class="mb-4">Projects</h2><p>Below are some of my recent works.</p></div></div>
+        <div class="row justify-content-center mb-5 pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Projects</h1><h2 class="mb-4">My 6 Featured Projects</h2><p>Real-world applications and websites I've built</p></div></div>
         <div class="row d-flex">
           <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Clinic Website</a></h3><p>Mobile-friendly healthcare site with consent form, appointment scheduling, and SEO best practices.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
           <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Cleaning Website</a></h3><p>Clean design highlighting services, pricing, and customer testimonials to build trust.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
           <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Montessori Website</a></h3><p>Child-friendly design with classroom images, learning materials, and testimonials.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+        </div>
+        <div class="row d-flex mt-4">
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Real Estate Platform</a></h3><p>React.js based property showcase for sale/rent with interactive UI and filters.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Corporate Website</a></h3><p>Professional corporate site with interactive elements and lead generation focus.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/ooo.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">E‑commerce App</a></h3><p>Full-stack shopping experience with cart, payments, and admin dashboard (Flutter + Firebase).</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
         </div>
         <div class="more-github"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-github">🔗 More projects on GitHub</a></div>
       </div>
@@ -780,7 +780,7 @@
             <div class="info-card">
               <h4><i class="fas fa-address-card me-2"></i> Visit / Write</h4>
               <div class="contact-detail-item"><i class="fas fa-map-marker-alt"></i><p>Kathmandu, Suyuchatar, Nepal</p></div>
-              <!-- Phone and Email hidden completely as requested -->
+              <!-- Phone and email hidden completely -->
               <hr style="background:#333;">
               <div class="text-center mt-2">
                 <p class="text-muted small">Use the contact form to reach me. I’ll reply promptly.</p>
@@ -831,9 +831,9 @@
   <script src="js/main.js"></script>
 
   <script>
-    // Simple CV download function - no extra prompts, just direct download
+    // Single CV download function
     function downloadCV() {
-      const cvContent = `===== SUBINA THAPA - FULL STACK FLUTTER DEVELOPER =====\n\nCONTACT\n-------\nEmail: subinathapa5510@gmail.com (hidden on site but available for hiring)\nLocation: Kathmandu, Nepal\nGitHub: github.com/subinathapa2004\nLinkedIn: linkedin.com/in/subina-thapa\n\nPROFESSIONAL SUMMARY\n-------------------\nInnovative Full Stack Flutter Developer with expertise in cross-platform mobile apps, REST APIs, Firebase, Django, and PostgreSQL. Completed 30+ projects including e-commerce, healthcare, and productivity apps.\n\nTECHNICAL SKILLS\n----------------\n• Languages: Dart, Python, JavaScript, TypeScript, Java\n• Frameworks: Flutter, React, Next.js, Django\n• Databases: PostgreSQL, Firebase, SQLite\n• Tools: Git, GitHub, VS Code, Postman\n\nEDUCATION\n---------\nBachelor of Computer Application (BCA) – Tribhuvan University (2023-Present)\n+2 Computer Science – Nepal Kasthamandap College (2021-2023)\n\nKEY PROJECTS\n------------\n• ShopEase: Full-featured e-commerce Flutter app with Firebase backend.\n• WeatherNow: Real-time weather app using REST API & location.\n• Clinic Website: Healthcare platform with appointment scheduling.\n• Real Estate React App: Property showcase with modern UI.\n\nLANGUAGES\n---------\nNepali (Native), English (Professional), Hindi (Basic)\n\nCERTIFICATIONS & VALUES\n-----------------------\n• Continuous learner, creative problem solver, teamwork oriented.\n• Completed multiple Flutter & web dev workshops.\n\n--- This CV is generated from Subina Thapa's official portfolio. ---`;
+      const cvContent = `===== SUBINA THAPA - FULL STACK FLUTTER DEVELOPER =====\n\nCONTACT\n-------\nEmail: subinathapa5510@gmail.com (hidden on site for privacy)\nLocation: Kathmandu, Nepal\nGitHub: github.com/subinathapa2004\nLinkedIn: linkedin.com/in/subina-thapa\n\nPROFESSIONAL SUMMARY\n-------------------\nInnovative Full Stack Flutter Developer with expertise in cross-platform mobile apps, REST APIs, Firebase, Django, and PostgreSQL. Completed 30+ projects including e-commerce, healthcare, and productivity apps.\n\nTECHNICAL SKILLS\n----------------\n• Languages: Dart, Python, JavaScript, TypeScript, Java\n• Frameworks: Flutter, React, Next.js, Django\n• Databases: PostgreSQL, Firebase, SQLite\n• Tools: Git, GitHub, VS Code, Postman\n\nEDUCATION\n---------\nBachelor of Computer Application (BCA) – Tribhuvan University (2023-Present)\n+2 Computer Science – Nepal Kasthamandap College (2021-2023)\n\nKEY PROJECTS (6 selected)\n-------------------------\n1. Clinic Website – Healthcare platform with appointment scheduling.\n2. Cleaning Website – Service showcase with pricing & testimonials.\n3. Montessori Website – Child-friendly design with learning materials.\n4. Real Estate Platform – React.js property showcase with filters.\n5. Corporate Website – Lead generation & interactive corporate presence.\n6. E‑commerce App – Full-stack shopping with Firebase & Flutter.\n\nLANGUAGES\n---------\nNepali (Native), English (Professional), Hindi (Basic)\n\nCERTIFICATIONS & VALUES\n-----------------------\n• Continuous learner, creative problem solver, teamwork oriented.\n• Completed multiple Flutter & web dev workshops.\n\n--- This CV is generated from Subina Thapa's official portfolio. ---`;
       const blob = new Blob([cvContent], { type: 'text/plain' });
       const link = document.createElement('a');
       const url = URL.createObjectURL(blob);
@@ -850,11 +850,9 @@
       setTimeout(() => toast.remove(), 3000);
     }
 
-    // Attach to the single download button
     const downloadBtn = document.getElementById('downloadCvFooterBtn');
     if(downloadBtn) downloadBtn.addEventListener('click', (e) => { e.preventDefault(); downloadCV(); });
 
-    // Professional Contact Form submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
@@ -887,3 +885,4 @@
   </script>
 </body>
 </html>
+```
