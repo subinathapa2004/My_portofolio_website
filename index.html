@@ -21,514 +21,197 @@
   <link rel="stylesheet" href="css/style.css">
 
   <style>
-    body { overflow-x: hidden; background: #111; margin:0; padding:0; font-family: 'Poppins', sans-serif; }
-    
-    .mobile-header {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 60px;
-      background: #0a0a0a;
-      z-index: 1001;
-      align-items: center;
-      padding: 0 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-      border-bottom: 1px solid #222;
+    /* ---------- THEME VARIABLES (DEFAULT DARK) ---------- */
+    :root {
+      --bg-primary: #111;
+      --bg-secondary: #0a0a0a;
+      --card-bg: #1a1a1a;
+      --card-border: #2a2a2a;
+      --text-primary: #fff;
+      --text-secondary: #ddd;
+      --text-muted: #aaa;
+      --sidebar-bg: #0a0a0a;
+      --sidebar-border: #222;
+      --input-bg: #1e1e22;
+      --input-border: #3a3a40;
+      --info-card-bg: #151518;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-    .mobile-header .menu-btn {
-      background: none;
-      border: none;
-      color: #ffbd39;
-      font-size: 28px;
-      cursor: pointer;
-      margin-right: 15px;
+
+    body.light-mode {
+      --bg-primary: #f4f7fc;
+      --bg-secondary: #ffffff;
+      --card-bg: #ffffff;
+      --card-border: #e0e4e8;
+      --text-primary: #1e2a3a;
+      --text-secondary: #2c3e50;
+      --text-muted: #5d6f7f;
+      --sidebar-bg: #ffffff;
+      --sidebar-border: #e9ecef;
+      --input-bg: #ffffff;
+      --input-border: #ced4da;
+      --info-card-bg: #ffffff;
     }
-    .mobile-header .brand {
-      color: #ffbd39;
-      font-size: 1.3rem;
-      font-weight: 600;
-      flex-grow: 1;
+
+    /* smooth global transitions */
+    body, .sidebar, .main-content, .blog-card, .contact-form-card, .info-card, .resume-wrap, .skill-item, .btn-cv, .project-github, .btn-primary, .ftco-footer-social li a {
+      transition: var(--transition);
+    }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-secondary);
     }
 
     .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 280px;
-      height: 100vh;
-      background: #0a0a0a;
-      z-index: 1000;
-      padding: 2rem 1.5rem;
-      box-shadow: 4px 0 15px rgba(0,0,0,0.5);
-      overflow-y: auto;
-      border-right: 1px solid #222;
-      transition: transform 0.3s ease-in-out;
-    }
-    .profile-sidebar {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-    .profile-sidebar img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #ffbd39;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 20px rgba(255,189,57,0.3);
-    }
-    .profile-sidebar h3 {
-      color: #fff;
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-    .profile-sidebar p {
-      color: #aaa;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-    }
-    .sidebar-nav {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .sidebar-nav .nav-item {
-      margin-bottom: 0.6rem;
-    }
-    .sidebar-nav .nav-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 0.7rem 1rem;
-      color: #ccc;
-      font-size: 1.05rem;
-      border-radius: 40px;
-      transition: all 0.3s;
-      text-decoration: none;
-      font-weight: 400;
-      border: 1px solid transparent;
-    }
-    .sidebar-nav .nav-link i {
-      width: 24px;
-      font-size: 1.25rem;
-      text-align: center;
-      color: #ffbd39;
-      transition: 0.2s;
-    }
-    .sidebar-nav .nav-link:hover i,
-    .sidebar-nav .nav-link.active i {
-      color: #000;
-    }
-    .sidebar-nav .nav-link:hover,
-    .sidebar-nav .nav-link.active {
-      background: #ffbd39;
-      color: #000;
-      border-color: #ffbd39;
-      padding-left: 1.3rem;
-    }
-    .sidebar-nav .nav-link span {
-      flex: 1;
+      background: var(--sidebar-bg);
+      border-right: 1px solid var(--sidebar-border);
     }
 
     .main-content {
-      margin-left: 280px;
-      transition: margin-left 0.3s;
-      background: #111;
+      background: var(--bg-primary);
     }
 
-    @media (max-width: 992px) {
-      .sidebar { width: 240px; padding: 1.5rem 1rem; }
-      .profile-sidebar img { width: 100px; height: 100px; }
-      .profile-sidebar h3 { font-size: 1.3rem; }
-      .sidebar-nav .nav-link { font-size: 1rem; padding: 0.55rem 0.8rem; gap: 8px; }
-      .sidebar-nav .nav-link i { font-size: 1.1rem; width: 22px; }
-      .main-content { margin-left: 240px; }
+    .profile-sidebar h3 {
+      color: var(--text-primary);
     }
 
-    @media (max-width: 768px) {
-      .sidebar {
-        transform: translateX(-100%);
-        width: 260px;
-        box-shadow: none;
-      }
-      .sidebar.open {
-        transform: translateX(0);
-        box-shadow: 4px 0 15px rgba(0,0,0,0.5);
-      }
-      .mobile-header {
-        display: flex;
-      }
-      .main-content {
-        margin-left: 0;
-        padding-top: 70px;
-      }
+    .profile-sidebar p {
+      color: var(--text-muted);
     }
 
-    .ftco_navbar { display: none; }
-
-    .new-section {
-      padding: 5rem 0;
-      border-bottom: 1px solid #222;
-    }
-    .new-section h2 {
-      color: #ffbd39;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-    .new-section .content {
-      color: #ddd;
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-    .btn-primary {
-      background: #ffbd39;
-      border: none;
-      color: #000;
-    }
-    .btn-primary:hover {
-      background: #e6a800;
-    }
-    .btn-cv {
-      background: transparent;
-      border: 2px solid #ffbd39;
-      color: #ffbd39;
-      padding: 12px 28px;
-      font-weight: 600;
-      border-radius: 40px;
-      transition: 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-    .btn-cv:hover {
-      background: #ffbd39;
-      color: #000;
-      border-color: #ffbd39;
-    }
-    .project-github {
-      display: inline-block;
-      margin-top: 0.8rem;
-      color: #ffbd39;
-      font-weight: 500;
-      text-decoration: none;
-      border: 1px solid #ffbd39;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
-      transition: 0.3s;
-    }
-    .project-github:hover {
-      background: #ffbd39;
-      color: #000;
-    }
-    .more-github {
-      text-align: center;
-      margin-top: 3rem;
-    }
-    .more-github .btn-github {
-      background: #333;
-      color: #ffbd39;
-      border: 2px solid #ffbd39;
-      padding: 0.8rem 2rem;
-      border-radius: 40px;
-      font-weight: 600;
-      transition: 0.3s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .more-github .btn-github:hover {
-      background: #ffbd39;
-      color: #000;
-      border-color: #ffbd39;
+    .sidebar-nav .nav-link {
+      color: var(--text-secondary);
     }
 
-    /* SKILLS LIST STYLE */
-    .skill-list-section {
-      padding: 4rem 0;
-    }
-    .skill-list-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-    .skill-item {
-      margin-bottom: 1rem;
-    }
-    .skill-header {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      margin-bottom: 0.3rem;
-    }
-    .skill-icon-small {
-      font-size: 1.5rem;
-      color: #ffbd39;
-      width: 2rem;
-    }
-    .skill-name {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #ddd;
-      flex: 1;
-    }
-    .skill-percent {
-      color: #ffbd39;
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-    .progress {
-      background-color: #222;
-      border-radius: 30px;
-      height: 8px;
-      margin-top: 0.2rem;
-      overflow: hidden;
-    }
-    .progress-bar {
-      background-color: #ffbd39;
-      border-radius: 30px;
-      width: 0%;
-      transition: none;
-    }
-    @media (max-width: 768px) {
-      .skill-list-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
+    .new-section, .ftco-section {
+      border-bottom: 1px solid var(--card-border);
     }
 
-    /* contact form professional */
-    .contact-form-card {
-      background: rgba(30,30,35,0.6);
-      backdrop-filter: blur(2px);
-      padding: 2rem;
-      border-radius: 32px;
-      border: 1px solid #333;
-      transition: 0.2s;
+    .blog-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
     }
+
+    .blog-title {
+      color: var(--text-primary);
+    }
+
+    .blog-excerpt {
+      color: var(--text-muted);
+    }
+
+    .contact-form-card, .info-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+    }
+
     .contact-form input, .contact-form textarea, .contact-form select {
-      background: #1e1e22;
-      border: 1px solid #3a3a40;
-      color: #fff;
-      border-radius: 40px;
-      padding: 0.8rem 1.5rem;
-      margin-bottom: 1.2rem;
-      width: 100%;
-      font-size: 1rem;
-      transition: 0.2s;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      color: var(--text-primary);
     }
-    .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
-      outline: none;
-      border-color: #ffbd39;
-      background: #25252c;
-      box-shadow: 0 0 0 2px rgba(255,189,57,0.2);
+
+    .resume-wrap {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
     }
-    .contact-form textarea {
-      border-radius: 28px;
-      resize: vertical;
+
+    .resume-wrap h2, .resume-wrap .position {
+      color: var(--text-primary);
     }
-    .btn-send {
-      background: #ffbd39;
-      color: #000;
-      border: none;
-      border-radius: 40px;
-      padding: 0.8rem 2rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.3s;
-      width: 100%;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+
+    .resume-wrap p {
+      color: var(--text-secondary);
     }
-    .btn-send:hover {
-      background: #e6a800;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(255,189,57,0.3);
-    }
-    .info-card {
-      background: #151518;
-      border-radius: 32px;
-      padding: 2rem;
-      border: 1px solid #2a2a2f;
-      height: 100%;
-    }
+
     .info-card h4 {
       color: #ffbd39;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
     }
-    .contact-detail-item {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 1.5rem;
+
+    .ftco-footer {
+      background: var(--bg-secondary);
     }
-    .contact-detail-item i {
-      font-size: 1.6rem;
-      color: #ffbd39;
-      width: 40px;
-      text-align: center;
-    }
-    .contact-detail-item p {
-      margin: 0;
-      color: #ddd;
-      font-size: 0.95rem;
-      word-break: break-word;
-    }
-    .toast-msg {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ffbd39;
-      color: #000;
-      padding: 12px 24px;
-      border-radius: 50px;
-      font-weight: 500;
-      z-index: 9999;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      animation: fadeOut 3s forwards;
-    }
-    @keyframes fadeOut {
-      0% { opacity: 1; bottom: 30px; }
-      70% { opacity: 1; bottom: 30px; }
-      100% { opacity: 0; bottom: 0; visibility: hidden; }
-    }
-    .ftco-footer-social {
-      margin-top: 4rem !important;
-      margin-bottom: 2rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-    .ftco-footer-social li.normal-txt {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #ffbd39;
-      margin-right: 15px;
-    }
-    .ftco-footer-social li a {
-      background: rgba(255,255,255,0.05);
-      border-radius: 50%;
-      width: 42px;
-      height: 42px;
+
+    /* theme toggle button */
+    .theme-toggle {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: 0.3s;
-      text-decoration: none;
-      color: #ffbd39;
-    }
-    .ftco-footer-social li a:hover {
-      background: #ffbd39;
-      color: #000;
-      transform: translateY(-3px);
-    }
-    .edu-extras {
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #333;
-    }
-    .blog-card-link {
-      text-decoration: none;
-      display: block;
-      height: 100%;
-      transition: transform 0.2s ease;
-    }
-    .blog-card-link:hover {
-      transform: translateY(-5px);
-    }
-    .blog-card {
-      background: #1a1a1a;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid #2a2a2a;
+      background: rgba(255,189,57,0.15);
+      border: 1px solid #ffbd39;
+      border-radius: 50px;
+      padding: 8px 16px;
+      margin-top: 30px;
+      cursor: pointer;
       transition: all 0.3s;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    .blog-card:hover {
-      border-color: #ffbd39;
-      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
-    }
-    .blog-img {
-      height: 220px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative;
-    }
-    .blog-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      padding: 1rem;
-    }
-    .blog-category {
-      display: inline-block;
-      background: #ffbd39;
-      color: #000;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.2rem 0.8rem;
-      border-radius: 30px;
-      letter-spacing: 0.5px;
-    }
-    .blog-content {
-      padding: 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .blog-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
-    }
-    .blog-excerpt {
-      color: #bbb;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      margin-bottom: 1.2rem;
-      flex: 1;
-    }
-    .blog-read-more {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      width: fit-content;
+      gap: 10px;
       color: #ffbd39;
       font-weight: 500;
-      font-size: 0.9rem;
-      transition: gap 0.2s;
-      margin-top: auto;
     }
-    .blog-read-more i {
-      font-size: 0.8rem;
-      transition: transform 0.2s;
+    .theme-toggle i {
+      font-size: 1.2rem;
     }
-    .blog-card-link:hover .blog-read-more i {
-      transform: translateX(5px);
+    .theme-toggle:hover {
+      background: #ffbd39;
+      color: #000;
     }
-    @media (max-width: 768px) {
-      .blog-img { height: 180px; }
-      .contact-form-card { padding: 1.5rem; }
+    .theme-toggle:hover i {
+      color: #000;
     }
 
-    .footer-cv-btn {
+    /* services cards */
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 2rem 1.5rem;
       text-align: center;
-      margin-top: 3rem;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: #ffbd39;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.3);
+    }
+    .service-icon {
+      font-size: 3rem;
+      color: #ffbd39;
+      margin-bottom: 1.2rem;
+      display: inline-block;
+    }
+    .service-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text-primary);
       margin-bottom: 1rem;
+    }
+    .service-card p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    /* smooth scroll behavior + anchor offset */
+    html {
+      scroll-behavior: smooth;
+    }
+    section {
+      scroll-margin-top: 70px;
+    }
+    @media (max-width: 768px) {
+      section {
+        scroll-margin-top: 80px;
+      }
+    }
+    .btn-primary, .btn-cv, .project-github {
+      transition: all 0.2s ease;
+    }
+    .ftco-animate {
+      transition: all 0.5s ease;
     }
   </style>
 </head>
@@ -537,6 +220,8 @@
   <div class="mobile-header">
     <button class="menu-btn" id="menuToggle" aria-label="Menu">☰</button>
     <span class="brand">Subina Thapa</span>
+    <!-- small theme icon in mobile header -->
+    <button id="mobileThemeToggle" style="background:none; border:none; color:#ffbd39; font-size:1.4rem; margin-left:auto;"><i class="fas fa-moon"></i></button>
   </div>
 
   <div class="sidebar site-navbar-target" id="sidebar">
@@ -548,6 +233,7 @@
     <ul class="sidebar-nav nav">
       <li class="nav-item"><a href="#home-section" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
       <li class="nav-item"><a href="#about-section" class="nav-link"><i class="fas fa-user"></i><span>About</span></a></li>
+      <li class="nav-item"><a href="#services-section" class="nav-link"><i class="fas fa-cogs"></i><span>Services</span></a></li>
       <li class="nav-item"><a href="#myapps-section" class="nav-link"><i class="fas fa-mobile-alt"></i><span>My Apps</span></a></li>
       <li class="nav-item"><a href="#skills-new-section" class="nav-link"><i class="fas fa-code"></i><span>Skills</span></a></li>
       <li class="nav-item"><a href="#programming-section" class="nav-link"><i class="fas fa-laptop-code"></i><span>Programming</span></a></li>
@@ -556,6 +242,10 @@
       <li class="nav-item"><a href="#blogs-section" class="nav-link"><i class="fab fa-medium"></i><span>Blogs</span></a></li>
       <li class="nav-item"><a href="#contact-section" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
     </ul>
+    <!-- theme toggle inside sidebar (desktop) -->
+    <div class="theme-toggle" id="desktopThemeToggle">
+      <i class="fas fa-sun"></i> <span>Light / Dark</span> <i class="fas fa-moon"></i>
+    </div>
   </div>
 
   <div class="main-content">
@@ -656,6 +346,63 @@
       </div>
     </section>
 
+    <!-- ***** NEW SERVICES SECTION ***** -->
+    <section class="ftco-section" id="services-section">
+      <div class="container">
+        <div class="row justify-content-center pb-4">
+          <div class="col-md-8 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Services</h1>
+            <h2 class="mb-3">What I Offer</h2>
+            <p>End-to-end development solutions tailored to your needs</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4">
+            <div class="service-card w-100">
+              <div class="service-icon"><i class="fab fa-flutter"></i></div>
+              <h3>Flutter App Dev</h3>
+              <p>Cross-platform mobile apps (iOS & Android) with stunning UI, smooth animations, and native performance.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4">
+            <div class="service-card w-100">
+              <div class="service-icon"><i class="fas fa-database"></i></div>
+              <h3>Backend & API</h3>
+              <p>RESTful APIs, Firebase integration, Django backend, and PostgreSQL database architecture.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4">
+            <div class="service-card w-100">
+              <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+              <h3>UI/UX Design</h3>
+              <p>Modern, user-friendly interfaces with attention to responsive design and accessibility.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4">
+            <div class="service-card w-100">
+              <div class="service-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+              <h3>Deployment & DevOps</h3>
+              <p>CI/CD, Firebase Hosting, App Store / Play Store deployment and version management.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4">
+            <div class="service-card w-100">
+              <div class="service-icon"><i class="fas fa-code-branch"></i></div>
+              <h3>Full Stack Consulting</h3>
+              <p>Technical advice, code reviews, and architecture planning for scalable applications.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4">
+            <div class="service-card w-100">
+              <div class="service-icon"><i class="fas fa-rocket"></i></div>
+              <h3>MVP Development</h3>
+              <p>Fast prototyping and launch-ready MVPs to validate your startup ideas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="ftco-section new-section" id="myapps-section">
       <div class="container">
         <h2>My Apps</h2>
@@ -731,35 +478,32 @@
       <div class="container">
         <div class="row justify-content-center mb-5 pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Projects</h1><h2 class="mb-4">My 6 Featured Projects</h2><p>Real-world applications and websites I've built</p></div></div>
         <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Clinic Website</a></h3><p>Mobile-friendly healthcare site with consent form, appointment scheduling, and SEO best practices.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Cleaning Website</a></h3><p>Clean design highlighting services, pricing, and customer testimonials to build trust.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Montessori Website</a></h3><p>Child-friendly design with classroom images, learning materials, and testimonials.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Clinic Website</a></h3><p>Mobile-friendly healthcare site with consent form, appointment scheduling.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Cleaning Website</a></h3><p>Clean design highlighting services, pricing, and customer testimonials.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Montessori Website</a></h3><p>Child-friendly design with classroom images, learning materials.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
         </div>
         <div class="row d-flex mt-4">
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Real Estate Platform</a></h3><p>React.js based property showcase for sale/rent with interactive UI and filters.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Corporate Website</a></h3><p>Professional corporate site with interactive elements and lead generation focus.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/ooo.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">E‑commerce App</a></h3><p>Full-stack shopping experience with cart, payments, and admin dashboard (Flutter + Firebase).</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Real Estate Platform</a></h3><p>React.js based property showcase for sale/rent with interactive UI.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Corporate Website</a></h3><p>Professional corporate site with interactive elements and lead generation.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/ooo.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">E‑commerce App</a></h3><p>Full-stack shopping experience with cart, payments, and admin dashboard.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
         </div>
         <div class="more-github"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-github">🔗 More projects on GitHub</a></div>
       </div>
     </section>
 
-    <!-- BLOGS SECTION with third blog added: Timeless Wisdom of the Bhagavad Gita, image "c" -->
+    <!-- BLOGS SECTION with third blog added -->
     <section class="ftco-section" id="blogs-section">
       <div class="container">
         <div class="row justify-content-center mb-5 pb-3"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Blogs</h1><h2 class="mb-4">Tech Insights & Guides</h2><p>Thoughts, tutorials and deep dives on development</p></div></div>
         <div class="row">
-          <!-- existing blog 1 -->
-          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/B.webp');"><div class="blog-overlay"><span class="blog-category">Flutter · Architecture</span></div></div><div class="blog-content"><h3 class="blog-title">Flutter App Architecture: MVVM vs Clean Architecture (Complete Guide for Developers)</h3><p class="blog-excerpt">Explore the differences between MVVM and Clean Architecture in Flutter. Learn which pattern suits your next project and improve scalability.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
-          <!-- existing blog 2 -->
-          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/A.webp');"><div class="blog-overlay"><span class="blog-category">Career · Mindset</span></div></div><div class="blog-content"><h3 class="blog-title">How to Become a Good Coder: A Step-by-Step Guide</h3><p class="blog-excerpt">Practical steps, habits, and resources to level up your coding skills. From mastering fundamentals to building real projects.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
-          <!-- NEW BLOG: The Timeless Wisdom of the Bhagavad Gita with image "c" -->
-          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/yooo.png');"><div class="blog-overlay"><span class="blog-category">Wisdom · Philosophy</span></div></div><div class="blog-content"><h3 class="blog-title">The Timeless Wisdom of the Bhagavad Gita</h3><p class="blog-excerpt">Ancient insights for modern developers: Discover how the Bhagavad Gita’s teachings on focus, resilience, and purpose can transform the way you code and navigate life’s challenges.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/B.webp');"><div class="blog-overlay"><span class="blog-category">Flutter · Architecture</span></div></div><div class="blog-content"><h3 class="blog-title">Flutter App Architecture: MVVM vs Clean Architecture</h3><p class="blog-excerpt">Explore differences between MVVM and Clean Architecture in Flutter.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/A.webp');"><div class="blog-overlay"><span class="blog-category">Career · Mindset</span></div></div><div class="blog-content"><h3 class="blog-title">How to Become a Good Coder: A Step-by-Step Guide</h3><p class="blog-excerpt">Practical steps, habits, and resources to level up your coding skills.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/yooo.png');"><div class="blog-overlay"><span class="blog-category">Wisdom · Philosophy</span></div></div><div class="blog-content"><h3 class="blog-title">The Timeless Wisdom of the Bhagavad Gita</h3><p class="blog-excerpt">Ancient insights for modern developers: focus, resilience, and purpose.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT SECTION: NO MAP, HIDE PHONE & EMAIL -->
+    <!-- CONTACT SECTION -->
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
         <div class="row justify-content-center mb-4 pb-2"><div class="col-md-8 heading-section text-center ftco-animate"><h1 class="big big-2">Connect</h1><h2 class="mb-3">Let’s Work Together</h2><p>Have a project in mind? Send a message, and I’ll get back to you within 24 hours.</p></div></div>
@@ -802,8 +546,6 @@
           <li class="ftco-animate"><a href="https://www.instagram.com/stories/subinathapa22/"><span class="icon-instagram"></span></a></li>
           <li class="ftco-animate"><a href="https://www.youtube.com/@Subina--11-nxx"><span class="icon-youtube"></span></a></li>
         </ul>
-
-        <!-- ONLY ONE DOWNLOAD CV BUTTON AT THE VERY END -->
         <div class="footer-cv-btn">
           <a href="#" id="downloadCvFooterBtn" class="btn-cv"><i class="fas fa-download"></i> Download CV (Professional Resume)</a>
         </div>
@@ -831,10 +573,39 @@
   <script src="js/scrollax.min.js"></script>
   <script src="js/main.js"></script>
 
-  <!--script>
-    // Single CV download function
+  <script>
+    // Theme Toggle with localStorage & smooth transition
+    function setTheme(theme) {
+      if (theme === 'light') {
+        document.body.classList.add('light-mode');
+        localStorage.setItem('subina_theme', 'light');
+      } else {
+        document.body.classList.remove('light-mode');
+        localStorage.setItem('subina_theme', 'dark');
+      }
+    }
+    function toggleTheme() {
+      if (document.body.classList.contains('light-mode')) {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
+    }
+    const savedTheme = localStorage.getItem('subina_theme');
+    if (savedTheme === 'light') {
+      setTheme('light');
+    } else {
+      setTheme('dark');
+    }
+    // attach events
+    const desktopToggle = document.getElementById('desktopThemeToggle');
+    const mobileToggle = document.getElementById('mobileThemeToggle');
+    if (desktopToggle) desktopToggle.addEventListener('click', toggleTheme);
+    if (mobileToggle) mobileToggle.addEventListener('click', toggleTheme);
+
+    // CV download function
     function downloadCV() {
-      const cvContent = `===== SUBINA THAPA - FULL STACK FLUTTER DEVELOPER =====\n\nCONTACT\n-------\nEmail: subinathapa5510@gmail.com\nLocation: Kathmandu, Nepal\nGitHub: github.com/subinathapa2004\nLinkedIn: linkedin.com/in/subina-thapa\n\nPROFESSIONAL SUMMARY\n-------------------\nInnovative Full Stack Flutter Developer with expertise in cross-platform mobile apps, REST APIs, Firebase, Django, and PostgreSQL. Completed 30+ projects including e-commerce, healthcare, and productivity apps.\n\nTECHNICAL SKILLS\n----------------\n• Languages: Dart, Python, JavaScript, TypeScript, Java\n• Frameworks: Flutter, React, Next.js, Django\n• Databases: PostgreSQL, Firebase, SQLite\n• Tools: Git, GitHub, VS Code, Postman\n\nEDUCATION\n---------\nBachelor of Computer Application (BCA) – Tribhuvan University (2023-Present)\n+2 Computer Science – Nepal Kasthamandap College (2021-2023)\n\nKEY PROJECTS (6 selected)\n-------------------------\n1. Clinic Website – Healthcare platform with appointment scheduling.\n2. Cleaning Website – Service showcase with pricing & testimonials.\n3. Montessori Website – Child-friendly design with learning materials.\n4. Real Estate Platform – React.js property showcase with filters.\n5. Corporate Website – Lead generation & interactive corporate presence.\n6. E‑commerce App – Full-stack shopping with Firebase & Flutter.\n\nLANGUAGES\n---------\nNepali (Native), English (Professional), Hindi (Basic)\n\nCERTIFICATIONS & VALUES\n-----------------------\n• Continuous learner, creative problem solver, teamwork oriented.\n• Completed multiple Flutter & web dev workshops.\n\n--- This CV is generated from Subina Thapa's official portfolio. ---`;
+      const cvContent = `===== SUBINA THAPA - FULL STACK FLUTTER DEVELOPER =====\n\nCONTACT\n-------\nEmail: subinathapa5510@gmail.com\nLocation: Kathmandu, Nepal\nGitHub: github.com/subinathapa2004\nLinkedIn: linkedin.com/in/subina-thapa\n\nPROFESSIONAL SUMMARY\n-------------------\nInnovative Full Stack Flutter Developer with expertise in cross-platform mobile apps, REST APIs, Firebase, Django, and PostgreSQL. Completed 30+ projects including e-commerce, healthcare, and productivity apps.\n\nTECHNICAL SKILLS\n----------------\n• Languages: Dart, Python, JavaScript, TypeScript, Java\n• Frameworks: Flutter, React, Next.js, Django\n• Databases: PostgreSQL, Firebase, SQLite\n• Tools: Git, GitHub, VS Code, Postman\n\nEDUCATION\n---------\nBachelor of Computer Application (BCA) – Tribhuvan University (2023-Present)\n+2 Computer Science – Nepal Kasthamandap College (2021-2023)\n\nSERVICES OFFERED\n----------------\nFlutter App Dev, Backend & API, UI/UX Design, Deployment, Full Stack Consulting, MVP Development.\n\nPROJECTS (6 selected)\n---------------------\nClinic Website, Cleaning Website, Montessori Website, Real Estate Platform, Corporate Website, E‑commerce App.\n\nLANGUAGES\n---------\nNepali (Native), English (Professional), Hindi (Basic)\n\n--- CV generated from Subina Thapa's official portfolio ---`;
       const blob = new Blob([cvContent], { type: 'text/plain' });
       const link = document.createElement('a');
       const url = URL.createObjectURL(blob);
@@ -850,10 +621,10 @@
       document.body.appendChild(toast);
       setTimeout(() => toast.remove(), 3000);
     }
-
     const downloadBtn = document.getElementById('downloadCvFooterBtn');
     if(downloadBtn) downloadBtn.addEventListener('click', (e) => { e.preventDefault(); downloadCV(); });
 
+    // Contact form handling
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', function(e) {
@@ -876,6 +647,7 @@
       });
     }
 
+    // mobile sidebar toggle
     const menuToggle = document.getElementById('menuToggle');
     const sidebar = document.getElementById('sidebar');
     if (menuToggle) menuToggle.addEventListener('click', () => sidebar.classList.toggle('open'));
