@@ -530,36 +530,6 @@
       margin-top: 3rem;
       margin-bottom: 1rem;
     }
-    /* service cards */
-    .service-card {
-      background: #15181e;
-      border-radius: 28px;
-      padding: 2rem 1.8rem;
-      text-align: center;
-      transition: all 0.25s ease;
-      border: 1px solid #2a2a2f;
-      height: 100%;
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: #ffbd39;
-      box-shadow: 0 15px 30px -12px rgba(0,0,0,0.4);
-    }
-    .service-icon {
-      font-size: 3rem;
-      color: #ffbd39;
-      margin-bottom: 1.2rem;
-    }
-    .service-card h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 1rem;
-    }
-    .service-card p {
-      color: #bbb;
-      line-height: 1.6;
-    }
   </style>
 </head>
 <body data-spy="scroll" data-target=".sidebar-nav" data-offset="300">
@@ -576,101 +546,220 @@
       <p>Full Stack Flutter Developer</p>
     </div>
     <ul class="sidebar-nav nav">
-      <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
-      <li class="nav-item"><a href="index.html#about-section" class="nav-link"><i class="fas fa-user"></i><span>About</span></a></li>
-      <li class="nav-item"><a href="index.html#myapps-section" class="nav-link"><i class="fas fa-mobile-alt"></i><span>My Apps</span></a></li>
-      <li class="nav-item"><a href="index.html#skills-new-section" class="nav-link"><i class="fas fa-code"></i><span>Skills</span></a></li>
-      <li class="nav-item"><a href="index.html#programming-section" class="nav-link"><i class="fas fa-laptop-code"></i><span>Programming</span></a></li>
-      <li class="nav-item"><a href="index.html#education-section" class="nav-link"><i class="fas fa-graduation-cap"></i><span>Education</span></a></li>
-      <li class="nav-item"><a href="index.html#project-section" class="nav-link"><i class="fas fa-project-diagram"></i><span>Project</span></a></li>
-      <li class="nav-item"><a href="services.html" class="nav-link active"><i class="fas fa-cogs"></i><span>Services</span></a></li>
-      <li class="nav-item"><a href="index.html#blogs-section" class="nav-link"><i class="fab fa-medium"></i><span>Blogs</span></a></li>
-      <li class="nav-item"><a href="index.html#contact-section" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+      <li class="nav-item"><a href="#home-section" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+      <li class="nav-item"><a href="#about-section" class="nav-link"><i class="fas fa-user"></i><span>About</span></a></li>
+      <li class="nav-item"><a href="#myapps-section" class="nav-link"><i class="fas fa-mobile-alt"></i><span>My Apps</span></a></li>
+      <li class="nav-item"><a href="#skills-new-section" class="nav-link"><i class="fas fa-code"></i><span>Skills</span></a></li>
+      <li class="nav-item"><a href="#programming-section" class="nav-link"><i class="fas fa-laptop-code"></i><span>Programming</span></a></li>
+      <li class="nav-item"><a href="#education-section" class="nav-link"><i class="fas fa-graduation-cap"></i><span>Education</span></a></li>
+      <li class="nav-item"><a href="#project-section" class="nav-link"><i class="fas fa-project-diagram"></i><span>Project</span></a></li>
+      <li class="nav-item"><a href="#blogs-section" class="nav-link"><i class="fab fa-medium"></i><span>Blogs</span></a></li>
+      <li class="nav-item"><a href="#contact-section" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
     </ul>
   </div>
 
   <div class="main-content">
-    <!-- SERVICES HERO SECTION -->
-    <section class="ftco-section ftco-no-pt ftco-no-pb" style="padding-top: 6rem;">
+
+    <section id="home-section" class="hero">
+      <div class="home-slider owl-carousel">
+        <div class="slider-item">
+          <div class="overlay"></div>
+          <div class="container">
+            <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+              <div class="one-third js-fullheight order-md-last img" style="background-image:url(images/farhinaa.jpg);">
+                <div class="overlay"></div>
+              </div>
+              <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <div class="text">
+                  <span class="subheading">Hello!</span>
+                  <h1 class="mb-4 mt-3">I'm <span>Subina Thapa</span></h1>
+                  <span id="typing-animation" style="font-size: 28px; font-weight: bold; color:#ffbd39;"></span>
+                  <script>
+                    const typingAnimationElement = document.getElementById('typing-animation');
+                    const typingTexts = ['Full Stack Flutter Developer'];
+                    function playTypingAnimation(text) {
+                      let i = 0;
+                      typingAnimationElement.textContent = '';
+                      function typeChar() {
+                        if (i < text.length) {
+                          typingAnimationElement.textContent += text[i];
+                          i++;
+                          setTimeout(typeChar, 120);
+                        } else {
+                          setTimeout(() => {
+                            playTypingAnimation(typingTexts[0]);
+                          }, 2000);
+                        }
+                      }
+                      typeChar();
+                    }
+                    playTypingAnimation(typingTexts[0]);
+                  </script>
+                  <br><br>
+                  <p>
+                    <a href="https://github.com/subinathapa2004" class="btn btn-primary py-3 px-4">GitHub</a> 
+                    <a href="https://github.com/subinathapa2004" class="btn btn-white btn-outline-white py-3 px-4">My works</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+      <div class="container">
+        <div class="row d-flex align-items-stretch">
+          <div class="col-md-6 col-lg-5 d-flex">
+            <div class="img-about img d-flex align-items-stretch">
+              <div class="overlay">
+                <div class="row">
+                  <div class="col-sm-6 col-md-5">
+                    <div class="about-img">
+                      <img src="images/gggg.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-7">
+                    <div class="about-info">
+                      <p><span class="title-s">Name: </span> <span>Subina Thapa</span></p>
+                      <p><span class="title-s">Job Role: </span> <span>Full Stack Flutter Developer</span></p>
+                      <p><span class="title-s">Address: </span> <span>Kathmandu, Suyuchatar</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+            <div class="row justify-content-start pb-3">
+              <div class="col-md-12 heading-section ftco-animate">
+                <h1 class="big">About</h1>
+                <h2 class="mb-4">About Me</h2>
+                <p>Hi! I’m Subina Thapa, an aspiring Full Stack Flutter Developer. I work with Flutter | Dart | REST APIs | Firebase | Django | PostgreSQL and various modern tools. I love exploring new technologies and turning ideas into functional, creative projects. My passion is building useful and innovative applications that solve real problems.</p>
+                <ul class="about-info mt-4 px-md-0 px-2">
+                  <li class="d-flex"><span>Profile:</span> <span>Full Stack Flutter Developer</span></li>
+                  <li class="d-flex"><span>Education:</span> <span>Bachelor of Computer Application</span></li>
+                  <li class="d-flex"><span>Language:</span> <span>English, Nepali</span></li>
+                  <li class="d-flex"><span>Interest:</span> <span>Traveling, Travel Photography</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="counter-wrap ftco-animate d-flex mt-md-3 align-items-center flex-wrap">
+              <div class="text">
+                <p class="mb-4"><span class="number" data-number="30">0</span> <span>+</span> <span>&nbsp; Projects completed</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section new-section" id="myapps-section">
+      <div class="container">
+        <h2>My Apps</h2>
+        <div class="content">
+          <p>I have developed several Flutter applications including e‑commerce, weather, consultancy apps. Below are some highlights:</p>
+          <ul>
+            <li><strong>ShopEase</strong> – full‑featured e‑commerce app with Firebase backend.</li>
+            <li><strong>WeatherNow</strong> – real‑time weather using REST API and location services.</li>
+            <li><strong>TaskFlow</strong> – productivity app with local storage and notifications.</li>
+          </ul>
+          <p>All apps are available on my <a href="https://github.com/subinathapa2004" target="_blank" style="color:#ffbd39;">GitHub</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="ftco-section skill-list-section" id="skills-new-section">
+      <div class="container">
+        <div class="row justify-content-center pb-2">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h1 class="big big-2">Expertise</h1>
+            <h2 class="mb-4">Technical Skills</h2>
+            <p>Core competencies with proficiency levels</p>
+          </div>
+        </div>
+        <div class="skill-list-grid">
+          <div class="skill-list-col">
+            <div class="skill-item"><div class="skill-header"><i class="devicon-dart-plain colored skill-icon-small"></i><span class="skill-name">Dart</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-flutter-plain colored skill-icon-small"></i><span class="skill-name">Flutter</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-javascript-plain colored skill-icon-small"></i><span class="skill-name">JavaScript</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-typescript-plain colored skill-icon-small"></i><span class="skill-name">TypeScript</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-python-plain colored skill-icon-small"></i><span class="skill-name">Python</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-java-plain colored skill-icon-small"></i><span class="skill-name">Java</span><span class="skill-percent">45%</span></div><div class="progress"><div class="progress-bar" style="width:45%"></div></div></div>
+          </div>
+          <div class="skill-list-col">
+            <div class="skill-item"><div class="skill-header"><i class="devicon-react-original colored skill-icon-small"></i><span class="skill-name">React</span><span class="skill-percent">55%</span></div><div class="progress"><div class="progress-bar" style="width:55%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-nextjs-original colored skill-icon-small"></i><span class="skill-name">Next.js</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-django-plain colored skill-icon-small"></i><span class="skill-name">Django</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-postgresql-plain colored skill-icon-small"></i><span class="skill-name">PostgreSQL</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-git-plain colored skill-icon-small"></i><span class="skill-name">Git</span><span class="skill-percent">65%</span></div><div class="progress"><div class="progress-bar" style="width:65%"></div></div></div>
+            <div class="skill-item"><div class="skill-header"><i class="devicon-github-original colored skill-icon-small"></i><span class="skill-name">GitHub</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section new-section" id="programming-section">
+      <div class="container"><h2>Programming Journey</h2><div class="content"><p>I started my programming journey in 2023 with Python. After learning the fundamentals, I expanded my skills into web development and mobile app development. Currently, I am focused on improving my full-stack flutter development skills and exploring Artificial Intelligence. I am passionate about building real-world applications and creating innovative solutions with technology.</p></div></div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
-          <div class="col-md-8 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Services</h1>
-            <h2 class="mb-4">What I Offer</h2>
-            <p>End-to-end development solutions tailored to your business needs</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-4 ftco-animate mb-4">
-            <div class="service-card">
-              <div class="service-icon"><i class="fab fa-flutter"></i></div>
-              <h3>Flutter App Dev</h3>
-              <p>Cross-platform mobile apps (iOS & Android) with stunning UI/UX, smooth animations, and native performance using Flutter & Dart.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 ftco-animate mb-4">
-            <div class="service-card">
-              <div class="service-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-              <h3>Backend & API</h3>
-              <p>RESTful APIs, Firebase integration (Auth, Firestore, Cloud Functions), Django backends, and PostgreSQL databases.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 ftco-animate mb-4">
-            <div class="service-card">
-              <div class="service-icon"><i class="fas fa-palette"></i></div>
-              <h3>UI/UX Design</h3>
-              <p>Modern, responsive, user-centric designs with Figma, Adobe XD, and pixel-perfect implementation in Flutter/React.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 ftco-animate mb-4">
-            <div class="service-card">
-              <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
-              <h3>E‑commerce Solutions</h3>
-              <p>Complete e‑commerce platforms with product catalogs, cart, payment gateways, order management, and admin dashboards.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 ftco-animate mb-4">
-            <div class="service-card">
-              <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-              <h3>Consultancy & Training</h3>
-              <p>Technical mentoring, Flutter workshops, code reviews, and best practices for teams and individuals.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 ftco-animate mb-4">
-            <div class="service-card">
-              <div class="service-icon"><i class="fas fa-rocket"></i></div>
-              <h3>MVP & Startup Launch</h3>
-              <p>Rapid prototyping, MVP development, and launch strategies to turn your idea into a market-ready product.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row mt-5">
-          <div class="col text-center">
-            <p class="mb-0" style="color:#bbb;">Let’s build something impactful — <a href="index.html#contact-section" style="color:#ffbd39;">Get in touch →</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- optional: simple process section (still same aesthetic) -->
-    <section class="ftco-section pt-0">
-      <div class="container">
-        <div class="row justify-content-center pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4">How I Work</h2>
-            <p>Transparent, agile, and result-driven process</p>
+            <h1 class="big big-2">Education</h1>
+            <h2 class="mb-4">Education & More</h2>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-3 text-center ftco-animate"><div class="service-card" style="padding:1.5rem;"><div class="service-icon"><i class="fas fa-comments"></i></div><h5>Discovery</h5><p>Understand your vision & requirements</p></div></div>
-          <div class="col-md-3 text-center ftco-animate"><div class="service-card" style="padding:1.5rem;"><div class="service-icon"><i class="fas fa-drafting-compass"></i></div><h5>Design</h5><p>Wireframes & interactive prototypes</p></div></div>
-          <div class="col-md-3 text-center ftco-animate"><div class="service-card" style="padding:1.5rem;"><div class="service-icon"><i class="fas fa-code"></i></div><h5>Development</h5><p>Agile sprints & continuous delivery</p></div></div>
-          <div class="col-md-3 text-center ftco-animate"><div class="service-card" style="padding:1.5rem;"><div class="service-icon"><i class="fas fa-chart-line"></i></div><h5>Launch & Support</h5><p>Deployment, maintenance & scaling</p></div></div>
+          <div class="col-md-6"><div class="resume-wrap ftco-animate"><span class="date">2023 – Present</span><h2>Bachelor of Computer Application (BCA)</h2><span class="position">Tribhuvan University, Kathmandu</span><p class="mt-4">Through my Bachelor of Computer Applications (BCA), I learned programming, web development, database management, and software development.</p></div></div>
+          <div class="col-md-6"><div class="resume-wrap ftco-animate"><span class="date">2021 – 2023</span><h2>+2 Computer Science</h2><span class="position">Nepal Kasthamandap SS/College, Kathmandu</span><p class="mt-4">I completed my +2 in the Management faculty with Computer Science, learning computer fundamentals, basic programming, and information technology concepts.</p></div></div>
+        </div>
+        <div class="row edu-extras">
+          <div class="col-md-6"><h3><i class="style="color:#ffbd39; margin-right:10px;"></i> Languages</h3><ul><li><strong>Nepali</strong> – native</li><li><strong>English</strong> – professional working proficiency</li><li><strong>Hindi</strong> – Basic (Learning)</li></ul></div>
+          <div class="col-md-6"><h3><i class="style="color:#ffbd39; margin-right:10px;"></i> My Values</h3><ul><li>Integrity – honest, ethical, transparent</li><li>Continuous Learning – constantly upgrading knowledge</li><li>Creativity – innovative solutions</li><li>Teamwork – collaboration and respect</li><li>User‑Centric Design – focus on usability</li><li>Resilience – embrace challenges</li></ul></div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT SECTION (identical to original) -->
+    <!-- PROJECTS SECTION: EXACTLY 6 PROJECTS -->
+    <section class="ftco-section" id="project-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Projects</h1><h2 class="mb-4">My 6 Featured Projects</h2><p>Real-world applications and websites I've built</p></div></div>
+        <div class="row d-flex">
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Clinic Website</a></h3><p>Mobile-friendly healthcare site with consent form, appointment scheduling, and SEO best practices.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Cleaning Website</a></h3><p>Clean design highlighting services, pricing, and customer testimonials to build trust.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Montessori Website</a></h3><p>Child-friendly design with classroom images, learning materials, and testimonials.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+        </div>
+        <div class="row d-flex mt-4">
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Real Estate Platform</a></h3><p>React.js based property showcase for sale/rent with interactive UI and filters.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Corporate Website</a></h3><p>Professional corporate site with interactive elements and lead generation focus.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/ooo.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">E‑commerce App</a></h3><p>Full-stack shopping experience with cart, payments, and admin dashboard (Flutter + Firebase).</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+        </div>
+        <div class="more-github"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-github">🔗 More projects on GitHub</a></div>
+      </div>
+    </section>
+
+    <!-- BLOGS SECTION with third blog added: Timeless Wisdom of the Bhagavad Gita, image "c" -->
+    <section class="ftco-section" id="blogs-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-3"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Blogs</h1><h2 class="mb-4">Tech Insights & Guides</h2><p>Thoughts, tutorials and deep dives on development</p></div></div>
+        <div class="row">
+          <!-- existing blog 1 -->
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/B.webp');"><div class="blog-overlay"><span class="blog-category">Flutter · Architecture</span></div></div><div class="blog-content"><h3 class="blog-title">Flutter App Architecture: MVVM vs Clean Architecture (Complete Guide for Developers)</h3><p class="blog-excerpt">Explore the differences between MVVM and Clean Architecture in Flutter. Learn which pattern suits your next project and improve scalability.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
+          <!-- existing blog 2 -->
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/A.webp');"><div class="blog-overlay"><span class="blog-category">Career · Mindset</span></div></div><div class="blog-content"><h3 class="blog-title">How to Become a Good Coder: A Step-by-Step Guide</h3><p class="blog-excerpt">Practical steps, habits, and resources to level up your coding skills. From mastering fundamentals to building real projects.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
+          <!-- NEW BLOG: The Timeless Wisdom of the Bhagavad Gita with image "c" -->
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/yooo.png');"><div class="blog-overlay"><span class="blog-category">Wisdom · Philosophy</span></div></div><div class="blog-content"><h3 class="blog-title">The Timeless Wisdom of the Bhagavad Gita</h3><p class="blog-excerpt">Ancient insights for modern developers: Discover how the Bhagavad Gita’s teachings on focus, resilience, and purpose can transform the way you code and navigate life’s challenges.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION: NO MAP, HIDE PHONE & EMAIL -->
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
         <div class="row justify-content-center mb-4 pb-2"><div class="col-md-8 heading-section text-center ftco-animate"><h1 class="big big-2">Connect</h1><h2 class="mb-3">Let’s Work Together</h2><p>Have a project in mind? Send a message, and I’ll get back to you within 24 hours.</p></div></div>
@@ -714,6 +803,7 @@
           <li class="ftco-animate"><a href="https://www.youtube.com/@Subina--11-nxx"><span class="icon-youtube"></span></a></li>
         </ul>
 
+        <!-- ONLY ONE DOWNLOAD CV BUTTON AT THE VERY END -->
         <div class="footer-cv-btn">
           <a href="#" id="downloadCvFooterBtn" class="btn-cv"><i class="fas fa-download"></i> Download CV (Professional Resume)</a>
         </div>
@@ -741,7 +831,8 @@
   <script src="js/scrollax.min.js"></script>
   <script src="js/main.js"></script>
 
-  <script>
+  <!--script>
+    // Single CV download function
     function downloadCV() {
       const cvContent = `===== SUBINA THAPA - FULL STACK FLUTTER DEVELOPER =====\n\nCONTACT\n-------\nEmail: subinathapa5510@gmail.com\nLocation: Kathmandu, Nepal\nGitHub: github.com/subinathapa2004\nLinkedIn: linkedin.com/in/subina-thapa\n\nPROFESSIONAL SUMMARY\n-------------------\nInnovative Full Stack Flutter Developer with expertise in cross-platform mobile apps, REST APIs, Firebase, Django, and PostgreSQL. Completed 30+ projects including e-commerce, healthcare, and productivity apps.\n\nTECHNICAL SKILLS\n----------------\n• Languages: Dart, Python, JavaScript, TypeScript, Java\n• Frameworks: Flutter, React, Next.js, Django\n• Databases: PostgreSQL, Firebase, SQLite\n• Tools: Git, GitHub, VS Code, Postman\n\nEDUCATION\n---------\nBachelor of Computer Application (BCA) – Tribhuvan University (2023-Present)\n+2 Computer Science – Nepal Kasthamandap College (2021-2023)\n\nKEY PROJECTS (6 selected)\n-------------------------\n1. Clinic Website – Healthcare platform with appointment scheduling.\n2. Cleaning Website – Service showcase with pricing & testimonials.\n3. Montessori Website – Child-friendly design with learning materials.\n4. Real Estate Platform – React.js property showcase with filters.\n5. Corporate Website – Lead generation & interactive corporate presence.\n6. E‑commerce App – Full-stack shopping with Firebase & Flutter.\n\nLANGUAGES\n---------\nNepali (Native), English (Professional), Hindi (Basic)\n\nCERTIFICATIONS & VALUES\n-----------------------\n• Continuous learner, creative problem solver, teamwork oriented.\n• Completed multiple Flutter & web dev workshops.\n\n--- This CV is generated from Subina Thapa's official portfolio. ---`;
       const blob = new Blob([cvContent], { type: 'text/plain' });
@@ -759,6 +850,7 @@
       document.body.appendChild(toast);
       setTimeout(() => toast.remove(), 3000);
     }
+
     const downloadBtn = document.getElementById('downloadCvFooterBtn');
     if(downloadBtn) downloadBtn.addEventListener('click', (e) => { e.preventDefault(); downloadCV(); });
 
