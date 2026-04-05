@@ -23,545 +23,220 @@
   <style>
     body { overflow-x: hidden; background: #111; margin:0; padding:0; font-family: 'Poppins', sans-serif; }
     
-    .mobile-header {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 60px;
-      background: #0a0a0a;
-      z-index: 1001;
-      align-items: center;
-      padding: 0 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-      border-bottom: 1px solid #222;
-    }
-    .mobile-header .menu-btn {
-      background: none;
-      border: none;
-      color: #ffbd39;
-      font-size: 28px;
-      cursor: pointer;
-      margin-right: 15px;
-    }
-    .mobile-header .brand {
-      color: #ffbd39;
-      font-size: 1.3rem;
-      font-weight: 600;
-      flex-grow: 1;
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 280px;
-      height: 100vh;
-      background: #0a0a0a;
-      z-index: 1000;
-      padding: 2rem 1.5rem;
-      box-shadow: 4px 0 15px rgba(0,0,0,0.5);
-      overflow-y: auto;
-      border-right: 1px solid #222;
-      transition: transform 0.3s ease-in-out;
-    }
-    .profile-sidebar {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-    .profile-sidebar img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #ffbd39;
-      margin-bottom: 1rem;
-      box-shadow: 0 0 20px rgba(255,189,57,0.3);
-    }
-    .profile-sidebar h3 {
-      color: #fff;
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
-    .profile-sidebar p {
-      color: #aaa;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-    }
-    .sidebar-nav {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .sidebar-nav .nav-item {
-      margin-bottom: 0.6rem;
-    }
-    .sidebar-nav .nav-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 0.7rem 1rem;
-      color: #ccc;
-      font-size: 1.05rem;
-      border-radius: 40px;
-      transition: all 0.3s;
-      text-decoration: none;
-      font-weight: 400;
-      border: 1px solid transparent;
-    }
+    /* ===== RESPONSIVE ICONS & ENHANCEMENTS ===== */
+    /* Sidebar nav icons - responsive touch */
     .sidebar-nav .nav-link i {
-      width: 24px;
-      font-size: 1.25rem;
-      text-align: center;
-      color: #ffbd39;
-      transition: 0.2s;
+      width: 28px;
+      font-size: 1.3rem;
+      transition: transform 0.2s ease, color 0.2s;
     }
-    .sidebar-nav .nav-link:hover i,
-    .sidebar-nav .nav-link.active i {
-      color: #000;
+    .sidebar-nav .nav-link:hover i {
+      transform: scale(1.1);
     }
-    .sidebar-nav .nav-link:hover,
-    .sidebar-nav .nav-link.active {
-      background: #ffbd39;
-      color: #000;
-      border-color: #ffbd39;
-      padding-left: 1.3rem;
-    }
-    .sidebar-nav .nav-link span {
-      flex: 1;
-    }
-
-    .main-content {
-      margin-left: 280px;
-      transition: margin-left 0.3s;
-      background: #111;
-    }
-
-    @media (max-width: 992px) {
-      .sidebar { width: 240px; padding: 1.5rem 1rem; }
-      .profile-sidebar img { width: 100px; height: 100px; }
-      .profile-sidebar h3 { font-size: 1.3rem; }
-      .sidebar-nav .nav-link { font-size: 1rem; padding: 0.55rem 0.8rem; gap: 8px; }
-      .sidebar-nav .nav-link i { font-size: 1.1rem; width: 22px; }
-      .main-content { margin-left: 240px; }
-    }
-
-    @media (max-width: 768px) {
-      .sidebar {
-        transform: translateX(-100%);
-        width: 260px;
-        box-shadow: none;
-      }
-      .sidebar.open {
-        transform: translateX(0);
-        box-shadow: 4px 0 15px rgba(0,0,0,0.5);
-      }
-      .mobile-header {
-        display: flex;
-      }
-      .main-content {
-        margin-left: 0;
-        padding-top: 70px;
-      }
-    }
-
-    .ftco_navbar { display: none; }
-
-    .new-section {
-      padding: 5rem 0;
-      border-bottom: 1px solid #222;
-    }
-    .new-section h2 {
-      color: #ffbd39;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-    .new-section .content {
-      color: #ddd;
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-    .btn-primary {
-      background: #ffbd39;
-      border: none;
-      color: #000;
-    }
-    .btn-primary:hover {
-      background: #e6a800;
-    }
-    .btn-cv {
-      background: transparent;
-      border: 2px solid #ffbd39;
-      color: #ffbd39;
-      padding: 12px 28px;
-      font-weight: 600;
-      border-radius: 40px;
-      transition: 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-    .btn-cv:hover {
-      background: #ffbd39;
-      color: #000;
-      border-color: #ffbd39;
-    }
-    .project-github {
-      display: inline-block;
-      margin-top: 0.8rem;
-      color: #ffbd39;
-      font-weight: 500;
-      text-decoration: none;
-      border: 1px solid #ffbd39;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
-      transition: 0.3s;
-    }
-    .project-github:hover {
-      background: #ffbd39;
-      color: #000;
-    }
-    .more-github {
-      text-align: center;
-      margin-top: 3rem;
-    }
-    .more-github .btn-github {
-      background: #333;
-      color: #ffbd39;
-      border: 2px solid #ffbd39;
-      padding: 0.8rem 2rem;
-      border-radius: 40px;
-      font-weight: 600;
-      transition: 0.3s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .more-github .btn-github:hover {
-      background: #ffbd39;
-      color: #000;
-      border-color: #ffbd39;
-    }
-
-    /* SKILLS LIST STYLE */
-    .skill-list-section {
-      padding: 4rem 0;
-    }
-    .skill-list-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-    .skill-item {
-      margin-bottom: 1rem;
-    }
-    .skill-header {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      margin-bottom: 0.3rem;
-    }
+    
+    /* Skill icons */
     .skill-icon-small {
-      font-size: 1.5rem;
-      color: #ffbd39;
-      width: 2rem;
+      font-size: 1.8rem;
+      width: 2.2rem;
+      transition: transform 0.2s;
     }
-    .skill-name {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #ddd;
-      flex: 1;
+    .skill-item:hover .skill-icon-small {
+      transform: translateY(-3px) scale(1.05);
     }
-    .skill-percent {
-      color: #ffbd39;
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-    .progress {
-      background-color: #222;
-      border-radius: 30px;
-      height: 8px;
-      margin-top: 0.2rem;
-      overflow: hidden;
-    }
-    .progress-bar {
-      background-color: #ffbd39;
-      border-radius: 30px;
-      width: 0%;
-      transition: none;
-    }
-    @media (max-width: 768px) {
-      .skill-list-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-    }
-
-    /* Services cards - realistic & skill-aligned */
-    .service-card {
-      background: #151518;
-      border-radius: 28px;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 1px solid #2a2a2f;
-      height: 100%;
-    }
-    .service-card:hover {
-      transform: translateY(-8px);
-      border-color: #ffbd39;
-      box-shadow: 0 15px 30px -12px rgba(0,0,0,0.5);
-    }
+    
+    /* Service icons */
     .service-icon {
       font-size: 3rem;
-      color: #ffbd39;
-      margin-bottom: 1.2rem;
+      transition: transform 0.25s ease;
     }
-    .service-card h3 {
-      color: #fff;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
+    .service-card:hover .service-icon {
+      transform: scale(1.1) translateY(-5px);
     }
-    .service-card p {
-      color: #bbb;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    /* contact form professional */
-    .contact-form-card {
-      background: rgba(30,30,35,0.6);
-      backdrop-filter: blur(2px);
-      padding: 2rem;
-      border-radius: 32px;
-      border: 1px solid #333;
-      transition: 0.2s;
-    }
-    .contact-form input, .contact-form textarea, .contact-form select {
-      background: #1e1e22;
-      border: 1px solid #3a3a40;
-      color: #fff;
-      border-radius: 40px;
-      padding: 0.8rem 1.5rem;
-      margin-bottom: 1.2rem;
-      width: 100%;
-      font-size: 1rem;
-      transition: 0.2s;
-    }
-    .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
-      outline: none;
-      border-color: #ffbd39;
-      background: #25252c;
-      box-shadow: 0 0 0 2px rgba(255,189,57,0.2);
-    }
-    .contact-form textarea {
-      border-radius: 28px;
-      resize: vertical;
-    }
-    .btn-send {
-      background: #ffbd39;
-      color: #000;
-      border: none;
-      border-radius: 40px;
-      padding: 0.8rem 2rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.3s;
-      width: 100%;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    .btn-send:hover {
-      background: #e6a800;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(255,189,57,0.3);
-    }
-    .info-card {
-      background: #151518;
-      border-radius: 32px;
-      padding: 2rem;
-      border: 1px solid #2a2a2f;
-      height: 100%;
-    }
-    .info-card h4 {
-      color: #ffbd39;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-    }
-    .contact-detail-item {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 1.5rem;
-    }
+    
+    /* Contact detail icons */
     .contact-detail-item i {
-      font-size: 1.6rem;
-      color: #ffbd39;
-      width: 40px;
-      text-align: center;
+      font-size: 1.8rem;
+      width: 45px;
+      transition: transform 0.2s;
     }
-    .contact-detail-item p {
-      margin: 0;
-      color: #ddd;
-      font-size: 0.95rem;
-      word-break: break-word;
+    .contact-detail-item:hover i {
+      transform: translateX(5px) scale(1.05);
     }
-    .toast-msg {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ffbd39;
-      color: #000;
-      padding: 12px 24px;
-      border-radius: 50px;
-      font-weight: 500;
-      z-index: 9999;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      animation: fadeOut 3s forwards;
-    }
-    @keyframes fadeOut {
-      0% { opacity: 1; bottom: 30px; }
-      70% { opacity: 1; bottom: 30px; }
-      100% { opacity: 0; bottom: 0; visibility: hidden; }
-    }
-    .ftco-footer-social {
-      margin-top: 4rem !important;
-      margin-bottom: 2rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-    .ftco-footer-social li.normal-txt {
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #ffbd39;
-      margin-right: 15px;
-    }
+    
+    /* Social footer icons */
     .ftco-footer-social li a {
       background: rgba(255,255,255,0.05);
       border-radius: 50%;
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: 0.3s;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       text-decoration: none;
       color: #ffbd39;
+      margin: 0 6px;
+    }
+    .ftco-footer-social li a i, 
+    .ftco-footer-social li a span[class*="icon-"] {
+      font-size: 1.3rem;
+      transition: transform 0.2s;
     }
     .ftco-footer-social li a:hover {
       background: #ffbd39;
       color: #000;
-      transform: translateY(-3px);
-    }
-    .edu-extras {
-      margin-top: 3rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #333;
-    }
-    .blog-card-link {
-      text-decoration: none;
-      display: block;
-      height: 100%;
-      transition: transform 0.2s ease;
-    }
-    .blog-card-link:hover {
       transform: translateY(-5px);
     }
-    .blog-card {
-      background: #1a1a1a;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid #2a2a2a;
-      transition: all 0.3s;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    .blog-card:hover {
-      border-color: #ffbd39;
-      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
-    }
-    .blog-img {
-      height: 220px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative;
-    }
-    .blog-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      padding: 1rem;
-    }
-    .blog-category {
-      display: inline-block;
-      background: #ffbd39;
+    .ftco-footer-social li a:hover i,
+    .ftco-footer-social li a:hover span {
+      transform: scale(1.15);
       color: #000;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.2rem 0.8rem;
-      border-radius: 30px;
-      letter-spacing: 0.5px;
     }
-    .blog-content {
-      padding: 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .blog-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 0.75rem;
-      line-height: 1.4;
-    }
-    .blog-excerpt {
-      color: #bbb;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      margin-bottom: 1.2rem;
-      flex: 1;
-    }
-    .blog-read-more {
+    
+    /* Project card icons / buttons */
+    .project-github {
+      transition: all 0.25s;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      color: #ffbd39;
-      font-weight: 500;
-      font-size: 0.9rem;
-      transition: gap 0.2s;
-      margin-top: auto;
+      gap: 6px;
     }
-    .blog-read-more i {
-      font-size: 0.8rem;
-      transition: transform 0.2s;
+    .project-github:hover {
+      transform: translateY(-3px);
+      letter-spacing: 0.5px;
     }
-    .blog-card-link:hover .blog-read-more i {
-      transform: translateX(5px);
+    
+    .btn-github, .btn-cv, .btn-primary {
+      transition: all 0.3s ease;
     }
+    .btn-github:hover, .btn-cv:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(255,189,57,0.2);
+    }
+    
+    /* animation for progress bars on view (already static, but we add aos) */
+    
+    /* Mobile & Tablet Icon Responsive Rules */
+    @media (max-width: 992px) {
+      .sidebar-nav .nav-link i {
+        width: 24px;
+        font-size: 1.15rem;
+      }
+      .skill-icon-small {
+        font-size: 1.5rem;
+        width: 1.8rem;
+      }
+      .service-icon {
+        font-size: 2.6rem;
+      }
+      .contact-detail-item i {
+        font-size: 1.5rem;
+        width: 38px;
+      }
+      .ftco-footer-social li a {
+        width: 40px;
+        height: 40px;
+        margin: 0 4px;
+      }
+      .ftco-footer-social li a i,
+      .ftco-footer-social li a span {
+        font-size: 1.1rem;
+      }
+    }
+    
     @media (max-width: 768px) {
-      .blog-img { height: 180px; }
-      .contact-form-card { padding: 1.5rem; }
+      .sidebar-nav .nav-link i {
+        width: 28px;
+        font-size: 1.2rem;
+      }
+      .skill-icon-small {
+        font-size: 1.3rem;
+        width: 1.6rem;
+      }
+      .service-icon {
+        font-size: 2.3rem;
+        margin-bottom: 0.7rem;
+      }
+      .contact-detail-item i {
+        font-size: 1.3rem;
+        width: 34px;
+      }
+      .ftco-footer-social li a {
+        width: 36px;
+        height: 36px;
+      }
+      .ftco-footer-social li a i,
+      .ftco-footer-social li a span {
+        font-size: 1rem;
+      }
+      .sidebar-nav .nav-link {
+        padding: 0.6rem 0.9rem;
+        gap: 10px;
+      }
+      .project-github {
+        font-size: 0.85rem;
+        padding: 0.2rem 0.8rem;
+      }
+      .btn-cv, .btn-github {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+      }
     }
-
-    .footer-cv-btn {
-      text-align: center;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
+    
+    @media (max-width: 480px) {
+      .skill-icon-small {
+        font-size: 1.2rem;
+        width: 1.4rem;
+      }
+      .service-icon {
+        font-size: 2rem;
+      }
+      .contact-detail-item i {
+        font-size: 1.2rem;
+        width: 30px;
+      }
+      .ftco-footer-social li a {
+        width: 32px;
+        height: 32px;
+        margin: 0 3px;
+      }
     }
+    
+    /* Additional card hover animations */
+    .blog-card, .service-card, .resume-wrap, .info-card, .contact-form-card {
+      transition: transform 0.3s ease, box-shadow 0.3s, border-color 0.2s;
+    }
+    .blog-card:hover, .service-card:hover, .resume-wrap:hover, .info-card:hover {
+      transform: translateY(-6px);
+    }
+    
+    /* Make images in about section responsive */
+    .about-img img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    
+    /* typing animation fix for mobile */
+    #typing-animation {
+      display: inline-block;
+      font-size: clamp(1.4rem, 5vw, 2rem);
+    }
+    
+    /* Mobile header brand icon spacing */
+    .mobile-header .brand {
+      font-size: 1.2rem;
+    }
+    
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Progress bar initial hidden? we don't animate them but they are visible */
+    .progress-bar {
+      transition: width 0.8s ease-in-out;
+    }
+    /* make skill items have animation via aos, but we also keep base */
   </style>
 </head>
 <body data-spy="scroll" data-target=".sidebar-nav" data-offset="300">
@@ -606,7 +281,7 @@
                 <div class="text">
                   <span class="subheading">Hello!</span>
                   <h1 class="mb-4 mt-3">I'm <span>Subina Thapa</span></h1>
-                  <span id="typing-animation" style="font-size: 28px; font-weight: bold; color:#ffbd39;"></span>
+                  <span id="typing-animation" style="font-weight: bold; color:#ffbd39;"></span>
                   <script>
                     const typingAnimationElement = document.getElementById('typing-animation');
                     const typingTexts = ['Full Stack Flutter Developer'];
@@ -641,11 +316,11 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT SECTION with AOS animations -->
     <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
       <div class="container">
         <div class="row d-flex align-items-stretch">
-          <div class="col-md-6 col-lg-5 d-flex">
+          <div class="col-md-6 col-lg-5 d-flex" data-aos="fade-right" data-aos-duration="800">
             <div class="img-about img d-flex align-items-stretch">
               <div class="overlay">
                 <div class="row">
@@ -665,7 +340,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
+          <div class="col-md-6 col-lg-7 pl-lg-5 pb-5" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
             <div class="row justify-content-start pb-3">
               <div class="col-md-12 heading-section ftco-animate">
                 <h1 class="big">About</h1>
@@ -689,7 +364,7 @@
       </div>
     </section>
 
-    <section class="ftco-section new-section" id="myapps-section">
+    <section class="ftco-section new-section" id="myapps-section" data-aos="fade-up">
       <div class="container">
         <h2>My Apps</h2>
         <div class="content">
@@ -704,11 +379,11 @@
       </div>
     </section>
 
-    <!-- SKILLS SECTION -->
+    <!-- SKILLS SECTION with AOS stagger -->
     <section class="ftco-section skill-list-section" id="skills-new-section">
       <div class="container">
         <div class="row justify-content-center pb-2">
-          <div class="col-md-12 heading-section text-center ftco-animate">
+          <div class="col-md-12 heading-section text-center ftco-animate" data-aos="fade-down">
             <h1 class="big big-2">Expertise</h1>
             <h2 class="mb-4">Technical Skills</h2>
             <p>Core competencies with proficiency levels</p>
@@ -716,59 +391,46 @@
         </div>
         <div class="skill-list-grid">
           <div class="skill-list-col">
-            <div class="skill-item"><div class="skill-header"><i class="devicon-dart-plain colored skill-icon-small"></i><span class="skill-name">Dart</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-flutter-plain colored skill-icon-small"></i><span class="skill-name">Flutter</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-javascript-plain colored skill-icon-small"></i><span class="skill-name">JavaScript</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-typescript-plain colored skill-icon-small"></i><span class="skill-name">TypeScript</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-python-plain colored skill-icon-small"></i><span class="skill-name">Python</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-java-plain colored skill-icon-small"></i><span class="skill-name">Java</span><span class="skill-percent">45%</span></div><div class="progress"><div class="progress-bar" style="width:45%"></div></div></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="0"><div class="skill-header"><i class="devicon-dart-plain colored skill-icon-small"></i><span class="skill-name">Dart</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="50"><div class="skill-header"><i class="devicon-flutter-plain colored skill-icon-small"></i><span class="skill-name">Flutter</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="100"><div class="skill-header"><i class="devicon-javascript-plain colored skill-icon-small"></i><span class="skill-name">JavaScript</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="150"><div class="skill-header"><i class="devicon-typescript-plain colored skill-icon-small"></i><span class="skill-name">TypeScript</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="200"><div class="skill-header"><i class="devicon-python-plain colored skill-icon-small"></i><span class="skill-name">Python</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="250"><div class="skill-header"><i class="devicon-java-plain colored skill-icon-small"></i><span class="skill-name">Java</span><span class="skill-percent">45%</span></div><div class="progress"><div class="progress-bar" style="width:45%"></div></div></div>
           </div>
           <div class="skill-list-col">
-            <div class="skill-item"><div class="skill-header"><i class="devicon-react-original colored skill-icon-small"></i><span class="skill-name">React</span><span class="skill-percent">55%</span></div><div class="progress"><div class="progress-bar" style="width:55%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-nextjs-original colored skill-icon-small"></i><span class="skill-name">Next.js</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-django-plain colored skill-icon-small"></i><span class="skill-name">Django</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-postgresql-plain colored skill-icon-small"></i><span class="skill-name">PostgreSQL</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-git-plain colored skill-icon-small"></i><span class="skill-name">Git</span><span class="skill-percent">65%</span></div><div class="progress"><div class="progress-bar" style="width:65%"></div></div></div>
-            <div class="skill-item"><div class="skill-header"><i class="devicon-github-original colored skill-icon-small"></i><span class="skill-name">GitHub</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="0"><div class="skill-header"><i class="devicon-react-original colored skill-icon-small"></i><span class="skill-name">React</span><span class="skill-percent">55%</span></div><div class="progress"><div class="progress-bar" style="width:55%"></div></div></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="50"><div class="skill-header"><i class="devicon-nextjs-original colored skill-icon-small"></i><span class="skill-name">Next.js</span><span class="skill-percent">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="100"><div class="skill-header"><i class="devicon-django-plain colored skill-icon-small"></i><span class="skill-name">Django</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="150"><div class="skill-header"><i class="devicon-postgresql-plain colored skill-icon-small"></i><span class="skill-name">PostgreSQL</span><span class="skill-percent">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="200"><div class="skill-header"><i class="devicon-git-plain colored skill-icon-small"></i><span class="skill-name">Git</span><span class="skill-percent">65%</span></div><div class="progress"><div class="progress-bar" style="width:65%"></div></div></div>
+            <div class="skill-item" data-aos="fade-up" data-aos-delay="250"><div class="skill-header"><i class="devicon-github-original colored skill-icon-small"></i><span class="skill-name">GitHub</span><span class="skill-percent">70%</span></div><div class="progress"><div class="progress-bar" style="width:70%"></div></div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES SECTION: UPDATED TO MATCH SKILLS EXACTLY (no overstatement) -->
+    <!-- SERVICES SECTION with AOS -->
     <section class="ftco-section" id="services-section">
       <div class="container">
         <div class="row justify-content-center pb-4">
-          <div class="col-md-8 heading-section text-center ftco-animate">
+          <div class="col-md-8 heading-section text-center ftco-animate" data-aos="fade-up">
             <h1 class="big big-2">Offerings</h1>
             <h2 class="mb-3">Services I Provide</h2>
             <p>Practical solutions built on my core competencies</p>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4 ftco-animate mb-4">
-            <div class="service-card"><div class="service-icon"><i class="fab fa-flutter"></i></div><h3>Flutter App Development</h3><p>Cross-platform mobile apps for iOS & Android using Dart/Flutter. State management (Provider/Riverpod), REST APIs, Firebase integration.</p></div>
-          </div>
-          <div class="col-md-4 ftco-animate mb-4">
-            <div class="service-card"><div class="service-icon"><i class="fas fa-server"></i></div><h3>Backend APIs (Django)</h3><p>RESTful APIs with Django & Django REST Framework. Authentication, database modeling, and business logic implementation.</p></div>
-          </div>
-          <div class="col-md-4 ftco-animate mb-4">
-            <div class="service-card"><div class="service-icon"><i class="fas fa-laptop-code"></i></div><h3>Frontend Web (React/Next.js)</h3><p>Responsive frontend interfaces using React and Next.js, connecting to backend services with modern JavaScript/TypeScript.</p></div>
-          </div>
-          <div class="col-md-4 ftco-animate mb-4">
-            <div class="service-card"><div class="service-icon"><i class="fas fa-database"></i></div><h3>Database Design & Management</h3><p>PostgreSQL schema design, SQL queries, Firebase realtime/Firestore for mobile & web projects.</p></div>
-          </div>
-          <div class="col-md-4 ftco-animate mb-4">
-            <div class="service-card"><div class="service-icon"><i class="fab fa-git-alt"></i></div><h3>Version Control & Collaboration</h3><p>Git/GitHub workflows, branching strategies, code reviews, and team collaboration best practices.</p></div>
-          </div>
-          <!--div class="col-md-4 ftco-animate mb-4">
-            <div class="service-card"><div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div><h3>Tech Consultation & Code Review</h3><p>Guidance on Flutter, Django, project structure, debugging, and writing maintainable code within my expertise areas.</p></div>
-        </div-->
+          <div class="col-md-4 ftco-animate mb-4" data-aos="fade-up" data-aos-delay="0"><div class="service-card"><div class="service-icon"><i class="fab fa-flutter"></i></div><h3>Flutter App Development</h3><p>Cross-platform mobile apps for iOS & Android using Dart/Flutter. State management (Provider/Riverpod), REST APIs, Firebase integration.</p></div></div>
+          <div class="col-md-4 ftco-animate mb-4" data-aos="fade-up" data-aos-delay="100"><div class="service-card"><div class="service-icon"><i class="fas fa-server"></i></div><h3>Backend APIs (Django)</h3><p>RESTful APIs with Django & Django REST Framework. Authentication, database modeling, and business logic implementation.</p></div></div>
+          <div class="col-md-4 ftco-animate mb-4" data-aos="fade-up" data-aos-delay="200"><div class="service-card"><div class="service-icon"><i class="fas fa-laptop-code"></i></div><h3>Frontend Web (React/Next.js)</h3><p>Responsive frontend interfaces using React and Next.js, connecting to backend services with modern JavaScript/TypeScript.</p></div></div>
+          <div class="col-md-4 ftco-animate mb-4" data-aos="fade-up" data-aos-delay="300"><div class="service-card"><div class="service-icon"><i class="fas fa-database"></i></div><h3>Database Design & Management</h3><p>PostgreSQL schema design, SQL queries, Firebase realtime/Firestore for mobile & web projects.</p></div></div>
+          <div class="col-md-4 ftco-animate mb-4" data-aos="fade-up" data-aos-delay="400"><div class="service-card"><div class="service-icon"><i class="fab fa-git-alt"></i></div><h3>Version Control & Collaboration</h3><p>Git/GitHub workflows, branching strategies, code reviews, and team collaboration best practices.</p></div></div>
         </div>
       </div>
     </section>
 
-    <section class="ftco-section new-section" id="programming-section">
+    <section class="ftco-section new-section" id="programming-section" data-aos="fade-up">
       <div class="container"><h2>Programming Journey</h2><div class="content"><p>I started my programming journey in 2023 with Python. After learning the fundamentals, I expanded my skills into web development and mobile app development. Currently, I am focused on improving my full-stack flutter development skills and exploring Artificial Intelligence. I am passionate about building real-world applications and creating innovative solutions with technology.</p></div></div>
     </section>
 
@@ -776,81 +438,59 @@
     <section id="education-section">
       <div class="container">
         <div class="row justify-content-center pb-5">
-          <div class="col-md-7 heading-section text-center ftco-animate">
+          <div class="col-md-7 heading-section text-center ftco-animate" data-aos="fade-down">
             <h1 class="big big-2">Education</h1>
             <h2 class="mb-4">Education & More</h2>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6"><div class="resume-wrap ftco-animate"><span class="date">2023 – Present</span><h2>Bachelor of Computer Application (BCA)</h2><span class="position">Tribhuvan University, Kathmandu</span><p class="mt-4">Through my Bachelor of Computer Applications (BCA), I learned programming, web development, database management, and software development.</p></div></div>
-          <div class="col-md-6"><div class="resume-wrap ftco-animate"><span class="date">2021 – 2023</span><h2>+2 Computer Science</h2><span class="position">Nepal Kasthamandap SS/College, Kathmandu</span><p class="mt-4">I completed my +2 in the Management faculty with Computer Science, learning computer fundamentals, basic programming, and information technology concepts.</p></div></div>
+          <div class="col-md-6" data-aos="fade-right"><div class="resume-wrap ftco-animate"><span class="date">2023 – Present</span><h2>Bachelor of Computer Application (BCA)</h2><span class="position">Tribhuvan University, Kathmandu</span><p class="mt-4">Through my Bachelor of Computer Applications (BCA), I learned programming, web development, database management, and software development.</p></div></div>
+          <div class="col-md-6" data-aos="fade-left"><div class="resume-wrap ftco-animate"><span class="date">2021 – 2023</span><h2>+2 Computer Science</h2><span class="position">Nepal Kasthamandap SS/College, Kathmandu</span><p class="mt-4">I completed my +2 in the Management faculty with Computer Science, learning computer fundamentals, basic programming, and information technology concepts.</p></div></div>
         </div>
         <div class="row edu-extras">
-          <div class="col-md-6"><h3><i class="style="color:#ffbd39; margin-right:10px;"></i> Languages</h3><ul><li><strong>Nepali</strong> – native</li><li><strong>English</strong> – professional working proficiency</li><li><strong>Hindi</strong> – Basic (Learning)</li></ul></div>
-          <div class="col-md-6"><h3><i class="style="color:#ffbd39; margin-right:10px;"></i> My Values</h3><ul><li>Integrity – honest, ethical, transparent</li><li>Continuous Learning – constantly upgrading knowledge</li><li>Creativity – innovative solutions</li><li>Teamwork – collaboration and respect</li><li>User‑Centric Design – focus on usability</li><li>Resilience – embrace challenges</li></ul></div>
+          <div class="col-md-6" data-aos="fade-up"><h3><i class="fas fa-language" style="color:#ffbd39; margin-right:10px;"></i> Languages</h3><ul><li><strong>Nepali</strong> – native</li><li><strong>English</strong> – professional working proficiency</li><li><strong>Hindi</strong> – Basic (Learning)</li></ul></div>
+          <div class="col-md-6" data-aos="fade-up" data-aos-delay="100"><h3><i class="fas fa-heart" style="color:#ffbd39; margin-right:10px;"></i> My Values</h3><ul><li>Integrity – honest, ethical, transparent</li><li>Continuous Learning – constantly upgrading knowledge</li><li>Creativity – innovative solutions</li><li>Teamwork – collaboration and respect</li><li>User‑Centric Design – focus on usability</li><li>Resilience – embrace challenges</li></ul></div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS SECTION: EXACTLY 6 PROJECTS -->
+    <!-- PROJECTS SECTION: 6 PROJECTS WITH AOS -->
     <section class="ftco-section" id="project-section">
       <div class="container">
-        <div class="row justify-content-center mb-5 pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Projects</h1><h2 class="mb-4">My 6 Featured Projects</h2><p>Real-world applications and websites I've built</p></div></div>
+        <div class="row justify-content-center mb-5 pb-5"><div class="col-md-7 heading-section text-center ftco-animate" data-aos="fade-up"><h1 class="big big-2">Projects</h1><h2 class="mb-4">My 6 Featured Projects</h2><p>Real-world applications and websites I've built</p></div></div>
         <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Clinic Website</a></h3><p>Mobile-friendly healthcare site with consent form, appointment scheduling, and SEO best practices.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Cleaning Website</a></h3><p>Clean design highlighting services, pricing, and customer testimonials to build trust.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Montessori Website</a></h3><p>Child-friendly design with classroom images, learning materials, and testimonials.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate" data-aos="fade-up" data-aos-delay="0"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Clinic Website</a></h3><p>Mobile-friendly healthcare site with consent form, appointment scheduling, and SEO best practices.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate" data-aos="fade-up" data-aos-delay="100"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Cleaning Website</a></h3><p>Clean design highlighting services, pricing, and customer testimonials to build trust.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate" data-aos="fade-up" data-aos-delay="200"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Montessori Website</a></h3><p>Child-friendly design with classroom images, learning materials, and testimonials.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
         </div>
         <div class="row d-flex mt-4">
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Real Estate Platform</a></h3><p>React.js based property showcase for sale/rent with interactive UI and filters.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Corporate Website</a></h3><p>Professional corporate site with interactive elements and lead generation focus.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
-          <div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/ooo.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">E‑commerce App</a></h3><p>Full-stack shopping experience with cart, payments, and admin dashboard (Flutter + Firebase).</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate" data-aos="fade-up" data-aos-delay="300"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Real Estate Platform</a></h3><p>React.js based property showcase for sale/rent with interactive UI and filters.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate" data-aos="fade-up" data-aos-delay="400"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Corporate Website</a></h3><p>Professional corporate site with interactive elements and lead generation focus.</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
+          <div class="col-md-4 d-flex ftco-animate" data-aos="fade-up" data-aos-delay="500"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/ooo.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">E‑commerce App</a></h3><p>Full-stack shopping experience with cart, payments, and admin dashboard (Flutter + Firebase).</p><a href="https://github.com/subinathapa2004" target="_blank" class="project-github">🔗 GitHub</a></div></div></div>
         </div>
-        <div class="more-github"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-github">🔗 More projects on GitHub</a></div>
+        <div class="more-github" data-aos="zoom-in"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-github">🔗 More projects on GitHub</a></div>
       </div>
     </section>
 
     <!-- BLOGS SECTION -->
     <section class="ftco-section" id="blogs-section">
       <div class="container">
-        <div class="row justify-content-center mb-5 pb-3"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Blogs</h1><h2 class="mb-4">Tech Insights & Guides</h2><p>Thoughts, tutorials and deep dives on development</p></div></div>
+        <div class="row justify-content-center mb-5 pb-3"><div class="col-md-7 heading-section text-center ftco-animate" data-aos="fade-up"><h1 class="big big-2">Blogs</h1><h2 class="mb-4">Tech Insights & Guides</h2><p>Thoughts, tutorials and deep dives on development</p></div></div>
         <div class="row">
-          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/B.webp');"><div class="blog-overlay"><span class="blog-category">Flutter · Architecture</span></div></div><div class="blog-content"><h3 class="blog-title">Flutter App Architecture: MVVM vs Clean Architecture (Complete Guide for Developers)</h3><p class="blog-excerpt">Explore the differences between MVVM and Clean Architecture in Flutter. Learn which pattern suits your next project and improve scalability.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
-          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/A.webp');"><div class="blog-overlay"><span class="blog-category">Career · Mindset</span></div></div><div class="blog-content"><h3 class="blog-title">How to Become a Good Coder: A Step-by-Step Guide</h3><p class="blog-excerpt">Practical steps, habits, and resources to level up your coding skills. From mastering fundamentals to building real projects.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
-          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/yooo.png');"><div class="blog-overlay"><span class="blog-category">Wisdom · Philosophy</span></div></div><div class="blog-content"><h3 class="blog-title">The Timeless Wisdom of the Bhagavad Gita</h3><p class="blog-excerpt">Ancient insights for modern developers: Discover how the Bhagavad Gita’s teachings on focus, resilience, and purpose can transform the way you code and navigate life’s challenges.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4" data-aos="fade-up" data-aos-delay="0"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/B.webp');"><div class="blog-overlay"><span class="blog-category">Flutter · Architecture</span></div></div><div class="blog-content"><h3 class="blog-title">Flutter App Architecture: MVVM vs Clean Architecture (Complete Guide for Developers)</h3><p class="blog-excerpt">Explore the differences between MVVM and Clean Architecture in Flutter. Learn which pattern suits your next project and improve scalability.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4" data-aos="fade-up" data-aos-delay="100"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/A.webp');"><div class="blog-overlay"><span class="blog-category">Career · Mindset</span></div></div><div class="blog-content"><h3 class="blog-title">How to Become a Good Coder: A Step-by-Step Guide</h3><p class="blog-excerpt">Practical steps, habits, and resources to level up your coding skills. From mastering fundamentals to building real projects.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
+          <div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4" data-aos="fade-up" data-aos-delay="200"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/yooo.png');"><div class="blog-overlay"><span class="blog-category">Wisdom · Philosophy</span></div></div><div class="blog-content"><h3 class="blog-title">The Timeless Wisdom of the Bhagavad Gita</h3><p class="blog-excerpt">Ancient insights for modern developers: Discover how the Bhagavad Gita’s teachings on focus, resilience, and purpose can transform the way you code and navigate life’s challenges.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT SECTION with functional form submit (FormSubmit) -->
+    <!-- CONTACT SECTION with animations -->
     <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
       <div class="container">
-        <div class="row justify-content-center mb-4 pb-2"><div class="col-md-8 heading-section text-center ftco-animate"><h1 class="big big-2">Connect</h1><h2 class="mb-3">Let’s Work Together</h2><p>Have a project in mind? Send a message, and I’ll get back to you within 24 hours.</p></div></div>
+        <div class="row justify-content-center mb-4 pb-2"><div class="col-md-8 heading-section text-center ftco-animate" data-aos="fade-up"><h1 class="big big-2">Connect</h1><h2 class="mb-3">Let’s Work Together</h2><p>Have a project in mind? Send a message, and I’ll get back to you within 24 hours.</p></div></div>
         <div class="row g-4">
-          <div class="col-md-7 ftco-animate">
-            <div class="contact-form-card">
-              <h3 style="color:#ffbd39; margin-bottom:1.5rem;"><i class="fas fa-paper-plane me-2"></i>Send a professional inquiry</h3>
-              <form id="contactForm" class="contact-form">
-                <div class="row">
-                  <div class="col-md-6"><input type="text" id="name" placeholder="Full name *" required></div>
-                  <div class="col-md-6"><input type="email" id="email" placeholder="Email address *" required></div>
-                  <div class="col-12"><input type="text" id="subject" placeholder="Subject (e.g., Project inquiry)"></div>
-                  <div class="col-12"><textarea id="message" rows="5" placeholder="Tell me about your idea or requirement... *" required></textarea></div>
-                  <div class="col-12"><button type="submit" class="btn-send"><i class="fas fa-envelope"></i> Send Message →</button></div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="col-md-5 ftco-animate">
-            <div class="info-card">
-              <h4><i class="fas fa-address-card me-2"></i> Visit / Write</h4>
-              <div class="contact-detail-item"><i class="fas fa-map-marker-alt"></i><p>Kathmandu, Suyuchatar, Nepal</p></div>
-              <hr style="background:#333;">
-              <div class="text-center mt-2">
-                <p class="text-muted small">Use the contact form to reach me. I’ll reply promptly.</p>
-              </div>
-            </div>
-          </div>
+          <div class="col-md-7 ftco-animate" data-aos="fade-right"><div class="contact-form-card"><h3 style="color:#ffbd39; margin-bottom:1.5rem;"><i class="fas fa-paper-plane me-2"></i>Send a professional inquiry</h3><form id="contactForm" class="contact-form"><div class="row"><div class="col-md-6"><input type="text" id="name" placeholder="Full name *" required></div><div class="col-md-6"><input type="email" id="email" placeholder="Email address *" required></div><div class="col-12"><input type="text" id="subject" placeholder="Subject (e.g., Project inquiry)"></div><div class="col-12"><textarea id="message" rows="5" placeholder="Tell me about your idea or requirement... *" required></textarea></div><div class="col-12"><button type="submit" class="btn-send"><i class="fas fa-envelope"></i> Send Message →</button></div></div></form></div></div>
+          <div class="col-md-5 ftco-animate" data-aos="fade-left"><div class="info-card"><h4><i class="fas fa-address-card me-2"></i> Visit / Write</h4><div class="contact-detail-item"><i class="fas fa-map-marker-alt"></i><p>Kathmandu, Suyuchatar, Nepal</p></div><hr style="background:#333;"><div class="text-center mt-2"><p class="text-muted small">Use the contact form to reach me. I’ll reply promptly.</p></div></div></div>
         </div>
         <ul class="ftco-footer-social list-unstyled d-flex justify-content-center align-items-center flex-wrap">
           <li class="ftco-animate normal-txt">Find me on</li>
@@ -865,9 +505,7 @@
           <li class="ftco-animate"><a href="https://www.instagram.com/stories/subinathapa22/"><span class="icon-instagram"></span></a></li>
           <li class="ftco-animate"><a href="https://www.youtube.com/@Subina--11-nxx"><span class="icon-youtube"></span></a></li>
         </ul>
-        <div class="footer-cv-btn">
-          <a href="#" id="downloadCvFooterBtn" class="btn-cv"><i class="fas fa-download"></i> Download CV (Professional Resume)</a>
-        </div>
+        <div class="footer-cv-btn"><a href="#" id="downloadCvFooterBtn" class="btn-cv"><i class="fas fa-download"></i> Download CV (Professional Resume)</a></div>
       </div>
     </section>
 
@@ -893,7 +531,7 @@
   <script src="js/main.js"></script>
 
   <script>
-    // REAL CONTACT FORM SUBMIT USING FORMSUBMIT (sends email to subinathapa5510@gmail.com)
+    // Contact form functional (FormSubmit)
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       contactForm.addEventListener('submit', async function(e) {
@@ -965,7 +603,7 @@
     document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
       link.addEventListener('click', () => { if (window.innerWidth <= 768) sidebar.classList.remove('open'); });
     });
-    AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+    AOS.init({ duration: 800, easing: 'ease-in-out', once: true, offset: 80 });
   </script>
 </body>
 </html>
