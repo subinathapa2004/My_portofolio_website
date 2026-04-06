@@ -710,7 +710,6 @@
       navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
           if (window.innerWidth <= 768) {
-            // smooth scroll to section will be handled by existing behavior, just close sidebar
             setTimeout(() => closeSidebar(), 100);
           }
         });
@@ -737,7 +736,6 @@
             e.preventDefault();
             const offsetTop = targetElement.offsetTop - 70;
             window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-            // update url hash without jump
             history.pushState(null, null, targetId);
           }
         });
@@ -797,23 +795,46 @@
         });
       }
 
-      // ========== TYPING ANIMATION FIX ==========
+      // ========== TYPING ANIMATION (CYCLES THROUGH MULTIPLE PHRASES) ==========
       const typingElement = document.getElementById('typing-animation');
       if (typingElement) {
-        const texts = ['Full Stack Flutter Developer'];
-        let idx = 0;
-        function typeWriter(text, i) {
-          if (i < text.length) {
-            typingElement.textContent = text.substring(0, i+1);
-            setTimeout(() => typeWriter(text, i+1), 120);
+        const phrases = [
+          "I am Flutter Developer",
+          "Namaste, I am Flutter Developer",
+          "Full Stack Flutter Developer"
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let currentText = '';
+
+        function typeEffect() {
+          const fullText = phrases[phraseIndex];
+          if (isDeleting) {
+            currentText = fullText.substring(0, charIndex - 1);
+            charIndex--;
           } else {
-            setTimeout(() => {
-              typingElement.textContent = '';
-              typeWriter(texts[0], 0);
-            }, 2000);
+            currentText = fullText.substring(0, charIndex + 1);
+            charIndex++;
           }
+          typingElement.textContent = currentText;
+
+          if (!isDeleting && charIndex === fullText.length) {
+            // finished typing current phrase, wait then delete
+            isDeleting = true;
+            setTimeout(typeEffect, 1800);
+            return;
+          }
+          if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            setTimeout(typeEffect, 200);
+            return;
+          }
+          const speed = isDeleting ? 60 : 120;
+          setTimeout(typeEffect, speed);
         }
-        typeWriter(texts[0], 0);
+        typeEffect();
       }
     })();
   </script>
