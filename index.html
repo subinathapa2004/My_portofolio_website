@@ -795,46 +795,20 @@
         });
       }
 
-      // ========== TYPING ANIMATION (CYCLES THROUGH MULTIPLE PHRASES) ==========
+      // ========== TYPING ANIMATION (ONLY "Namaste, I am Full Stack Flutter Developer") ==========
       const typingElement = document.getElementById('typing-animation');
       if (typingElement) {
-        const phrases = [
-          "I am Flutter Developer",
-          "Namaste, I am Flutter Developer",
-          "Full Stack Flutter Developer"
-        ];
-        let phraseIndex = 0;
+        const textToType = "Namaste, I am Full Stack Flutter Developer";
         let charIndex = 0;
-        let isDeleting = false;
-        let currentText = '';
-
-        function typeEffect() {
-          const fullText = phrases[phraseIndex];
-          if (isDeleting) {
-            currentText = fullText.substring(0, charIndex - 1);
-            charIndex--;
-          } else {
-            currentText = fullText.substring(0, charIndex + 1);
+        
+        function typeNextChar() {
+          if (charIndex < textToType.length) {
+            typingElement.textContent = textToType.substring(0, charIndex + 1);
             charIndex++;
+            setTimeout(typeNextChar, 100);
           }
-          typingElement.textContent = currentText;
-
-          if (!isDeleting && charIndex === fullText.length) {
-            // finished typing current phrase, wait then delete
-            isDeleting = true;
-            setTimeout(typeEffect, 1800);
-            return;
-          }
-          if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            setTimeout(typeEffect, 200);
-            return;
-          }
-          const speed = isDeleting ? 60 : 120;
-          setTimeout(typeEffect, speed);
         }
-        typeEffect();
+        typeNextChar();
       }
     })();
   </script>
