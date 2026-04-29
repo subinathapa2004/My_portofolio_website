@@ -177,8 +177,9 @@
         margin-left: 0;
         padding-top: 70px;
       }
+      /* improve touch targets on mobile */
       .sidebar-nav .nav-link { padding: 12px 16px; margin-bottom: 4px; }
-      .btn-cv, .project-github, .btn-github { touch-action: manipulation; }
+      .btn-cv, .btn-github { touch-action: manipulation; }
     }
 
     .ftco_navbar { display: none; }
@@ -224,21 +225,20 @@
       color: #000;
       border-color: #ffbd39;
     }
-    .project-github, .project-status {
+    .project-github {
       display: inline-block;
       margin-top: 0.8rem;
+      color: #ffbd39;
       font-weight: 500;
       text-decoration: none;
+      border: 1px solid #ffbd39;
       padding: 0.3rem 1rem;
       border-radius: 30px;
       transition: 0.3s;
-      font-size: 0.85rem;
     }
-    .project-status {
-      background: #2a2a2f;
-      color: #ffbd39;
-      border: 1px solid #ffbd39;
-      cursor: default;
+    .project-github:hover {
+      background: #ffbd39;
+      color: #000;
     }
     .more-github {
       text-align: center;
@@ -659,7 +659,7 @@
 
     <section id="education-section"><div class="container"><div class="row justify-content-center pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Education</h1><h2 class="mb-4">Education & More</h2></div></div><div class="row"><div class="col-md-6"><div class="resume-wrap ftco-animate"><span class="date">2023 – Present</span><h2>Bachelor of Computer Application (BCA)</h2><span class="position">Tribhuvan University, Kathmandu</span><p class="mt-4">Through my Bachelor of Computer Applications (BCA), I learned programming, web development, database management, and software development.</p></div></div><div class="col-md-6"><div class="resume-wrap ftco-animate"><span class="date">2021 – 2023</span><h2>+2 Computer Science</h2><span class="position">Nepal Kasthamandap SS/College, Kathmandu</span><p class="mt-4">I completed my +2 in the Management faculty with Computer Science, learning computer fundamentals, basic programming, and information technology concepts.</p></div></div></div><div class="row edu-extras"><div class="col-md-6"><h3>Languages</h3><ul><li><strong>Nepali</strong> – native</li><li><strong>English</strong> – professional working proficiency</li><li><strong>Hindi</strong> – Basic (Learning)</li></ul></div><div class="col-md-6"><h3>My Values</h3><ul><li>Integrity – honest, ethical, transparent</li><li>Continuous Learning – constantly upgrading knowledge</li><li>Creativity – innovative solutions</li><li>Teamwork – collaboration and respect</li><li>User‑Centric Design – focus on usability</li><li>Resilience – embrace challenges</li></ul></div></div></div></section>
 
-    <section class="ftco-section" id="project-section"><div class="container"><div class="row justify-content-center mb-5 pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Projects</h1><h2 class="mb-4">My 6 Featured Projects</h2><p>Real-world applications and websites I've built</p></div></div><div class="row d-flex"><div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Clinic Website</a></h3><p>Mobile-friendly healthcare site with consent form, appointment scheduling.</p></div></div></div><div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Cleaning Website</a></h3><p>Clean design highlighting services, pricing, and customer testimonials.</p></div></div></div><div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Montessori Website</a></h3><p>Child-friendly design with classroom images, learning materials.</p></div></div></div></div><div class="row d-flex mt-4"><div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Real Estate Platform</a></h3><p>React.js based property showcase for sale/rent with interactive UI.</p></div></div></div><div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Corporate Website</a></h3><p>Professional corporate site with interactive elements and lead generation.</p></div></div></div><div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/ooo.png');"></a><!--div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">E‑commerce App</a></h3><p>Full-stack shopping experience with cart, payments, admin (Flutter + Firebase).</p><div class="project-status"> Coming Soon</div--></div></div></div></div><div class="more-github"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-github">🔗 More projects on GitHub</a></div></div></section>
+    <section class="ftco-section" id="project-section"><div class="container"><div class="row justify-content-center mb-5 pb-5"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Projects</h1><h2 class="mb-4">My 6 Featured Projects</h2><p>Real-world applications and websites I've built</p></div></div><div class="row d-flex"><div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/AAAAa.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Clinic Website</a></h3><p>Mobile-friendly healthcare site with consent form, appointment scheduling.</p></div></div></div><div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/cccc.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Cleaning Website</a></h3><p>Clean design highlighting services, pricing, and customer testimonials.</p></div></div></div><div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/mmm.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Montessori Website</a></h3><p>Child-friendly design with classroom images, learning materials.</p></div></div></div></div><div class="row d-flex mt-4"><div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/GGG.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Real Estate Platform</a></h3><p>React.js based property showcase for sale/rent with interactive UI.</p></div></div></div><div class="col-md-4 d-flex ftco-animate"><div class="blog-entry justify-content-end"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/jjj.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">Corporate Website</a></h3><p>Professional corporate site with interactive elements and lead generation.</p></div></div></div><div class="col-md-4 d-flex ftco-animate"><div class="blog-entry"><a href="#" class="block-20 zoom-effect" style="background-image: url('images/ooo.png');"></a><div class="text mt-3 float-right d-block"><h3 class="heading"><a href="#">E‑commerce App</a></h3><p>Full-stack shopping experience with cart, payments, admin (Flutter + Firebase).</p></div></div></div></div><div class="more-github"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-github">🔗 More projects on GitHub</a></div></div></section>
 
     <section class="ftco-section" id="blogs-section"><div class="container"><div class="row justify-content-center mb-5 pb-3"><div class="col-md-7 heading-section text-center ftco-animate"><h1 class="big big-2">Blogs</h1><h2 class="mb-4">Tech Insights & Guides</h2><p>Thoughts, tutorials and deep dives on development</p></div></div><div class="row"><div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/B.webp');"><div class="blog-overlay"><span class="blog-category">Flutter · Architecture</span></div></div><div class="blog-content"><h3 class="blog-title">Flutter App Architecture: MVVM vs Clean Architecture</h3><p class="blog-excerpt">Explore the differences between MVVM and Clean Architecture in Flutter.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div><div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/H.png');"><div class="blog-overlay"><span class="blog-category">Career · Mindset</span></div></div><div class="blog-content"><h3 class="blog-title">How to Become a Good Coder: A Step-by-Step Guide</h3><p class="blog-excerpt">Practical steps, habits, and resources to level up your coding skills.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div><div class="col-md-6 col-lg-4 d-flex ftco-animate mb-4"><a href="https://medium.com/@subinathapa5510" target="_blank" class="blog-card-link w-100"><div class="blog-card"><div class="blog-img" style="background-image: url('images/yooo.png');"><div class="blog-overlay"><span class="blog-category">Wisdom · Philosophy</span></div></div><div class="blog-content"><h3 class="blog-title">The Timeless Wisdom of the Bhagavad Gita</h3><p class="blog-excerpt">Ancient insights for modern developers: focus, resilience, and purpose.</p><div class="blog-read-more">Read on Medium <i class="fas fa-arrow-right"></i></div></div></div></a></div></div></div></section>
 
@@ -684,18 +684,49 @@
   <script src="js/main.js"></script>
   <script>
     (function() {
-      // Mobile menu logic
+      // ========== MOBILE MENU TOGGLE + CLOSE ON LINK CLICK ==========
       const sidebar = document.getElementById('sidebar');
       const menuToggle = document.getElementById('menuToggle');
       const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
-      function closeSidebar() { if (sidebar && window.innerWidth <= 768) sidebar.classList.remove('open'); }
-      function openSidebar() { if (sidebar && window.innerWidth <= 768) sidebar.classList.add('open'); }
-      if (menuToggle) menuToggle.addEventListener('click', (e) => { e.stopPropagation(); sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
-      navLinks.forEach(link => link.addEventListener('click', () => { if (window.innerWidth <= 768) setTimeout(() => closeSidebar(), 100); }));
-      document.addEventListener('click', (e) => { if (window.innerWidth <= 768 && sidebar?.classList.contains('open') && !sidebar.contains(e.target) && !menuToggle?.contains(e.target)) closeSidebar(); });
-      window.addEventListener('resize', () => { if (window.innerWidth > 768 && sidebar) sidebar.classList.remove('open'); });
+      
+      function closeSidebar() {
+        if (sidebar && window.innerWidth <= 768) {
+          sidebar.classList.remove('open');
+        }
+      }
+      function openSidebar() {
+        if (sidebar && window.innerWidth <= 768) {
+          sidebar.classList.add('open');
+        }
+      }
+      if (menuToggle) {
+        menuToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (sidebar.classList.contains('open')) closeSidebar();
+          else openSidebar();
+        });
+      }
+      // Close sidebar when nav link clicked (mobile)
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          if (window.innerWidth <= 768) {
+            setTimeout(() => closeSidebar(), 100);
+          }
+        });
+      });
+      // Optional: click outside sidebar on mobile closes it
+      document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && sidebar && sidebar.classList.contains('open')) {
+          if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+            closeSidebar();
+          }
+        }
+      });
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && sidebar) sidebar.classList.remove('open');
+      });
 
-      // Smooth scroll
+      // ========== SMOOTH SCROLL FOR ALL INTERNAL ANCHORS ==========
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           const targetId = this.getAttribute('href');
@@ -703,13 +734,14 @@
           const targetElement = document.querySelector(targetId);
           if (targetElement) {
             e.preventDefault();
-            window.scrollTo({ top: targetElement.offsetTop - 70, behavior: 'smooth' });
+            const offsetTop = targetElement.offsetTop - 70;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
             history.pushState(null, null, targetId);
           }
         });
       });
 
-      // Contact form submit
+      // ========== CONTACT FORM SUBMIT (FormSubmit) ==========
       const contactForm = document.getElementById('contactForm');
       if (contactForm) {
         contactForm.addEventListener('submit', async function(e) {
@@ -718,34 +750,66 @@
           const email = document.getElementById('email').value.trim();
           const subject = document.getElementById('subject').value.trim() || 'Portfolio inquiry';
           const message = document.getElementById('message').value.trim();
-          if (!name || !email || !message) { alert('Please fill all required fields (*).'); return; }
+          if (!name || !email || !message) {
+            alert('Please fill all required fields (*).');
+            return;
+          }
           const formData = new FormData();
-          formData.append('name', name); formData.append('email', email); formData.append('subject', subject); formData.append('message', message);
-          formData.append('_captcha', 'false'); formData.append('_template', 'table');
+          formData.append('name', name);
+          formData.append('email', email);
+          formData.append('subject', subject);
+          formData.append('message', message);
+          formData.append('_captcha', 'false');
+          formData.append('_template', 'table');
           try {
-            const response = await fetch('https://formsubmit.co/ajax/subinathapa5510@gmail.com', { method: 'POST', body: formData });
+            const response = await fetch('https://formsubmit.co/ajax/subinathapa5510@gmail.com', {
+              method: 'POST',
+              body: formData
+            });
             if (response.ok) {
-              const toast = document.createElement('div'); toast.className = 'toast-msg'; toast.innerText = `✨ Thanks ${name}! Your message has been sent. I'll reply within 24h.`;
-              document.body.appendChild(toast); contactForm.reset(); setTimeout(() => toast.remove(), 4000);
-            } else throw new Error('Server error');
+              const toast = document.createElement('div');
+              toast.className = 'toast-msg';
+              toast.innerText = `✨ Thanks ${name}! Your message has been sent. I'll reply within 24h.`;
+              document.body.appendChild(toast);
+              contactForm.reset();
+              setTimeout(() => toast.remove(), 4000);
+            } else {
+              throw new Error('Server error');
+            }
           } catch (error) {
-            const toastErr = document.createElement('div'); toastErr.className = 'toast-msg'; toastErr.innerText = '⚠️ Message could not be sent. Please try again or contact via socials.';
-            document.body.appendChild(toastErr); setTimeout(() => toastErr.remove(), 4000);
+            const toastErr = document.createElement('div');
+            toastErr.className = 'toast-msg';
+            toastErr.innerText = '⚠️ Message could not be sent. Please try again or contact via socials.';
+            document.body.appendChild(toastErr);
+            setTimeout(() => toastErr.remove(), 4000);
           }
         });
       }
 
-      // CV download (email request)
+      // ========== DOWNLOAD CV BUTTON (Email request) ==========
       const cvBtn = document.getElementById('downloadCvFooterBtn');
-      if (cvBtn) cvBtn.addEventListener('click', (e) => { e.preventDefault(); window.location.href = "mailto:subinathapa5510@gmail.com?subject=CV%20Request%20from%20Portfolio&body=Hello%20Subina,%0D%0A%0D%0AI%20would%20like%20to%20request%20your%20professional%20CV.%0D%0A%0D%0ABest%20regards,"; });
+      if (cvBtn) {
+        cvBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.location.href = "mailto:subinathapa5510@gmail.com?subject=CV%20Request%20from%20Portfolio&body=Hello%20Subina,%0D%0A%0D%0AI%20would%20like%20to%20request%20your%20professional%20CV.%0D%0A%0D%0ABest%20regards,";
+        });
+      }
 
-      // Typing animation
+      // ========== TYPING ANIMATION FIX ==========
       const typingElement = document.getElementById('typing-animation');
       if (typingElement) {
         const texts = ['Full Stack Flutter Developer'];
+        let idx = 0;
         function typeWriter(text, i) {
-          if (i < text.length) { typingElement.textContent = text.substring(0, i+1); setTimeout(() => typeWriter(text, i+1), 120); }
-          else { setTimeout(() => { typingElement.textContent = ''; typeWriter(texts[0], 0); }, 2000); }
+          if (i < text.length) {
+            typingElement.textContent = text.substring(0, i+1);
+            setTimeout(() => typeWriter(text, i+1), 120);
+          } else {
+            setTimeout(() => {
+              typingElement.textContent = '';
+              typeWriter(texts[0], 0);
+            }, 2000);
+          }
         }
         typeWriter(texts[0], 0);
       }
