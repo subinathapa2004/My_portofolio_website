@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Bootstrap & plugins -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <style>
     /* ========== GLOBAL RESET ========== */
     * {
@@ -30,7 +29,7 @@
       background: #ffbd39;
       color: #000;
     }
-    .text-gold, .gold-accent {
+    .text-gold {
       color: #ffbd39 !important;
     }
     /* ========== SIDEBAR ========== */
@@ -127,13 +126,13 @@
       font-size: 28px;
       color: #ffbd39;
     }
-    /* Hero section - SQUARE image on top */
+    /* Hero section - elegant, modern, minimal */
     .hero-section {
       min-height: 100vh;
       display: flex;
       align-items: center;
       position: relative;
-      background: linear-gradient(135deg, #0f0f0f 0%, #0a0a0a 100%);
+      background: radial-gradient(circle at 10% 20%, #111111, #0a0a0a);
       padding: 4rem 0 5rem 0;
     }
     .hero-top-image {
@@ -145,13 +144,21 @@
       height: 170px;
       object-fit: cover;
       border: 3px solid #ffbd39;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-      border-radius: 20px;
+      box-shadow: 0 20px 35px rgba(0,0,0,0.5);
+      border-radius: 24px;
+      transition: transform 0.3s ease;
+    }
+    .hero-top-image img:hover {
+      transform: scale(1.02);
     }
     .hero-content h1 {
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       font-weight: 700;
-      line-height: 1.2;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #fff 30%, #ffbd39 80%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
     .hero-content .highlight {
       color: #ffbd39;
@@ -162,14 +169,14 @@
       background: transparent;
       border: 2px solid #ffbd39;
       color: #ffbd39;
-      padding: 12px 28px;
+      padding: 12px 32px;
       border-radius: 50px;
       font-weight: 600;
-      transition: 0.3s;
-      margin-right: 12px;
+      transition: all 0.3s;
+      margin: 0 8px;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       text-decoration: none;
     }
     .btn-custom:hover, .btn-custom-gold {
@@ -177,13 +184,15 @@
       color: #000;
       border-color: #ffbd39;
       text-decoration: none;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255,189,57,0.2);
     }
     .section-padding {
       padding: 5rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     .section-title {
-      font-size: 2.2rem;
+      font-size: 2.3rem;
       font-weight: 700;
       margin-bottom: 2rem;
       position: relative;
@@ -195,65 +204,79 @@
       position: absolute;
       bottom: -12px;
       left: 0;
-      width: 60px;
+      width: 70px;
       height: 3px;
       background: #ffbd39;
+      border-radius: 3px;
     }
-    /* Service cards */
+    /* Service cards - clean & minimal */
     .service-card-modern {
       background: #111;
-      border-radius: 24px;
-      padding: 2rem;
+      border-radius: 28px;
+      padding: 2rem 1.5rem;
       text-align: center;
       transition: all 0.3s;
-      border: 1px solid #222;
+      border: 1px solid #2a2a2a;
       height: 100%;
+      backdrop-filter: blur(2px);
     }
     .service-card-modern:hover {
-      transform: translateY(-6px);
+      transform: translateY(-8px);
       border-color: #ffbd39;
-      box-shadow: 0 16px 32px -12px rgba(255,189,57,0.2);
+      box-shadow: 0 20px 35px -10px rgba(255,189,57,0.15);
     }
-    /* SKILLS - WRITING STYLE: tags, no progress bars */
+    .service-card-modern i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .service-card-modern h4 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 1rem 0 0.5rem;
+      color: #fff;
+    }
+    .service-card-modern p {
+      font-size: 0.9rem;
+      color: #bbb;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+    /* Skills tags */
     .skills-writing-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.5rem;
+      gap: 0.9rem;
+      margin-top: 1.2rem;
     }
     .skill-tag {
-      background: #1a1a1a;
-      border: 1px solid #333;
-      padding: 0.7rem 1.5rem;
+      background: #161616;
+      border: 1px solid #2e2e2e;
+      padding: 0.6rem 1.3rem;
       border-radius: 60px;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 500;
       color: #ddd;
-      transition: all 0.2s ease;
+      transition: all 0.2s;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
-    .skill-tag i, .skill-tag .devicon, .skill-tag .fab {
-      font-size: 1.3rem;
+    .skill-tag i, .skill-tag .devicon {
+      font-size: 1.2rem;
       color: #ffbd39;
     }
     .skill-tag:hover {
       border-color: #ffbd39;
-      transform: translateY(-3px);
-      background: #222;
-      color: white;
-    }
-    .skill-category {
-      margin-bottom: 2rem;
+      background: #202020;
+      transform: translateY(-2px);
     }
     .skill-category h4 {
       color: #ffbd39;
       margin-bottom: 1rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      font-size: 1.3rem;
     }
-    /* blog cards */
+    /* Blog cards */
     .blog-card-2025 {
       background: #111;
       border-radius: 24px;
@@ -267,7 +290,7 @@
       transform: translateY(-5px);
     }
     .blog-img {
-      height: 210px;
+      height: 190px;
       background-size: cover;
       background-position: center;
     }
@@ -291,6 +314,22 @@
       transition: 0.2s;
       color: #ffbd39;
     }
+    .footer-social a:hover {
+      background: #ffbd39;
+      color: #000;
+      transform: translateY(-3px);
+    }
+    .service-category-badge {
+      background: rgba(255,189,57,0.12);
+      padding: 5px 14px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #ffbd39;
+      display: inline-block;
+      margin-bottom: 1.2rem;
+    }
     @media (max-width: 992px) {
       .sidebar { width: 250px; }
       .main-content { margin-left: 250px; }
@@ -300,8 +339,8 @@
       .sidebar.open { transform: translateX(0); }
       .mobile-header { display: flex; align-items: center; justify-content: space-between; }
       .main-content { margin-left: 0; padding-top: 70px; }
-      .hero-content h1 { font-size: 2.2rem; }
-      .hero-top-image img { width: 130px; height: 130px; border-radius: 16px; }
+      .hero-content h1 { font-size: 2.3rem; }
+      .hero-top-image img { width: 120px; height: 120px; border-radius: 18px; }
     }
     .toast-custom {
       position: fixed;
@@ -320,17 +359,6 @@
       0% { opacity: 1; bottom: 25px; }
       70% { opacity: 1; }
       100% { opacity: 0; visibility: hidden; }
-    }
-    /* service category badges */
-    .service-category-badge {
-      background: rgba(255,189,57,0.1);
-      padding: 4px 12px;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #ffbd39;
-      display: inline-block;
-      margin-bottom: 1rem;
     }
   </style>
 </head>
@@ -365,7 +393,7 @@
 </div>
 
 <div class="main-content">
-  <!-- HERO SECTION with SQUARE image on top -->
+  <!-- HERO SECTION - best version: clean, gradient text, square image -->
   <section id="home" class="hero-section">
     <div class="container">
       <div class="hero-top-image">
@@ -373,20 +401,20 @@
       </div>
       <div class="row justify-content-center text-center">
         <div class="col-lg-8 hero-content">
-          <span class="badge badge-light mb-3" style="background:#ffbd3922; color:#ffbd39; border-radius:40px;">Hello, I'm</span>
-          <h1 class="display-4 font-weight-bold">Subina Thapa</h1>
-          <p class="lead mt-3" style="font-size:1.6rem;"><span id="typedRole" class="highlight">Full Stack Flutter Developer</span></p>
-          <p class="mt-3" style="color:#bbb;">Building elegant cross-platform apps, APIs, and modern web experiences. 13+ projects delivered with passion.</p>
-          <div class="mt-4">
+          <span class="badge mb-3" style="background:#ffbd3922; color:#ffbd39; border-radius:40px; padding:6px 16px;">✨ Full Stack Developer</span>
+          <h1>Subina Thapa</h1>
+          <p class="lead mt-3" style="font-size:1.5rem;"><span id="typedRole" class="highlight">Flutter & Django Expert</span></p>
+          <p class="mt-3" style="color:#aaa; max-width: 600px; margin-left: auto; margin-right: auto;">13+ projects delivered. I build high-performance mobile apps, robust backends, and modern web experiences.</p>
+          <div class="mt-5">
             <a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#contact" class="btn-custom btn-custom-gold" style="background:#ffbd39; color:#000;">Hire Me →</a>
+            <a href="#contact" class="btn-custom btn-custom-gold" style="background:#ffbd39; color:#000;">Let's Talk →</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT section -->
+  <!-- ABOUT section (unchanged good) -->
   <section id="about" class="section-padding">
     <div class="container">
       <div class="row">
@@ -413,87 +441,53 @@
     <div class="container">
       <h2 class="section-title">My Apps</h2>
       <div class="row mt-4">
-        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="fas fa-store fa-3x text-gold mb-3"></i><h4 class="text-white">ShopEase</h4><p>Full e‑commerce Flutter app with Firebase auth, cart, realtime updates.</p></div></div>
-        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="fas fa-cloud-sun fa-3x text-gold mb-3"></i><h4 class="text-white">WeatherNow</h4><p>Real-time weather & location using REST API, beautiful UI.</p></div></div>
-        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="fas fa-tasks fa-3x text-gold mb-3"></i><h4 class="text-white">TaskFlow</h4><p>Productivity app with local storage & notifications.</p></div></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="fas fa-store fa-3x text-gold mb-3"></i><h4>ShopEase</h4><p>Full e‑commerce Flutter app with Firebase auth, cart, realtime updates.</p></div></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="fas fa-cloud-sun fa-3x text-gold mb-3"></i><h4>WeatherNow</h4><p>Real-time weather & location using REST API, beautiful UI.</p></div></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="fas fa-tasks fa-3x text-gold mb-3"></i><h4>TaskFlow</h4><p>Productivity app with local storage & notifications.</p></div></div>
       </div>
       <div class="text-center mt-2"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold">Explore on GitHub</a></div>
     </div>
   </section>
 
-  <!-- SKILLS SECTION - WRITING STYLE (tags, no progress bars) -->
+  <!-- SKILLS SECTION - writing style tags clean -->
   <section id="skills" class="section-padding">
     <div class="container">
       <h2 class="section-title">Technical Skills</h2>
-      <p class="mb-4" style="color:#aaa;">Core competencies & technologies I work with daily — writing clean, efficient code.</p>
-      
-      <div class="skill-category">
-        <h4><i class="fas fa-mobile-alt text-gold me-2"></i> Mobile & Frontend</h4>
-        <div class="skills-writing-container">
-          <span class="skill-tag"><i class="devicon-dart-plain colored"></i> Dart</span>
-          <span class="skill-tag"><i class="devicon-flutter-plain colored"></i> Flutter</span>
-          <span class="skill-tag"><i class="devicon-react-original colored"></i> React</span>
-          <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
-          <span class="skill-tag"><i class="devicon-typescript-plain colored"></i> TypeScript</span>
-          <span class="skill-tag"><i class="fab fa-html5"></i> HTML5/CSS3</span>
-          <span class="skill-tag"><i class="devicon-nextjs-original colored"></i> Next.js</span>
-        </div>
-      </div>
-
-      <div class="skill-category">
-        <h4><i class="fas fa-server text-gold me-2"></i> Backend & Database</h4>
-        <div class="skills-writing-container">
-          <span class="skill-tag"><i class="devicon-python-plain colored"></i> Python</span>
-          <span class="skill-tag"><i class="devicon-django-plain colored"></i> Django</span>
-          <span class="skill-tag"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span>
-          <span class="skill-tag"><i class="fas fa-fire"></i> Firebase</span>
-          <span class="skill-tag"><i class="devicon-mysql-plain colored"></i> MySQL</span>
-          <span class="skill-tag"><i class="fas fa-cloud"></i> REST APIs</span>
-        </div>
-      </div>
-
-      <div class="skill-category">
-        <h4><i class="fas fa-tools text-gold me-2"></i> Tools & DevOps</h4>
-        <div class="skills-writing-container">
-          <span class="skill-tag"><i class="devicon-git-plain colored"></i> Git</span>
-          <span class="skill-tag"><i class="devicon-github-original colored"></i> GitHub</span>
-          <span class="skill-tag"><i class="devicon-gitlab-plain colored"></i> GitLab</span>
-          <span class="skill-tag"><i class="fas fa-code-branch"></i> CI/CD</span>
-          <span class="skill-tag"><i class="fas fa-terminal"></i> CLI</span>
-          <span class="skill-tag"><i class="fab fa-figma"></i> Figma</span>
-        </div>
-      </div>
+      <p class="mb-4" style="color:#aaa;">Technologies I master for modern development</p>
+      <div class="skill-category"><h4><i class="fas fa-mobile-alt text-gold me-2"></i> Mobile & Frontend</h4><div class="skills-writing-container"><span class="skill-tag"><i class="devicon-dart-plain colored"></i> Dart</span><span class="skill-tag"><i class="devicon-flutter-plain colored"></i> Flutter</span><span class="skill-tag"><i class="devicon-react-original colored"></i> React</span><span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span><span class="skill-tag"><i class="devicon-typescript-plain colored"></i> TypeScript</span><span class="skill-tag"><i class="devicon-nextjs-original colored"></i> Next.js</span></div></div>
+      <div class="skill-category"><h4><i class="fas fa-server text-gold me-2"></i> Backend & Database</h4><div class="skills-writing-container"><span class="skill-tag"><i class="devicon-python-plain colored"></i> Python</span><span class="skill-tag"><i class="devicon-django-plain colored"></i> Django</span><span class="skill-tag"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span><span class="skill-tag"><i class="fas fa-fire"></i> Firebase</span><span class="skill-tag"><i class="fas fa-cloud"></i> REST APIs</span></div></div>
+      <div class="skill-category"><h4><i class="fas fa-tools text-gold me-2"></i> Tools & DevOps</h4><div class="skills-writing-container"><span class="skill-tag"><i class="devicon-git-plain colored"></i> Git</span><span class="skill-tag"><i class="devicon-github-original colored"></i> GitHub</span><span class="skill-tag"><i class="fab fa-figma"></i> Figma</span></div></div>
     </div>
   </section>
 
-  <!-- SERVICES section - Frontend, Backend, Database categories -->
+  <!-- SERVICES SECTION - Best, minimal, 1-2 lines per card -->
   <section id="services" class="section-padding" style="background:#0d0d0d;">
     <div class="container">
       <h2 class="section-title">What I Offer</h2>
-      <p class="mb-5" style="color:#aaa;">Specialized services across the full development stack</p>
+      <p class="mb-4" style="color:#aaa;">Clean, scalable, and modern solutions</p>
       
-      <!-- Frontend Services Row -->
+      <!-- Frontend Row (concise) -->
       <div class="row mb-5">
-        <div class="col-12 mb-3"><span class="service-category-badge"><i class="fas fa-laptop-code mr-1"></i> FRONTEND DEVELOPMENT</span></div>
-        <div class="col-md-6 col-lg-4 mb-4"><div class="service-card-modern"><i class="fab fa-flutter fa-3x text-gold"></i><h4 class="mt-3">Flutter Development</h4><p>Cross-platform mobile apps (iOS & Android) with smooth UI/UX, state management, and native performance.</p></div></div>
-        <div class="col-md-6 col-lg-4 mb-4"><div class="service-card-modern"><i class="devicon-react-original fa-3x text-gold" style="font-size:3rem;"></i><h4 class="mt-3">React Development</h4><p>Dynamic, responsive single-page applications with hooks, context API, and modern UI libraries.</p></div></div>
-        <div class="col-md-6 col-lg-4 mb-4"><div class="service-card-modern"><i class="devicon-nextjs-original fa-3x text-gold" style="font-size:3rem;"></i><h4 class="mt-3">Next.js Apps</h4><p>Server-side rendering, static site generation, and modern React frameworks for blazing-fast web apps.</p></div></div>
+        <div class="col-12 mb-3"><span class="service-category-badge"><i class="fas fa-laptop-code"></i> FRONTEND</span></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="fab fa-flutter fa-3x text-gold"></i><h4>Flutter</h4><p>iOS & Android apps from single codebase.</p></div></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="devicon-react-original fa-3x text-gold"></i><h4>React</h4><p>Fast SPAs with hooks & modern UI.</p></div></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="devicon-nextjs-original fa-3x text-gold"></i><h4>Next.js</h4><p>SSR & static sites for performance.</p></div></div>
       </div>
 
-      <!-- Backend Services Row -->
+      <!-- Backend Row (concise) -->
       <div class="row mb-5">
-        <div class="col-12 mb-3"><span class="service-category-badge"><i class="fas fa-server mr-1"></i> BACKEND DEVELOPMENT</span></div>
-        <div class="col-md-6 col-lg-4 mb-4"><div class="service-card-modern"><i class="devicon-django-plain fa-3x text-gold" style="font-size:3rem;"></i><h4 class="mt-3">Django Backend</h4><p>Robust REST APIs with Django REST Framework, authentication, ORM, and scalable database design.</p></div></div>
-        <div class="col-md-6 col-lg-4 mb-4"><div class="service-card-modern"><i class="devicon-typescript-plain fa-3x text-gold" style="font-size:3rem;"></i><h4 class="mt-3">TypeScript APIs</h4><p>Type-safe backend development with Node.js/Express, better maintainability and scalable solutions.</p></div></div>
-        <div class="col-md-6 col-lg-4 mb-4"><div class="service-card-modern"><i class="fas fa-cloud fa-3x text-gold"></i><h4 class="mt-3">RESTful APIs</h4><p>Custom API design, authentication, authorization, and integration for any frontend or mobile app.</p></div></div>
+        <div class="col-12 mb-3"><span class="service-category-badge"><i class="fas fa-server"></i> BACKEND</span></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="devicon-django-plain fa-3x text-gold"></i><h4>Django</h4><p>REST APIs with Django REST Framework.</p></div></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="devicon-typescript-plain fa-3x text-gold"></i><h4>TypeScript</h4><p>Type-safe Node.js backends.</p></div></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="fas fa-cloud fa-3x text-gold"></i><h4>REST APIs</h4><p>Scalable & secure API design.</p></div></div>
       </div>
 
-      <!-- Database Services Row -->
+      <!-- Database Row (concise) -->
       <div class="row">
-        <div class="col-12 mb-3"><span class="service-category-badge"><i class="fas fa-database mr-1"></i> DATABASE SOLUTIONS</span></div>
-        <div class="col-md-6 col-lg-4 mb-4"><div class="service-card-modern"><i class="devicon-postgresql-plain fa-3x text-gold" style="font-size:3rem;"></i><h4 class="mt-3">PostgreSQL</h4><p>Efficient database schema design, complex queries, and optimization for high-performance apps.</p></div></div>
-        <div class="col-md-6 col-lg-4 mb-4"><div class="service-card-modern"><i class="fas fa-fire fa-3x text-gold"></i><h4 class="mt-3">Firebase</h4><p>Real-time databases, authentication, cloud functions, and serverless backend for modern apps.</p></div></div>
-        <div class="col-md-6 col-lg-4 mb-4"><div class="service-card-modern"><i class="devicon-mysql-plain fa-3x text-gold" style="font-size:3rem;"></i><h4 class="mt-3">MySQL</h4><p>Relational database design, complex joins, stored procedures, and data warehousing.</p></div></div>
+        <div class="col-12 mb-3"><span class="service-category-badge"><i class="fas fa-database"></i> DATABASE</span></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="devicon-postgresql-plain fa-3x text-gold"></i><h4>PostgreSQL</h4><p>Optimized schemas & complex queries.</p></div></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="fas fa-fire fa-3x text-gold"></i><h4>Firebase</h4><p>Real-time DB & serverless backend.</p></div></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern"><i class="devicon-mysql-plain fa-3x text-gold"></i><h4>MySQL</h4><p>Relational DB for reliable apps.</p></div></div>
       </div>
     </div>
   </section>
@@ -506,48 +500,48 @@
     </div>
   </section>
 
-  <!-- Education + values -->
+  <!-- Education & values -->
   <section id="education" class="section-padding" style="background:#0c0c0c;">
     <div class="container">
       <h2 class="section-title">Education & Values</h2>
       <div class="row mt-4">
-        <div class="col-md-6"><div class="service-card-modern"><i class="fas fa-graduation-cap fa-2x text-gold"></i><h4 class="mt-2">BCA (2023-Present)</h4><p>Tribhuvan University, focusing on software development.</p><h5 class="mt-3">+2 Computer Science</h5><p>Nepal Kasthamandap College, Management with CS.</p></div></div>
-        <div class="col-md-6"><div class="service-card-modern"><i class="fas fa-heart text-gold fa-2x"></i><h4 class="mt-2">My Values</h4><ul class="list-unstyled"><li>✓ Integrity & Transparency</li><li>✓ Continuous Learning</li><li>✓ User‑Centric Design</li><li>✓ Creative Problem Solving</li></ul></div></div>
+        <div class="col-md-6"><div class="service-card-modern"><i class="fas fa-graduation-cap fa-2x text-gold"></i><h4>BCA (2023-Present)</h4><p>Tribhuvan University, focus on software development.</p><h5 class="mt-3">+2 Computer Science</h5><p>Nepal Kasthamandap College, Management with CS.</p></div></div>
+        <div class="col-md-6"><div class="service-card-modern"><i class="fas fa-heart text-gold fa-2x"></i><h4>My Values</h4><ul class="list-unstyled"><li>✓ Integrity & Transparency</li><li>✓ Continuous Learning</li><li>✓ User‑Centric Design</li></ul></div></div>
       </div>
       <div class="mt-4"><h5 class="text-gold">Languages:</h5><p>Nepali (native), English (proficient), Hindi (basic)</p></div>
     </div>
   </section>
 
-  <!-- Projects 6 featured -->
+  <!-- Projects -->
   <section id="projects" class="section-padding">
     <div class="container">
       <h2 class="section-title">Featured Projects</h2>
       <div class="row mt-4">
-        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/AAAAa.png'); background-size:cover;"></div><div class="p-3"><h4>Clinic Website</h4><p>Healthcare site with consent form & scheduling.</p></div></div></div>
-        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/cccc.png');"></div><div class="p-3"><h4>Cleaning Website</h4><p>Modern design, pricing, testimonials.</p></div></div></div>
-        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/mmm.png');"></div><div class="p-3"><h4>Montessori Website</h4><p>Child-friendly interface, multimedia content.</p></div></div></div>
-        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/GGG.png');"></div><div class="p-3"><h4>Real Estate Platform</h4><p>React.js property showcase.</p></div></div></div>
-        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/jjj.png');"></div><div class="p-3"><h4>Corporate Website</h4><p>Professional lead generation.</p></div></div></div>
-        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/ooo.png');"></div><div class="p-3"><h4>E‑commerce App</h4><p>Flutter + Firebase full cart & payments.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/AAAAa.png');"></div><div class="p-3"><h4>Clinic Website</h4><p>Healthcare scheduling site.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/cccc.png');"></div><div class="p-3"><h4>Cleaning Website</h4><p>Modern design & pricing.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/mmm.png');"></div><div class="p-3"><h4>Montessori Site</h4><p>Child-friendly interface.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/GGG.png');"></div><div class="p-3"><h4>Real Estate</h4><p>React property showcase.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/jjj.png');"></div><div class="p-3"><h4>Corporate Site</h4><p>Lead generation design.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/ooo.png');"></div><div class="p-3"><h4>E‑commerce App</h4><p>Flutter + Firebase cart.</p></div></div></div>
       </div>
-      <div class="text-center mt-4"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold"><i class="fab fa-github"></i> See All Projects</a></div>
+      <div class="text-center mt-4"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold"><i class="fab fa-github"></i> All Projects</a></div>
     </div>
   </section>
 
-  <!-- BLOGS section -->
+  <!-- BLOGS -->
   <section id="blogs" class="section-padding" style="background:#0d0d0d;">
     <div class="container">
       <h2 class="section-title">Recent Writings</h2>
       <div class="row">
-        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/flutter-app-architecture-mvvm-vs-clean-architecture" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/B.webp');"></div><div class="p-3"><h5 class="text-white">Flutter App Architecture</h5><p class="small text-muted">MVVM vs Clean Architecture deep dive</p><span class="text-gold">Read →</span></div></div></a></div>
-        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/how-to-become-a-good-coder" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/H.png');"></div><div class="p-3"><h5 class="text-white">How to Become a Good Coder</h5><p class="small text-muted">Step-by-step mindset & habits</p><span class="text-gold">Read →</span></div></div></a></div>
-        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/bhagavad-gita-wisdom-for-developers" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/yooo.png');"></div><div class="p-3"><h5 class="text-white">Wisdom of Bhagavad Gita</h5><p class="small text-muted">Ancient focus for modern devs</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/flutter-app-architecture-mvvm-vs-clean-architecture" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/B.webp');"></div><div class="p-3"><h5 class="text-white">Flutter Architecture</h5><p class="small text-muted">MVVM vs Clean</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/how-to-become-a-good-coder" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/H.png');"></div><div class="p-3"><h5 class="text-white">Become a Good Coder</h5><p class="small text-muted">Mindset & habits</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/bhagavad-gita-wisdom-for-developers" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/yooo.png');"></div><div class="p-3"><h5 class="text-white">Gita Wisdom</h5><p class="small text-muted">Focus & resilience</p><span class="text-gold">Read →</span></div></div></a></div>
       </div>
       <div class="text-center mt-3"><a href="https://medium.com/@subinathapa5510" target="_blank" class="btn-custom">More on Medium <i class="fab fa-medium"></i></a></div>
     </div>
   </section>
 
-  <!-- CONTACT section -->
+  <!-- CONTACT -->
   <section id="contact" class="section-padding">
     <div class="container">
       <h2 class="section-title">Let's Collaborate</h2>
@@ -578,26 +572,16 @@
   (function(){
     const sidebar = document.getElementById('sidebar');
     const mobileToggle = document.getElementById('mobileMenuToggle');
-    if(mobileToggle){
-      mobileToggle.addEventListener('click', ()=>{
-        sidebar.classList.toggle('open');
-      });
-    }
+    if(mobileToggle) mobileToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
     document.querySelectorAll('.sidebar-nav .nav-link').forEach(link=>{
-      link.addEventListener('click', ()=>{
-        if(window.innerWidth <= 768) sidebar.classList.remove('open');
-      });
+      link.addEventListener('click', ()=>{ if(window.innerWidth <= 768) sidebar.classList.remove('open'); });
     });
     document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
       anchor.addEventListener('click', function(e){
         const hash = this.getAttribute('href');
         if(hash === "#") return;
         const target = document.querySelector(hash);
-        if(target){
-          e.preventDefault();
-          window.scrollTo({top: target.offsetTop - 70, behavior:'smooth'});
-          history.pushState(null,null,hash);
-        }
+        if(target){ e.preventDefault(); window.scrollTo({top: target.offsetTop - 70, behavior:'smooth'}); history.pushState(null,null,hash); }
       });
     });
     const typedSpan = document.getElementById('typedRole');
@@ -605,18 +589,8 @@
       const roles = ["Full Stack Flutter Developer", "Flutter & Django Expert", "Mobile & Web Creator"];
       let i=0,idx=0;
       function typeEffect(){
-        if(i<roles[idx].length){
-          typedSpan.innerHTML = roles[idx].substring(0,i+1);
-          i++;
-          setTimeout(typeEffect,100);
-        } else {
-          setTimeout(()=>{
-            i=0;
-            idx = (idx+1)%roles.length;
-            typedSpan.innerHTML = "";
-            typeEffect();
-          },2000);
-        }
+        if(i<roles[idx].length){ typedSpan.innerHTML = roles[idx].substring(0,i+1); i++; setTimeout(typeEffect,100); }
+        else { setTimeout(()=>{ i=0; idx = (idx+1)%roles.length; typedSpan.innerHTML = ""; typeEffect(); },2000); }
       }
       typeEffect();
     }
@@ -647,10 +621,7 @@
     }
     const cvBtn = document.getElementById('downloadCvBtnNew');
     if(cvBtn){
-      cvBtn.addEventListener('click', (e)=>{
-        e.preventDefault();
-        window.location.href = "mailto:subinathapa5510@gmail.com?subject=CV%20Request%20from%20Portfolio&body=Hello%20Subina,%0D%0A%0D%0AI'd%20like%20to%20request%20your%20professional%20CV.";
-      });
+      cvBtn.addEventListener('click', (e)=>{ e.preventDefault(); window.location.href = "mailto:subinathapa5510@gmail.com?subject=CV%20Request%20from%20Portfolio&body=Hello%20Subina,%0D%0A%0D%0AI'd%20like%20to%20request%20your%20professional%20CV."; });
     }
   })();
 </script>
