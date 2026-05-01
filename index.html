@@ -249,56 +249,64 @@
       color: #ffbd39;
       border-left: 2px solid #ffbd39;
     }
-    /* MERGED SKILLS + SERVICES - compact horizontal rows */
+    /* MERGED SKILLS + SERVICES - ULTRA COMPACT: 1 LINE with minimal space */
     .compact-skills-services {
       background: #0c0c0c;
       border-radius: 32px;
-      padding: 2rem 1.5rem;
+      padding: 1.8rem 1rem;
       border: 1px solid #222;
     }
     .compact-category {
-      margin-bottom: 2rem;
+      margin-bottom: 0.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.5rem;
     }
     .compact-category:last-child {
       margin-bottom: 0;
     }
     .cat-title {
-      font-size: 1.2rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: #ffbd39;
-      margin-bottom: 0.8rem;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      border-left: 3px solid #ffbd39;
-      padding-left: 12px;
+      gap: 6px;
+      background: rgba(255,189,57,0.1);
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      white-space: nowrap;
+      margin-right: 0.2rem;
     }
     .inline-tag-list {
-      display: flex;
+      display: inline-flex;
       flex-wrap: wrap;
-      gap: 0.7rem;
+      gap: 0.4rem;
+      align-items: center;
     }
     .inline-tag {
       background: #161616;
       border: 1px solid #2e2e2e;
-      padding: 0.5rem 1.2rem;
-      border-radius: 60px;
-      font-size: 0.85rem;
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
       font-weight: 500;
       color: #ddd;
       transition: 0.2s;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 5px;
+      white-space: nowrap;
     }
     .inline-tag i, .inline-tag .devicon {
-      font-size: 1.1rem;
+      font-size: 0.9rem;
       color: #ffbd39;
     }
     .inline-tag:hover {
       border-color: #ffbd39;
       background: #202020;
-      transform: translateY(-2px);
+      transform: translateY(-1px);
     }
     /* Blog cards */
     .blog-card-2025 {
@@ -367,6 +375,9 @@
       .hero-content h1 { font-size: 2.2rem; }
       .hero-square-img { width: 130px; height: 130px; border-radius: 18px; }
       .stat-card { min-width: 140px; padding: 0.6rem 1.2rem; }
+      .compact-category { flex-wrap: wrap; }
+      .cat-title { white-space: normal; font-size: 0.8rem; }
+      .inline-tag { font-size: 0.7rem; padding: 0.2rem 0.7rem; }
     }
     .toast-custom {
       position: fixed;
@@ -479,50 +490,54 @@
     </div>
   </section>
 
-  <!-- SKILLS & SERVICES -->
+  <!-- SKILLS & SERVICES - COMPACT 1-LINE STYLE with minimal spacing -->
   <section id="skills-services" class="section-padding" style="background:#0d0d0d;">
     <div class="container">
       <h2 class="section-title">Skills & Services</h2>
-      <p class="mb-4" style="color:#aaa;">Tech stack & expertise — everything under one roof</p>
+      <p class="mb-3" style="color:#aaa; font-size:0.9rem;">Tech stack & expertise — everything under one roof</p>
       <div class="compact-skills-services">
+        <!-- Frontend & Mobile - inline compact -->
         <div class="compact-category">
-          <div class="cat-title"><i class="fas fa-mobile-alt"></i> Frontend & Mobile</div>
+          <span class="cat-title"><i class="fas fa-mobile-alt"></i> Frontend</span>
           <div class="inline-tag-list">
             <span class="inline-tag"><i class="devicon-dart-plain colored"></i> Dart</span>
             <span class="inline-tag"><i class="devicon-flutter-plain colored"></i> Flutter</span>
             <span class="inline-tag"><i class="devicon-react-original colored"></i> React</span>
-            <span class="inline-tag"><i class="fab fa-js"></i> JavaScript</span>
-            <span class="inline-tag"><i class="devicon-typescript-plain colored"></i> TypeScript</span>
+            <span class="inline-tag"><i class="fab fa-js"></i> JS</span>
+            <span class="inline-tag"><i class="devicon-typescript-plain colored"></i> TS</span>
             <span class="inline-tag"><i class="devicon-nextjs-original colored"></i> Next.js</span>
           </div>
         </div>
+        <!-- Backend & Database -->
         <div class="compact-category">
-          <div class="cat-title"><i class="fas fa-server"></i> Backend & Database</div>
+          <span class="cat-title"><i class="fas fa-server"></i> Backend</span>
           <div class="inline-tag-list">
             <span class="inline-tag"><i class="devicon-python-plain colored"></i> Python</span>
             <span class="inline-tag"><i class="devicon-django-plain colored"></i> Django</span>
             <span class="inline-tag"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span>
             <span class="inline-tag"><i class="fas fa-fire"></i> Firebase</span>
-            <span class="inline-tag"><i class="fas fa-cloud"></i> REST APIs</span>
+            <span class="inline-tag"><i class="fas fa-cloud"></i> REST API</span>
             <span class="inline-tag"><i class="fas fa-database"></i> MySQL</span>
           </div>
         </div>
+        <!-- Tools & DevOps -->
         <div class="compact-category">
-          <div class="cat-title"><i class="fas fa-tools"></i> Tools & DevOps</div>
+          <span class="cat-title"><i class="fas fa-tools"></i> DevOps</span>
           <div class="inline-tag-list">
             <span class="inline-tag"><i class="devicon-git-plain colored"></i> Git</span>
             <span class="inline-tag"><i class="devicon-github-original colored"></i> GitHub</span>
             <span class="inline-tag"><i class="fab fa-figma"></i> Figma</span>
           </div>
         </div>
+        <!-- Services -->
         <div class="compact-category">
-          <div class="cat-title"><i class="fas fa-concierge-bell"></i> What I Offer (Services)</div>
+          <span class="cat-title"><i class="fas fa-concierge-bell"></i> Services</span>
           <div class="inline-tag-list">
             <span class="inline-tag"><i class="fab fa-flutter"></i> Flutter Apps</span>
             <span class="inline-tag"><i class="devicon-nextjs-original"></i> Next.js Sites</span>
-            <span class="inline-tag"><i class="fas fa-laptop-medical"></i> Clinic/Cleaning Portals</span>
-            <span class="inline-tag"><i class="fab fa-python"></i> Django Backend</span>
-            <span class="inline-tag"><i class="fas fa-database"></i> PostgreSQL Design</span>
+            <span class="inline-tag"><i class="fas fa-laptop-medical"></i> Clinic/Cleaning</span>
+            <span class="inline-tag"><i class="fab fa-python"></i> Django APIs</span>
+            <span class="inline-tag"><i class="fas fa-database"></i> DB Design</span>
             <span class="inline-tag"><i class="fas fa-mobile-alt"></i> Cross-Platform</span>
           </div>
         </div>
@@ -585,7 +600,7 @@
     </div>
   </section>
 
-  <!-- BLOGS section with updated Medium links (your specific URLs) -->
+  <!-- BLOGS section with Medium links -->
   <section id="blogs" class="section-padding" style="background:#0d0d0d;">
     <div class="container">
       <h2 class="section-title">Recent Writings</h2>
@@ -638,7 +653,7 @@
           </div>
         </div>
       </div>
-      <!-- FULL SOCIAL LINKS as requested -->
+      <!-- FULL SOCIAL LINKS -->
       <div class="text-center mt-5">
         <div class="footer-social d-flex justify-content-center flex-wrap">
           <a href="https://github.com/subinathapa2004" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
