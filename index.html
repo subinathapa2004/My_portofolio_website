@@ -32,66 +32,111 @@
     .text-gold {
       color: #ffbd39 !important;
     }
-    /* ========== TOP ICON BAR (home/about/skills...) ========== */
-    .top-icon-nav {
+    /* ========== SIDEBAR ========== */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 100vh;
+      background: rgba(10, 10, 10, 0.96);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      padding: 2rem 1rem;
+      overflow-y: auto;
+      border-right: 1px solid rgba(255, 189, 57, 0.2);
+      transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 4px 0 25px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+    }
+    .profile-sidebar {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
+    .profile-sidebar img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ffbd39;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .profile-sidebar h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 0.8rem;
+      color: #fff;
+    }
+    .profile-sidebar p {
+      color: #ffbd39;
+      font-weight: 400;
+      font-size: 0.8rem;
+    }
+    .sidebar-nav {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+    .sidebar-nav .nav-item {
+      margin-bottom: 0.4rem;
+    }
+    .sidebar-nav .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0.6rem 1rem;
+      color: #ccc;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 40px;
+      transition: all 0.25s;
+      text-decoration: none;
+    }
+    .sidebar-nav .nav-link i {
+      width: 24px;
+      font-size: 1.1rem;
+      color: #ffbd39;
+    }
+    .sidebar-nav .nav-link:hover,
+    .sidebar-nav .nav-link.active {
+      background: #ffbd39;
+      color: #000;
+    }
+    .sidebar-nav .nav-link:hover i,
+    .sidebar-nav .nav-link.active i {
+      color: #000;
+    }
+    .main-content {
+      margin-left: 280px;
+      transition: margin-left 0.3s;
+    }
+    /* mobile header */
+    .mobile-header {
+      display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: rgba(10, 10, 10, 0.92);
-      backdrop-filter: blur(12px);
+      background: #0a0a0a;
       z-index: 1050;
-      padding: 0.7rem 2rem;
-      border-bottom: 1px solid rgba(255, 189, 57, 0.25);
-      display: flex;
-      justify-content: center;
-      gap: 1.8rem;
-      flex-wrap: wrap;
-      transition: all 0.2s;
+      padding: 12px 20px;
+      border-bottom: 1px solid rgba(255,189,57,0.3);
     }
-    .top-icon-nav a {
-      color: #ddd;
-      font-size: 1.1rem;
-      font-weight: 500;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: 0.2s;
-      padding: 4px 10px;
-      border-radius: 40px;
-    }
-    .top-icon-nav a i {
-      font-size: 1.1rem;
+    .menu-btn {
+      background: transparent;
+      border: none;
+      font-size: 28px;
       color: #ffbd39;
-    }
-    .top-icon-nav a:hover, .top-icon-nav a.active {
-      background: #ffbd39;
-      color: #000;
-    }
-    .top-icon-nav a:hover i, .top-icon-nav a.active i {
-      color: #000;
-    }
-    /* ========== SIDEBAR (hidden on desktop, only for mobile if needed but we keep minimal) ========== */
-    .sidebar {
-      display: none; /* hide sidebar completely as requested; top icons replace it */
-    }
-    .main-content {
-      margin-left: 0;
-      padding-top: 80px; /* space for fixed top bar */
-    }
-    /* mobile header (optional but keep for very small) */
-    .mobile-header {
-      display: none;
     }
     /* Hero section */
     .hero-section {
-      min-height: 90vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       position: relative;
       background: radial-gradient(circle at 20% 30%, #0f0f0f, #0a0a0a);
-      padding: 2rem 0 4rem 0;
+      padding: 4rem 0;
     }
     .hero-square-img {
       width: 180px;
@@ -153,7 +198,7 @@
       background: #ffbd39;
       border-radius: 3px;
     }
-    /* Merged skills & services */
+    /* MERGED SKILLS + SERVICES - compact horizontal rows (2-3 lines) */
     .compact-skills-services {
       background: #0c0c0c;
       border-radius: 32px;
@@ -258,6 +303,18 @@
     .journey-education-card:hover {
       border-color: #ffbd39;
     }
+    @media (max-width: 992px) {
+      .sidebar { width: 250px; }
+      .main-content { margin-left: 250px; }
+    }
+    @media (max-width: 768px) {
+      .sidebar { transform: translateX(-100%); width: 270px; }
+      .sidebar.open { transform: translateX(0); }
+      .mobile-header { display: flex; align-items: center; justify-content: space-between; }
+      .main-content { margin-left: 0; padding-top: 70px; }
+      .hero-content h1 { font-size: 2.2rem; }
+      .hero-square-img { width: 130px; height: 130px; border-radius: 18px; }
+    }
     .toast-custom {
       position: fixed;
       bottom: 25px;
@@ -276,57 +333,33 @@
       70% { opacity: 1; }
       100% { opacity: 0; visibility: hidden; }
     }
-    @media (max-width: 768px) {
-      .top-icon-nav {
-        gap: 0.8rem;
-        padding: 0.5rem 1rem;
-      }
-      .top-icon-nav a span {
-        display: none;
-      }
-      .top-icon-nav a i {
-        font-size: 1.3rem;
-        margin: 0;
-      }
-      .top-icon-nav a {
-        padding: 6px 12px;
-      }
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
-      .hero-square-img {
-        width: 130px;
-        height: 130px;
-        border-radius: 18px;
-      }
-      .main-content {
-        padding-top: 70px;
-      }
-      .section-padding {
-        padding: 3rem 0;
-      }
-    }
-    @media (max-width: 550px) {
-      .top-icon-nav a span {
-        display: none;
-      }
-      .top-icon-nav a i {
-        font-size: 1.2rem;
-      }
-    }
   </style>
 </head>
 <body>
 
-<!-- TOP ICON NAVIGATION BAR (Home, About, Skills, Journey, Projects, Blogs, Contact) -->
-<div class="top-icon-nav">
-  <a href="#home" class="nav-icon-link"><i class="fas fa-home"></i><span>Home</span></a>
-  <a href="#about" class="nav-icon-link"><i class="fas fa-user"></i><span>About</span></a>
-  <a href="#skills-services" class="nav-icon-link"><i class="fas fa-code"></i><span>Skills</span></a>
-  <a href="#journey-education" class="nav-icon-link"><i class="fas fa-laptop-code"></i><span>Journey</span></a>
-  <a href="#projects" class="nav-icon-link"><i class="fas fa-project-diagram"></i><span>Projects</span></a>
-  <a href="#blogs" class="nav-icon-link"><i class="fab fa-medium"></i><span>Blogs</span></a>
-  <a href="#contact" class="nav-icon-link"><i class="fas fa-envelope"></i><span>Contact</span></a>
+<!-- Mobile Header -->
+<div class="mobile-header">
+  <button class="menu-btn" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
+  <span class="text-gold font-weight-bold" style="font-size:1.3rem;">Subina Thapa</span>
+  <div></div>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="profile-sidebar">
+    <img src="images/gggg.jpg" alt="Subina" onerror="this.src='https://via.placeholder.com/130x130?text=ST'">
+    <h3>Subina Thapa</h3>
+    <p>Full Stack Flutter Developer</p>
+  </div>
+  <ul class="sidebar-nav">
+    <li class="nav-item"><a href="#home" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+    <li class="nav-item"><a href="#about" class="nav-link"><i class="fas fa-user"></i><span>About</span></a></li>
+    <li class="nav-item"><a href="#skills-services" class="nav-link"><i class="fas fa-code"></i><span>Skills & Services</span></a></li>
+    <li class="nav-item"><a href="#journey-education" class="nav-link"><i class="fas fa-laptop-code"></i><span>Journey & Edu</span></a></li>
+    <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i><span>Projects</span></a></li>
+    <li class="nav-item"><a href="#blogs" class="nav-link"><i class="fab fa-medium"></i><span>Blogs</span></a></li>
+    <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+  </ul>
 </div>
 
 <div class="main-content">
@@ -371,12 +404,13 @@
     </div>
   </section>
 
-  <!-- MERGED SECTION: SKILLS + SERVICES (compact) -->
+  <!-- MERGED SECTION: SKILLS + SERVICES (compact horizontal, 2-3 lines) -->
   <section id="skills-services" class="section-padding" style="background:#0d0d0d;">
     <div class="container">
       <h2 class="section-title">Skills & Services</h2>
       <p class="mb-4" style="color:#aaa;">Tech stack & expertise — everything under one roof</p>
       <div class="compact-skills-services">
+        <!-- Frontend & Mobile -->
         <div class="compact-category">
           <div class="cat-title"><i class="fas fa-mobile-alt"></i> Frontend & Mobile</div>
           <div class="inline-tag-list">
@@ -388,6 +422,7 @@
             <span class="inline-tag"><i class="devicon-nextjs-original colored"></i> Next.js</span>
           </div>
         </div>
+        <!-- Backend & Database -->
         <div class="compact-category">
           <div class="cat-title"><i class="fas fa-server"></i> Backend & Database</div>
           <div class="inline-tag-list">
@@ -399,6 +434,7 @@
             <span class="inline-tag"><i class="fas fa-database"></i> MySQL</span>
           </div>
         </div>
+        <!-- Tools & DevOps + Services as tags -->
         <div class="compact-category">
           <div class="cat-title"><i class="fas fa-tools"></i> Tools & DevOps</div>
           <div class="inline-tag-list">
@@ -423,7 +459,7 @@
     </div>
   </section>
 
-  <!-- MERGED JOURNEY & EDUCATION (CV request removed) -->
+  <!-- MERGED JOURNEY & EDUCATION -->
   <section id="journey-education" class="section-padding" style="background:#0c0c0c;">
     <div class="container">
       <h2 class="section-title">Journey & Education</h2>
@@ -477,59 +513,24 @@
         <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/jjj.png');"></div><div class="p-3"><h4>Corporate Site</h4><p>Lead generation design.</p></div></div></div>
         <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/ooo.png');"></div><div class="p-3"><h4>E‑commerce App</h4><p>Flutter + Firebase cart.</p></div></div></div>
       </div>
-      <!-- All Projects Button: GitHub link added as requested -->
-      <div class="text-center mt-4">
-        <a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold"><i class="fab fa-github"></i> All Projects on GitHub</a>
-      </div>
+      <div class="text-center mt-4"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold"><i class="fab fa-github"></i> All Projects</a></div>
     </div>
   </section>
 
-  <!-- BLOGS section: Medium links added under each card as requested -->
+  <!-- BLOGS -->
   <section id="blogs" class="section-padding" style="background:#0d0d0d;">
     <div class="container">
       <h2 class="section-title">Recent Writings</h2>
       <div class="row">
-        <!-- Blog 1 -->
-        <div class="col-md-4 mb-4">
-          <div class="blog-card-2025">
-            <div class="blog-img" style="background-image:url('images/B.webp');"></div>
-            <div class="p-3">
-              <h5 class="text-white">Flutter Architecture</h5>
-              <p class="small text-muted">MVVM vs Clean Architecture</p>
-              <a href="https://medium.com/@subinathapa5510/flutter-app-architecture-mvvm-vs-clean-architecture" target="_blank" class="text-gold" style="font-weight:500;">Read on Medium →</a>
-            </div>
-          </div>
-        </div>
-        <!-- Blog 2 -->
-        <div class="col-md-4 mb-4">
-          <div class="blog-card-2025">
-            <div class="blog-img" style="background-image:url('images/H.png');"></div>
-            <div class="p-3">
-              <h5 class="text-white">Become a Good Coder</h5>
-              <p class="small text-muted">Mindset & habits for developers</p>
-              <a href="https://medium.com/@subinathapa5510/how-to-become-a-good-coder" target="_blank" class="text-gold" style="font-weight:500;">Read on Medium →</a>
-            </div>
-          </div>
-        </div>
-        <!-- Blog 3 -->
-        <div class="col-md-4 mb-4">
-          <div class="blog-card-2025">
-            <div class="blog-img" style="background-image:url('images/yooo.png');"></div>
-            <div class="p-3">
-              <h5 class="text-white">Gita Wisdom for Developers</h5>
-              <p class="small text-muted">Focus, resilience & balance</p>
-              <a href="https://medium.com/@subinathapa5510/bhagavad-gita-wisdom-for-developers" target="_blank" class="text-gold" style="font-weight:500;">Read on Medium →</a>
-            </div>
-          </div>
-        </div>
+        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/flutter-app-architecture-mvvm-vs-clean-architecture" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/B.webp');"></div><div class="p-3"><h5 class="text-white">Flutter Architecture</h5><p class="small text-muted">MVVM vs Clean</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/how-to-become-a-good-coder" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/H.png');"></div><div class="p-3"><h5 class="text-white">Become a Good Coder</h5><p class="small text-muted">Mindset & habits</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/bhagavad-gita-wisdom-for-developers" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/yooo.png');"></div><div class="p-3"><h5 class="text-white">Gita Wisdom</h5><p class="small text-muted">Focus & resilience</p><span class="text-gold">Read →</span></div></div></a></div>
       </div>
-      <div class="text-center mt-3">
-        <a href="https://medium.com/@subinathapa5510" target="_blank" class="btn-custom">More on Medium <i class="fab fa-medium"></i></a>
-      </div>
+      <div class="text-center mt-3"><a href="https://medium.com/@subinathapa5510" target="_blank" class="btn-custom">More on Medium <i class="fab fa-medium"></i></a></div>
     </div>
   </section>
 
-  <!-- CONTACT section: Removed professional CV request option completely, keep only message form and socials -->
+  <!-- CONTACT section: full featured, CV request option removed as requested -->
   <section id="contact" class="section-padding">
     <div class="container">
       <h2 class="section-title">Let's Collaborate</h2>
@@ -538,37 +539,29 @@
           <div class="bg-dark p-4 rounded-4" style="border-radius:32px; background:#111; border:1px solid #2a2a2a;">
             <h4 class="text-gold">Send a Message</h4>
             <form id="contactFormNew" class="contact-form">
-              <div class="row">
-                <div class="col-6 mb-3"><input type="text" id="nameNew" placeholder="Full Name *" required class="form-control bg-dark text-white border-secondary"></div>
-                <div class="col-6 mb-3"><input type="email" id="emailNew" placeholder="Email *" required class="form-control bg-dark text-white border-secondary"></div>
-              </div>
+              <div class="row"><div class="col-6 mb-3"><input type="text" id="nameNew" placeholder="Full Name *" required class="form-control bg-dark text-white border-secondary"></div>
+              <div class="col-6 mb-3"><input type="email" id="emailNew" placeholder="Email *" required class="form-control bg-dark text-white border-secondary"></div></div>
               <input type="text" id="subjectNew" placeholder="Subject" class="form-control bg-dark text-white border-secondary mb-3">
               <textarea id="msgNew" rows="5" placeholder="Tell me about your project..." class="form-control bg-dark text-white border-secondary mb-3"></textarea>
               <button type="submit" class="btn-custom btn-custom-gold w-100"><i class="fas fa-paper-plane"></i> Send Inquiry</button>
             </form>
           </div>
         </div>
+        <!-- Right side: contact info only, CV block completely removed -->
         <div class="col-md-4 mt-4 mt-md-0 d-flex align-items-stretch">
           <div class="bg-dark p-4 rounded-4 text-center" style="background:#111; width:100%; border:1px solid #2a2a2a;">
-            <i class="fas fa-map-marker-alt fa-2x text-gold mb-2"></i>
-            <h5 class="text-gold">Get in touch</h5>
-            <p class="small">Kathmandu, Suyuchatar</p>
-            <p class="small"><i class="fas fa-envelope text-gold me-1"></i> subinathapa5510@gmail.com</p>
-            <hr class="bg-secondary my-2">
-            <div class="footer-social d-flex justify-content-center flex-wrap mt-2">
-              <a href="https://github.com/subinathapa2004"><i class="fab fa-github"></i></a>
-              <a href="https://gitlab.com/tsubina57"><i class="fab fa-gitlab"></i></a>
-              <a href="https://x.com/ThapaSubina22"><i class="fab fa-twitter"></i></a>
-              <a href="https://dev.to/thapasubina22"><i class="fab fa-dev"></i></a>
-              <a href="https://medium.com/@subinathapa5510"><i class="fab fa-medium"></i></a>
-              <a href="https://www.linkedin.com/in/subina-thapa-6800a934a/"><i class="fab fa-linkedin"></i></a>
-              <a href="https://www.facebook.com/subina.thapa.769940"><i class="fab fa-facebook"></i></a>
-              <a href="https://www.instagram.com/stories/subinathapa22/"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.youtube.com/@Subina--11-nxx"><i class="fab fa-youtube"></i></a>
+            <i class="fas fa-map-marker-alt fa-2x text-gold mb-3"></i>
+            <h5 class="text-gold">Get in Touch</h5>
+            <p class="mb-2"><i class="fas fa-map-marker-alt text-gold me-2"></i> Kathmandu, Suyuchatar</p>
+            <p class="mb-0"><i class="fas fa-envelope text-gold me-2"></i> subinathapa5510@gmail.com</p>
+            <hr class="bg-secondary my-3">
+            <div class="mt-2">
+              <small>Available for freelance & full-time opportunities.</small>
             </div>
           </div>
         </div>
       </div>
+      <div class="text-center mt-5"><div class="footer-social d-flex justify-content-center flex-wrap"><a href="https://github.com/subinathapa2004"><i class="fab fa-github"></i></a><a href="https://gitlab.com/tsubina57"><i class="fab fa-gitlab"></i></a><a href="https://x.com/ThapaSubina22"><i class="fab fa-twitter"></i></a><a href="https://dev.to/thapasubina22"><i class="fab fa-dev"></i></a><a href="https://medium.com/@subinathapa5510"><i class="fab fa-medium"></i></a><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/"><i class="fab fa-linkedin"></i></a><a href="https://www.facebook.com/subina.thapa.769940"><i class="fab fa-facebook"></i></a><a href="https://www.instagram.com/stories/subinathapa22/"><i class="fab fa-instagram"></i></a><a href="https://www.youtube.com/@Subina--11-nxx"><i class="fab fa-youtube"></i></a></div></div>
     </div>
   </section>
   <footer class="text-center py-4 border-top border-secondary"><small>© 2025 Subina Thapa — Full Stack Flutter Developer</small></footer>
@@ -578,43 +571,20 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   (function(){
-    // Active link highlight on scroll
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".top-icon-nav a");
-    function updateActiveLink(){
-      let current = "";
-      const scrollPos = window.scrollY + 120;
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        if(scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight){
-          current = section.getAttribute("id");
-        }
-      });
-      navLinks.forEach(link => {
-        link.classList.remove("active");
-        const href = link.getAttribute("href").substring(1);
-        if(href === current) link.classList.add("active");
-      });
-    }
-    window.addEventListener("scroll", updateActiveLink);
-    window.addEventListener("load", updateActiveLink);
-    
-    // smooth scroll for top nav icons
-    document.querySelectorAll(".top-icon-nav a").forEach(anchor => {
-      anchor.addEventListener("click", function(e){
-        const hash = this.getAttribute("href");
+    const sidebar = document.getElementById('sidebar');
+    const mobileToggle = document.getElementById('mobileMenuToggle');
+    if(mobileToggle) mobileToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+    document.querySelectorAll('.sidebar-nav .nav-link').forEach(link=>{
+      link.addEventListener('click', ()=>{ if(window.innerWidth <= 768) sidebar.classList.remove('open'); });
+    });
+    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+      anchor.addEventListener('click', function(e){
+        const hash = this.getAttribute('href');
         if(hash === "#") return;
         const target = document.querySelector(hash);
-        if(target){
-          e.preventDefault();
-          window.scrollTo({top: target.offsetTop - 70, behavior:"smooth"});
-          history.pushState(null,null,hash);
-        }
+        if(target){ e.preventDefault(); window.scrollTo({top: target.offsetTop - 70, behavior:'smooth'}); history.pushState(null,null,hash); }
       });
     });
-    
-    // contact form submission
     const form = document.getElementById('contactFormNew');
     if(form){
       form.addEventListener('submit', async(e)=>{
@@ -640,6 +610,7 @@
         }
       });
     }
+    // Professional CV option completely removed as requested (no "Request CV" button)
   })();
 </script>
 </body>
