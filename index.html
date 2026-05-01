@@ -1,135 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#0a0a0a">
   <title>Subina Thapa · Full Stack Flutter Developer</title>
-  <!-- Google Fonts: Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <!-- Font Awesome 6 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- Devicon (optional but nice) -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <style>
+    /* ========== GLOBAL RESET ========== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       background: #0a0a0a;
-      font-family: 'Inter', sans-serif;
-      color: #e5e7eb;
+      font-family: 'Poppins', sans-serif;
+      color: #e0e0e0;
+      overflow-x: hidden;
       scroll-behavior: smooth;
-      line-height: 1.5;
     }
-
     ::selection {
       background: #ffbd39;
-      color: #0a0a0a;
+      color: #000;
     }
-
     .text-gold {
       color: #ffbd39 !important;
     }
-
-    .bg-gold {
-      background: #ffbd39;
-    }
-
-    /* ========== SIDEBAR (PROFESSIONAL DARK) ========== */
+    /* ========== SIDEBAR ========== */
     .sidebar {
       position: fixed;
       top: 0;
       left: 0;
       width: 280px;
       height: 100vh;
-      background: #0f0f0f;
-      border-right: 1px solid rgba(255, 189, 57, 0.15);
-      z-index: 1050;
+      background: rgba(10, 10, 10, 0.96);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
       padding: 2rem 1.5rem;
       overflow-y: auto;
-      transition: transform 0.3s ease;
-      box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+      border-right: 1px solid rgba(255, 189, 57, 0.2);
+      transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 4px 0 25px rgba(0,0,0,0.6);
     }
-
     .profile-sidebar {
       text-align: center;
       margin-bottom: 2rem;
     }
-
     .profile-sidebar img {
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid #ffbd39;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
-
     .profile-sidebar h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
+      font-size: 1.7rem;
+      font-weight: 600;
       margin-top: 1rem;
       color: #fff;
     }
-
     .profile-sidebar p {
       color: #ffbd39;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.3px;
+      font-weight: 400;
+      font-size: 0.9rem;
     }
-
     .sidebar-nav {
       list-style: none;
       padding: 0;
-      margin-top: 1rem;
     }
-
     .sidebar-nav .nav-item {
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
-
     .sidebar-nav .nav-link {
       display: flex;
       align-items: center;
       gap: 14px;
       padding: 0.7rem 1rem;
-      color: #cbd5e1;
-      font-size: 0.95rem;
+      color: #ccc;
+      font-size: 1rem;
       font-weight: 500;
       border-radius: 40px;
-      transition: all 0.2s;
+      transition: all 0.25s;
       text-decoration: none;
     }
-
     .sidebar-nav .nav-link i {
-      width: 24px;
-      font-size: 1.1rem;
+      width: 26px;
+      font-size: 1.2rem;
       color: #ffbd39;
     }
-
     .sidebar-nav .nav-link:hover,
     .sidebar-nav .nav-link.active {
       background: #ffbd39;
-      color: #0a0a0a;
+      color: #000;
     }
-
     .sidebar-nav .nav-link:hover i,
     .sidebar-nav .nav-link.active i {
-      color: #0a0a0a;
+      color: #000;
     }
-
-    /* Main content area */
     .main-content {
       margin-left: 280px;
       transition: margin-left 0.3s;
     }
-
-    /* Mobile Header */
+    /* mobile header */
     .mobile-header {
       display: none;
       position: fixed;
@@ -137,246 +116,209 @@
       left: 0;
       width: 100%;
       background: #0a0a0a;
-      backdrop-filter: blur(12px);
-      z-index: 1060;
-      padding: 14px 20px;
-      border-bottom: 1px solid rgba(255, 189, 57, 0.2);
+      z-index: 1050;
+      padding: 12px 20px;
+      border-bottom: 1px solid rgba(255,189,57,0.3);
     }
-
     .menu-btn {
       background: transparent;
       border: none;
-      font-size: 26px;
+      font-size: 28px;
       color: #ffbd39;
-      cursor: pointer;
     }
-
-    /* Sections */
-    .section {
+    /* Hero section - inspired by sadhanapanthi, square image */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: radial-gradient(circle at 20% 30%, #0f0f0f, #0a0a0a);
+      padding: 4rem 0;
+    }
+    .hero-image-wrapper {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .hero-square-img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border: 3px solid rgba(255, 189, 57, 0.4);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.4);
+      border-radius: 24px;
+      transition: all 0.3s ease;
+    }
+    .hero-square-img:hover {
+      border-color: #ffbd39;
+      transform: scale(1.02);
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 30%, #ffbd39 80%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-content .highlight {
+      color: #ffbd39;
+      border-bottom: 2px solid #ffbd39;
+      display: inline-block;
+    }
+    .btn-custom {
+      background: transparent;
+      border: 2px solid #ffbd39;
+      color: #ffbd39;
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+      margin: 0 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .btn-custom:hover, .btn-custom-gold {
+      background: #ffbd39;
+      color: #000;
+      border-color: #ffbd39;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255,189,57,0.2);
+    }
+    .section-padding {
       padding: 5rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-
-    .section-alt {
-      background: #0d0d0d;
-    }
-
-    .container-custom {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
     .section-title {
       font-size: 2.2rem;
       font-weight: 700;
       margin-bottom: 2rem;
       position: relative;
       display: inline-block;
-      color: #ffffff;
-      letter-spacing: -0.3px;
+      color: #fff;
     }
-
     .section-title:after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -12px;
       left: 0;
       width: 70px;
       height: 3px;
       background: #ffbd39;
-      border-radius: 4px;
+      border-radius: 3px;
     }
-
-    /* Hero */
-    .hero-section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      background: radial-gradient(circle at 30% 20%, #111111, #080808);
-    }
-
-    .hero-square-img {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 32px;
-      border: 3px solid rgba(255, 189, 57, 0.5);
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.5);
-      transition: 0.2s;
-    }
-
-    .hero-content h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #ffffff 30%, #ffbd39 80%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      letter-spacing: -1px;
-    }
-
-    .btn-custom {
-      background: transparent;
-      border: 2px solid #ffbd39;
-      color: #ffbd39;
-      padding: 10px 28px;
-      border-radius: 40px;
-      font-weight: 600;
-      transition: all 0.25s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-
-    .btn-custom:hover,
-    .btn-custom-gold {
-      background: #ffbd39;
-      color: #0a0a0a;
-      border-color: #ffbd39;
-      transform: translateY(-2px);
-    }
-
-    /* Skills grid - modern professional */
-    .skills-grid {
+    /* Skills tags */
+    .skills-writing-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.2rem;
+      gap: 0.9rem;
+      margin-top: 1rem;
     }
-
-    .skill-pill {
-      background: #141414;
-      border: 1px solid #2a2a2a;
-      padding: 0.55rem 1.3rem;
+    .skill-tag {
+      background: #161616;
+      border: 1px solid #2e2e2e;
+      padding: 0.6rem 1.3rem;
       border-radius: 60px;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 500;
+      color: #ddd;
       transition: all 0.2s;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
-
-    .skill-pill i,
-    .skill-pill .devicon {
+    .skill-tag i, .skill-tag .devicon {
       font-size: 1.2rem;
       color: #ffbd39;
     }
-
-    .skill-pill:hover {
+    .skill-tag:hover {
       border-color: #ffbd39;
-      background: #1c1c1c;
+      background: #202020;
       transform: translateY(-2px);
     }
-
     .skill-category h4 {
       color: #ffbd39;
+      margin-bottom: 1rem;
       font-size: 1.2rem;
       font-weight: 600;
-      margin: 1.8rem 0 0.8rem 0;
+      margin-top: 1.2rem;
     }
-
-    /* Service minimal list (no boxes) */
-    .service-minimal-list {
+    /* Service lists - clean handwriting style, no boxes */
+    .service-list-wrapper {
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      margin-top: 1rem;
+    }
+    .service-heading {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #ffbd39;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.2px;
+      border-left: 3px solid #ffbd39;
+      padding-left: 15px;
+    }
+    .service-items {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
-      margin: 1rem 0 2rem;
+      margin-bottom: 2rem;
     }
-
-    .service-chip {
+    .service-item-tag {
       background: #111;
       border: 1px solid #2a2a2a;
-      padding: 0.6rem 1.4rem;
+      padding: 0.8rem 1.5rem;
       border-radius: 60px;
+      font-size: 0.95rem;
       font-weight: 500;
+      color: #ddd;
+      transition: all 0.2s;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      font-size: 0.9rem;
+      gap: 12px;
     }
-
-    .service-chip i {
-      color: #ffbd39;
-      font-size: 1.1rem;
-    }
-
-    .service-category-title {
+    .service-item-tag i, .service-item-tag .devicon {
       font-size: 1.3rem;
-      font-weight: 600;
-      color: #fff;
-      border-left: 3px solid #ffbd39;
-      padding-left: 15px;
-      margin: 1.5rem 0 1rem;
+      color: #ffbd39;
     }
-
-    /* Project cards */
-    .project-card {
+    .service-item-tag:hover {
+      border-color: #ffbd39;
+      background: #1a1a1a;
+      transform: translateY(-2px);
+    }
+    /* Blog cards */
+    .blog-card-2025 {
       background: #111;
       border-radius: 24px;
       overflow: hidden;
-      transition: all 0.25s;
-      border: 1px solid #222;
-      height: 100%;
-    }
-
-    .project-card:hover {
-      border-color: #ffbd39;
-      transform: translateY(-6px);
-    }
-
-    .project-img {
-      height: 180px;
-      background-size: cover;
-      background-position: center;
-      background-color: #1a1a1a;
-    }
-
-    /* Blog cards */
-    .blog-card {
-      background: #111;
-      border-radius: 20px;
-      overflow: hidden;
-      transition: 0.2s;
+      transition: 0.3s;
       height: 100%;
       border: 1px solid #222;
     }
-
-    .blog-card:hover {
+    .blog-card-2025:hover {
       border-color: #ffbd39;
+      transform: translateY(-5px);
     }
-
     .blog-img {
-      height: 180px;
+      height: 190px;
       background-size: cover;
       background-position: center;
     }
-
-    /* contact form */
-    .contact-form input,
-    .contact-form textarea {
-      background: #141414;
-      border: 1px solid #2c2c2c;
-      border-radius: 28px;
+    .contact-form input, .contact-form textarea {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 30px;
       padding: 12px 20px;
-      color: #f0f0f0;
+      color: white;
       width: 100%;
-      font-family: 'Inter', sans-serif;
     }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: #ffbd39;
-    }
-
     .footer-social a {
-      background: #141414;
-      width: 42px;
-      height: 42px;
+      background: #1a1a1a;
+      width: 44px;
+      height: 44px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -384,376 +326,311 @@
       margin: 0 8px;
       transition: 0.2s;
       color: #ffbd39;
-      font-size: 1.2rem;
     }
-
     .footer-social a:hover {
       background: #ffbd39;
-      color: #0a0a0a;
+      color: #000;
       transform: translateY(-3px);
     }
-
+    @media (max-width: 992px) {
+      .sidebar { width: 250px; }
+      .main-content { margin-left: 250px; }
+    }
+    @media (max-width: 768px) {
+      .sidebar { transform: translateX(-100%); width: 270px; }
+      .sidebar.open { transform: translateX(0); }
+      .mobile-header { display: flex; align-items: center; justify-content: space-between; }
+      .main-content { margin-left: 0; padding-top: 70px; }
+      .hero-content h1 { font-size: 2.2rem; }
+      .hero-square-img { width: 130px; height: 130px; border-radius: 18px; }
+    }
     .toast-custom {
       position: fixed;
       bottom: 25px;
       left: 50%;
       transform: translateX(-50%);
       background: #ffbd39;
-      color: #0a0a0a;
-      padding: 12px 28px;
+      color: #000;
+      padding: 12px 26px;
       border-radius: 60px;
-      font-weight: 600;
+      font-weight: 500;
       z-index: 9999;
       animation: fadeOut 3s forwards;
-      font-size: 0.9rem;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
-
     @keyframes fadeOut {
       0% { opacity: 1; bottom: 25px; }
-      80% { opacity: 1; }
+      70% { opacity: 1; }
       100% { opacity: 0; visibility: hidden; }
-    }
-
-    @media (max-width: 992px) {
-      .sidebar { width: 260px; }
-      .main-content { margin-left: 260px; }
-    }
-
-    @media (max-width: 768px) {
-      .sidebar {
-        transform: translateX(-100%);
-        width: 270px;
-      }
-      .sidebar.open {
-        transform: translateX(0);
-      }
-      .mobile-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .main-content {
-        margin-left: 0;
-        padding-top: 70px;
-      }
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
-      .hero-square-img {
-        width: 120px;
-        height: 120px;
-      }
-      .section {
-        padding: 3rem 0;
-      }
-      .section-title {
-        font-size: 1.8rem;
-      }
     }
   </style>
 </head>
 <body>
 
-<!-- Mobile header -->
+<!-- Mobile Header -->
 <div class="mobile-header">
   <button class="menu-btn" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
-  <span class="text-gold font-weight-bold" style="font-size: 1.2rem;">Subina Thapa</span>
+  <span class="text-gold font-weight-bold" style="font-size:1.3rem;">Subina Thapa</span>
   <div></div>
 </div>
 
-<!-- Sidebar Navigation -->
+<!-- Sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="profile-sidebar">
-    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Subina Thapa" onerror="this.src='https://via.placeholder.com/120x120?text=ST'">
+    <img src="images/gggg.jpg" alt="Subina" onerror="this.src='https://via.placeholder.com/130x130?text=ST'">
     <h3>Subina Thapa</h3>
     <p>Full Stack Flutter Developer</p>
   </div>
   <ul class="sidebar-nav">
     <li class="nav-item"><a href="#home" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
     <li class="nav-item"><a href="#about" class="nav-link"><i class="fas fa-user"></i><span>About</span></a></li>
-    <li class="nav-item"><a href="#services" class="nav-link"><i class="fas fa-concierge-bell"></i><span>Services</span></a></li>
+    <li class="nav-item"><a href="#myapps" class="nav-link"><i class="fas fa-mobile-alt"></i><span>My Apps</span></a></li>
     <li class="nav-item"><a href="#skills" class="nav-link"><i class="fas fa-code"></i><span>Skills</span></a></li>
+    <li class="nav-item"><a href="#services" class="nav-link"><i class="fas fa-concierge-bell"></i><span>Services</span></a></li>
+    <li class="nav-item"><a href="#programming" class="nav-link"><i class="fas fa-laptop-code"></i><span>Programming</span></a></li>
+    <li class="nav-item"><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i><span>Education</span></a></li>
     <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i><span>Projects</span></a></li>
     <li class="nav-item"><a href="#blogs" class="nav-link"><i class="fab fa-medium"></i><span>Blogs</span></a></li>
     <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
   </ul>
-  <div class="mt-5 pt-3 small text-center text-muted" style="font-size: 0.7rem;">✨ 13+ projects delivered</div>
 </div>
 
 <div class="main-content">
-  <!-- HOME / HERO -->
+  <!-- HERO SECTION with square image like reference -->
   <section id="home" class="hero-section">
-    <div class="container-custom">
-      <div class="text-center mb-4">
-        <img class="hero-square-img" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Subina Thapa" onerror="this.src='https://via.placeholder.com/160'">
+    <div class="container">
+      <div class="hero-image-wrapper">
+        <img class="hero-square-img" src="images/farhinaa.jpg" alt="Subina Thapa" onerror="this.src='https://via.placeholder.com/180x180?text=Subina'">
       </div>
-      <div class="text-center hero-content">
-        <span style="background: rgba(255,189,57,0.12); padding: 5px 18px; border-radius: 40px; font-size: 0.8rem; font-weight: 600; color: #ffbd39;">Flutter · Django · Full Stack</span>
-        <h1 class="mt-3">Subina Thapa</h1>
-        <p class="lead mt-3" style="font-size: 1.2rem; max-width: 620px; margin: 0 auto; color: #b9c3d0;">Building high-performance cross-platform apps & scalable backends with modern architecture.</p>
-        <div class="mt-4 d-flex flex-wrap justify-content-center gap-3">
-          <a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom"><i class="fab fa-github"></i> GitHub</a>
-          <a href="#contact" class="btn-custom btn-custom-gold" style="background:#ffbd39; color:#0a0a0a;">Start a Project →</a>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8 hero-content">
+          <span class="badge mb-3" style="background:#ffbd3922; color:#ffbd39; border-radius:40px; padding:6px 18px;"> Full Stack Developer</span>
+          <h1>Subina Thapa</h1>
+          <!--p class="lead mt-3" style="font-size:1.4rem;"><span id="typedRole" class="highlight">Flutter & Django </span></p-->
+          <p class="mt-3" style="color:#aaa; max-width: 550px; margin-left: auto; margin-right: auto;">13+ projects delivered. I build high-performance mobile apps, robust backends, and modern web experiences.</p>
+          <div class="mt-5">
+            <a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#contact" class="btn-custom btn-custom-gold" style="background:#ffbd39; color:#000;">Hire Me →</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT section (clean, professional) -->
-  <section id="about" class="section">
-    <div class="container-custom">
-      <div class="row align-items-center">
-        <div class="col-lg-5 mb-4">
-          <div style="background: #111; border-radius: 32px; overflow: hidden; border: 1px solid #2a2a2a;">
-            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-100" alt="profile" style="display: block; object-fit: cover; height: 340px; width: 100%;" onerror="this.src='https://via.placeholder.com/400x340'">
-          </div>
+  <!-- ABOUT section -->
+  <section id="about" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 mb-4">
+          <img src="images/gggg.jpg" class="img-fluid rounded shadow-lg" alt="profile" style="border-radius: 32px;" onerror="this.src='https://via.placeholder.com/400x400'">
         </div>
-        <div class="col-lg-7">
+        <div class="col-md-7">
           <h2 class="section-title">About Me</h2>
-          <p class="mt-3" style="color: #cfddee;">I’m Subina — a full stack Flutter developer with deep expertise in Flutter, Django, and cloud infrastructure. I transform ideas into polished, production-grade mobile apps and web platforms. My code is clean, scalable, and user-focused.</p>
+          <p class="mt-3">Hi! I’m Subina Thapa, a passionate Full Stack Flutter Developer based in Kathmandu. I specialize in mobile & web technologies: Flutter, Dart, Firebase, Django, PostgreSQL. I love building apps that merge creativity with robust functionality.</p>
           <div class="row mt-4">
-            <div class="col-6"><i class="fas fa-check-circle text-gold me-2"></i> <strong>Experience:</strong> 2+ years</div>
-            <div class="col-6"><i class="fas fa-check-circle text-gold me-2"></i> <strong>Projects:</strong> 13+ shipped</div>
-            <div class="col-6 mt-2"><i class="fas fa-map-marker-alt text-gold me-2"></i> <strong>Based:</strong> Kathmandu, Nepal</div>
-            <div class="col-6 mt-2"><i class="fas fa-code text-gold me-2"></i> <strong>Specialty:</strong> Flutter + Django</div>
+            <div class="col-6"><strong>Name:</strong> Subina Thapa</div>
+            <div class="col-6"><strong>Role:</strong> Full Stack Flutter Dev</div>
+            <div class="col-6 mt-2"><strong>Email:</strong> subinathapa5510@gmail.com</div>
+            <div class="col-6 mt-2"><strong>From:</strong> Kathmandu, Nepal</div>
           </div>
-          <div class="mt-4 pt-2">
-            <a href="#contact" class="btn-custom" style="border-color:#ffbd39;">Let's connect <i class="fas fa-arrow-right"></i></a>
-          </div>
+          <div class="mt-4"><span class=style="background:#222; color:#ffbd39; padding:10px 18px;"> 13+ Projects Completed</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES section - minimal, clean list style -->
-  <section id="services" class="section section-alt">
-    <div class="container-custom">
+  <!-- MY APPS Section -->
+  <section id="myapps" class="section-padding" style="background:#070707;">
+    <div class="container">
+      <h2 class="section-title">My Apps</h2>
+      <div class="row mt-4">
+        <div class="col-md-4 mb-4"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><i class="fas fa-store fa-3x text-gold mb-3"></i><h4>ShopEase</h4><p>Full e‑commerce Flutter app with Firebase auth, cart, realtime updates.</p></div></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><i class="fas fa-cloud-sun fa-3x text-gold mb-3"></i><h4>WeatherNow</h4><p>Real-time weather & location using REST API, beautiful UI.</p></div></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><i class="fas fa-tasks fa-3x text-gold mb-3"></i><h4>TaskFlow</h4><p>Productivity app with local storage & notifications.</p></div></div>
+      </div>
+      <div class="text-center mt-2"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold">Explore on GitHub</a></div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION - tag style -->
+  <section id="skills" class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="mb-4" style="color:#aaa;">Technologies I master for modern development</p>
+      <div class="skill-category"><h4><i class="fas fa-mobile-alt text-gold me-2"></i> Mobile & Frontend</h4><div class="skills-writing-container"><span class="skill-tag"><i class="devicon-dart-plain colored"></i> Dart</span><span class="skill-tag"><i class="devicon-flutter-plain colored"></i> Flutter</span><span class="skill-tag"><i class="devicon-react-original colored"></i> React</span><span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span><span class="skill-tag"><i class="devicon-typescript-plain colored"></i> TypeScript</span><span class="skill-tag"><i class="devicon-nextjs-original colored"></i> Next.js</span></div></div>
+      <div class="skill-category"><h4><i class="fas fa-server text-gold me-2"></i> Backend & Database</h4><div class="skills-writing-container"><span class="skill-tag"><i class="devicon-python-plain colored"></i> Python</span><span class="skill-tag"><i class="devicon-django-plain colored"></i> Django</span><span class="skill-tag"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span><span class="skill-tag"><i class="fas fa-fire"></i> Firebase</span><span class="skill-tag"><i class="fas fa-cloud"></i> REST APIs</span></div></div>
+      <div class="skill-category"><h4><i class="fas fa-tools text-gold me-2"></i> Tools & DevOps</h4><div class="skills-writing-container"><span class="skill-tag"><i class="devicon-git-plain colored"></i> Git</span><span class="skill-tag"><i class="devicon-github-original colored"></i> GitHub</span><span class="skill-tag"><i class="fab fa-figma"></i> Figma</span></div></div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION - NO BOXES, clean handwriting style lists -->
+  <section id="services" class="section-padding" style="background:#0d0d0d;">
+    <div class="container">
       <h2 class="section-title">What I Offer</h2>
-      <p class="mb-4" style="color: #9ca3af;">End-to-end development solutions — from design to deployment.</p>
+      <p class="mb-4" style="color:#aaa;">Modern, scalable solutions — clean & minimal</p>
       
-      <div class="service-category-title"><i class="fas fa-mobile-alt me-2 text-gold"></i> Frontend & Mobile</div>
-      <div class="service-minimal-list">
-        <span class="service-chip"><i class="fab fa-flutter"></i> Flutter (iOS/Android)</span>
-        <span class="service-chip"><i class="devicon-nextjs-original"></i> Next.js</span>
-        <span class="service-chip"><i class="fab fa-react"></i> React.js</span>
-        <span class="service-chip"><i class="devicon-typescript-plain"></i> TypeScript</span>
-        <span class="service-chip"><i class="fas fa-palette"></i> Responsive UI/UX</span>
-      </div>
-
-      <div class="service-category-title"><i class="fas fa-server me-2 text-gold"></i> Backend & Database</div>
-      <div class="service-minimal-list">
-        <span class="service-chip"><i class="devicon-django-plain"></i> Django & Django REST</span>
-        <span class="service-chip"><i class="fas fa-fire"></i> Firebase (Auth, Firestore)</span>
-        <span class="service-chip"><i class="fas fa-cloud"></i> RESTful APIs</span>
-        <span class="service-chip"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
-        <span class="service-chip"><i class="fas fa-database"></i> MySQL / SQLite</span>
-      </div>
-
-      <div class="service-category-title"><i class="fas fa-tasks me-2 text-gold"></i> DevOps & Tools</div>
-      <div class="service-minimal-list">
-        <span class="service-chip"><i class="fab fa-git-alt"></i> Git/GitHub</span>
-        <span class="service-chip"><i class="fas fa-cloud-upload-alt"></i> Deployment (Vercel, Render)</span>
-        <span class="service-chip"><i class="fas fa-chart-line"></i> App Performance Optimization</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS (Professional tag cloud) directly after services -->
-  <section id="skills" class="section">
-    <div class="container-custom">
-      <h2 class="section-title">Technical Arsenal</h2>
-      <p class="mb-3" style="color: #a0aec0;">Core technologies I master to deliver high-quality software.</p>
-      <div class="skill-category"><h4><i class="fas fa-layer-group text-gold me-2"></i> Mobile & Web Frontend</h4>
-        <div class="skills-grid">
-          <span class="skill-pill"><i class="devicon-dart-plain colored"></i> Dart</span>
-          <span class="skill-pill"><i class="devicon-flutter-plain colored"></i> Flutter</span>
-          <span class="skill-pill"><i class="fab fa-react"></i> React</span>
-          <span class="skill-pill"><i class="fab fa-js"></i> JavaScript (ES6+)</span>
-          <span class="skill-pill"><i class="devicon-typescript-plain colored"></i> TypeScript</span>
-          <span class="skill-pill"><i class="devicon-nextjs-original colored"></i> Next.js</span>
+      <!-- Frontend list -->
+      <div class="service-list-wrapper">
+        <div class="service-heading"><i class="fas fa-laptop-code mr-2"></i> Frontend</div>
+        <div class="service-items">
+          <span class="service-item-tag"><i class="fab fa-flutter"></i> Flutter</span>
+          <span class="service-item-tag"><i class="devicon-nextjs-original"></i> Next.js</span>
+          <span class="service-item-tag"><i class="devicon-react-original"></i> React</span>
+          <span class="service-item-tag"><i class="devicon-typescript-plain"></i> TypeScript</span>
         </div>
       </div>
-      <div class="skill-category"><h4><i class="fas fa-cogs text-gold me-2"></i> Backend & Databases</h4>
-        <div class="skills-grid">
-          <span class="skill-pill"><i class="devicon-python-plain colored"></i> Python</span>
-          <span class="skill-pill"><i class="devicon-django-plain colored"></i> Django</span>
-          <span class="skill-pill"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span>
-          <span class="skill-pill"><i class="fas fa-fire"></i> Firebase Suite</span>
-          <span class="skill-pill"><i class="fas fa-plug"></i> REST API Design</span>
+
+      <!-- Backend list -->
+      <div class="service-list-wrapper mt-4">
+        <div class="service-heading"><i class="fas fa-server mr-2"></i> Backend</div>
+        <div class="service-items">
+          <span class="service-item-tag"><i class="devicon-django-plain"></i> Django</span>
+          <span class="service-item-tag"><i class="fas fa-cloud"></i> REST APIs</span>
+          <span class="service-item-tag"><i class="fas fa-fire"></i> Firebase</span>
         </div>
       </div>
-      <div class="skill-category"><h4><i class="fas fa-toolbox text-gold me-2"></i> Tools & Workflow</h4>
-        <div class="skills-grid">
-          <span class="skill-pill"><i class="devicon-git-plain colored"></i> Git & GitHub</span>
-          <span class="skill-pill"><i class="fab fa-figma"></i> Figma</span>
-          <span class="skill-pill"><i class="fas fa-mobile-alt"></i> Xcode / Android Studio</span>
+
+      <!-- Database list -->
+      <div class="service-list-wrapper mt-4">
+        <div class="service-heading"><i class="fas fa-database mr-2"></i> Database</div>
+        <div class="service-items">
+          <span class="service-item-tag"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
+          <span class="service-item-tag"><i class="fas fa-database"></i> MySQL</span>
+          <span class="service-item-tag"><i class="fas fa-fire"></i> Firestore</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS section (professional cards) -->
-  <section id="projects" class="section section-alt">
-    <div class="container-custom">
+  <!-- Programming journey -->
+  <section id="programming" class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Programming Journey</h2>
+      <div class="row"><div class="col-md-8"><p class="lead">Started with Python in 2023, then deep-dived into Flutter & full‑stack. Constantly exploring AI & backend technologies. Believer in building real‑world impact.</p></div></div>
+    </div>
+  </section>
+
+  <!-- Education & values -->
+  <section id="education" class="section-padding" style="background:#0c0c0c;">
+    <div class="container">
+      <h2 class="section-title">Education & Values</h2>
+      <div class="row mt-4">
+        <div class="col-md-6"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><h4>BCA (2023-Present)</h4><p>Tribhuvan University, focus on software development.</p><h5 class="mt-3">+2 Computer Science</h5><p>Nepal Kasthamandap College, Management with CS.</p></div></div>
+        <div class="col-md-6"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><h4>My Values</h4><ul class="list-unstyled"><li>✓ Integrity & Transparency</li><li>✓ Continuous Learning</li><li>✓ User‑Centric Design</li></ul></div></div>
+      </div>
+      <div class="mt-4"><h5 class="text-gold">Languages:</h5><p>Nepali (native), English (proficient), Hindi (basic)</p></div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section-padding">
+    <div class="container">
       <h2 class="section-title">Featured Projects</h2>
-      <div class="row g-4 mt-2">
-        <div class="col-md-6 col-lg-4">
-          <div class="project-card"><div class="project-img" style="background-image: url('https://placehold.co/600x400/202020/ffbd39?text=Clinic+App');"></div><div class="p-3"><h5 class="text-white">MediCare Portal</h5><p class="small text-muted">Flutter + Django appointment system, real-time booking.</p><span class="text-gold small"><i class="fab fa-github"></i> Case study</span></div></div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="project-card"><div class="project-img" style="background-image: url('https://placehold.co/600x400/202020/ffbd39?text=E-Commerce');"></div><div class="p-3"><h5 class="text-white">ShopWave</h5><p class="small text-muted">Full-feature e‑commerce, Firebase cart & Stripe.</p><span class="text-gold small">Flutter · Firestore</span></div></div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="project-card"><div class="project-img" style="background-image: url('https://placehold.co/600x400/202020/ffbd39?text=Real+Estate');"></div><div class="p-3"><h5 class="text-white">EstateHub</h5><p class="small text-muted">Property listing app with maps & filters, Django backend.</p><span class="text-gold small">Django REST · React</span></div></div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="project-card"><div class="project-img" style="background-image: url('https://placehold.co/600x400/202020/ffbd39?text=Productivity');"></div><div class="p-3"><h5 class="text-white">TaskFlow Pro</h5><p class="small text-muted">To-do & productivity suite with local notifications.</p><span class="text-gold small">Flutter · Hive</span></div></div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="project-card"><div class="project-img" style="background-image: url('https://placehold.co/600x400/202020/ffbd39?text=Cleaning+Service');"></div><div class="p-3"><h5 class="text-white">CleanSwift</h5><p class="small text-muted">Modern service booking website (Next.js + Headless CMS).</p><span class="text-gold small">Next.js · TypeScript</span></div></div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="project-card"><div class="project-img" style="background-image: url('https://placehold.co/600x400/202020/ffbd39?text=Montessori');"></div><div class="p-3"><h5 class="text-white">Little Readers</h5><p class="small text-muted">Interactive school website, responsive design.</p><span class="text-gold small">React · Framer</span></div></div>
-        </div>
+      <div class="row mt-4">
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/AAAAa.png');"></div><div class="p-3"><h4>Clinic Website</h4><p>Healthcare scheduling site.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/cccc.png');"></div><div class="p-3"><h4>Cleaning Website</h4><p>Modern design & pricing.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/mmm.png');"></div><div class="p-3"><h4>Montessori Site</h4><p>Child-friendly interface.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/GGG.png');"></div><div class="p-3"><h4>Real Estate</h4><p>React property showcase.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/jjj.png');"></div><div class="p-3"><h4>Corporate Site</h4><p>Lead generation design.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/ooo.png');"></div><div class="p-3"><h4>E‑commerce App</h4><p>Flutter + Firebase cart.</p></div></div></div>
       </div>
-      <div class="text-center mt-5"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold"><i class="fab fa-github"></i> View All on GitHub</a></div>
+      <div class="text-center mt-4"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold"><i class="fab fa-github"></i> All Projects</a></div>
     </div>
   </section>
 
-  <!-- BLOGS section (Medium style) -->
-  <section id="blogs" class="section">
-    <div class="container-custom">
-      <h2 class="section-title">Insights & Writings</h2>
-      <div class="row g-4 mt-1">
-        <div class="col-md-4">
-          <div class="blog-card"><div class="blog-img" style="background-image: url('https://placehold.co/500x300/1a1a1a/ffbd39?text=Flutter+Arch');"></div><div class="p-3"><h5 class="text-white">Flutter Architecture: MVVM vs Clean</h5><p class="small text-muted">A deep dive into scalable Flutter patterns.</p><a href="https://medium.com/@subinathapa5510" target="_blank" class="text-gold" style="font-weight:500;">Read →</a></div></div>
-        </div>
-        <div class="col-md-4">
-          <div class="blog-card"><div class="blog-img" style="background-image: url('https://placehold.co/500x300/1a1a1a/ffbd39?text=Coder+Mindset');"></div><div class="p-3"><h5 class="text-white">How to Become a Good Coder</h5><p class="small text-muted">Growth mindset, best practices, real growth.</p><a href="https://medium.com/@subinathapa5510" target="_blank" class="text-gold" style="font-weight:500;">Explore →</a></div></div>
-        </div>
-        <div class="col-md-4">
-          <div class="blog-card"><div class="blog-img" style="background-image: url('https://placehold.co/500x300/1a1a1a/ffbd39?text=Gita+Wisdom');"></div><div class="p-3"><h5 class="text-white">Bhagavad Gita for Developers</h5><p class="small text-muted">Ancient wisdom for focus and resilience.</p><a href="https://medium.com/@subinathapa5510" target="_blank" class="text-gold" style="font-weight:500;">Read →</a></div></div>
-        </div>
+  <!-- BLOGS -->
+  <section id="blogs" class="section-padding" style="background:#0d0d0d;">
+    <div class="container">
+      <h2 class="section-title">Recent Writings</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/flutter-app-architecture-mvvm-vs-clean-architecture" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/B.webp');"></div><div class="p-3"><h5 class="text-white">Flutter Architecture</h5><p class="small text-muted">MVVM vs Clean</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/how-to-become-a-good-coder" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/H.png');"></div><div class="p-3"><h5 class="text-white">Become a Good Coder</h5><p class="small text-muted">Mindset & habits</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/bhagavad-gita-wisdom-for-developers" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/yooo.png');"></div><div class="p-3"><h5 class="text-white">Gita Wisdom</h5><p class="small text-muted">Focus & resilience</p><span class="text-gold">Read →</span></div></div></a></div>
       </div>
-      <div class="text-center mt-5"><a href="https://medium.com/@subinathapa5510" target="_blank" class="btn-custom"><i class="fab fa-medium"></i> Follow on Medium</a></div>
+      <div class="text-center mt-3"><a href="https://medium.com/@subinathapa5510" target="_blank" class="btn-custom">More on Medium <i class="fab fa-medium"></i></a></div>
     </div>
   </section>
 
-  <!-- CONTACT section -->
-  <section id="contact" class="section section-alt">
-    <div class="container-custom">
-      <h2 class="section-title">Let’s Work Together</h2>
-      <div class="row g-4 mt-3">
-        <div class="col-lg-7">
-          <div style="background: #0f0f0f; border-radius: 32px; padding: 1.8rem; border: 1px solid #222;">
-            <h4 class="text-gold mb-3"><i class="fas fa-paper-plane me-2"></i>Send a message</h4>
-            <form id="contactForm" class="contact-form">
-              <div class="row">
-                <div class="col-md-6 mb-3"><input type="text" id="name" placeholder="Full name *" required></div>
-                <div class="col-md-6 mb-3"><input type="email" id="email" placeholder="Email address *" required></div>
-              </div>
-              <input type="text" id="subject" placeholder="Subject" class="mb-3">
-              <textarea id="message" rows="5" placeholder="Tell me about your project or idea..." class="mb-4"></textarea>
-              <button type="submit" class="btn-custom btn-custom-gold w-100" style="background:#ffbd39; color:#0a0a0a;"><i class="fas fa-send"></i> Send Inquiry</button>
+  <!-- CONTACT -->
+  <section id="contact" class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Let's Collaborate</h2>
+      <div class="row mt-4">
+        <div class="col-md-7">
+          <div class="bg-dark p-4 rounded-4" style="border-radius:32px; background:#111; border:1px solid #2a2a2a;">
+            <h4 class="text-gold">Send a Message</h4>
+            <form id="contactFormNew" class="contact-form">
+              <div class="row"><div class="col-6 mb-3"><input type="text" id="nameNew" placeholder="Full Name *" required class="form-control bg-dark text-white border-secondary"></div>
+              <div class="col-6 mb-3"><input type="email" id="emailNew" placeholder="Email *" required class="form-control bg-dark text-white border-secondary"></div></div>
+              <input type="text" id="subjectNew" placeholder="Subject" class="form-control bg-dark text-white border-secondary mb-3">
+              <textarea id="msgNew" rows="5" placeholder="Tell me about your project..." class="form-control bg-dark text-white border-secondary mb-3"></textarea>
+              <button type="submit" class="btn-custom btn-custom-gold w-100"><i class="fas fa-paper-plane"></i> Send Inquiry</button>
             </form>
           </div>
         </div>
-        <div class="col-lg-5">
-          <div style="background: #0f0f0f; border-radius: 32px; padding: 1.8rem; border: 1px solid #222; height: 100%;">
-            <h4 class="text-gold"><i class="fas fa-comment-dots"></i> Direct contact</h4>
-            <p class="mt-3"><i class="fas fa-envelope text-gold me-2"></i> subinathapa5510@gmail.com</p>
-            <p><i class="fas fa-map-pin text-gold me-2"></i> Kathmandu, Nepal (Remote friendly)</p>
-            <hr class="bg-secondary">
-            <p class="small">I typically reply within 24 hours. Available for freelance & full-time collaborations.</p>
-            <button id="cvRequestBtn" class="btn-custom w-100 mt-2" style="border-color:#ffbd39;"><i class="fas fa-download"></i> Request CV (email)</button>
-          </div>
-        </div>
+        <div class="col-md-5"><div class="bg-dark p-4 rounded-4" style="background:#111;"><h4 class="text-gold"><i class="fas fa-map-pin"></i> Reach out</h4><p class="mt-3"><i class="fas fa-map-marker-alt text-gold me-2"></i> Kathmandu, Suyuchatar, Nepal</p><p><i class="fas fa-envelope text-gold me-2"></i> subinathapa5510@gmail.com</p><hr><div class="mt-3"><a href="#" id="downloadCvBtnNew" class="btn-custom w-100 text-center"><i class="fas fa-download"></i> Request CV via Email</a></div></div></div>
       </div>
-      <div class="footer-social d-flex justify-content-center flex-wrap mt-5 pt-3">
-        <a href="https://github.com/subinathapa2004" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://x.com/ThapaSubina22" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://medium.com/@subinathapa5510" target="_blank"><i class="fab fa-medium"></i></a>
-        <a href="https://dev.to/thapasubina22" target="_blank"><i class="fab fa-dev"></i></a>
-        <a href="https://www.instagram.com/stories/subinathapa22/" target="_blank"><i class="fab fa-instagram"></i></a>
-      </div>
+      <div class="text-center mt-5"><div class="footer-social d-flex justify-content-center flex-wrap"><a href="https://github.com/subinathapa2004"><i class="fab fa-github"></i></a><a href="https://gitlab.com/tsubina57"><i class="fab fa-gitlab"></i></a><a href="https://x.com/ThapaSubina22"><i class="fab fa-twitter"></i></a><a href="https://dev.to/thapasubina22"><i class="fab fa-dev"></i></a><a href="https://medium.com/@subinathapa5510"><i class="fab fa-medium"></i></a><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/"><i class="fab fa-linkedin"></i></a><a href="https://www.facebook.com/subina.thapa.769940"><i class="fab fa-facebook"></i></a><a href="https://www.instagram.com/stories/subinathapa22/"><i class="fab fa-instagram"></i></a><a href="https://www.youtube.com/@Subina--11-nxx"><i class="fab fa-youtube"></i></a></div></div>
     </div>
   </section>
-  <footer class="text-center py-4 border-top border-secondary" style="border-color: #1f1f1f!important;">
-    <small>© 2025 Subina Thapa — Full Stack Flutter Developer. <span class="text-gold">Code with purpose.</span></small>
-  </footer>
+  <footer class="text-center py-4 border-top border-secondary"><small>© 2025 Subina Thapa — Full Stack Flutter Developer</small></footer>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  (function() {
-    // Mobile sidebar toggle
+  (function(){
     const sidebar = document.getElementById('sidebar');
-    const toggleBtn = document.getElementById('mobileMenuToggle');
-    if(toggleBtn) {
-      toggleBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
-    }
-    // Close sidebar on nav click (mobile)
-    document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
-      link.addEventListener('click', () => { if(window.innerWidth <= 768) sidebar.classList.remove('open'); });
+    const mobileToggle = document.getElementById('mobileMenuToggle');
+    if(mobileToggle) mobileToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+    document.querySelectorAll('.sidebar-nav .nav-link').forEach(link=>{
+      link.addEventListener('click', ()=>{ if(window.innerWidth <= 768) sidebar.classList.remove('open'); });
     });
-    // Smooth scroll & active link highlight
-    const sections = document.querySelectorAll("section[id]");
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 90;
-        if(pageYOffset >= sectionTop) current = section.getAttribute("id");
-      });
-      document.querySelectorAll(".sidebar-nav .nav-link").forEach(link => {
-        link.classList.remove("active");
-        if(link.getAttribute("href") === `#${current}`) link.classList.add("active");
-      });
-    });
-    document.querySelectorAll('.sidebar-nav .nav-link, a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+      anchor.addEventListener('click', function(e){
         const hash = this.getAttribute('href');
-        if(hash && hash !== "#" && hash.startsWith("#")) {
-          const target = document.querySelector(hash);
-          if(target) {
-            e.preventDefault();
-            window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
-            history.pushState(null, null, hash);
-          }
-        }
+        if(hash === "#") return;
+        const target = document.querySelector(hash);
+        if(target){ e.preventDefault(); window.scrollTo({top: target.offsetTop - 70, behavior:'smooth'}); history.pushState(null,null,hash); }
       });
     });
-    // contact form via formsubmit
-    const form = document.getElementById('contactForm');
-    if(form) {
-      form.addEventListener('submit', async (e) => {
+    const typedSpan = document.getElementById('typedRole');
+    if(typedSpan){
+      const roles = ["Full Stack Flutter Developer", "Flutter & Django Expert", "Mobile & Web Creator"];
+      let i=0,idx=0;
+      function typeEffect(){
+        if(i<roles[idx].length){ typedSpan.innerHTML = roles[idx].substring(0,i+1); i++; setTimeout(typeEffect,100); }
+        else { setTimeout(()=>{ i=0; idx = (idx+1)%roles.length; typedSpan.innerHTML = ""; typeEffect(); },2000); }
+      }
+      typeEffect();
+    }
+    const form = document.getElementById('contactFormNew');
+    if(form){
+      form.addEventListener('submit', async(e)=>{
         e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const subject = document.getElementById('subject').value.trim() || "Portfolio contact";
-        const message = document.getElementById('message').value.trim();
-        if(!name || !email || !message) { alert("Please fill name, email and message."); return; }
+        const name = document.getElementById('nameNew').value.trim();
+        const email = document.getElementById('emailNew').value.trim();
+        const subject = document.getElementById('subjectNew').value.trim() || "Portfolio Inquiry";
+        const message = document.getElementById('msgNew').value.trim();
+        if(!name || !email || !message){ alert("Please fill required fields."); return; }
         const fd = new FormData();
-        fd.append('name', name); fd.append('email', email); fd.append('subject', subject); fd.append('message', message);
-        fd.append('_captcha', 'false');
-        try {
-          const res = await fetch('https://formsubmit.co/ajax/subinathapa5510@gmail.com', { method: 'POST', body: fd });
-          if(res.ok) {
-            const toast = document.createElement('div'); toast.className = 'toast-custom'; toast.innerText = `✔️ Thanks ${name}, message delivered! I'll reply soon.`;
+        fd.append('name',name); fd.append('email',email); fd.append('subject',subject); fd.append('message',message);
+        fd.append('_captcha','false');
+        try{
+          const res = await fetch('https://formsubmit.co/ajax/subinathapa5510@gmail.com',{method:'POST', body:fd});
+          if(res.ok){
+            const toast = document.createElement('div'); toast.className='toast-custom'; toast.innerText=`✨ Thanks ${name}, message sent! I'll reply soon.`;
             document.body.appendChild(toast); form.reset();
-            setTimeout(() => toast.remove(), 3500);
+            setTimeout(()=>toast.remove(),3800);
           } else throw new Error();
-        } catch(err) {
-          const errToast = document.createElement('div'); errToast.className = 'toast-custom'; errToast.innerText = `⚠️ Couldn't send, please email directly.`;
-          document.body.appendChild(errToast); setTimeout(() => errToast.remove(), 3000);
+        } catch(err){
+          const toastErr = document.createElement('div'); toastErr.className='toast-custom'; toastErr.innerText = `⚠️ Could not send. Please email directly.`;
+          document.body.appendChild(toastErr); setTimeout(()=>toastErr.remove(),3500);
         }
       });
     }
-    const cvBtn = document.getElementById('cvRequestBtn');
-    if(cvBtn) {
-      cvBtn.addEventListener('click', () => {
-        window.location.href = "mailto:subinathapa5510@gmail.com?subject=CV%20Request%20from%20Portfolio&body=Hello%20Subina,%20I'd%20like%20to%20request%20your%20CV.";
-      });
+    const cvBtn = document.getElementById('downloadCvBtnNew');
+    if(cvBtn){
+      cvBtn.addEventListener('click', (e)=>{ e.preventDefault(); window.location.href = "mailto:subinathapa5510@gmail.com?subject=CV%20Request%20from%20Portfolio&body=Hello%20Subina,%0D%0A%0D%0AI'd%20like%20to%20request%20your%20professional%20CV."; });
     }
   })();
 </script>
