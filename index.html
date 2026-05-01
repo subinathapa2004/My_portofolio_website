@@ -126,7 +126,7 @@
       font-size: 28px;
       color: #ffbd39;
     }
-    /* Hero section - inspired by sadhanapanthi, square image */
+    /* Hero section */
     .hero-section {
       min-height: 100vh;
       display: flex;
@@ -245,7 +245,7 @@
       font-weight: 600;
       margin-top: 1.2rem;
     }
-    /* Service lists - clean handwriting style, no boxes */
+    /* Service lists */
     .service-list-wrapper {
       background: transparent;
       border-radius: 0;
@@ -332,6 +332,18 @@
       color: #000;
       transform: translateY(-3px);
     }
+    /* merged journey & education card */
+    .journey-education-card {
+      background: #111;
+      border-radius: 28px;
+      padding: 2rem;
+      border: 1px solid #2a2a2a;
+      transition: all 0.2s;
+      height: 100%;
+    }
+    .journey-education-card:hover {
+      border-color: #ffbd39;
+    }
     @media (max-width: 992px) {
       .sidebar { width: 250px; }
       .main-content { margin-left: 250px; }
@@ -373,7 +385,7 @@
   <div></div>
 </div>
 
-<!-- Sidebar -->
+<!-- Sidebar (removed myapps and reach out from nav but kept rest, also removed programming/education separate, now navigation updated) -->
 <div class="sidebar" id="sidebar">
   <div class="profile-sidebar">
     <img src="images/gggg.jpg" alt="Subina" onerror="this.src='https://via.placeholder.com/130x130?text=ST'">
@@ -383,11 +395,11 @@
   <ul class="sidebar-nav">
     <li class="nav-item"><a href="#home" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
     <li class="nav-item"><a href="#about" class="nav-link"><i class="fas fa-user"></i><span>About</span></a></li>
-    <li class="nav-item"><a href="#myapps" class="nav-link"><i class="fas fa-mobile-alt"></i><span>My Apps</span></a></li>
+    <!-- myapps removed from nav -->
     <li class="nav-item"><a href="#skills" class="nav-link"><i class="fas fa-code"></i><span>Skills</span></a></li>
     <li class="nav-item"><a href="#services" class="nav-link"><i class="fas fa-concierge-bell"></i><span>Services</span></a></li>
-    <li class="nav-item"><a href="#programming" class="nav-link"><i class="fas fa-laptop-code"></i><span>Programming</span></a></li>
-    <li class="nav-item"><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i><span>Education</span></a></li>
+    <!-- merged programming+education now one link -->
+    <li class="nav-item"><a href="#journey-education" class="nav-link"><i class="fas fa-laptop-code"></i><span>Journey & Edu</span></a></li>
     <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i><span>Projects</span></a></li>
     <li class="nav-item"><a href="#blogs" class="nav-link"><i class="fab fa-medium"></i><span>Blogs</span></a></li>
     <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
@@ -395,7 +407,7 @@
 </div>
 
 <div class="main-content">
-  <!-- HERO SECTION with square image like reference -->
+  <!-- HERO SECTION -->
   <section id="home" class="hero-section">
     <div class="container">
       <div class="hero-image-wrapper">
@@ -405,8 +417,7 @@
         <div class="col-lg-8 hero-content">
           <span class="badge mb-3" style="background:#ffbd3922; color:#ffbd39; border-radius:40px; padding:6px 18px;"> Full Stack Developer</span>
           <h1>Subina Thapa</h1>
-          <!--p class="lead mt-3" style="font-size:1.4rem;"><span id="typedRole" class="highlight">Flutter & Django </span></p-->
-          <p class="mt-3" style="color:#aaa; max-width: 550px; margin-left: auto; margin-right: auto;">13+ projects delivered. I build high-performance mobile apps, robust backends, and modern web experiences.</p>
+          <p class="mt-3" style="color:#aaa; max-width: 550px; margin-left: auto; margin-right: auto;">13+ projects delivered. High-performance mobile apps, robust backends & modern web experiences.</p>
           <div class="mt-5">
             <a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom"><i class="fab fa-github"></i> GitHub</a>
             <a href="#contact" class="btn-custom btn-custom-gold" style="background:#ffbd39; color:#000;">Hire Me →</a>
@@ -425,33 +436,20 @@
         </div>
         <div class="col-md-7">
           <h2 class="section-title">About Me</h2>
-          <p class="mt-3">Hi! I’m Subina Thapa, a passionate Full Stack Flutter Developer based in Kathmandu. I specialize in mobile & web technologies: Flutter, Dart, Firebase, Django, PostgreSQL. I love building apps that merge creativity with robust functionality.</p>
+          <p class="mt-3">Hi! I'm Subina Thapa, a passionate Full Stack Flutter Developer based in Kathmandu. I specialize in mobile & web technologies: Flutter, Dart, Firebase, Django, PostgreSQL. I love building apps that merge creativity with robust functionality.</p>
           <div class="row mt-4">
             <div class="col-6"><strong>Name:</strong> Subina Thapa</div>
             <div class="col-6"><strong>Role:</strong> Full Stack Flutter Dev</div>
             <div class="col-6 mt-2"><strong>Email:</strong> subinathapa5510@gmail.com</div>
             <div class="col-6 mt-2"><strong>From:</strong> Kathmandu, Nepal</div>
           </div>
-          <div class="mt-4"><span class=style="background:#222; color:#ffbd39; padding:10px 18px;"> 13+ Projects Completed</span></div>
+          <div class="mt-4"><span style="background:#222; color:#ffbd39; padding:10px 18px; border-radius:40px;"> 13+ Projects Completed</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MY APPS Section -->
-  <section id="myapps" class="section-padding" style="background:#070707;">
-    <div class="container">
-      <h2 class="section-title">My Apps</h2>
-      <div class="row mt-4">
-        <div class="col-md-4 mb-4"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><i class="fas fa-store fa-3x text-gold mb-3"></i><h4>ShopEase</h4><p>Full e‑commerce Flutter app with Firebase auth, cart, realtime updates.</p></div></div>
-        <div class="col-md-4 mb-4"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><i class="fas fa-cloud-sun fa-3x text-gold mb-3"></i><h4>WeatherNow</h4><p>Real-time weather & location using REST API, beautiful UI.</p></div></div>
-        <div class="col-md-4 mb-4"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><i class="fas fa-tasks fa-3x text-gold mb-3"></i><h4>TaskFlow</h4><p>Productivity app with local storage & notifications.</p></div></div>
-      </div>
-      <div class="text-center mt-2"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold">Explore on GitHub</a></div>
-    </div>
-  </section>
-
-  <!-- SKILLS SECTION - tag style -->
+  <!-- SKILLS SECTION -->
   <section id="skills" class="section-padding">
     <div class="container">
       <h2 class="section-title">Technical Skills</h2>
@@ -462,13 +460,12 @@
     </div>
   </section>
 
-  <!-- SERVICES SECTION - NO BOXES, clean handwriting style lists -->
+  <!-- SERVICES SECTION -->
   <section id="services" class="section-padding" style="background:#0d0d0d;">
     <div class="container">
       <h2 class="section-title">What I Offer</h2>
       <p class="mb-4" style="color:#aaa;">Modern, scalable solutions — clean & minimal</p>
       
-      <!-- Frontend list -->
       <div class="service-list-wrapper">
         <div class="service-heading"><i class="fas fa-laptop-code mr-2"></i> Frontend</div>
         <div class="service-items">
@@ -479,7 +476,6 @@
         </div>
       </div>
 
-      <!-- Backend list -->
       <div class="service-list-wrapper mt-4">
         <div class="service-heading"><i class="fas fa-server mr-2"></i> Backend</div>
         <div class="service-items">
@@ -489,7 +485,6 @@
         </div>
       </div>
 
-      <!-- Database list -->
       <div class="service-list-wrapper mt-4">
         <div class="service-heading"><i class="fas fa-database mr-2"></i> Database</div>
         <div class="service-items">
@@ -501,27 +496,49 @@
     </div>
   </section>
 
-  <!-- Programming journey -->
-  <section id="programming" class="section-padding">
+  <!-- MERGED SECTION: Programming Journey + Education & Values (Combined into one elegant block) -->
+  <section id="journey-education" class="section-padding" style="background:#0c0c0c;">
     <div class="container">
-      <h2 class="section-title">Programming Journey</h2>
-      <div class="row"><div class="col-md-8"><p class="lead">Started with Python in 2023, then deep-dived into Flutter & full‑stack. Constantly exploring AI & backend technologies. Believer in building real‑world impact.</p></div></div>
-    </div>
-  </section>
-
-  <!-- Education & values -->
-  <section id="education" class="section-padding" style="background:#0c0c0c;">
-    <div class="container">
-      <h2 class="section-title">Education & Values</h2>
-      <div class="row mt-4">
-        <div class="col-md-6"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><h4>BCA (2023-Present)</h4><p>Tribhuvan University, focus on software development.</p><h5 class="mt-3">+2 Computer Science</h5><p>Nepal Kasthamandap College, Management with CS.</p></div></div>
-        <div class="col-md-6"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><h4>My Values</h4><ul class="list-unstyled"><li>✓ Integrity & Transparency</li><li>✓ Continuous Learning</li><li>✓ User‑Centric Design</li></ul></div></div>
+      <h2 class="section-title">Journey & Education</h2>
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <div class="journey-education-card">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <i class="fas fa-rocket fa-2x text-gold"></i>
+              <h3 class="h4 mb-0 text-gold">Programming Journey</h3>
+            </div>
+            <p class="lead" style="font-size:1rem; line-height:1.5;">Started with Python in 2023, then deep-dived into Flutter & full‑stack development. Constantly exploring AI, backend architectures, and scalable systems. Believer in building real‑world impact through clean code.</p>
+            <div class="mt-3">
+              <span class="badge badge-pill px-3 py-2 mr-2 mb-2" style="background:#1e1e1e; color:#ffbd39;">📱 Flutter Lover</span>
+              <span class="badge badge-pill px-3 py-2 mr-2 mb-2" style="background:#1e1e1e; color:#ffbd39;">🐍 Python Enthusiast</span>
+              <span class="badge badge-pill px-3 py-2 mr-2 mb-2" style="background:#1e1e1e; color:#ffbd39;">⚡ REST APIs</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-4">
+          <div class="journey-education-card">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <i class="fas fa-graduation-cap fa-2x text-gold"></i>
+              <h3 class="h4 mb-0 text-gold">Education & Core Values</h3>
+            </div>
+            <p><strong>🎓 BCA (2023-Present)</strong><br>Tribhuvan University, focus on software development & system design.</p>
+            <p><strong>📘 +2 Computer Science</strong><br>Nepal Kasthamandap College, Management with CS.</p>
+            <hr class="bg-secondary">
+            <h5 class="text-gold mt-2">🌟 My Values</h5>
+            <ul class="list-unstyled">
+              <li>✓ Integrity & Transparency</li>
+              <li>✓ Continuous Learning</li>
+              <li>✓ User‑Centric Design</li>
+              <li>✓ Community & Collaboration</li>
+            </ul>
+            <div class="mt-2"><i class="fas fa-language text-gold"></i> <strong>Languages:</strong> Nepali (native), English (proficient), Hindi (basic)</div>
+          </div>
+        </div>
       </div>
-      <div class="mt-4"><h5 class="text-gold">Languages:</h5><p>Nepali (native), English (proficient), Hindi (basic)</p></div>
     </div>
   </section>
 
-  <!-- Projects -->
+  <!-- PROJECTS section (unchanged, but my apps section removed entirely) -->
   <section id="projects" class="section-padding">
     <div class="container">
       <h2 class="section-title">Featured Projects</h2>
@@ -550,12 +567,12 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT section: removed "Reach out" block from the right side, only contact form + social links + CV request (via email) but no explicit "reach out" box. Also footer social preserved -->
   <section id="contact" class="section-padding">
     <div class="container">
       <h2 class="section-title">Let's Collaborate</h2>
-      <div class="row mt-4">
-        <div class="col-md-7">
+      <div class="row mt-4 justify-content-center">
+        <div class="col-md-8">
           <div class="bg-dark p-4 rounded-4" style="border-radius:32px; background:#111; border:1px solid #2a2a2a;">
             <h4 class="text-gold">Send a Message</h4>
             <form id="contactFormNew" class="contact-form">
@@ -567,8 +584,20 @@
             </form>
           </div>
         </div>
-        <div class="col-md-5"><div class="bg-dark p-4 rounded-4" style="background:#111;"><h4 class="text-gold"><i class="fas fa-map-pin"></i> Reach out</h4><p class="mt-3"><i class="fas fa-map-marker-alt text-gold me-2"></i> Kathmandu, Suyuchatar, Nepal</p><p><i class="fas fa-envelope text-gold me-2"></i> subinathapa5510@gmail.com</p><hr><div class="mt-3"><a href="#" id="downloadCvBtnNew" class="btn-custom w-100 text-center"><i class="fas fa-download"></i> Request CV via Email</a></div></div></div>
+        <!-- Right side "Reach out" box removed, replaced by simple CV request button under form but still clean -->
+        <div class="col-md-4 mt-4 mt-md-0 d-flex align-items-stretch">
+          <div class="bg-dark p-4 rounded-4 text-center" style="background:#111; width:100%; border:1px solid #2a2a2a;">
+            <i class="fas fa-file-alt fa-3x text-gold mb-3"></i>
+            <h5 class="text-gold">Professional CV</h5>
+            <p class="small">Request my detailed resume via email directly.</p>
+            <a href="#" id="downloadCvBtnNew" class="btn-custom w-100 mt-2 text-center"><i class="fas fa-download"></i> Request CV by Email</a>
+            <hr class="bg-secondary my-3">
+            <p class="mb-0"><i class="fas fa-map-marker-alt text-gold me-1"></i> Kathmandu, Suyuchatar</p>
+            <p class="mb-0"><i class="fas fa-envelope text-gold me-1"></i> subinathapa5510@gmail.com</p>
+          </div>
+        </div>
       </div>
+      <!-- Social links footer style but inside contact section -->
       <div class="text-center mt-5"><div class="footer-social d-flex justify-content-center flex-wrap"><a href="https://github.com/subinathapa2004"><i class="fab fa-github"></i></a><a href="https://gitlab.com/tsubina57"><i class="fab fa-gitlab"></i></a><a href="https://x.com/ThapaSubina22"><i class="fab fa-twitter"></i></a><a href="https://dev.to/thapasubina22"><i class="fab fa-dev"></i></a><a href="https://medium.com/@subinathapa5510"><i class="fab fa-medium"></i></a><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/"><i class="fab fa-linkedin"></i></a><a href="https://www.facebook.com/subina.thapa.769940"><i class="fab fa-facebook"></i></a><a href="https://www.instagram.com/stories/subinathapa22/"><i class="fab fa-instagram"></i></a><a href="https://www.youtube.com/@Subina--11-nxx"><i class="fab fa-youtube"></i></a></div></div>
     </div>
   </section>
@@ -593,16 +622,7 @@
         if(target){ e.preventDefault(); window.scrollTo({top: target.offsetTop - 70, behavior:'smooth'}); history.pushState(null,null,hash); }
       });
     });
-    const typedSpan = document.getElementById('typedRole');
-    if(typedSpan){
-      const roles = ["Full Stack Flutter Developer", "Flutter & Django Expert", "Mobile & Web Creator"];
-      let i=0,idx=0;
-      function typeEffect(){
-        if(i<roles[idx].length){ typedSpan.innerHTML = roles[idx].substring(0,i+1); i++; setTimeout(typeEffect,100); }
-        else { setTimeout(()=>{ i=0; idx = (idx+1)%roles.length; typedSpan.innerHTML = ""; typeEffect(); },2000); }
-      }
-      typeEffect();
-    }
+    // contact form submission
     const form = document.getElementById('contactFormNew');
     if(form){
       form.addEventListener('submit', async(e)=>{
