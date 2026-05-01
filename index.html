@@ -15,7 +15,7 @@
   <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    /* ========== GLOBAL RESET - FIX OVERFLOW ========== */
+    /* ========== GLOBAL RESET - COMPLETE RESPONSIVE FIX ========== */
     * {
       margin: 0;
       padding: 0;
@@ -266,7 +266,7 @@
       letter-spacing: 1px;
       color: #ccc;
     }
-    /* Education Timeline Cards */
+    /* Education Cards */
     .edu-card {
       background: #111;
       border-radius: 28px;
@@ -321,7 +321,7 @@
       color: #ddd;
       border-left: 2px solid #ffbd39;
     }
-    /* ========== SERVICE, SKILL, PROJECT STYLES ========== */
+    /* Service, Skill, Project Styles */
     .service-card, .project-card, .blog-card-2025, .skills-simple {
       background: #111;
       border-radius: 24px;
@@ -331,44 +331,81 @@
     .service-card { padding: 2rem; text-align: center; height: 100%; }
     .service-card:hover, .project-card:hover, .blog-card-2025:hover { border-color: #ffbd39; transform: translateY(-6px); }
     .service-icon { font-size: 2.5rem; color: #ffbd39; margin-bottom: 1rem; }
-    .project-img { height: 200px; background-size: cover; background-position: center; }
+    .project-img { height: 200px; background-size: cover; background-position: center; background-color: #2a2a2a; }
     .project-links { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
     .project-link { color: #ffbd39; text-decoration: none; font-size: 0.85rem; }
     .project-link:hover { color: #fff; text-decoration: underline; }
     .result-badge { background: rgba(255,189,57,0.15); color: #ffbd39; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; display: inline-block; margin-top: 8px; }
     .skill-badge { background: #161616; border: 1px solid #2e2e2e; padding: 0.5rem 1.2rem; border-radius: 60px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; }
     .skill-badge:hover { border-color: #ffbd39; background: #202020; transform: translateY(-2px); }
+    .skill-group-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ffbd39;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 3px solid #ffbd39;
+      padding-left: 12px;
+    }
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
     .footer-social a { background: #1a1a1a; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; margin: 0 8px; transition: 0.2s; color: #ffbd39; text-decoration: none; }
     .footer-social a:hover { background: #ffbd39; color: #000; transform: translateY(-3px); }
     .contact-form input, .contact-form textarea { background: #1a1a1a; border: 1px solid #333; border-radius: 30px; padding: 12px 20px; color: white; width: 100%; }
-    
-    /* RESPONSIVE */
+    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #ffbd39; }
+    /* ========== SUPER RESPONSIVE FIXES (Mobile & Desktop both perfect) ========== */
     @media (max-width: 992px) {
       .sidebar { width: 250px; }
       .main-content { margin-left: 250px; }
+      .hero-content h1 { font-size: 3rem; }
     }
     @media (max-width: 768px) {
-      body, html { overflow-x: hidden; }
+      body, html { overflow-x: hidden; width: 100%; }
       .sidebar { transform: translateX(-100%); width: 270px; z-index: 2000; }
       .sidebar.open { transform: translateX(0); }
       .mobile-header { display: flex; align-items: center; justify-content: space-between; z-index: 1050; width: 100%; }
-      .main-content { margin-left: 0 !important; padding-top: 70px; width: 100%; }
-      .container { padding-left: 20px !important; padding-right: 20px !important; max-width: 100%; }
+      .main-content { margin-left: 0 !important; padding-top: 70px; width: 100%; overflow-x: hidden; }
+      .container { padding-left: 20px !important; padding-right: 20px !important; max-width: 100%; overflow-x: hidden; }
       .hero-content h1 { font-size: 2.2rem; }
       .hero-img { width: 140px; height: 140px; }
       .section-title { font-size: 1.9rem; }
       .row { margin-left: 0 !important; margin-right: 0 !important; }
       [class*="col-"] { padding-left: 12px !important; padding-right: 12px !important; }
       .edu-degree { font-size: 1.1rem; }
+      .stats-grid { gap: 1rem; }
+      .stat-card { min-width: 120px; padding: 0.8rem 1rem; }
+      .stat-number { font-size: 1.8rem; }
+      .btn-custom { padding: 8px 20px; margin: 5px; font-size: 0.9rem; }
+      .service-card { padding: 1.5rem; }
+      .project-img { height: 170px; }
+      .skill-badge { font-size: 0.75rem; padding: 0.4rem 1rem; }
+      .footer-social a { width: 38px; height: 38px; margin: 4px; }
+    }
+    @media (max-width: 480px) {
+      .hero-section { padding: 2rem 0; min-height: auto; }
+      .section-padding { padding: 3rem 0; }
+      .hero-content h1 { font-size: 1.9rem; }
+      .section-title { font-size: 1.6rem; }
+      .stat-card { min-width: 100px; padding: 0.6rem 0.8rem; }
+      .stat-number { font-size: 1.5rem; }
+      .edu-card { padding: 1.2rem; }
+      .edu-degree { font-size: 1rem; }
     }
     .toast-custom {
       position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
       background: #ffbd39; color: #000; padding: 12px 26px; border-radius: 60px;
       font-weight: 500; z-index: 9999; animation: fadeOut 3s forwards;
-      max-width: 90%; text-align: center;
+      max-width: 90%; text-align: center; white-space: normal;
     }
     @keyframes fadeOut { 0% { opacity: 1; bottom: 25px; } 70% { opacity: 1; } 100% { opacity: 0; visibility: hidden; } }
     img { max-width: 100%; height: auto; }
+    .blog-img { background-size: cover; background-position: center; height: 190px; background-color: #333; }
+    .contact-form .form-control { background: #1a1a1a; border: 1px solid #444; color: white; }
   </style>
 </head>
 <body>
@@ -451,55 +488,48 @@
     </div>
   </section>
 
-  <!-- ========== EDUCATION SECTION (Detailed as requested) ========== -->
+  <!-- EDUCATION SECTION -->
   <section id="education" class="section-padding" style="background:#0d0d0d;">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">📖 Academic Journey</h2>
       <p class="text-center mb-5" style="color:#aaa;">My formal education, grades & achievements</p>
       <div class="row">
-        <!-- Bachelor's Degree -->
         <div class="col-md-6 mb-4" data-aos="fade-right">
           <div class="edu-card">
-            <!--i class="fas fa-university edu-icon"></i-->
             <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
             <div class="edu-institution"><i class="fas fa-map-marker-alt"></i> Tribhuvan University, Nepal</div>
-            <div class="edu-date"><i class="far fa-calendar-alt"></i> Dec 2023 – Present </div>
+            <div class="edu-date"><i class="far fa-calendar-alt"></i> Dec 2023 – Present</div>
             <div class="edu-grade"><i class="fas fa-star-of-life"></i> Pursuing | Semester: 5th</div>
-            <p class="mt-3 small text-muted">Core subjects: DSA, Web Technologies, Database Management, Software Engineering. Actively involved in coding workshops and open-source contributions.</p>
+            <p class="mt-3 small text-muted">Core subjects: DSA, Web Technologies, Database Management, Software Engineering. Actively involved in coding workshops.</p>
           </div>
         </div>
-        <!-- +2 / High School -->
         <div class="col-md-6 mb-4" data-aos="fade-left" data-aos-delay="100">
           <div class="edu-card">
             <i class="fas fa-school edu-icon"></i>
             <div class="edu-degree">+2 (Higher Secondary)</div>
             <div class="edu-institution"><i class="fas fa-building"></i> Nepal Kasthamandap SS College, Kathmandu</div>
             <div class="edu-date"><i class="far fa-calendar-alt"></i> 2021 – 2023</div>
-            <div class="edu-grade"><i class="fas fa-chart-line"></i> Grade: A (Major: Management( Computer Science)</div>
-            <p class="mt-3 small text-muted">Studied Computer Science, Mathematics and Economics. Developed foundational programming skills and logic building.</p>
+            <div class="edu-grade"><i class="fas fa-chart-line"></i> Grade: A (Major: Management & Computer Science)</div>
+            <p class="mt-3 small text-muted">Studied Computer Science, Mathematics and Economics. Developed foundational programming skills.</p>
           </div>
         </div>
-        <!-- Class 10 / SEE -->
         <div class="col-md-6 mb-4 mx-auto" data-aos="fade-up" data-aos-delay="200">
           <div class="edu-card">
             <i class="fas fa-book-open edu-icon"></i>
-            <div class="edu-degree">Secondary Education Examination (SEE) - Class 10</div>
+            <div class="edu-degree">Secondary Education (SEE) - Class 10</div>
             <div class="edu-institution"><i class="fas fa-graduation-cap"></i> Nepal Education Board</div>
-            <!--div class="edu-date"><i class="far fa-calendar-alt"></i> 2020 – 2021</div-->
             <div class="edu-grade"><i class="fas fa-trophy"></i> GPA: 3.65 (A+) · Distinction</div>
-            <p class="mt-3 small text-muted">Achieved A+ with excellence in Mathematics, Science & Computer. Recognized for academic consistency and leadership.</p>
+            <p class="mt-3 small text-muted">Achieved A+ with excellence in Mathematics, Science & Computer. Recognized for academic consistency.</p>
           </div>
         </div>
-        <!-- Optional extra: but makes it symmetric -->
-        <!--div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="col-md-6 mb-4 mx-auto" data-aos="fade-up" data-aos-delay="300">
           <div class="edu-card">
             <i class="fas fa-laptop-code edu-icon"></i>
-            <div class="edu-degree">Continuing Education</div>
-            <div class="edu-institution">Full Stack + Flutter Specialization</div>
-            <div class="edu-date">Self-paced & Professional Certifications</div>
-            <div class="edu-grade"><i class="fab fa-flutter"></i> Flutter · Django · REST APIs</div>
-            <p class="mt-3 small text-muted">Constantly upgrading skills through modern development tracks, contributing to 13+ live projects and real-world applications.</p>
-      </div-->
+            <div class="edu-degree">Full Stack Specialization</div>
+            <div class="edu-institution">Flutter · Django · REST APIs</div>
+            <div class="edu-grade"><i class="fab fa-flutter"></i> Continuous Learning</div>
+            <p class="mt-3 small text-muted">Constantly upgrading skills through modern development tracks, contributing to 13+ live projects.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -539,9 +569,9 @@
       <h2 class="section-title title-center" style="display: block; text-align: center;">Featured Projects</h2>
       <p class="text-center mb-5" style="color:#aaa;">Real solutions. Real impact.</p>
       <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up"><div class="project-card"><div class="project-img" style="background-image:url('images/AAAAa.png'); background-color:#2a2a2a;"></div><div class="p-3"><h4>Clinic Management System</h4><p>Patient scheduling, digital records, automated reminders.</p><span class="result-badge"><i class="fas fa-chart-line"></i> Reduced no-shows by 35%</span><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100"><div class="project-card"><div class="project-img" style="background-image:url('images/cccc.png'); background-color:#2a2a2a;"></div><div class="p-3"><h4>Cleaning Service Pro</h4><p>Online booking, dynamic pricing, automated invoicing.</p><span class="result-badge"><i class="fas fa-chart-line"></i> Bookings +50%</span><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200"><div class="project-card"><div class="project-img" style="background-image:url('images/mmm.png'); background-color:#2a2a2a;"></div><div class="p-3"><h4>Montessori Parent Hub</h4><p>Child progress tracking, daily reports, parent-teacher portal.</p><span class="result-badge"><i class="fas fa-users"></i> Used by 100+ parents</span><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
+        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up"><div class="project-card"><div class="project-img" style="background-image:url('images/AAAAa.png');"></div><div class="p-3"><h4>Clinic Management System</h4><p>Patient scheduling, digital records, automated reminders.</p><span class="result-badge"><i class="fas fa-chart-line"></i> Reduced no-shows by 35%</span><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
+        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100"><div class="project-card"><div class="project-img" style="background-image:url('images/cccc.png');"></div><div class="p-3"><h4>Cleaning Service Pro</h4><p>Online booking, dynamic pricing, automated invoicing.</p><span class="result-badge"><i class="fas fa-chart-line"></i> Bookings +50%</span><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
+        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200"><div class="project-card"><div class="project-img" style="background-image:url('images/mmm.png');"></div><div class="p-3"><h4>Montessori Parent Hub</h4><p>Child progress tracking, daily reports, parent-teacher portal.</p><span class="result-badge"><i class="fas fa-users"></i> Used by 100+ parents</span><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
       </div>
       <div class="text-center mt-4"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold"><i class="fab fa-github"></i> All Projects →</a></div>
     </div>
@@ -553,9 +583,9 @@
       <h2 class="section-title title-center" style="display: block; text-align: center;">Recent Writings</h2>
       <p class="text-center mb-5" style="color:#aaa;">Sharing knowledge from my journey</p>
       <div class="row">
-        <div class="col-md-4 mb-4" data-aos="fade-up"><a href="https://medium.com/@subinathapa5510/flutter-app-architecture-mvvm-vs-clean-architecture-complete-guide-for-developers-5389449359fa" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/B.webp'); background-color:#333;"></div><div class="p-3"><h5 class="text-white">Flutter Architecture</h5><p class="small text-muted">MVVM vs Clean — Complete Guide</p><span class="text-gold">Read →</span></div></div></a></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100"><a href="https://medium.com/@subinathapa5510/how-to-become-a-good-coder-a-step-by-step-guide-8af94c4b9bf4" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/H.png'); background-color:#333;"></div><div class="p-3"><h5 class="text-white">Become a Good Coder</h5><p class="small text-muted">Step‑by‑step guide</p><span class="text-gold">Read →</span></div></div></a></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200"><a href="https://medium.com/@subinathapa5510/the-timeless-wisdom-of-the-bhagavad-gita-190cfe6b685d" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/yooo.png'); background-color:#333;"></div><div class="p-3"><h5 class="text-white">Bhagavad Gita Wisdom</h5><p class="small text-muted">Timeless lessons for developers</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up"><a href="https://medium.com/@subinathapa5510/flutter-app-architecture-mvvm-vs-clean-architecture-complete-guide-for-developers-5389449359fa" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/B.webp');"></div><div class="p-3"><h5 class="text-white">Flutter Architecture</h5><p class="small text-muted">MVVM vs Clean — Complete Guide</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100"><a href="https://medium.com/@subinathapa5510/how-to-become-a-good-coder-a-step-by-step-guide-8af94c4b9bf4" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/H.png');"></div><div class="p-3"><h5 class="text-white">Become a Good Coder</h5><p class="small text-muted">Step‑by‑step guide</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200"><a href="https://medium.com/@subinathapa5510/the-timeless-wisdom-of-the-bhagavad-gita-190cfe6b685d" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/yooo.png');"></div><div class="p-3"><h5 class="text-white">Bhagavad Gita Wisdom</h5><p class="small text-muted">Timeless lessons for developers</p><span class="text-gold">Read →</span></div></div></a></div>
       </div>
     </div>
   </section>
