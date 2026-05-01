@@ -198,7 +198,7 @@
       background: #ffbd39;
       border-radius: 3px;
     }
-    /* Stats Cards (13+ projects highlight) */
+    /* Stats Cards */
     .stats-grid {
       display: flex;
       flex-wrap: wrap;
@@ -249,64 +249,56 @@
       color: #ffbd39;
       border-left: 2px solid #ffbd39;
     }
-    /* MERGED SKILLS + SERVICES - ULTRA COMPACT: 1 LINE with minimal space */
-    .compact-skills-services {
+    /* SKILLS - Simplified & Grouped */
+    .skills-simple {
       background: #0c0c0c;
       border-radius: 32px;
-      padding: 1.8rem 1rem;
+      padding: 2rem 1.5rem;
       border: 1px solid #222;
     }
-    .compact-category {
-      margin-bottom: 0.6rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 0.5rem;
+    .skill-group {
+      margin-bottom: 1.8rem;
     }
-    .compact-category:last-child {
+    .skill-group:last-child {
       margin-bottom: 0;
     }
-    .cat-title {
-      font-size: 0.9rem;
+    .skill-group-title {
+      font-size: 1.1rem;
       font-weight: 600;
       color: #ffbd39;
-      display: inline-flex;
+      margin-bottom: 0.8rem;
+      display: flex;
       align-items: center;
-      gap: 6px;
-      background: rgba(255,189,57,0.1);
-      padding: 0.2rem 0.8rem;
-      border-radius: 40px;
-      white-space: nowrap;
-      margin-right: 0.2rem;
+      gap: 10px;
+      border-left: 3px solid #ffbd39;
+      padding-left: 12px;
     }
-    .inline-tag-list {
-      display: inline-flex;
+    .skill-items {
+      display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      align-items: center;
+      gap: 0.8rem;
     }
-    .inline-tag {
+    .skill-badge {
       background: #161616;
       border: 1px solid #2e2e2e;
-      padding: 0.25rem 0.9rem;
-      border-radius: 40px;
-      font-size: 0.75rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.85rem;
       font-weight: 500;
       color: #ddd;
       transition: 0.2s;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      white-space: nowrap;
+      gap: 8px;
     }
-    .inline-tag i, .inline-tag .devicon {
-      font-size: 0.9rem;
+    .skill-badge i, .skill-badge .devicon {
+      font-size: 1.1rem;
       color: #ffbd39;
     }
-    .inline-tag:hover {
+    .skill-badge:hover {
       border-color: #ffbd39;
       background: #202020;
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
     /* Blog cards */
     .blog-card-2025 {
@@ -375,9 +367,6 @@
       .hero-content h1 { font-size: 2.2rem; }
       .hero-square-img { width: 130px; height: 130px; border-radius: 18px; }
       .stat-card { min-width: 140px; padding: 0.6rem 1.2rem; }
-      .compact-category { flex-wrap: wrap; }
-      .cat-title { white-space: normal; font-size: 0.8rem; }
-      .inline-tag { font-size: 0.7rem; padding: 0.2rem 0.7rem; }
     }
     .toast-custom {
       position: fixed;
@@ -418,7 +407,7 @@
   <ul class="sidebar-nav">
     <li class="nav-item"><a href="#home" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
     <li class="nav-item"><a href="#about" class="nav-link"><i class="fas fa-user"></i><span>About</span></a></li>
-    <li class="nav-item"><a href="#skills-services" class="nav-link"><i class="fas fa-code"></i><span>Skills & Services</span></a></li>
+    <li class="nav-item"><a href="#skills" class="nav-link"><i class="fas fa-code"></i><span>Skills</span></a></li>
     <li class="nav-item"><a href="#journey-education" class="nav-link"><i class="fas fa-laptop-code"></i><span>Journey & Edu</span></a></li>
     <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i><span>Projects</span></a></li>
     <li class="nav-item"><a href="#blogs" class="nav-link"><i class="fab fa-medium"></i><span>Blogs</span></a></li>
@@ -427,7 +416,7 @@
 </div>
 
 <div class="main-content">
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION - Strong, clean tagline -->
   <section id="home" class="hero-section">
     <div class="container">
       <div class="hero-image-wrapper text-center mb-3">
@@ -435,34 +424,33 @@
       </div>
       <div class="row justify-content-center text-center">
         <div class="col-lg-8 hero-content">
-          <span class="badge mb-3" style="background:#ffbd3922; color:#ffbd39; border-radius:40px; padding:6px 18px;"> Full Stack Flutter Developer</span>
+          <span class="badge mb-3" style="background:#ffbd3922; color:#ffbd39; border-radius:40px; padding:6px 18px;">Flutter · Django · PostgreSQL</span>
           <h1>Subina Thapa</h1>
-          <p class="mt-3" style="color:#aaa; max-width: 650px; margin-left: auto; margin-right: auto;">Crafting high-performance mobile & web solutions — <strong class="text-gold">Flutter, Django, PostgreSQL, Next.js</strong> & cutting-edge full‑stack tools.</p>
+          <p class="mt-3" style="color:#e0e0e0; max-width: 600px; margin-left: auto; margin-right: auto; font-size:1.1rem;">I build high-performance cross-platform apps and scalable backends that deliver real business results.</p>
           
-          <!-- STATS + 13+ PROJECTS highlights -->
           <div class="stats-grid mt-4">
             <div class="stat-card">
               <div class="stat-number">13+</div>
-              <div class="stat-label">Projects Completed</div>
+              <div class="stat-label">Projects Delivered</div>
             </div>
             <div class="stat-card">
-              <div class="stat-number">6+</div>
-              <div class="stat-label">Happy Clients</div>
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Client Satisfaction</div>
             </div>
             <div class="stat-card">
-              <div class="stat-number">5+</div>
-              <div class="stat-label">Tech Stacks</div>
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Support</div>
             </div>
           </div>
           <div class="project-highlight-tags mb-4">
-            <span><!--i class="fas fa-clinic-medical"></i--> Clinic System</span>
-            <span><!--i class="fas fa-spray-can-sparkles"></i--> Cleaning Service</span>
-            <span><!--i class="fas fa-child"></i--> Montessori Portal</span>
-            <span><!--i class="fas fa-store"></i--> E‑commerce App</span>
+            <span>Clinic System</span>
+            <span>Cleaning Service</span>
+            <span>Montessori Portal</span>
+            <span>E‑commerce</span>
           </div>
           <div class="mt-3">
             <a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#contact" class="btn-custom btn-custom-gold" style="background:#ffbd39; color:#000;">Hire Me →</a>
+            <a href="#contact" class="btn-custom btn-custom-gold" style="background:#ffbd39; color:#000;"><i class="fas fa-rocket"></i> Start a Project →</a>
           </div>
         </div>
       </div>
@@ -478,67 +466,48 @@
         </div>
         <div class="col-md-7">
           <h2 class="section-title">About Me</h2>
-          <p class="mt-3">Hi! I'm Subina Thapa, a passionate Full Stack Flutter Developer based in Kathmandu. I specialize in mobile & web technologies: <strong class="text-gold">Flutter, Dart, Django, PostgreSQL, Next.js, Firebase</strong>. I love building apps that merge creativity with robust functionality.</p>
+          <p class="mt-3">I'm Subina Thapa — a Full Stack Flutter Developer from Kathmandu, Nepal. I specialize in crafting fast, beautiful, and reliable apps using <strong class="text-gold">Flutter, Django, and PostgreSQL</strong>. With 13+ real-world projects completed, I focus on clean code, seamless UX, and backend scalability.</p>
           <div class="row mt-4">
             <div class="col-6"><strong>Name:</strong> Subina Thapa</div>
-            <div class="col-6"><strong>Role:</strong> Full Stack Flutter Dev</div>
-            <div class="col-6 mt-2"><strong>From:</strong> Kathmandu, Nepal</div>
-            <div class="col-6 mt-2"><strong>Freelance projects:</strong> 13+ delivered (Clinic, Cleaning, Montessori, etc)</div>
+            <div class="col-6"><strong>Role:</strong> Full Stack Developer</div>
+            <div class="col-6 mt-2"><strong>Based:</strong> Kathmandu, Nepal</div>
+            <div class="col-6 mt-2"><strong>Experience:</strong> 13+ projects shipped</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS & SERVICES - COMPACT 1-LINE STYLE with minimal spacing -->
-  <section id="skills-services" class="section-padding" style="background:#0d0d0d;">
+  <!-- SKILLS SECTION - Simplified, Grouped, No Services -->
+  <section id="skills" class="section-padding" style="background:#0d0d0d;">
     <div class="container">
-      <h2 class="section-title">Skills & Services</h2>
-      <p class="mb-3" style="color:#aaa; font-size:0.9rem;">Tech stack & expertise — everything under one roof</p>
-      <div class="compact-skills-services">
-        <!-- Frontend & Mobile - inline compact -->
-        <div class="compact-category">
-          <span class="cat-title"><i class="fas fa-mobile-alt"></i> Frontend</span>
-          <div class="inline-tag-list">
-            <span class="inline-tag"><i class="devicon-dart-plain colored"></i> Dart</span>
-            <span class="inline-tag"><i class="devicon-flutter-plain colored"></i> Flutter</span>
-            <span class="inline-tag"><i class="devicon-react-original colored"></i> React</span>
-            <span class="inline-tag"><i class="fab fa-js"></i> JS</span>
-            <span class="inline-tag"><i class="devicon-typescript-plain colored"></i> TS</span>
-            <span class="inline-tag"><i class="devicon-nextjs-original colored"></i> Next.js</span>
+      <h2 class="section-title">Tech Stack</h2>
+      <p class="mb-4" style="color:#aaa;">Core technologies I work with daily</p>
+      <div class="skills-simple">
+        <div class="skill-group">
+          <div class="skill-group-title"><i class="fas fa-crown"></i> Core Stack</div>
+          <div class="skill-items">
+            <span class="skill-badge"><i class="devicon-flutter-plain colored"></i> Flutter</span>
+            <span class="skill-badge"><i class="devicon-dart-plain colored"></i> Dart</span>
+            <span class="skill-badge"><i class="devicon-django-plain colored"></i> Django</span>
+            <span class="skill-badge"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span>
           </div>
         </div>
-        <!-- Backend & Database -->
-        <div class="compact-category">
-          <span class="cat-title"><i class="fas fa-server"></i> Backend</span>
-          <div class="inline-tag-list">
-            <span class="inline-tag"><i class="devicon-python-plain colored"></i> Python</span>
-            <span class="inline-tag"><i class="devicon-django-plain colored"></i> Django</span>
-            <span class="inline-tag"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span>
-            <span class="inline-tag"><i class="fas fa-fire"></i> Firebase</span>
-            <span class="inline-tag"><i class="fas fa-cloud"></i> REST API</span>
-            <span class="inline-tag"><i class="fas fa-database"></i> MySQL</span>
+        <div class="skill-group">
+          <div class="skill-group-title"><i class="fas fa-layer-group"></i> Other Technologies</div>
+          <div class="skill-items">
+            <span class="skill-badge"><i class="devicon-react-original colored"></i> React</span>
+            <span class="skill-badge"><i class="devicon-nextjs-original colored"></i> Next.js</span>
+            <span class="skill-badge"><i class="fas fa-fire"></i> Firebase</span>
           </div>
         </div>
-        <!-- Tools & DevOps -->
-        <div class="compact-category">
-          <span class="cat-title"><i class="fas fa-tools"></i> DevOps</span>
-          <div class="inline-tag-list">
-            <span class="inline-tag"><i class="devicon-git-plain colored"></i> Git</span>
-            <span class="inline-tag"><i class="devicon-github-original colored"></i> GitHub</span>
-            <span class="inline-tag"><i class="fab fa-figma"></i> Figma</span>
-          </div>
-        </div>
-        <!-- Services -->
-        <div class="compact-category">
-          <span class="cat-title"><i class="fas fa-concierge-bell"></i> Services</span>
-          <div class="inline-tag-list">
-            <span class="inline-tag"><i class="fab fa-flutter"></i> Flutter Apps</span>
-            <span class="inline-tag"><i class="devicon-nextjs-original"></i> Next.js Sites</span>
-            <span class="inline-tag"><i class="fas fa-laptop-medical"></i> Clinic/Cleaning</span>
-            <span class="inline-tag"><i class="fab fa-python"></i> Django APIs</span>
-            <span class="inline-tag"><i class="fas fa-database"></i> DB Design</span>
-            <span class="inline-tag"><i class="fas fa-mobile-alt"></i> Cross-Platform</span>
+        <div class="skill-group">
+          <div class="skill-group-title"><i class="fas fa-tools"></i> Tools & Workflow</div>
+          <div class="skill-items">
+            <span class="skill-badge"><i class="devicon-git-plain colored"></i> Git</span>
+            <span class="skill-badge"><i class="devicon-github-original colored"></i> GitHub</span>
+            <span class="skill-badge"><i class="fab fa-figma"></i> Figma</span>
+            <span class="skill-badge"><i class="fas fa-cloud"></i> REST APIs</span>
           </div>
         </div>
       </div>
@@ -554,11 +523,11 @@
           <div class="journey-education-card">
             <div class="d-flex align-items-center gap-3 mb-3">
               <i class="fas fa-rocket fa-2x text-gold"></i>
-              <h3 class="h4 mb-0 text-gold">Programming Journey</h3>
+              <h3 class="h4 mb-0 text-gold">My Journey</h3>
             </div>
-            <p class="lead" style="font-size:1rem; line-height:1.5;">Started with Python in 2023, then deep-dived into Flutter & full‑stack development. Completed 13+ freelance projects including Clinic management, Cleaning service web, Montessori platform — real-world impact. Constantly exploring AI, backend scalable systems with Django & PostgreSQL.</p>
+            <p style="font-size:1rem; line-height:1.5;">Started with Python in 2023, then quickly moved into Flutter & full‑stack development. Completed 13+ freelance projects including Clinic management, Cleaning service web, and Montessori platforms — each delivering real impact for clients. Now focusing on scalable backend systems with Django & PostgreSQL.</p>
             <div class="mt-3">
-              <span class="badge badge-pill px-3 py-2 mr-2 mb-2" style="background:#1e1e1e; color:#ffbd39;"> Full Stack Flutter Lover</span>
+              <span class="badge badge-pill px-3 py-2 mr-2 mb-2" style="background:#1e1e1e; color:#ffbd39;"> Full Stack Developer</span>
               <span class="badge badge-pill px-3 py-2 mr-2 mb-2" style="background:#1e1e1e; color:#ffbd39;"> AI Enthusiast</span>
             </div>
           </div>
@@ -567,16 +536,16 @@
           <div class="journey-education-card">
             <div class="d-flex align-items-center gap-3 mb-3">
               <i class="fas fa-graduation-cap fa-2x text-gold"></i>
-              <h3 class="h4 mb-0 text-gold">Education & Core Values</h3>
+              <h3 class="h4 mb-0 text-gold">Education & Values</h3>
             </div>
-            <p><strong> BCA (2023-Present)</strong><br>Tribhuvan University, focus on software development.</p>
-            <p><strong> +2 Computer Science</strong><br>Nepal Kasthamandap College.</p>
+            <p><strong> BCA (2023-Present)</strong><br>Tribhuvan University · Software Development</p>
+            <p><strong> +2 Computer Science</strong><br>Nepal Kasthamandap College</p>
             <hr class="bg-secondary">
-            <h5 class="text-gold mt-2"> My Values</h5>
+            <h5 class="text-gold mt-2">Core Values</h5>
             <ul class="list-unstyled">
-              <li>✓ Integrity & Transparency</li>
-              <li>✓ Continuous Learning</li>
-              <li>✓ User‑Centric Design</li>
+              <li>✓ Clean, maintainable code</li>
+              <li>✓ Client-first communication</li>
+              <li>✓ Lifelong learning</li>
             </ul>
           </div>
         </div>
@@ -584,23 +553,77 @@
     </div>
   </section>
 
-  <!-- PROJECTS section -->
+  <!-- PROJECTS section - Detailed with real impact -->
   <section id="projects" class="section-padding">
     <div class="container">
       <h2 class="section-title">Featured Projects</h2>
       <div class="row mt-4">
-        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/AAAAa.png'); background-color:#2a2a2a;"></div><div class="p-3"><h4> Clinic Website</h4><p>Healthcare scheduling & patient dashboard.</p><!--span class="text-gold small">Django + React</span></div></div></div-->
-        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/cccc.png'); background-color:#2a2a2a;"></div><div class="p-3"><h4> Cleaning Service Pro</h4><p>Modern booking & pricing system, fully responsive.</p><!--span class="text-gold small">Next.js + API</span></div></div></div-->
-        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/mmm.png'); background-color:#2a2a2a;"></div><div class="p-3"><h4> Montessori Hub</h4><p>Child-friendly interface, parent communication portal.</p><!--span class="text-gold small">Flutter web</span></div></div></div-->
-        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/GGG.png'); background-color:#2a2a2a;"></div><div class="p-3"><h4> Real Estate Showcase</h4><p>React property listings with filters.</p></div></div></div>
-        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/jjj.png'); background-color:#2a2a2a;"></div><div class="p-3"><h4>Corporate Lead Gen</h4><p>Modern design, contact & analytics.</p></div></div></div>
-        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/ooo.png'); background-color:#2a2a2a;"></div><div class="p-3"><h4> E‑commerce App</h4><p>Flutter + Firebase cart, orders & auth.</p></div></div></div>
+        <div class="col-md-4 mb-4">
+          <div class="blog-card-2025">
+            <div class="blog-img" style="background-image:url('images/AAAAa.png'); background-color:#2a2a2a;"></div>
+            <div class="p-3">
+              <h4>🏥 Clinic Management System</h4>
+              <p>Patient scheduling, digital records, and appointment reminders. Reduced no-shows by 35%.</p>
+              <span class="text-gold small">Django · React · PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="blog-card-2025">
+            <div class="blog-img" style="background-image:url('images/cccc.png'); background-color:#2a2a2a;"></div>
+            <div class="p-3">
+              <h4>🧼 Cleaning Service Pro</h4>
+              <p>Online booking, dynamic pricing, and automated invoicing. Increased client bookings by 50%.</p>
+              <span class="text-gold small">Next.js · Django · Stripe</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="blog-card-2025">
+            <div class="blog-img" style="background-image:url('images/mmm.png'); background-color:#2a2a2a;"></div>
+            <div class="p-3">
+              <h4>🍎 Montessori Parent Hub</h4>
+              <p>Child progress tracking, daily reports, and parent-teacher communication portal.</p>
+              <span class="text-gold small">Flutter · Firebase</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="blog-card-2025">
+            <div class="blog-img" style="background-image:url('images/GGG.png'); background-color:#2a2a2a;"></div>
+            <div class="p-3">
+              <h4>🏡 Real Estate Platform</h4>
+              <p>Property listings with advanced filters, virtual tours, and agent contact system.</p>
+              <span class="text-gold small">React · Django · PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="blog-card-2025">
+            <div class="blog-img" style="background-image:url('images/jjj.png'); background-color:#2a2a2a;"></div>
+            <div class="p-3">
+              <h4>💼 Corporate Landing Page</h4>
+              <p>Lead generation system with analytics dashboard. Converted 28% more leads.</p>
+              <span class="text-gold small">Next.js · API Integration</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="blog-card-2025">
+            <div class="blog-img" style="background-image:url('images/ooo.png'); background-color:#2a2a2a;"></div>
+            <div class="p-3">
+              <h4>🛒 E‑commerce App</h4>
+              <p>Shopping cart, user auth, order tracking, and real-time inventory sync.</p>
+              <span class="text-gold small">Flutter · Firebase · Stripe</span>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="text-center mt-4"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold"><i class="fab fa-github"></i> View All Projects</a></div>
     </div>
   </section>
 
-  <!-- BLOGS section with Medium links -->
+  <!-- BLOGS section -->
   <section id="blogs" class="section-padding" style="background:#0d0d0d;">
     <div class="container">
       <h2 class="section-title">Recent Writings</h2>
@@ -627,20 +650,21 @@
     </div>
   </section>
 
-  <!-- CONTACT section with full social footer -->
+  <!-- CONTACT section - Strong CTA "Start a Project" -->
   <section id="contact" class="section-padding">
     <div class="container">
-      <h2 class="section-title">Let's Collaborate</h2>
+      <h2 class="section-title">Start a Project</h2>
+      <p class="mb-4" style="color:#aaa;">Got an idea? Let's turn it into reality.</p>
       <div class="row mt-4 justify-content-center">
         <div class="col-md-8">
           <div class="bg-dark p-4 rounded-4" style="border-radius:32px; background:#111; border:1px solid #2a2a2a;">
-            <h4 class="text-gold">Send a Message</h4>
+            <h4 class="text-gold">Tell me about your project</h4>
             <form id="contactFormNew" class="contact-form">
               <div class="row"><div class="col-6 mb-3"><input type="text" id="nameNew" placeholder="Full Name *" required class="form-control bg-dark text-white border-secondary"></div>
               <div class="col-6 mb-3"><input type="email" id="emailNew" placeholder="Email *" required class="form-control bg-dark text-white border-secondary"></div></div>
               <input type="text" id="subjectNew" placeholder="Subject" class="form-control bg-dark text-white border-secondary mb-3">
               <textarea id="msgNew" rows="5" placeholder="Tell me about your project..." class="form-control bg-dark text-white border-secondary mb-3"></textarea>
-              <button type="submit" class="btn-custom btn-custom-gold w-100"><i class="fas fa-paper-plane"></i> Send Inquiry</button>
+              <button type="submit" class="btn-custom btn-custom-gold w-100"><i class="fas fa-paper-plane"></i> Send Message</button>
             </form>
           </div>
         </div>
@@ -648,28 +672,28 @@
           <div class="bg-dark p-4 rounded-4 text-center" style="background:#111; width:100%; border:1px solid #2a2a2a;">
             <i class="fas fa-map-marker-alt fa-2x text-gold mb-3"></i>
             <h5 class="text-gold">Get in Touch</h5>
-            <p class="mb-2"><i class="fas fa-map-marker-alt text-gold me-2"></i> Kathmandu, Suyuchatar</p>
+            <p class="mb-2"><i class="fas fa-map-marker-alt text-gold me-2"></i> Kathmandu, Nepal</p>
+            <p class="mb-0"><i class="fas fa-envelope text-gold me-2"></i> subinathapa5510@gmail.com</p>
             <hr class="bg-secondary my-3">
           </div>
         </div>
       </div>
-      <!-- FULL SOCIAL LINKS -->
       <div class="text-center mt-5">
         <div class="footer-social d-flex justify-content-center flex-wrap">
-          <a href="https://github.com/subinathapa2004" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-          <a href="https://gitlab.com/tsubina57" target="_blank" rel="noopener"><i class="fab fa-gitlab"></i></a>
-          <a href="https://x.com/ThapaSubina22" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-          <a href="https://dev.to/thapasubina22" target="_blank" rel="noopener"><i class="fab fa-dev"></i></a>
-          <a href="https://medium.com/@subinathapa5510" target="_blank" rel="noopener"><i class="fab fa-medium"></i></a>
-          <a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-          <a href="https://www.facebook.com/subina.thapa.769940" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-          <a href="https://www.instagram.com/stories/subinathapa22/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.youtube.com/@Subina--11-nxx" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+          <a href="https://github.com/subinathapa2004" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://gitlab.com/tsubina57" target="_blank"><i class="fab fa-gitlab"></i></a>
+          <a href="https://x.com/ThapaSubina22" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://dev.to/thapasubina22" target="_blank"><i class="fab fa-dev"></i></a>
+          <a href="https://medium.com/@subinathapa5510" target="_blank"><i class="fab fa-medium"></i></a>
+          <a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.facebook.com/subina.thapa.769940" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/stories/subinathapa22/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@Subina--11-nxx" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
     </div>
   </section>
-  <footer class="text-center py-4 border-top border-secondary"><small>© 2026 Subina Thapa .All Rights Reserved.</small></footer>
+  <footer class="text-center py-4 border-top border-secondary"><small>© 2026 Subina Thapa · All Rights Reserved.</small></footer>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -696,7 +720,7 @@
         e.preventDefault();
         const name = document.getElementById('nameNew').value.trim();
         const email = document.getElementById('emailNew').value.trim();
-        const subject = document.getElementById('subjectNew').value.trim() || "Portfolio Inquiry";
+        const subject = document.getElementById('subjectNew').value.trim() || "Project Inquiry";
         const message = document.getElementById('msgNew').value.trim();
         if(!name || !email || !message){ alert("Please fill required fields."); return; }
         const fd = new FormData();
@@ -705,7 +729,7 @@
         try{
           const res = await fetch('https://formsubmit.co/ajax/subinathapa5510@gmail.com',{method:'POST', body:fd});
           if(res.ok){
-            const toast = document.createElement('div'); toast.className='toast-custom'; toast.innerText=`✨ Thanks ${name}, message sent! I'll reply soon.`;
+            const toast = document.createElement('div'); toast.className='toast-custom'; toast.innerText=`✨ Thanks ${name}! I'll get back to you within 24 hours.`;
             document.body.appendChild(toast); form.reset();
             setTimeout(()=>toast.remove(),3800);
           } else throw new Error();
