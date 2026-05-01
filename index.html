@@ -42,57 +42,81 @@
       background: rgba(10, 10, 10, 0.96);
       backdrop-filter: blur(4px);
       z-index: 1000;
-      padding: 2rem 1.5rem;
+      padding: 2rem 1rem;
       overflow-y: auto;
       border-right: 1px solid rgba(255, 189, 57, 0.2);
       transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       box-shadow: 4px 0 25px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+    }
+    /* Icons row at TOP */
+    .sidebar-icons-top {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid rgba(255,189,57,0.25);
+      padding-bottom: 1.2rem;
+    }
+    .sidebar-icons-top a {
+      color: #ffbd39;
+      font-size: 1.5rem;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+    .sidebar-icons-top a:hover {
+      transform: translateY(-3px);
+      color: #fff;
+      text-shadow: 0 0 5px #ffbd39;
     }
     .profile-sidebar {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.8rem;
     }
     .profile-sidebar img {
-      width: 130px;
-      height: 130px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid #ffbd39;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
     .profile-sidebar h3 {
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       font-weight: 600;
-      margin-top: 1rem;
+      margin-top: 0.8rem;
       color: #fff;
     }
     .profile-sidebar p {
       color: #ffbd39;
       font-weight: 400;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
     .sidebar-nav {
       list-style: none;
       padding: 0;
+      margin-top: 1rem;
     }
     .sidebar-nav .nav-item {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
     .sidebar-nav .nav-link {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 0.7rem 1rem;
+      padding: 0.6rem 1rem;
       color: #ccc;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 500;
       border-radius: 40px;
       transition: all 0.25s;
       text-decoration: none;
     }
     .sidebar-nav .nav-link i {
-      width: 26px;
-      font-size: 1.2rem;
+      width: 24px;
+      font-size: 1.1rem;
       color: #ffbd39;
     }
     .sidebar-nav .nav-link:hover,
@@ -135,10 +159,6 @@
       background: radial-gradient(circle at 20% 30%, #0f0f0f, #0a0a0a);
       padding: 4rem 0;
     }
-    .hero-image-wrapper {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
     .hero-square-img {
       width: 180px;
       height: 180px;
@@ -148,23 +168,13 @@
       border-radius: 24px;
       transition: all 0.3s ease;
     }
-    .hero-square-img:hover {
-      border-color: #ffbd39;
-      transform: scale(1.02);
-    }
     .hero-content h1 {
       font-size: 3.5rem;
       font-weight: 700;
-      letter-spacing: -0.5px;
       background: linear-gradient(135deg, #ffffff 30%, #ffbd39 80%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-    }
-    .hero-content .highlight {
-      color: #ffbd39;
-      border-bottom: 2px solid #ffbd39;
-      display: inline-block;
     }
     .btn-custom {
       background: transparent;
@@ -209,84 +219,55 @@
       background: #ffbd39;
       border-radius: 3px;
     }
-    /* Skills tags */
-    .skills-writing-container {
+    /* MERGED SKILLS + SERVICES - compact horizontal rows (2-3 lines) */
+    .compact-skills-services {
+      background: #0c0c0c;
+      border-radius: 32px;
+      padding: 2rem 1.5rem;
+      border: 1px solid #222;
+    }
+    .compact-category {
+      margin-bottom: 2rem;
+    }
+    .compact-category:last-child {
+      margin-bottom: 0;
+    }
+    .cat-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffbd39;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 3px solid #ffbd39;
+      padding-left: 12px;
+    }
+    .inline-tag-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-top: 1rem;
+      gap: 0.7rem;
     }
-    .skill-tag {
+    .inline-tag {
       background: #161616;
       border: 1px solid #2e2e2e;
-      padding: 0.6rem 1.3rem;
+      padding: 0.5rem 1.2rem;
       border-radius: 60px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 500;
       color: #ddd;
-      transition: all 0.2s;
+      transition: 0.2s;
       display: inline-flex;
       align-items: center;
       gap: 8px;
     }
-    .skill-tag i, .skill-tag .devicon {
-      font-size: 1.2rem;
+    .inline-tag i, .inline-tag .devicon {
+      font-size: 1.1rem;
       color: #ffbd39;
     }
-    .skill-tag:hover {
+    .inline-tag:hover {
       border-color: #ffbd39;
       background: #202020;
-      transform: translateY(-2px);
-    }
-    .skill-category h4 {
-      color: #ffbd39;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-top: 1.2rem;
-    }
-    /* Service lists */
-    .service-list-wrapper {
-      background: transparent;
-      border-radius: 0;
-      padding: 0;
-      margin-top: 1rem;
-    }
-    .service-heading {
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #ffbd39;
-      margin-bottom: 1.2rem;
-      letter-spacing: -0.2px;
-      border-left: 3px solid #ffbd39;
-      padding-left: 15px;
-    }
-    .service-items {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .service-item-tag {
-      background: #111;
-      border: 1px solid #2a2a2a;
-      padding: 0.8rem 1.5rem;
-      border-radius: 60px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #ddd;
-      transition: all 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .service-item-tag i, .service-item-tag .devicon {
-      font-size: 1.3rem;
-      color: #ffbd39;
-    }
-    .service-item-tag:hover {
-      border-color: #ffbd39;
-      background: #1a1a1a;
       transform: translateY(-2px);
     }
     /* Blog cards */
@@ -332,7 +313,6 @@
       color: #000;
       transform: translateY(-3px);
     }
-    /* merged journey & education card */
     .journey-education-card {
       background: #111;
       border-radius: 28px;
@@ -385,8 +365,20 @@
   <div></div>
 </div>
 
-<!-- Sidebar (removed myapps and reach out from nav but kept rest, also removed programming/education separate, now navigation updated) -->
+<!-- Sidebar with social icons at TOP -->
 <div class="sidebar" id="sidebar">
+  <!-- Icons at top -->
+  <div class="sidebar-icons-top">
+    <a href="https://github.com/subinathapa2004" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://gitlab.com/tsubina57" target="_blank"><i class="fab fa-gitlab"></i></a>
+    <a href="https://x.com/ThapaSubina22" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://dev.to/thapasubina22" target="_blank"><i class="fab fa-dev"></i></a>
+    <a href="https://medium.com/@subinathapa5510" target="_blank"><i class="fab fa-medium"></i></a>
+    <a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.facebook.com/subina.thapa.769940" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/stories/subinathapa22/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@Subina--11-nxx" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
   <div class="profile-sidebar">
     <img src="images/gggg.jpg" alt="Subina" onerror="this.src='https://via.placeholder.com/130x130?text=ST'">
     <h3>Subina Thapa</h3>
@@ -395,10 +387,7 @@
   <ul class="sidebar-nav">
     <li class="nav-item"><a href="#home" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
     <li class="nav-item"><a href="#about" class="nav-link"><i class="fas fa-user"></i><span>About</span></a></li>
-    <!-- myapps removed from nav -->
-    <li class="nav-item"><a href="#skills" class="nav-link"><i class="fas fa-code"></i><span>Skills</span></a></li>
-    <li class="nav-item"><a href="#services" class="nav-link"><i class="fas fa-concierge-bell"></i><span>Services</span></a></li>
-    <!-- merged programming+education now one link -->
+    <li class="nav-item"><a href="#skills-services" class="nav-link"><i class="fas fa-code"></i><span>Skills & Services</span></a></li>
     <li class="nav-item"><a href="#journey-education" class="nav-link"><i class="fas fa-laptop-code"></i><span>Journey & Edu</span></a></li>
     <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i><span>Projects</span></a></li>
     <li class="nav-item"><a href="#blogs" class="nav-link"><i class="fab fa-medium"></i><span>Blogs</span></a></li>
@@ -410,7 +399,7 @@
   <!-- HERO SECTION -->
   <section id="home" class="hero-section">
     <div class="container">
-      <div class="hero-image-wrapper">
+      <div class="hero-image-wrapper text-center mb-3">
         <img class="hero-square-img" src="images/farhinaa.jpg" alt="Subina Thapa" onerror="this.src='https://via.placeholder.com/180x180?text=Subina'">
       </div>
       <div class="row justify-content-center text-center">
@@ -449,54 +438,62 @@
     </div>
   </section>
 
-  <!-- SKILLS SECTION -->
-  <section id="skills" class="section-padding">
+  <!-- MERGED SECTION: SKILLS + SERVICES (compact horizontal, 2-3 lines) -->
+  <section id="skills-services" class="section-padding" style="background:#0d0d0d;">
     <div class="container">
-      <h2 class="section-title">Technical Skills</h2>
-      <p class="mb-4" style="color:#aaa;">Technologies I master for modern development</p>
-      <div class="skill-category"><h4><i class="fas fa-mobile-alt text-gold me-2"></i> Mobile & Frontend</h4><div class="skills-writing-container"><span class="skill-tag"><i class="devicon-dart-plain colored"></i> Dart</span><span class="skill-tag"><i class="devicon-flutter-plain colored"></i> Flutter</span><span class="skill-tag"><i class="devicon-react-original colored"></i> React</span><span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span><span class="skill-tag"><i class="devicon-typescript-plain colored"></i> TypeScript</span><span class="skill-tag"><i class="devicon-nextjs-original colored"></i> Next.js</span></div></div>
-      <div class="skill-category"><h4><i class="fas fa-server text-gold me-2"></i> Backend & Database</h4><div class="skills-writing-container"><span class="skill-tag"><i class="devicon-python-plain colored"></i> Python</span><span class="skill-tag"><i class="devicon-django-plain colored"></i> Django</span><span class="skill-tag"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span><span class="skill-tag"><i class="fas fa-fire"></i> Firebase</span><span class="skill-tag"><i class="fas fa-cloud"></i> REST APIs</span></div></div>
-      <div class="skill-category"><h4><i class="fas fa-tools text-gold me-2"></i> Tools & DevOps</h4><div class="skills-writing-container"><span class="skill-tag"><i class="devicon-git-plain colored"></i> Git</span><span class="skill-tag"><i class="devicon-github-original colored"></i> GitHub</span><span class="skill-tag"><i class="fab fa-figma"></i> Figma</span></div></div>
+      <h2 class="section-title">Skills & Services</h2>
+      <p class="mb-4" style="color:#aaa;">Tech stack & expertise — everything under one roof</p>
+      <div class="compact-skills-services">
+        <!-- Frontend & Mobile -->
+        <div class="compact-category">
+          <div class="cat-title"><i class="fas fa-mobile-alt"></i> Frontend & Mobile</div>
+          <div class="inline-tag-list">
+            <span class="inline-tag"><i class="devicon-dart-plain colored"></i> Dart</span>
+            <span class="inline-tag"><i class="devicon-flutter-plain colored"></i> Flutter</span>
+            <span class="inline-tag"><i class="devicon-react-original colored"></i> React</span>
+            <span class="inline-tag"><i class="fab fa-js"></i> JavaScript</span>
+            <span class="inline-tag"><i class="devicon-typescript-plain colored"></i> TypeScript</span>
+            <span class="inline-tag"><i class="devicon-nextjs-original colored"></i> Next.js</span>
+          </div>
+        </div>
+        <!-- Backend & Database -->
+        <div class="compact-category">
+          <div class="cat-title"><i class="fas fa-server"></i> Backend & Database</div>
+          <div class="inline-tag-list">
+            <span class="inline-tag"><i class="devicon-python-plain colored"></i> Python</span>
+            <span class="inline-tag"><i class="devicon-django-plain colored"></i> Django</span>
+            <span class="inline-tag"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span>
+            <span class="inline-tag"><i class="fas fa-fire"></i> Firebase</span>
+            <span class="inline-tag"><i class="fas fa-cloud"></i> REST APIs</span>
+            <span class="inline-tag"><i class="fas fa-database"></i> MySQL</span>
+          </div>
+        </div>
+        <!-- Tools & DevOps + Services as tags -->
+        <div class="compact-category">
+          <div class="cat-title"><i class="fas fa-tools"></i> Tools & DevOps</div>
+          <div class="inline-tag-list">
+            <span class="inline-tag"><i class="devicon-git-plain colored"></i> Git</span>
+            <span class="inline-tag"><i class="devicon-github-original colored"></i> GitHub</span>
+            <span class="inline-tag"><i class="fab fa-figma"></i> Figma</span>
+          </div>
+        </div>
+        <div class="compact-category">
+          <div class="cat-title"><i class="fas fa-concierge-bell"></i> What I Offer (Services)</div>
+          <div class="inline-tag-list">
+            <span class="inline-tag"><i class="fab fa-flutter"></i> Flutter Apps</span>
+            <span class="inline-tag"><i class="devicon-nextjs-original"></i> Next.js Sites</span>
+            <span class="inline-tag"><i class="devicon-react-original"></i> React Dashboards</span>
+            <span class="inline-tag"><i class="fab fa-python"></i> Django Backend</span>
+            <span class="inline-tag"><i class="fas fa-database"></i> Database Design</span>
+            <span class="inline-tag"><i class="fas fa-code-branch"></i> API Integration</span>
+            <span class="inline-tag"><i class="fas fa-mobile-alt"></i> Cross-Platform</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- SERVICES SECTION -->
-  <section id="services" class="section-padding" style="background:#0d0d0d;">
-    <div class="container">
-      <h2 class="section-title">What I Offer</h2>
-      <p class="mb-4" style="color:#aaa;">Modern, scalable solutions — clean & minimal</p>
-      
-      <div class="service-list-wrapper">
-        <div class="service-heading"><i class="fas fa-laptop-code mr-2"></i> Frontend</div>
-        <div class="service-items">
-          <span class="service-item-tag"><i class="fab fa-flutter"></i> Flutter</span>
-          <span class="service-item-tag"><i class="devicon-nextjs-original"></i> Next.js</span>
-          <span class="service-item-tag"><i class="devicon-react-original"></i> React</span>
-          <span class="service-item-tag"><i class="devicon-typescript-plain"></i> TypeScript</span>
-        </div>
-      </div>
-
-      <div class="service-list-wrapper mt-4">
-        <div class="service-heading"><i class="fas fa-server mr-2"></i> Backend</div>
-        <div class="service-items">
-          <span class="service-item-tag"><i class="devicon-django-plain"></i> Django</span>
-          <span class="service-item-tag"><i class="fas fa-cloud"></i> REST APIs</span>
-          <span class="service-item-tag"><i class="fas fa-fire"></i> Firebase</span>
-        </div>
-      </div>
-
-      <div class="service-list-wrapper mt-4">
-        <div class="service-heading"><i class="fas fa-database mr-2"></i> Database</div>
-        <div class="service-items">
-          <span class="service-item-tag"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
-          <span class="service-item-tag"><i class="fas fa-database"></i> MySQL</span>
-          <span class="service-item-tag"><i class="fas fa-fire"></i> Firestore</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MERGED SECTION: Programming Journey + Education & Values (Combined into one elegant block) -->
+  <!-- MERGED JOURNEY & EDUCATION -->
   <section id="journey-education" class="section-padding" style="background:#0c0c0c;">
     <div class="container">
       <h2 class="section-title">Journey & Education</h2>
@@ -538,7 +535,7 @@
     </div>
   </section>
 
-  <!-- PROJECTS section (unchanged, but my apps section removed entirely) -->
+  <!-- PROJECTS section -->
   <section id="projects" class="section-padding">
     <div class="container">
       <h2 class="section-title">Featured Projects</h2>
@@ -567,7 +564,7 @@
     </div>
   </section>
 
-  <!-- CONTACT section: removed "Reach out" block from the right side, only contact form + social links + CV request (via email) but no explicit "reach out" box. Also footer social preserved -->
+  <!-- CONTACT section: CV request + form (reach out removed) -->
   <section id="contact" class="section-padding">
     <div class="container">
       <h2 class="section-title">Let's Collaborate</h2>
@@ -584,7 +581,6 @@
             </form>
           </div>
         </div>
-        <!-- Right side "Reach out" box removed, replaced by simple CV request button under form but still clean -->
         <div class="col-md-4 mt-4 mt-md-0 d-flex align-items-stretch">
           <div class="bg-dark p-4 rounded-4 text-center" style="background:#111; width:100%; border:1px solid #2a2a2a;">
             <i class="fas fa-file-alt fa-3x text-gold mb-3"></i>
@@ -597,7 +593,6 @@
           </div>
         </div>
       </div>
-      <!-- Social links footer style but inside contact section -->
       <div class="text-center mt-5"><div class="footer-social d-flex justify-content-center flex-wrap"><a href="https://github.com/subinathapa2004"><i class="fab fa-github"></i></a><a href="https://gitlab.com/tsubina57"><i class="fab fa-gitlab"></i></a><a href="https://x.com/ThapaSubina22"><i class="fab fa-twitter"></i></a><a href="https://dev.to/thapasubina22"><i class="fab fa-dev"></i></a><a href="https://medium.com/@subinathapa5510"><i class="fab fa-medium"></i></a><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/"><i class="fab fa-linkedin"></i></a><a href="https://www.facebook.com/subina.thapa.769940"><i class="fab fa-facebook"></i></a><a href="https://www.instagram.com/stories/subinathapa22/"><i class="fab fa-instagram"></i></a><a href="https://www.youtube.com/@Subina--11-nxx"><i class="fab fa-youtube"></i></a></div></div>
     </div>
   </section>
@@ -622,7 +617,6 @@
         if(target){ e.preventDefault(); window.scrollTo({top: target.offsetTop - 70, behavior:'smooth'}); history.pushState(null,null,hash); }
       });
     });
-    // contact form submission
     const form = document.getElementById('contactFormNew');
     if(form){
       form.addEventListener('submit', async(e)=>{
