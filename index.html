@@ -2,68 +2,51 @@
 <html lang="en">
 <head>
   <title>Subina Thapa · Full Stack Flutter Developer</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Subina Thapa - Full Stack Flutter Developer specializing in Flutter, Django, React, and scalable apps. 13+ projects delivered.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
   <meta name="theme-color" content="#0a0a0a">
-  <!-- Google Fonts + Icons + Bootstrap -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <style>
+    /* ========== GLOBAL RESET ========== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       background: #0a0a0a;
-      font-family: 'Inter', sans-serif;
-      color: #e5e7eb;
+      font-family: 'Poppins', sans-serif;
+      color: #e0e0e0;
+      overflow-x: hidden;
       scroll-behavior: smooth;
-      line-height: 1.5;
     }
-
     ::selection {
-      background: #fbbf24;
-      color: #0a0a0a;
+      background: #ffbd39;
+      color: #000;
     }
-
-    /* Custom gold & glass utilities */
-    .gold-text {
-      color: #fbbf24 !important;
+    .text-gold {
+      color: #ffbd39 !important;
     }
-    .gold-bg {
-      background: #fbbf24 !important;
-      color: #0a0a0a !important;
-    }
-    .border-gold {
-      border-color: #fbbf24 !important;
-    }
-    .glass-card {
-      background: rgba(18, 18, 24, 0.7);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 2rem;
-    }
-
-    /* side menu */
+    /* ========== SIDEBAR ========== */
     .sidebar {
       position: fixed;
       top: 0;
       left: 0;
       width: 280px;
       height: 100vh;
-      background: #0c0c10;
-      backdrop-filter: blur(2px);
-      z-index: 1030;
+      background: rgba(10, 10, 10, 0.96);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
       padding: 2rem 1.5rem;
       overflow-y: auto;
-      border-right: 1px solid rgba(251, 191, 36, 0.2);
+      border-right: 1px solid rgba(255, 189, 57, 0.2);
       transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      box-shadow: 6px 0 28px rgba(0, 0, 0, 0.5);
+      box-shadow: 4px 0 25px rgba(0,0,0,0.6);
     }
     .profile-sidebar {
       text-align: center;
@@ -74,124 +57,139 @@
       height: 130px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #fbbf24;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+      border: 3px solid #ffbd39;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
     .profile-sidebar h3 {
-      font-size: 1.6rem;
-      font-weight: 700;
+      font-size: 1.7rem;
+      font-weight: 600;
       margin-top: 1rem;
-      letter-spacing: -0.2px;
-      background: linear-gradient(135deg, #fff, #fbbf24);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: #fff;
+    }
+    .profile-sidebar p {
+      color: #ffbd39;
+      font-weight: 400;
+      font-size: 0.9rem;
     }
     .sidebar-nav {
       list-style: none;
       padding: 0;
     }
+    .sidebar-nav .nav-item {
+      margin-bottom: 0.5rem;
+    }
     .sidebar-nav .nav-link {
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 0.75rem 1rem;
-      margin-bottom: 0.5rem;
-      color: #cbd5e1;
+      padding: 0.7rem 1rem;
+      color: #ccc;
+      font-size: 1rem;
       font-weight: 500;
-      border-radius: 60px;
-      transition: all 0.2s;
+      border-radius: 40px;
+      transition: all 0.25s;
       text-decoration: none;
-      font-size: 0.95rem;
     }
     .sidebar-nav .nav-link i {
-      width: 24px;
-      font-size: 1.15rem;
-      color: #fbbf24;
+      width: 26px;
+      font-size: 1.2rem;
+      color: #ffbd39;
     }
     .sidebar-nav .nav-link:hover,
     .sidebar-nav .nav-link.active {
-      background: #fbbf24;
+      background: #ffbd39;
       color: #000;
     }
-    .sidebar-nav .nav-link:hover i {
+    .sidebar-nav .nav-link:hover i,
+    .sidebar-nav .nav-link.active i {
       color: #000;
     }
     .main-content {
       margin-left: 280px;
       transition: margin-left 0.3s;
     }
-    /* responsive top bar */
+    /* mobile header */
     .mobile-header {
       display: none;
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      background: #0a0a0f;
-      z-index: 1040;
-      padding: 14px 24px;
-      border-bottom: 1px solid rgba(251, 191, 36, 0.3);
+      background: #0a0a0a;
+      z-index: 1050;
+      padding: 12px 20px;
+      border-bottom: 1px solid rgba(255,189,57,0.3);
     }
     .menu-btn {
-      background: none;
+      background: transparent;
       border: none;
       font-size: 28px;
-      color: #fbbf24;
+      color: #ffbd39;
     }
-
-    /* hero */
+    /* Hero section - inspired by sadhanapanthi, square image */
     .hero-section {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      background: radial-gradient(circle at 10% 20%, #101016, #030303);
-      padding: 5rem 0;
+      position: relative;
+      background: radial-gradient(circle at 20% 30%, #0f0f0f, #0a0a0a);
+      padding: 4rem 0;
+    }
+    .hero-image-wrapper {
+      text-align: center;
+      margin-bottom: 2rem;
     }
     .hero-square-img {
-      width: 170px;
-      height: 170px;
+      width: 180px;
+      height: 180px;
       object-fit: cover;
-      border-radius: 32px;
-      border: 3px solid rgba(251, 191, 36, 0.5);
+      border: 3px solid rgba(255, 189, 57, 0.4);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.4);
+      border-radius: 24px;
       transition: all 0.3s ease;
-      box-shadow: 0 25px 35px -12px black;
     }
     .hero-square-img:hover {
-      border-color: #fbbf24;
+      border-color: #ffbd39;
       transform: scale(1.02);
     }
     .hero-content h1 {
-      font-size: 3.6rem;
-      font-weight: 800;
-      letter-spacing: -1px;
-      background: linear-gradient(120deg, #ffffff, #fbbf24);
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 30%, #ffbd39 80%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-    .btn-outline-gold {
+    .hero-content .highlight {
+      color: #ffbd39;
+      border-bottom: 2px solid #ffbd39;
+      display: inline-block;
+    }
+    .btn-custom {
       background: transparent;
-      border: 2px solid #fbbf24;
-      color: #fbbf24;
-      padding: 12px 34px;
+      border: 2px solid #ffbd39;
+      color: #ffbd39;
+      padding: 12px 32px;
       border-radius: 50px;
       font-weight: 600;
-      transition: 0.25s;
+      transition: all 0.3s;
+      margin: 0 8px;
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      text-decoration: none;
     }
-    .btn-outline-gold:hover, .btn-gold-solid {
-      background: #fbbf24;
+    .btn-custom:hover, .btn-custom-gold {
+      background: #ffbd39;
       color: #000;
-      border-color: #fbbf24;
+      border-color: #ffbd39;
       transform: translateY(-3px);
-      box-shadow: 0 12px 20px -10px rgba(251, 191, 36, 0.4);
+      box-shadow: 0 10px 20px rgba(255,189,57,0.2);
     }
     .section-padding {
       padding: 5rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     .section-title {
       font-size: 2.2rem;
@@ -199,486 +197,441 @@
       margin-bottom: 2rem;
       position: relative;
       display: inline-block;
+      color: #fff;
     }
     .section-title:after {
       content: '';
       position: absolute;
-      bottom: -10px;
+      bottom: -12px;
       left: 0;
       width: 70px;
       height: 3px;
-      background: #fbbf24;
-      border-radius: 4px;
+      background: #ffbd39;
+      border-radius: 3px;
     }
-    /* skills modern chips */
-    .skill-chip {
-      background: #14141c;
-      border: 1px solid #2a2a32;
-      padding: 0.6rem 1.4rem;
+    /* Skills tags */
+    .skills-writing-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+    .skill-tag {
+      background: #161616;
+      border: 1px solid #2e2e2e;
+      padding: 0.6rem 1.3rem;
       border-radius: 60px;
       font-size: 0.9rem;
       font-weight: 500;
+      color: #ddd;
       transition: all 0.2s;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
-    .skill-chip i, .skill-chip .devicon {
+    .skill-tag i, .skill-tag .devicon {
       font-size: 1.2rem;
-      color: #fbbf24;
+      color: #ffbd39;
     }
-    .skill-chip:hover {
-      border-color: #fbbf24;
-      background: #1e1e28;
+    .skill-tag:hover {
+      border-color: #ffbd39;
+      background: #202020;
       transform: translateY(-2px);
     }
-    .service-tag-modern {
-      background: #0f0f16;
-      border: 1px solid #2a2a30;
+    .skill-category h4 {
+      color: #ffbd39;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 1.2rem;
+    }
+    /* Service lists - clean handwriting style, no boxes */
+    .service-list-wrapper {
+      background: transparent;
+      border-radius: 0;
+      padding: 0;
+      margin-top: 1rem;
+    }
+    .service-heading {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #ffbd39;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.2px;
+      border-left: 3px solid #ffbd39;
+      padding-left: 15px;
+    }
+    .service-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .service-item-tag {
+      background: #111;
+      border: 1px solid #2a2a2a;
+      padding: 0.8rem 1.5rem;
       border-radius: 60px;
-      padding: 0.7rem 1.6rem;
+      font-size: 0.95rem;
       font-weight: 500;
+      color: #ddd;
       transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
     }
-    .service-tag-modern:hover {
-      border-color: #fbbf24;
-      background: #18181f;
+    .service-item-tag i, .service-item-tag .devicon {
+      font-size: 1.3rem;
+      color: #ffbd39;
     }
-    .project-card {
-      background: #0d0d12;
-      border-radius: 1.75rem;
+    .service-item-tag:hover {
+      border-color: #ffbd39;
+      background: #1a1a1a;
+      transform: translateY(-2px);
+    }
+    /* Blog cards */
+    .blog-card-2025 {
+      background: #111;
+      border-radius: 24px;
       overflow: hidden;
-      transition: 0.3s ease;
-      border: 1px solid #202026;
+      transition: 0.3s;
       height: 100%;
+      border: 1px solid #222;
     }
-    .project-card:hover {
-      border-color: #fbbf24;
-      transform: translateY(-6px);
+    .blog-card-2025:hover {
+      border-color: #ffbd39;
+      transform: translateY(-5px);
     }
-    .project-img {
+    .blog-img {
       height: 190px;
       background-size: cover;
       background-position: center;
-      background-color: #1f1f2a;
     }
-    .blog-card {
-      background: #0b0b10;
-      border-radius: 1.5rem;
-      transition: 0.2s;
-      border: 1px solid #202026;
-      height: 100%;
-    }
-    .blog-card:hover {
-      border-color: #fbbf24;
-      transform: translateY(-4px);
-    }
-    .form-control-custom {
-      background: #111117;
-      border: 1px solid #2c2c36;
-      border-radius: 60px;
+    .contact-form input, .contact-form textarea {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 30px;
       padding: 12px 20px;
       color: white;
       width: 100%;
     }
-    .form-control-custom:focus {
-      border-color: #fbbf24;
-      outline: none;
-      box-shadow: none;
-    }
-    .social-icon {
-      background: #14141c;
+    .footer-social a {
+      background: #1a1a1a;
       width: 44px;
       height: 44px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      margin: 0 6px;
+      margin: 0 8px;
       transition: 0.2s;
-      color: #fbbf24;
-      font-size: 1.2rem;
+      color: #ffbd39;
     }
-    .social-icon:hover {
-      background: #fbbf24;
+    .footer-social a:hover {
+      background: #ffbd39;
       color: #000;
       transform: translateY(-3px);
     }
-    .toast-message {
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #fbbf24;
-      color: #0a0a0a;
-      padding: 12px 28px;
-      border-radius: 60px;
-      font-weight: 600;
-      z-index: 9999;
-      animation: fadeOut 3s forwards;
-    }
-    @keyframes fadeOut {
-      0% { opacity: 1; bottom: 30px; }
-      70% { opacity: 1; }
-      100% { opacity: 0; visibility: hidden; }
-    }
     @media (max-width: 992px) {
-      .sidebar { width: 260px; }
-      .main-content { margin-left: 260px; }
+      .sidebar { width: 250px; }
+      .main-content { margin-left: 250px; }
     }
     @media (max-width: 768px) {
       .sidebar { transform: translateX(-100%); width: 270px; }
       .sidebar.open { transform: translateX(0); }
       .mobile-header { display: flex; align-items: center; justify-content: space-between; }
-      .main-content { margin-left: 0; padding-top: 80px; }
+      .main-content { margin-left: 0; padding-top: 70px; }
       .hero-content h1 { font-size: 2.2rem; }
+      .hero-square-img { width: 130px; height: 130px; border-radius: 18px; }
+    }
+    .toast-custom {
+      position: fixed;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffbd39;
+      color: #000;
+      padding: 12px 26px;
+      border-radius: 60px;
+      font-weight: 500;
+      z-index: 9999;
+      animation: fadeOut 3s forwards;
+    }
+    @keyframes fadeOut {
+      0% { opacity: 1; bottom: 25px; }
+      70% { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
     }
   </style>
 </head>
 <body>
 
-<!-- Mobile header -->
+<!-- Mobile Header -->
 <div class="mobile-header">
   <button class="menu-btn" id="mobileMenuToggle"><i class="fas fa-bars"></i></button>
-  <span class="gold-text font-weight-bold" style="font-size: 1.3rem;">Subina Thapa</span>
+  <span class="text-gold font-weight-bold" style="font-size:1.3rem;">Subina Thapa</span>
   <div></div>
 </div>
 
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="profile-sidebar">
-    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Subina Thapa" onerror="this.src='https://via.placeholder.com/130x130?text=ST'">
+    <img src="images/gggg.jpg" alt="Subina" onerror="this.src='https://via.placeholder.com/130x130?text=ST'">
     <h3>Subina Thapa</h3>
-    <p class="gold-text mb-0">Full Stack Flutter Dev</p>
+    <p>Full Stack Flutter Developer</p>
   </div>
   <ul class="sidebar-nav">
-    <li><a href="#home" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
-    <li><a href="#about" class="nav-link"><i class="fas fa-user"></i><span>About</span></a></li>
-    <li><a href="#services" class="nav-link"><i class="fas fa-concierge-bell"></i><span>Services</span></a></li>
-    <li><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i><span>Projects</span></a></li>
-    <li><a href="#blogs" class="nav-link"><i class="fab fa-medium"></i><span>Blogs</span></a></li>
-    <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+    <li class="nav-item"><a href="#home" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+    <li class="nav-item"><a href="#about" class="nav-link"><i class="fas fa-user"></i><span>About</span></a></li>
+    <li class="nav-item"><a href="#myapps" class="nav-link"><i class="fas fa-mobile-alt"></i><span>My Apps</span></a></li>
+    <li class="nav-item"><a href="#skills" class="nav-link"><i class="fas fa-code"></i><span>Skills</span></a></li>
+    <li class="nav-item"><a href="#services" class="nav-link"><i class="fas fa-concierge-bell"></i><span>Services</span></a></li>
+    <li class="nav-item"><a href="#programming" class="nav-link"><i class="fas fa-laptop-code"></i><span>Programming</span></a></li>
+    <li class="nav-item"><a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i><span>Education</span></a></li>
+    <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-project-diagram"></i><span>Projects</span></a></li>
+    <li class="nav-item"><a href="#blogs" class="nav-link"><i class="fab fa-medium"></i><span>Blogs</span></a></li>
+    <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
   </ul>
-  <div class="mt-5 pt-3 text-center small text-muted">✨ 13+ projects</div>
 </div>
 
-<main class="main-content">
-  <!-- Hero Section -->
+<div class="main-content">
+  <!-- HERO SECTION with square image like reference -->
   <section id="home" class="hero-section">
     <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-5 text-center text-lg-start mb-4 mb-lg-0">
-          <img class="hero-square-img" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Subina" onerror="this.src='https://via.placeholder.com/170x170'">
-        </div>
-        <div class="col-lg-7 hero-content">
-          <span class="badge mb-3 px-3 py-2" style="background:#fbbf241a; color:#fbbf24; border-radius: 40px;">Full Stack ·  Flutter Specialist</span>
+      <div class="hero-image-wrapper">
+        <img class="hero-square-img" src="images/farhinaa.jpg" alt="Subina Thapa" onerror="this.src='https://via.placeholder.com/180x180?text=Subina'">
+      </div>
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-8 hero-content">
+          <span class="badge mb-3" style="background:#ffbd3922; color:#ffbd39; border-radius:40px; padding:6px 18px;"> Full Stack Developer</span>
           <h1>Subina Thapa</h1>
-          <p class="lead mt-3" style="max-width: 550px;">Building high-performance cross-platform apps & scalable backends. Flutter · Django · Next.js.</p>
-          <div class="mt-4 d-flex flex-wrap gap-3">
-            <a href="https://github.com/subinathapa2004" target="_blank" class="btn-outline-gold"><i class="fab fa-github"></i> GitHub</a>
-            <a href="#contact" class="btn-outline-gold btn-gold-solid" style="background:#fbbf24; color:#000; border:none;">Hire Me →</a>
+          <!--p class="lead mt-3" style="font-size:1.4rem;"><span id="typedRole" class="highlight">Flutter & Django </span></p-->
+          <p class="mt-3" style="color:#aaa; max-width: 550px; margin-left: auto; margin-right: auto;">13+ projects delivered. I build high-performance mobile apps, robust backends, and modern web experiences.</p>
+          <div class="mt-5">
+            <a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#contact" class="btn-custom btn-custom-gold" style="background:#ffbd39; color:#000;">Hire Me →</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Section (professional) -->
+  <!-- ABOUT section -->
   <section id="about" class="section-padding">
     <div class="container">
-      <div class="row g-5 align-items-center">
-        <div class="col-md-5">
-          <div class="glass-card p-3" style="border-radius: 2rem;">
-            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="img-fluid rounded-4 w-100" style="border-radius: 1.5rem!important;" alt="Subina about">
-          </div>
+      <div class="row">
+        <div class="col-md-5 mb-4">
+          <img src="images/gggg.jpg" class="img-fluid rounded shadow-lg" alt="profile" style="border-radius: 32px;" onerror="this.src='https://via.placeholder.com/400x400'">
         </div>
         <div class="col-md-7">
           <h2 class="section-title">About Me</h2>
-          <p class="mt-3 fs-5">I'm Subina Thapa, a dedicated Full Stack Flutter Developer from Kathmandu, Nepal. With over 13 real-world projects, I merge creative UI/UX with robust backend logic. I specialize in cross-platform mobile apps, Django REST APIs, and modern web solutions.</p>
+          <p class="mt-3">Hi! I’m Subina Thapa, a passionate Full Stack Flutter Developer based in Kathmandu. I specialize in mobile & web technologies: Flutter, Dart, Firebase, Django, PostgreSQL. I love building apps that merge creativity with robust functionality.</p>
           <div class="row mt-4">
-            <div class="col-6"><strong><i class="fas fa-user gold-text mr-2"></i> Name:</strong> Subina Thapa</div>
-            <div class="col-6"><strong><i class="fas fa-code gold-text mr-2"></i> Role:</strong> Flutter & Django Expert</div>
-            <div class="col-6 mt-2"><strong><i class="fas fa-envelope gold-text mr-2"></i> Email:</strong> subinathapa5510@gmail.com</div>
-            <div class="col-6 mt-2"><strong><i class="fas fa-map-marker-alt gold-text mr-2"></i> Location:</strong> Kathmandu, Nepal</div>
+            <div class="col-6"><strong>Name:</strong> Subina Thapa</div>
+            <div class="col-6"><strong>Role:</strong> Full Stack Flutter Dev</div>
+            <div class="col-6 mt-2"><strong>Email:</strong> subinathapa5510@gmail.com</div>
+            <div class="col-6 mt-2"><strong>From:</strong> Kathmandu, Nepal</div>
           </div>
-          <div class="mt-4 pt-2"><span class="badge px-4 py-2" style="background:#fbbf2422; color:#fbbf24;">🔥 13+ successful projects delivered</span></div>
+          <div class="mt-4"><span class=style="background:#222; color:#ffbd39; padding:10px 18px;"> 13+ Projects Completed</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services Section : clean professional lists -->
-  <section id="services" class="section-padding" style="background:#07070c;">
+  <!-- MY APPS Section -->
+  <section id="myapps" class="section-padding" style="background:#070707;">
     <div class="container">
-      <h2 class="section-title">What I Provide</h2>
-      <p class="mb-5 text-muted">Modern, scalable solutions — full-cycle development.</p>
-      <div class="row gy-4">
-        <div class="col-md-6">
-          <div class="d-flex align-items-center gap-3 mb-3"><i class="fas fa-mobile-alt fa-2x gold-text"></i><h3 class="h5 mb-0">Frontend & Mobile</h3></div>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="service-tag-modern"><i class="fab fa-flutter"></i> Flutter</span>
-            <span class="service-tag-modern"><i class="devicon-react-original"></i> React</span>
-            <span class="service-tag-modern"><i class="devicon-nextjs-original"></i> Next.js</span>
-            <span class="service-tag-modern"><i class="fab fa-js"></i> JS/TS</span>
-          </div>
+      <h2 class="section-title">My Apps</h2>
+      <div class="row mt-4">
+        <div class="col-md-4 mb-4"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><i class="fas fa-store fa-3x text-gold mb-3"></i><h4>ShopEase</h4><p>Full e‑commerce Flutter app with Firebase auth, cart, realtime updates.</p></div></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><i class="fas fa-cloud-sun fa-3x text-gold mb-3"></i><h4>WeatherNow</h4><p>Real-time weather & location using REST API, beautiful UI.</p></div></div>
+        <div class="col-md-4 mb-4"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><i class="fas fa-tasks fa-3x text-gold mb-3"></i><h4>TaskFlow</h4><p>Productivity app with local storage & notifications.</p></div></div>
+      </div>
+      <div class="text-center mt-2"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold">Explore on GitHub</a></div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION - tag style -->
+  <section id="skills" class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="mb-4" style="color:#aaa;">Technologies I master for modern development</p>
+      <div class="skill-category"><h4><i class="fas fa-mobile-alt text-gold me-2"></i> Mobile & Frontend</h4><div class="skills-writing-container"><span class="skill-tag"><i class="devicon-dart-plain colored"></i> Dart</span><span class="skill-tag"><i class="devicon-flutter-plain colored"></i> Flutter</span><span class="skill-tag"><i class="devicon-react-original colored"></i> React</span><span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span><span class="skill-tag"><i class="devicon-typescript-plain colored"></i> TypeScript</span><span class="skill-tag"><i class="devicon-nextjs-original colored"></i> Next.js</span></div></div>
+      <div class="skill-category"><h4><i class="fas fa-server text-gold me-2"></i> Backend & Database</h4><div class="skills-writing-container"><span class="skill-tag"><i class="devicon-python-plain colored"></i> Python</span><span class="skill-tag"><i class="devicon-django-plain colored"></i> Django</span><span class="skill-tag"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span><span class="skill-tag"><i class="fas fa-fire"></i> Firebase</span><span class="skill-tag"><i class="fas fa-cloud"></i> REST APIs</span></div></div>
+      <div class="skill-category"><h4><i class="fas fa-tools text-gold me-2"></i> Tools & DevOps</h4><div class="skills-writing-container"><span class="skill-tag"><i class="devicon-git-plain colored"></i> Git</span><span class="skill-tag"><i class="devicon-github-original colored"></i> GitHub</span><span class="skill-tag"><i class="fab fa-figma"></i> Figma</span></div></div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION - NO BOXES, clean handwriting style lists -->
+  <section id="services" class="section-padding" style="background:#0d0d0d;">
+    <div class="container">
+      <h2 class="section-title">What I Offer</h2>
+      <p class="mb-4" style="color:#aaa;">Modern, scalable solutions — clean & minimal</p>
+      
+      <!-- Frontend list -->
+      <div class="service-list-wrapper">
+        <div class="service-heading"><i class="fas fa-laptop-code mr-2"></i> Frontend</div>
+        <div class="service-items">
+          <span class="service-item-tag"><i class="fab fa-flutter"></i> Flutter</span>
+          <span class="service-item-tag"><i class="devicon-nextjs-original"></i> Next.js</span>
+          <span class="service-item-tag"><i class="devicon-react-original"></i> React</span>
+          <span class="service-item-tag"><i class="devicon-typescript-plain"></i> TypeScript</span>
         </div>
-        <div class="col-md-6">
-          <div class="d-flex align-items-center gap-3 mb-3"><i class="fas fa-server fa-2x gold-text"></i><h3 class="h5 mb-0">Backend & API</h3></div>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="service-tag-modern"><i class="devicon-django-plain"></i> Django</span>
-            <span class="service-tag-modern"><i class="fas fa-fire"></i> Firebase</span>
-            <span class="service-tag-modern"><i class="fas fa-cloud"></i> REST APIs</span>
-          </div>
+      </div>
+
+      <!-- Backend list -->
+      <div class="service-list-wrapper mt-4">
+        <div class="service-heading"><i class="fas fa-server mr-2"></i> Backend</div>
+        <div class="service-items">
+          <span class="service-item-tag"><i class="devicon-django-plain"></i> Django</span>
+          <span class="service-item-tag"><i class="fas fa-cloud"></i> REST APIs</span>
+          <span class="service-item-tag"><i class="fas fa-fire"></i> Firebase</span>
         </div>
-        <div class="col-md-6">
-          <div class="d-flex align-items-center gap-3 mb-3"><i class="fas fa-database fa-2x gold-text"></i><h3 class="h5 mb-0">Databases</h3></div>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="service-tag-modern"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
-            <span class="service-tag-modern"><i class="fas fa-fire"></i> Firestore</span>
-            <span class="service-tag-modern"><i class="fas fa-database"></i> MySQL</span>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="d-flex align-items-center gap-3 mb-3"><i class="fas fa-tools fa-2x gold-text"></i><h3 class="h5 mb-0">DevOps & Tools</h3></div>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="service-tag-modern"><i class="fab fa-git-alt"></i> Git/GitHub</span>
-            <span class="service-tag-modern"><i class="fab fa-figma"></i> Figma</span>
-            <span class="service-tag-modern"><i class="fas fa-terminal"></i> CI/CD</span>
-          </div>
+      </div>
+
+      <!-- Database list -->
+      <div class="service-list-wrapper mt-4">
+        <div class="service-heading"><i class="fas fa-database mr-2"></i> Database</div>
+        <div class="service-items">
+          <span class="service-item-tag"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
+          <span class="service-item-tag"><i class="fas fa-database"></i> MySQL</span>
+          <span class="service-item-tag"><i class="fas fa-fire"></i> Firestore</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section (Featured) -->
+  <!-- Programming journey -->
+  <section id="programming" class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Programming Journey</h2>
+      <div class="row"><div class="col-md-8"><p class="lead">Started with Python in 2023, then deep-dived into Flutter & full‑stack. Constantly exploring AI & backend technologies. Believer in building real‑world impact.</p></div></div>
+    </div>
+  </section>
+
+  <!-- Education & values -->
+  <section id="education" class="section-padding" style="background:#0c0c0c;">
+    <div class="container">
+      <h2 class="section-title">Education & Values</h2>
+      <div class="row mt-4">
+        <div class="col-md-6"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><h4>BCA (2023-Present)</h4><p>Tribhuvan University, focus on software development.</p><h5 class="mt-3">+2 Computer Science</h5><p>Nepal Kasthamandap College, Management with CS.</p></div></div>
+        <div class="col-md-6"><div class="service-card-modern" style="background:#111; border-radius:24px; padding:1.8rem;"><h4>My Values</h4><ul class="list-unstyled"><li>✓ Integrity & Transparency</li><li>✓ Continuous Learning</li><li>✓ User‑Centric Design</li></ul></div></div>
+      </div>
+      <div class="mt-4"><h5 class="text-gold">Languages:</h5><p>Nepali (native), English (proficient), Hindi (basic)</p></div>
+    </div>
+  </section>
+
+  <!-- Projects -->
   <section id="projects" class="section-padding">
     <div class="container">
-      <h2 class="section-title">Featured Work</h2>
-      <div class="row mt-5">
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="project-card">
-            <div class="project-img" style="background-image: url('https://placehold.co/600x400/1a1a24/fbbf24?text=ShopEase+App');"></div>
-            <div class="p-4"><h4>ShopEase Commerce</h4><p class="text-muted">Flutter + Firebase e‑commerce with real-time cart, auth, and order tracking.</p><span class="gold-text small">Flutter • Firebase</span></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="project-card">
-            <div class="project-img" style="background-image: url('https://placehold.co/600x400/1a1a24/fbbf24?text=MediCare+Clinic');"></div>
-            <div class="p-4"><h4>MediCare Portal</h4><p class="text-muted">Doctor appointment booking system with Django REST & React dashboard.</p><span class="gold-text small">Django • React</span></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="project-card">
-            <div class="project-img" style="background-image: url('https://placehold.co/600x400/1a1a24/fbbf24?text=RealEstate+Hub');"></div>
-            <div class="p-4"><h4>Estatery</h4><p class="text-muted">Modern real estate showcase with property filters, maps, and contact forms.</p><span class="gold-text small">Next.js • SCSS</span></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="project-card">
-            <div class="project-img" style="background-image: url('https://placehold.co/600x400/1a1a24/fbbf24?text=Montessori+Kids');"></div>
-            <div class="p-4"><h4>Little Minds Montessori</h4><p class="text-muted">Interactive school website with enrollment, gallery, and parent portal.</p><span class="gold-text small">Flutter Web • Firebase</span></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="project-card">
-            <div class="project-img" style="background-image: url('https://placehold.co/600x400/1a1a24/fbbf24?text=TaskFlow+App');"></div>
-            <div class="p-4"><h4>TaskFlow Pro</h4><p class="text-muted">Productivity suite with offline storage, push notifications and dark mode.</p><span class="gold-text small">Flutter • Hive</span></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="project-card">
-            <div class="project-img" style="background-image: url('https://placehold.co/600x400/1a1a24/fbbf24?text=Corporate+Site');"></div>
-            <div class="p-4"><h4>NexGen Corporate</h4><p class="text-muted">Company portfolio + lead generation form and admin dashboard.</p><span class="gold-text small">Django • Bootstrap</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="text-center mt-4">
-        <a href="https://github.com/subinathapa2004" target="_blank" class="btn-outline-gold"><i class="fab fa-github"></i> View all on GitHub</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Blogs Section -->
-  <section id="blogs" class="section-padding" style="background:#050508;">
-    <div class="container">
-      <h2 class="section-title">Insights & Articles</h2>
+      <h2 class="section-title">Featured Projects</h2>
       <div class="row mt-4">
-        <div class="col-md-4 mb-4">
-          <a href="https://medium.com/@subinathapa5510/flutter-app-architecture-mvvm-vs-clean-architecture" target="_blank" style="text-decoration: none;">
-            <div class="blog-card p-4">
-              <i class="fab fa-medium fa-2x gold-text mb-3"></i>
-              <h5 class="text-white">Flutter Architecture deep dive</h5>
-              <p class="text-muted small">MVVM vs Clean Architecture — choosing the right pattern for scalable apps.</p>
-              <span class="gold-text">Read more →</span>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-4">
-          <a href="https://medium.com/@subinathapa5510/how-to-become-a-good-coder" target="_blank" style="text-decoration: none;">
-            <div class="blog-card p-4">
-              <i class="fas fa-laptop-code fa-2x gold-text mb-3"></i>
-              <h5 class="text-white">How to become a great coder</h5>
-              <p class="text-muted small">Mindset, consistency, and practical strategies for developers.</p>
-              <span class="gold-text">Read more →</span>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-4">
-          <a href="https://medium.com/@subinathapa5510/bhagavad-gita-wisdom-for-developers" target="_blank" style="text-decoration: none;">
-            <div class="blog-card p-4">
-              <i class="fas fa-peace fa-2x gold-text mb-3"></i>
-              <h5 class="text-white">Gita Wisdom for Devs</h5>
-              <p class="text-muted small">Focus, resilience & detachment from results — ancient wisdom, modern coding.</p>
-              <span class="gold-text">Read more →</span>
-            </div>
-          </a>
-        </div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/AAAAa.png');"></div><div class="p-3"><h4>Clinic Website</h4><p>Healthcare scheduling site.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/cccc.png');"></div><div class="p-3"><h4>Cleaning Website</h4><p>Modern design & pricing.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/mmm.png');"></div><div class="p-3"><h4>Montessori Site</h4><p>Child-friendly interface.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/GGG.png');"></div><div class="p-3"><h4>Real Estate</h4><p>React property showcase.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/jjj.png');"></div><div class="p-3"><h4>Corporate Site</h4><p>Lead generation design.</p></div></div></div>
+        <div class="col-md-4 mb-4"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/ooo.png');"></div><div class="p-3"><h4>E‑commerce App</h4><p>Flutter + Firebase cart.</p></div></div></div>
       </div>
-      <div class="text-center mt-3">
-        <a href="https://medium.com/@subinathapa5510" target="_blank" class="btn-outline-gold"><i class="fab fa-medium"></i> Follow on Medium</a>
-      </div>
+      <div class="text-center mt-4"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold"><i class="fab fa-github"></i> All Projects</a></div>
     </div>
   </section>
 
-  <!-- Contact Section - professional + map + form -->
+  <!-- BLOGS -->
+  <section id="blogs" class="section-padding" style="background:#0d0d0d;">
+    <div class="container">
+      <h2 class="section-title">Recent Writings</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/flutter-app-architecture-mvvm-vs-clean-architecture" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/B.webp');"></div><div class="p-3"><h5 class="text-white">Flutter Architecture</h5><p class="small text-muted">MVVM vs Clean</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/how-to-become-a-good-coder" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/H.png');"></div><div class="p-3"><h5 class="text-white">Become a Good Coder</h5><p class="small text-muted">Mindset & habits</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4"><a href="https://medium.com/@subinathapa5510/bhagavad-gita-wisdom-for-developers" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/yooo.png');"></div><div class="p-3"><h5 class="text-white">Gita Wisdom</h5><p class="small text-muted">Focus & resilience</p><span class="text-gold">Read →</span></div></div></a></div>
+      </div>
+      <div class="text-center mt-3"><a href="https://medium.com/@subinathapa5510" target="_blank" class="btn-custom">More on Medium <i class="fab fa-medium"></i></a></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
   <section id="contact" class="section-padding">
     <div class="container">
-      <h2 class="section-title">Let's work together</h2>
-      <div class="row mt-5">
-        <div class="col-lg-6 mb-4">
-          <div class="glass-card p-4 h-100" style="border-radius: 2rem;">
-            <h4 class="gold-text mb-4"><i class="fas fa-paper-plane"></i> Send a message</h4>
-            <form id="professionalContactForm">
-              <div class="row">
-                <div class="col-6 mb-3"><input type="text" id="contactName" placeholder="Full name *" class="form-control-custom" required></div>
-                <div class="col-6 mb-3"><input type="email" id="contactEmail" placeholder="Email *" class="form-control-custom" required></div>
-              </div>
-              <input type="text" id="contactSubject" placeholder="Subject" class="form-control-custom mb-3">
-              <textarea id="contactMsg" rows="4" placeholder="Tell me about your project..." class="form-control-custom mb-3" style="border-radius: 28px;"></textarea>
-              <button type="submit" class="btn-outline-gold btn-gold-solid w-100" style="background:#fbbf24; border: none; color:#000;"><i class="fas fa-send"></i> Send inquiry</button>
+      <h2 class="section-title">Let's Collaborate</h2>
+      <div class="row mt-4">
+        <div class="col-md-7">
+          <div class="bg-dark p-4 rounded-4" style="border-radius:32px; background:#111; border:1px solid #2a2a2a;">
+            <h4 class="text-gold">Send a Message</h4>
+            <form id="contactFormNew" class="contact-form">
+              <div class="row"><div class="col-6 mb-3"><input type="text" id="nameNew" placeholder="Full Name *" required class="form-control bg-dark text-white border-secondary"></div>
+              <div class="col-6 mb-3"><input type="email" id="emailNew" placeholder="Email *" required class="form-control bg-dark text-white border-secondary"></div></div>
+              <input type="text" id="subjectNew" placeholder="Subject" class="form-control bg-dark text-white border-secondary mb-3">
+              <textarea id="msgNew" rows="5" placeholder="Tell me about your project..." class="form-control bg-dark text-white border-secondary mb-3"></textarea>
+              <button type="submit" class="btn-custom btn-custom-gold w-100"><i class="fas fa-paper-plane"></i> Send Inquiry</button>
             </form>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="glass-card p-4 h-100" style="border-radius: 2rem;">
-            <h4 class="gold-text"><i class="fas fa-address-card"></i> Connect directly</h4>
-            <ul class="list-unstyled mt-4">
-              <li class="mb-3"><i class="fas fa-envelope gold-text fa-fw"></i> subinathapa5510@gmail.com</li>
-              <li class="mb-3"><i class="fas fa-map-marker-alt gold-text fa-fw"></i> Kathmandu, Suyuchatar, Nepal</li>
-              <li class="mb-3"><i class="fab fa-github gold-text fa-fw"></i> github.com/subinathapa2004</li>
-            </ul>
-            <div class="mt-4"><a href="#" id="cvRequestBtn" class="btn-outline-gold w-100 text-center d-block"><i class="fas fa-download"></i> Request CV by email</a></div>
-            <hr class="bg-secondary my-4">
-            <div class="d-flex flex-wrap justify-content-start gap-2 mt-3">
-              <a href="https://github.com/subinathapa2004" class="social-icon"><i class="fab fa-github"></i></a>
-              <a href="https://linkedin.com/in/subina-thapa-6800a934a/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-              <a href="https://x.com/ThapaSubina22" class="social-icon"><i class="fab fa-twitter"></i></a>
-              <a href="https://medium.com/@subinathapa5510" class="social-icon"><i class="fab fa-medium"></i></a>
-              <a href="https://www.youtube.com/@Subina--11-nxx" class="social-icon"><i class="fab fa-youtube"></i></a>
-              <a href="https://www.instagram.com/stories/subinathapa22/" class="social-icon"><i class="fab fa-instagram"></i></a>
-            </div>
-          </div>
-        </div>
+        <div class="col-md-5"><div class="bg-dark p-4 rounded-4" style="background:#111;"><h4 class="text-gold"><i class="fas fa-map-pin"></i> Reach out</h4><p class="mt-3"><i class="fas fa-map-marker-alt text-gold me-2"></i> Kathmandu, Suyuchatar, Nepal</p><p><i class="fas fa-envelope text-gold me-2"></i> subinathapa5510@gmail.com</p><hr><div class="mt-3"><a href="#" id="downloadCvBtnNew" class="btn-custom w-100 text-center"><i class="fas fa-download"></i> Request CV via Email</a></div></div></div>
       </div>
+      <div class="text-center mt-5"><div class="footer-social d-flex justify-content-center flex-wrap"><a href="https://github.com/subinathapa2004"><i class="fab fa-github"></i></a><a href="https://gitlab.com/tsubina57"><i class="fab fa-gitlab"></i></a><a href="https://x.com/ThapaSubina22"><i class="fab fa-twitter"></i></a><a href="https://dev.to/thapasubina22"><i class="fab fa-dev"></i></a><a href="https://medium.com/@subinathapa5510"><i class="fab fa-medium"></i></a><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/"><i class="fab fa-linkedin"></i></a><a href="https://www.facebook.com/subina.thapa.769940"><i class="fab fa-facebook"></i></a><a href="https://www.instagram.com/stories/subinathapa22/"><i class="fab fa-instagram"></i></a><a href="https://www.youtube.com/@Subina--11-nxx"><i class="fab fa-youtube"></i></a></div></div>
     </div>
   </section>
-  <footer class="text-center py-4 border-top border-secondary"><small>© 2025 Subina Thapa — Full Stack Flutter Developer. Built with <i class="fas fa-heart gold-text"></i></small></footer>
-</main>
+  <footer class="text-center py-4 border-top border-secondary"><small>© 2025 Subina Thapa — Full Stack Flutter Developer</small></footer>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   (function(){
-    // sidebar mobile
     const sidebar = document.getElementById('sidebar');
-    const toggleBtn = document.getElementById('mobileMenuToggle');
-    if(toggleBtn){
-      toggleBtn.addEventListener('click', ()=> sidebar.classList.toggle('open'));
-    }
-    document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
-      link.addEventListener('click', ()=>{
-        if(window.innerWidth <= 768) sidebar.classList.remove('open');
-      });
+    const mobileToggle = document.getElementById('mobileMenuToggle');
+    if(mobileToggle) mobileToggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
+    document.querySelectorAll('.sidebar-nav .nav-link').forEach(link=>{
+      link.addEventListener('click', ()=>{ if(window.innerWidth <= 768) sidebar.classList.remove('open'); });
     });
-    // smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
       anchor.addEventListener('click', function(e){
         const hash = this.getAttribute('href');
         if(hash === "#") return;
         const target = document.querySelector(hash);
-        if(target){
-          e.preventDefault();
-          window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
-          history.pushState(null, null, hash);
-        }
+        if(target){ e.preventDefault(); window.scrollTo({top: target.offsetTop - 70, behavior:'smooth'}); history.pushState(null,null,hash); }
       });
     });
-    // Contact form submission (FormSubmit)
-    const contactForm = document.getElementById('professionalContactForm');
-    if(contactForm){
-      contactForm.addEventListener('submit', async(e)=>{
+    const typedSpan = document.getElementById('typedRole');
+    if(typedSpan){
+      const roles = ["Full Stack Flutter Developer", "Flutter & Django Expert", "Mobile & Web Creator"];
+      let i=0,idx=0;
+      function typeEffect(){
+        if(i<roles[idx].length){ typedSpan.innerHTML = roles[idx].substring(0,i+1); i++; setTimeout(typeEffect,100); }
+        else { setTimeout(()=>{ i=0; idx = (idx+1)%roles.length; typedSpan.innerHTML = ""; typeEffect(); },2000); }
+      }
+      typeEffect();
+    }
+    const form = document.getElementById('contactFormNew');
+    if(form){
+      form.addEventListener('submit', async(e)=>{
         e.preventDefault();
-        const name = document.getElementById('contactName').value.trim();
-        const email = document.getElementById('contactEmail').value.trim();
-        const subject = document.getElementById('contactSubject').value.trim() || "Portfolio Contact";
-        const msg = document.getElementById('contactMsg').value.trim();
-        if(!name || !email || !msg){
-          alert("Please fill all required fields (*).");
-          return;
-        }
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('email', email);
-        formData.append('subject', subject);
-        formData.append('message', msg);
-        formData.append('_captcha', 'false');
+        const name = document.getElementById('nameNew').value.trim();
+        const email = document.getElementById('emailNew').value.trim();
+        const subject = document.getElementById('subjectNew').value.trim() || "Portfolio Inquiry";
+        const message = document.getElementById('msgNew').value.trim();
+        if(!name || !email || !message){ alert("Please fill required fields."); return; }
+        const fd = new FormData();
+        fd.append('name',name); fd.append('email',email); fd.append('subject',subject); fd.append('message',message);
+        fd.append('_captcha','false');
         try{
-          const response = await fetch('https://formsubmit.co/ajax/subinathapa5510@gmail.com', { method: 'POST', body: formData });
-          if(response.ok){
-            showToast(`✨ Thanks ${name}! I'll reply within 24h.`);
-            contactForm.reset();
+          const res = await fetch('https://formsubmit.co/ajax/subinathapa5510@gmail.com',{method:'POST', body:fd});
+          if(res.ok){
+            const toast = document.createElement('div'); toast.className='toast-custom'; toast.innerText=`✨ Thanks ${name}, message sent! I'll reply soon.`;
+            document.body.appendChild(toast); form.reset();
+            setTimeout(()=>toast.remove(),3800);
           } else throw new Error();
         } catch(err){
-          showToast(`⚠️ Couldn't send via form. Please email me directly.`, true);
+          const toastErr = document.createElement('div'); toastErr.className='toast-custom'; toastErr.innerText = `⚠️ Could not send. Please email directly.`;
+          document.body.appendChild(toastErr); setTimeout(()=>toastErr.remove(),3500);
         }
       });
     }
-    function showToast(msg, isError = false){
-      const toastDiv = document.createElement('div');
-      toastDiv.className = 'toast-message';
-      toastDiv.style.background = isError ? '#e11d48' : '#fbbf24';
-      toastDiv.style.color = isError ? '#fff' : '#000';
-      toastDiv.innerText = msg;
-      document.body.appendChild(toastDiv);
-      setTimeout(()=> toastDiv.remove(), 4000);
-    }
-    const cvBtn = document.getElementById('cvRequestBtn');
+    const cvBtn = document.getElementById('downloadCvBtnNew');
     if(cvBtn){
-      cvBtn.addEventListener('click', (e)=>{
-        e.preventDefault();
-        window.location.href = "mailto:subinathapa5510@gmail.com?subject=CV%20Request%20from%20Portfolio&body=Hello%20Subina,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20request%20your%20latest%20CV.";
-        showToast("📧 Opening email client to request CV", false);
-      });
+      cvBtn.addEventListener('click', (e)=>{ e.preventDefault(); window.location.href = "mailto:subinathapa5510@gmail.com?subject=CV%20Request%20from%20Portfolio&body=Hello%20Subina,%0D%0A%0D%0AI'd%20like%20to%20request%20your%20professional%20CV."; });
     }
-    // highlight active section
-    const sections = ['home','about','services','projects','blogs','contact'];
-    const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
-    window.addEventListener('scroll', ()=>{
-      let current = '';
-      const scrollPos = window.scrollY + 150;
-      for(let sec of sections){
-        const el = document.getElementById(sec);
-        if(el && el.offsetTop <= scrollPos && el.offsetTop + el.offsetHeight > scrollPos){
-          current = sec;
-          break;
-        }
-      }
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        const href = link.getAttribute('href')?.substring(1);
-        if(href === current) link.classList.add('active');
-      });
-    });
   })();
 </script>
 </body>
