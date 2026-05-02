@@ -146,7 +146,7 @@
       color: #ffbd39;
       cursor: pointer;
     }
-    /* Hero section - enhanced for project showcase */
+    /* Hero section */
     .hero-section {
       min-height: 100vh;
       display: flex;
@@ -201,44 +201,6 @@
     .btn-primary-custom:hover {
       background: #e6a800;
       transform: translateY(-3px);
-    }
-    /* Hero project counter - new enhanced card */
-    .hero-project-showcase {
-      margin-top: 2.5rem;
-      display: inline-flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.8rem;
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(10px);
-      border-radius: 70px;
-      padding: 0.8rem 2rem;
-      border: 1px solid rgba(255,189,57,0.35);
-      width: auto;
-      max-width: 100%;
-    }
-    .project-metric {
-      text-align: center;
-      padding: 0.5rem 1.2rem;
-    }
-    .project-metric .metric-number {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #ffbd39;
-      line-height: 1.2;
-      letter-spacing: 1px;
-    }
-    .project-metric .metric-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      font-weight: 500;
-      letter-spacing: 1.2px;
-      color: #ddd;
-    }
-    .project-metric .small-icon {
-      font-size: 1.4rem;
-      margin-right: 6px;
-      vertical-align: middle;
     }
     .section-padding {
       padding: 5rem 0;
@@ -304,7 +266,7 @@
       letter-spacing: 1px;
       color: #ccc;
     }
-    /* ========== EDUCATION CARD - BEST DESIGN ========== */
+    /* ========== EDUCATION CARD - BEST DESIGN (2-3 LINES WITH LOGO & DETAILS) ========== */
     .education-card {
       background: #111;
       border-radius: 28px;
@@ -427,9 +389,6 @@
       .education-card { flex-direction: column; align-items: center; text-align: center; }
       .edu-logo { margin-bottom: 8px; }
       .edu-row-details { justify-content: center; }
-      .hero-project-showcase { padding: 0.6rem 1rem; gap: 0.8rem; border-radius: 50px; }
-      .project-metric { padding: 0.3rem 0.7rem; }
-      .project-metric .metric-number { font-size: 1.5rem; }
     }
     @media (max-width: 480px) {
       .hero-section { padding: 2rem 0; min-height: auto; }
@@ -437,7 +396,6 @@
       .hero-content h1 { font-size: 1.9rem; }
       .section-title { font-size: 1.6rem; }
       .skill-badge { font-size: 0.75rem; padding: 0.4rem 1rem; }
-      .hero-project-showcase { flex-direction: column; gap: 0.2rem; background: rgba(0,0,0,0.7); }
     }
     .toast-custom {
       position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
@@ -480,7 +438,7 @@
 </div>
 
 <div class="main-content">
-  <!-- HERO - redesigned to highlight 13+ projects vividly -->
+  <!-- HERO -->
   <section id="home" class="hero-section">
     <div class="container">
       <div class="hero-image-wrapper text-center mb-4" data-aos="fade-down">
@@ -488,30 +446,9 @@
       </div>
       <div class="row justify-content-center text-center">
         <div class="col-lg-8 hero-content" data-aos="fade-up">
-          <span class="badge mb-3" style="background:#ffbd3922; color:#ffbd39; border-radius:40px; padding:6px 18px;">⚡ Full Stack Flutter Developer</span>
+          <span class="badge mb-3" style="background:#ffbd3922; color:#ffbd39; border-radius:40px; padding:6px 18px;">Full Stack Flutter Developer</span>
           <h1>Subina Thapa</h1>
           <p class="mt-3" style="color:#e0e0e0; max-width: 650px; margin: auto; font-size:1.2rem;">I build scalable mobile & web apps that help businesses grow, automate, and increase revenue.</p>
-          
-          <!-- Enhanced project stats: 13+ web & app freelance projects completed -->
-          <div class="hero-project-showcase mt-4" data-aos="zoom-in" data-aos-delay="200">
-            <div class="project-metric">
-              <div class="metric-number"><i class="fas fa-mobile-alt small-icon"></i> 13<span>+</span></div>
-              <div class="metric-label">Web & App Projects</div>
-            </div>
-            <div class="project-metric">
-              <div class="metric-number"><i class="fas fa-laptop-code small-icon"></i> 10<span>+</span></div>
-              <div class="metric-label">Production Deploys</div>
-            </div>
-            <div class="project-metric">
-              <div class="metric-number"><i class="fas fa-rocket small-icon"></i> 7<span>+</span></div>
-              <div class="metric-label">Happy Clients</div>
-            </div>
-            <div class="project-metric">
-              <div class="metric-number"><i class="fas fa-tasks small-icon"></i> 100<span>%</span></div>
-              <div class="metric-label">Project Success</div>
-            </div>
-          </div>
-          
           <div class="mt-4">
             <a href="#projects" class="btn-custom btn-primary-custom" style="background:#ffbd39; color:#000;"><i class="fas fa-eye"></i> View Projects</a>
             <a href="#contact" class="btn-custom"><i class="fas fa-rocket"></i> Hire Me →</a>
@@ -521,18 +458,18 @@
     </div>
   </section>
 
-  <!-- TRUST NUMBERS (additional consistency) -->
+  <!-- TRUST NUMBERS -->
   <section class="section-padding" style="padding: 2rem 0 3rem 0;">
     <div class="container">
       <div class="stats-grid">
-        <div class="stat-card" data-aos="zoom-in"><div class="stat-number">13+</div><div class="stat-label">Freelance Projects</div></div>
-        <div class="stat-card" data-aos="zoom-in" data-aos-delay="100"><div class="stat-number">7+</div><div class="stat-label">Satisfied Clients</div></div>
+        <div class="stat-card" data-aos="zoom-in"><div class="stat-number">13+</div><div class="stat-label">Projects Delivered</div></div>
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="100"><div class="stat-number">7+</div><div class="stat-label">Happy Clients</div></div>
         <div class="stat-card" data-aos="zoom-in" data-aos-delay="200"><div class="stat-number">1.5+</div><div class="stat-label">Years Exp</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT section remains same design -->
+  <!-- ABOUT -->
   <section id="about" class="section-padding">
     <div class="container">
       <div class="row align-items-center">
@@ -553,7 +490,7 @@
     </div>
   </section>
 
-  <!-- SERVICES (unchanged) -->
+  <!-- SERVICES -->
   <section id="services" class="section-padding">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Services I Offer</h2>
@@ -568,7 +505,7 @@
     </div>
   </section>
 
-  <!-- SKILLS + EDUCATION (unchanged but stays consistent) -->
+  <!-- SKILLS SECTION + EDUCATION (BEST 2-3 LINES WITH LOGOS) -->
   <section id="skills" class="section-padding" style="background:#0d0d0d; padding-bottom: 3rem;">
     <div class="container">
       <h2 class="section-title">Tech Stack</h2>
@@ -579,10 +516,11 @@
         <div class="skill-group mt-3"><div class="skill-group-title"><i class="fas fa-tools"></i> Tools & Workflow</div><div class="skill-items"><span class="skill-badge"><i class="devicon-git-plain colored"></i> Git</span><span class="skill-badge"><i class="devicon-github-original colored"></i> GitHub</span><span class="skill-badge"><i class="fab fa-figma"></i> Figma</span><span class="skill-badge"><i class="fas fa-cloud"></i> REST APIs</span></div></div>
       </div>
 
-      <!-- EDUCATION SECTION unchanged -->
+      <!-- EDUCATION SECTION: BEST DESIGN with logos (TU, Kasthamandap) & 2-3 lines each -->
       <div class="mt-5" data-aos="fade-up">
         <div class="d-flex align-items-center mb-4"><i class="fas fa-graduation-cap text-gold fa-2x mr-3"></i> <h3 class="mb-0" style="color:#fff; font-weight:600;">Education</h3></div>
         <div class="row">
+          <!-- BCA - Tribhuvan University -->
           <div class="col-md-6 mb-4">
             <div class="education-card">
               <div class="edu-logo"><i class="fas fa-university"></i></div>
@@ -597,6 +535,7 @@
               </div>
             </div>
           </div>
+          <!-- +2 - Nepal Kasthamandap SS College -->
           <div class="col-md-6 mb-4">
             <div class="education-card">
               <div class="edu-logo"><i class="fas fa-school"></i></div>
@@ -611,11 +550,13 @@
               </div>
             </div>
           </div>
+          <!-- SEE (Class 10) -->
           <div class="col-md-6 mb-4 mx-auto">
             <div class="education-card">
               <div class="edu-logo"><i class="fas fa-trophy"></i></div>
               <div class="edu-content">
                 <div class="edu-degree">Secondary Education (SEE) – Class 10</div>
+                <!--div class="edu-institution"><i class="fas fa-graduation-cap"></i> Board of Nepal (Distinction)</div-->
                 <div class="edu-row-details">
                   <span class="edu-badge"><i class="far fa-calendar-alt"></i> 2021</span>
                   <span class="edu-badge"><i class="fas fa-star"></i> GPA: 3.65/4.0 (A+)</span>
@@ -629,21 +570,21 @@
     </div>
   </section>
 
-  <!-- PROJECTS (identical but showcases 13+ projects background) -->
+  <!-- PROJECTS -->
   <section id="projects" class="section-padding">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Featured Projects</h2>
-      <p class="text-center mb-5" style="color:#aaa;">Real solutions. Real impact. Over 13+ freelance deliveries.</p>
+      <p class="text-center mb-5" style="color:#aaa;">Real solutions. Real impact.</p>
       <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up"><div class="project-card"><div class="project-img" style="background-image:url('images/AAAAa.png');"></div><div class="p-3"><h4>Clinic Management System</h4><p>Patient scheduling, digital records, automated reminders.</p><span class="result-badge"><i class="fas fa-chart-line"></i> Live deployment</span><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100"><div class="project-card"><div class="project-img" style="background-image:url('images/cccc.png');"></div><div class="p-3"><h4>Cleaning Service Pro</h4><p>Online booking, dynamic pricing, automated invoicing.</p><span class="result-badge"><i class="fas fa-chart-line"></i> Client success</span><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200"><div class="project-card"><div class="project-img" style="background-image:url('images/mmm.png');"></div><div class="p-3"><h4>Montessori Parent Hub</h4><p>Child progress tracking, daily reports, parent-teacher portal.</p><span class="result-badge"><i class="fas fa-users"></i> 100+ parents</span><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
+        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up"><div class="project-card"><div class="project-img" style="background-image:url('images/AAAAa.png');"></div><div class="p-3"><h4>Clinic Management System</h4><p>Patient scheduling, digital records, automated reminders.</p><span class="result-badge"><i class="fas fa-chart-line"></i> </span><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
+        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100"><div class="project-card"><div class="project-img" style="background-image:url('images/cccc.png');"></div><div class="p-3"><h4>Cleaning Service Pro</h4><p>Online booking, dynamic pricing, automated invoicing.</p><span class="result-badge"><i class="fas fa-chart-line"></i> </span><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
+        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200"><div class="project-card"><div class="project-img" style="background-image:url('images/mmm.png');"></div><div class="p-3"><h4>Montessori Parent Hub</h4><p>Child progress tracking, daily reports, parent-teacher portal.</p><span class="result-badge"><i class="fas fa-users"></i></span><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
       </div>
       <div class="text-center mt-4"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold"><i class="fab fa-github"></i> All Projects →</a></div>
     </div>
   </section>
 
-  <!-- BLOGS and CONTACT unchanged except minor text -->
+  <!-- BLOGS -->
   <section id="blogs" class="section-padding" style="background:#0d0d0d;">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Recent Writings</h2>
@@ -656,7 +597,7 @@
     </div>
   </section>
 
-  <!-- CONTACT SECTION unchanged -->
+  <!-- CONTACT -->
   <section id="contact" class="section-padding">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Start a Project</h2>
@@ -702,9 +643,22 @@
           </div>
         </div>
       </div>
+      <!--div class="text-center mt-5 pt-3" data-aos="fade-up">
+        <div class="footer-social d-flex justify-content-center flex-wrap">
+          <a href="https://github.com/subinathapa2004" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://gitlab.com/tsubina57" target="_blank"><i class="fab fa-gitlab"></i></a>
+          <a href="https://x.com/ThapaSubina22" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://dev.to/thapasubina22" target="_blank"><i class="fab fa-dev"></i></a>
+          <a href="https://medium.com/@subinathapa5510" target="_blank"><i class="fab fa-medium"></i></a>
+          <a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.facebook.com/subina.thapa.769940" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/stories/subinathapa22/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@Subina--11-nxx" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div-->
+      </div>
     </div>
   </section>
-  <footer class="text-center py-4 border-top border-secondary"><small>© 2026 Subina Thapa · Full Stack Flutter Developer | 13+ freelance projects delivered</small></footer>
+  <footer class="text-center py-4 border-top border-secondary"><small>© 2026 Subina Thapa · Full Stack Flutter Developer</small></footer>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
