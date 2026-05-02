@@ -406,6 +406,35 @@
     img { max-width: 100%; height: auto; }
     .blog-img { background-size: cover; background-position: center; height: 190px; background-color: #333; }
     .contact-form .form-control { background: #1a1a1a; border: 1px solid #444; color: white; }
+    .social-block-expanded {
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+    .social-expanded-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.7rem;
+      margin-top: 0.8rem;
+    }
+    .social-expanded-links a {
+      background: #1a1a1a;
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.25s;
+      color: #ffbd39;
+      text-decoration: none;
+      font-size: 1.3rem;
+    }
+    .social-expanded-links a:hover {
+      background: #ffbd39;
+      color: #000;
+      transform: translateY(-4px);
+    }
   </style>
 </head>
 <body>
@@ -481,7 +510,6 @@
             <div class="col-6"><i class="fas fa-check-circle text-gold mr-2"></i> <strong>Name:</strong> Subina Thapa</div>
             <div class="col-6"><i class="fas fa-check-circle text-gold mr-2"></i> <strong>Role:</strong> Full Stack Dev</div>
             <div class="col-6 mt-2"><i class="fas fa-map-marker-alt text-gold mr-2"></i> <strong>Based:</strong> Kathmandu, Nepal</div>
-            <!--div class="col-6 mt-2"><i class="fas fa-graduation-cap text-gold mr-2"></i> <strong>BCA</strong> (2023 - Present)</div-->
           </div>
         </div>
       </div>
@@ -505,9 +533,8 @@
         </div>
         <div class="col-md-6 mb-4" data-aos="fade-left" data-aos-delay="100">
           <div class="edu-card">
-            <!--i class="fas fa-school edu-icon"></i-->
             <div class="edu-degree">+2 (Higher Secondary)</div>
-            <div class="edu-institution"><!--i class="fas fa-building"></i--> Nepal Kasthamandap SS College, Kathmandu</div>
+            <div class="edu-institution"> Nepal Kasthamandap SS College, Kathmandu</div>
             <div class="edu-date"><i class="far fa-calendar-alt"></i> 2021 – 2023</div>
             <div class="edu-grade"><i class="fas fa-chart-line"></i> Grade: A (Major: Management ( Computer Science)</div>
             <p class="mt-3 small text-muted">Studied Computer Science, Mathematics and Economics. Developed foundational programming skills.</p>
@@ -515,25 +542,14 @@
         </div>
         <div class="col-md-6 mb-4 mx-auto" data-aos="fade-up" data-aos-delay="200">
           <div class="edu-card">
-            <!--i class="fas fa-book-open edu-icon"></i-->
             <div class="edu-degree">Secondary Education (SEE) - Class 10</div>
              <div class="edu-date"><i class="far fa-calendar-alt"></i> 2021 </div>
-            <!--div class="edu-institution"><i class="fas fa-graduation-cap"></i> Nepal Education Board</div-->
             <div class="edu-grade"><i class="fas fa-trophy"></i> GPA: 3.65 (A+) · Distinction</div>
             <p class="mt-3 small text-muted">Achieved A+ with excellence in Mathematics, Science & Computer. Recognized for academic consistency.</p>
           </div>
         </div>
-        <!--div class="col-md-6 mb-4 mx-auto" data-aos="fade-up" data-aos-delay="300">
-          <div class="edu-card">
-            <i class="fas fa-laptop-code edu-icon"></i>
-            <div class="edu-degree">Full Stack Specialization</div>
-            <div class="edu-institution">Flutter · Django · REST APIs</div>
-            <div class="edu-grade"><i class="fab fa-flutter"></i> Continuous Learning</div>
-            <p class="mt-3 small text-muted">Constantly upgrading skills through modern development tracks, contributing to 13+ live projects.</p>
-          </div>
-        </div>
       </div>
-      </div-->
+    </div>
   </section>
 
   <!-- SERVICES -->
@@ -591,14 +607,66 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT + ENHANCED SOCIAL BLOCK -->
   <section id="contact" class="section-padding">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Start a Project</h2>
       <p class="text-center mb-4" style="color:#aaa;">Got an idea? Let's turn it into reality.</p>
       <div class="row mt-4 justify-content-center">
-        <div class="col-md-8" data-aos="fade-right"><div class="bg-dark p-4 rounded-4" style="border-radius:32px; background:#111; border:1px solid #2a2a2a;"><h4 class="text-gold">Tell me about your project</h4><form id="contactFormNew" class="contact-form"><div class="row"><div class="col-6 mb-3"><input type="text" id="nameNew" placeholder="Full Name *" required class="form-control bg-dark text-white border-secondary"></div><div class="col-6 mb-3"><input type="email" id="emailNew" placeholder="Email *" required class="form-control bg-dark text-white border-secondary"></div></div><input type="text" id="subjectNew" placeholder="Subject" class="form-control bg-dark text-white border-secondary mb-3"><textarea id="msgNew" rows="5" placeholder="Tell me about your project..." class="form-control bg-dark text-white border-secondary mb-3"></textarea><button type="submit" class="btn-custom btn-custom-gold w-100"><i class="fas fa-paper-plane"></i> Send Message</button></form></div></div>
-        <div class="col-md-4 mt-4 mt-md-0 d-flex align-items-stretch" data-aos="fade-left"><div class="bg-dark p-4 rounded-4 text-center" style="background:#111; width:100%; border:1px solid #2a2a2a;"><i class="fas fa-map-marker-alt fa-2x text-gold mb-3"></i><h5 class="text-gold">Get in Touch</h5><p class="mb-2"><i class="fas fa-map-marker-alt text-gold me-2"></i> Kathmandu, Nepal</p><p class="mb-0"><i class="fas fa-envelope text-gold me-2"></i> subinathapa5510@gmail.com</p><hr class="bg-secondary my-3"><div class="footer-social d-flex justify-content-center flex-wrap"><a href="https://github.com/subinathapa2004" target="_blank"><i class="fab fa-github"></i></a><a href="https://gitlab.com/tsubina57" target="_blank"><i class="fab fa-gitlab"></i></a><a href="https://x.com/ThapaSubina22" target="_blank"><i class="fab fa-twitter"></i></a><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank"><i class="fab fa-linkedin"></i></a><a href="https://www.facebook.com/subina.thapa.769940" target="_blank"><i class="fab fa-facebook"></i></a><a href="https://www.instagram.com/stories/subinathapa22/" target="_blank"><i class="fab fa-instagram"></i></a></div></div></div>
+        <div class="col-md-8" data-aos="fade-right">
+          <div class="bg-dark p-4 rounded-4" style="border-radius:32px; background:#111; border:1px solid #2a2a2a;">
+            <h4 class="text-gold">Tell me about your project</h4>
+            <form id="contactFormNew" class="contact-form">
+              <div class="row">
+                <div class="col-6 mb-3"><input type="text" id="nameNew" placeholder="Full Name *" required class="form-control bg-dark text-white border-secondary"></div>
+                <div class="col-6 mb-3"><input type="email" id="emailNew" placeholder="Email *" required class="form-control bg-dark text-white border-secondary"></div>
+              </div>
+              <input type="text" id="subjectNew" placeholder="Subject" class="form-control bg-dark text-white border-secondary mb-3">
+              <textarea id="msgNew" rows="5" placeholder="Tell me about your project..." class="form-control bg-dark text-white border-secondary mb-3"></textarea>
+              <button type="submit" class="btn-custom btn-custom-gold w-100"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-4 mt-4 mt-md-0 d-flex align-items-stretch" data-aos="fade-left">
+          <div class="bg-dark p-4 rounded-4 text-center" style="background:#111; width:100%; border:1px solid #2a2a2a;">
+            <i class="fas fa-map-marker-alt fa-2x text-gold mb-3"></i>
+            <h5 class="text-gold">Get in Touch</h5>
+            <p class="mb-2"><i class="fas fa-map-marker-alt text-gold me-2"></i> Kathmandu, Nepal</p>
+            <p class="mb-0"><i class="fas fa-envelope text-gold me-2"></i> subinathapa5510@gmail.com</p>
+            <hr class="bg-secondary my-3">
+            <div class="footer-social d-flex justify-content-center flex-wrap">
+              <a href="https://github.com/subinathapa2004" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="https://gitlab.com/tsubina57" target="_blank"><i class="fab fa-gitlab"></i></a>
+              <a href="https://x.com/ThapaSubina22" target="_blank"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.facebook.com/subina.thapa.769940" target="_blank"><i class="fab fa-facebook"></i></a>
+              <a href="https://www.instagram.com/stories/subinathapa22/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <!-- EXPANDED SOCIAL SECTION: All requested links (Dev, Medium, YouTube) + extras -->
+            <div class="social-block-expanded mt-4 pt-2">
+              <p class="text-gold small mb-2"><i class="fas fa-share-alt"></i> More networks</p>
+              <div class="social-expanded-links">
+                <a href="https://dev.to/thapasubina22" target="_blank" title="Dev.to"><i class="fab fa-dev"></i></a>
+                <a href="https://medium.com/@subinathapa5510" target="_blank" title="Medium"><i class="fab fa-medium"></i></a>
+                <a href="https://www.youtube.com/@Subina--11-nxx" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- global social footer row exactly as requested: below both columns but still inside contact section -->
+      <div class="text-center mt-5 pt-3" data-aos="fade-up">
+        <div class="footer-social d-flex justify-content-center flex-wrap">
+          <a href="https://github.com/subinathapa2004" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://gitlab.com/tsubina57" target="_blank"><i class="fab fa-gitlab"></i></a>
+          <a href="https://x.com/ThapaSubina22" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://dev.to/thapasubina22" target="_blank"><i class="fab fa-dev"></i></a>
+          <a href="https://medium.com/@subinathapa5510" target="_blank"><i class="fab fa-medium"></i></a>
+          <a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.facebook.com/subina.thapa.769940" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.instagram.com/stories/subinathapa22/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@Subina--11-nxx" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
     </div>
   </section>
