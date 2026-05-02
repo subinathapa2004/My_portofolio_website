@@ -266,11 +266,11 @@
       letter-spacing: 1px;
       color: #ccc;
     }
-    /* Education Cards condensed style - 1/2 lines */
+    /* Education condensed style - 1/2 lines, exact GPA as requested */
     .education-condensed-wrapper {
       background: #111;
       border-radius: 32px;
-      padding: 1.8rem 1.2rem;
+      padding: 1.8rem 1.5rem;
       border: 1px solid #2a2a2a;
       transition: 0.2s;
     }
@@ -279,7 +279,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: baseline;
-      padding: 0.7rem 0;
+      padding: 0.8rem 0;
       border-bottom: 1px dashed rgba(255,189,57,0.25);
     }
     .edu-condensed-item:last-child {
@@ -289,20 +289,27 @@
       font-weight: 600;
       color: #ffbd39;
       font-size: 1rem;
-      min-width: 210px;
+      min-width: 240px;
     }
     .edu-details {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
+      gap: 1rem;
       align-items: center;
       font-size: 0.85rem;
-      color: #ccc;
+      color: #ddd;
     }
     .edu-details span i {
-      margin-right: 5px;
+      margin-right: 6px;
       color: #ffbd39;
       font-size: 0.8rem;
+    }
+    .gpa-badge {
+      background: rgba(255,189,57,0.12);
+      padding: 3px 10px;
+      border-radius: 40px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
     }
     /* Service, Skill, Project Styles */
     .service-card, .project-card, .blog-card-2025, .skills-simple {
@@ -341,7 +348,7 @@
     .footer-social a:hover { background: #ffbd39; color: #000; transform: translateY(-3px); }
     .contact-form input, .contact-form textarea { background: #1a1a1a; border: 1px solid #333; border-radius: 30px; padding: 12px 20px; color: white; width: 100%; }
     .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #ffbd39; }
-    /* ========== SUPER RESPONSIVE FIXES ========== */
+    /* ========== RESPONSIVE FIXES ========== */
     @media (max-width: 992px) {
       .sidebar { width: 250px; }
       .main-content { margin-left: 250px; }
@@ -364,7 +371,8 @@
       .stat-number { font-size: 1.8rem; }
       .btn-custom { padding: 8px 20px; margin: 5px; font-size: 0.9rem; }
       .edu-degree-name { min-width: 100%; margin-bottom: 5px; }
-      .edu-condensed-item { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .edu-condensed-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .edu-details { gap: 0.6rem; }
     }
     @media (max-width: 480px) {
       .hero-section { padding: 2rem 0; min-height: auto; }
@@ -372,6 +380,7 @@
       .hero-content h1 { font-size: 1.9rem; }
       .section-title { font-size: 1.6rem; }
       .skill-badge { font-size: 0.75rem; padding: 0.4rem 1rem; }
+      .education-condensed-wrapper { padding: 1.2rem; }
     }
     .toast-custom {
       position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
@@ -507,7 +516,7 @@
     </div>
   </section>
 
-  <!-- SKILLS + EDUCATION (1-2 LINES BELOW SKILLS) INTEGRATED AS REQUESTED -->
+  <!-- SKILLS SECTION + EDUCATION COMPACT (with exact GPA as requested: SEE 3.65, NEB 3.55) -->
   <section id="skills" class="section-padding" style="background:#0d0d0d; padding-bottom: 3rem;">
     <div class="container">
       <h2 class="section-title">Tech Stack</h2>
@@ -518,32 +527,35 @@
         <div class="skill-group mt-3"><div class="skill-group-title"><i class="fas fa-tools"></i> Tools & Workflow</div><div class="skill-items"><span class="skill-badge"><i class="devicon-git-plain colored"></i> Git</span><span class="skill-badge"><i class="devicon-github-original colored"></i> GitHub</span><span class="skill-badge"><i class="fab fa-figma"></i> Figma</span><span class="skill-badge"><i class="fas fa-cloud"></i> REST APIs</span></div></div>
       </div>
 
-      <!-- Education condensed below skills: 1-2 lines each with date & score inline -->
+      <!-- Education condensed exactly below skills: showing requested GPAs SEE 3.65, NEB 3.55 -->
       <div class="mt-5" data-aos="fade-up">
         <div class="education-condensed-wrapper">
-          <div class="d-flex align-items-center mb-3"><i class="fas fa-graduation-cap text-gold mr-2 fa-lg"></i> <h5 class="mb-0 text-gold" style="font-weight:600;">Academic Snapshot</h5></div>
+          <div class="d-flex align-items-center mb-3"><i class="fas fa-graduation-cap text-gold mr-2 fa-lg"></i> <h5 class="mb-0 text-gold" style="font-weight:600;">📖 Academic Journey</h5></div>
+          <!-- Bachelor (ongoing) -->
           <div class="edu-condensed-item">
-            <span class="edu-degree-name"> BCA (Bachelor of Computer Applications)</span>
+            <span class="edu-degree-name">🎓 BCA (Bachelor of Computer Applications)</span>
             <div class="edu-details">
               <span><i class="far fa-calendar-alt"></i> Dec 2023 – Present</span>
-              <span><i class="fas fa-star-of-life"></i> Semester 5th </span>
-              <!--span><i class="fas fa-chart-line"></i> GPA: 3.8+</span-->
+              <span><i class="fas fa-star-of-life"></i> Semester 5th</span>
+              <span><i class="fas fa-chart-line"></i> Pursuing</span>
             </div>
           </div>
+          <!-- +2 / NEB Science Stream with GPA 3.55 -->
           <div class="edu-condensed-item">
-            <span class="edu-degree-name"> +2 (Higher Secondary) - Management with CS</span>
+            <span class="edu-degree-name">📘 +2 (NEB) - Higher Secondary (Science)</span>
             <div class="edu-details">
               <span><i class="far fa-calendar-alt"></i> 2021 – 2023</span>
-              <!--span><i class="fas fa-chart-line"></i> Grade: A</span-->
-              <span><i class="fas fa-trophy"></i> Major: Computer Science</span>
+              <span class="gpa-badge"><i class="fas fa-star-of-life"></i> GPA: 3.55/4.0</span>
+              <span><i class="fas fa-flask"></i> Major: Science (CS)</span>
             </div>
           </div>
+          <!-- SEE Class 10 with GPA 3.65 -->
           <div class="edu-condensed-item">
-            <span class="edu-degree-name"> SEE (Class 10) - Distinction</span>
+            <span class="edu-degree-name">🏆 SEE (Class 10) - Distinction</span>
             <div class="edu-details">
               <span><i class="far fa-calendar-alt"></i> 2021</span>
-              <span><i class="fas fa-star"></i> GPA: 3.65 (91.25%)</span>
-              <span><i class="fas fa-medal"></i> Excellence in Math ,Science and computer</span>
+              <span class="gpa-badge"><i class="fas fa-trophy"></i> GPA: 3.65/4.0</span>
+              <span><i class="fas fa-medal"></i> Excellence in Math, Science & Computer</span>
             </div>
           </div>
         </div>
@@ -578,7 +590,7 @@
     </div>
   </section>
 
-  <!-- CONTACT + SOCIAL -->
+  <!-- CONTACT + SOCIAL (fully preserved) -->
   <section id="contact" class="section-padding">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Start a Project</h2>
