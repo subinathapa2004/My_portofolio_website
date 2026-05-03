@@ -4,7 +4,7 @@
   <title>Subina Thapa · Full Stack Flutter Developer</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
-  <meta name="theme-color" content="#0a0a0a">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Full Stack Flutter Developer specializing in Flutter, Django, PostgreSQL. 13+ projects delivered. Hire me for mobile & web apps.">
   <!-- Google Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -15,16 +15,16 @@
   <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    /* ========== GLOBAL RESET - COMPLETE RESPONSIVE FIX ========== */
+    /* ========== GLOBAL RESET - WHITE/BLACK THEME ========== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     body {
-      background: #0a0c10;  /* Deep elegant dark background */
+      background: #ffffff;
       font-family: 'Poppins', sans-serif;
-      color: #eef2ff;
+      color: #111111;
       overflow-x: hidden !important;
       width: 100%;
       max-width: 100%;
@@ -36,21 +36,21 @@
       scroll-behavior: smooth;
     }
     ::selection {
-      background: #5a67d8;  /* Vibrant indigo/gold mix */
+      background: #111111;
       color: #ffffff;
     }
-    /* refined brand color: Electric Indigo and subtle gold accents */
+    /* refined brand color: black & gold/dark accents */
     .text-gold {
-      color: #f0b90b !important;   /* warm gold accent */
+      color: #d4af37 !important;
     }
     .bg-gold {
-      background: linear-gradient(135deg, #5a67d8, #7c3aed) !important;
+      background: #111111 !important;
     }
-    /* Buttons and highlights use fresh gradient */
+    /* Buttons */
     .btn-custom {
       background: transparent;
-      border: 2px solid #5a67d8;
-      color: #5a67d8;
+      border: 2px solid #111111;
+      color: #111111;
       padding: 12px 32px;
       border-radius: 50px;
       font-weight: 600;
@@ -62,38 +62,38 @@
       text-decoration: none;
     }
     .btn-custom:hover, .btn-custom-gold {
-      background: linear-gradient(95deg, #5a67d8, #7c3aed);
-      color: #fff;
-      border-color: transparent;
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
       transform: translateY(-3px);
-      box-shadow: 0 15px 25px -8px rgba(90, 103, 216, 0.4);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
     .btn-primary-custom {
-      background: linear-gradient(95deg, #5a67d8, #7c3aed);
+      background: #111111;
       color: white;
       border: none;
     }
     .btn-primary-custom:hover {
-      background: linear-gradient(95deg, #7c3aed, #5a67d8);
+      background: #333333;
       transform: translateY(-3px);
-      box-shadow: 0 15px 25px -8px rgba(124, 58, 237, 0.5);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
       color: white;
     }
-    /* ========== SIDEBAR refined ========== */
+    /* ========== SIDEBAR - LIGHT MODE ========== */
     .sidebar {
       position: fixed;
       top: 0;
       left: 0;
       width: 280px;
       height: 100vh;
-      background: rgba(8, 10, 18, 0.96);
-      backdrop-filter: blur(6px);
+      background: #ffffff;
+      backdrop-filter: none;
       z-index: 1000;
       padding: 2rem 1rem;
       overflow-y: auto;
-      border-right: 1px solid rgba(90, 103, 216, 0.3);
+      border-right: 1px solid #eaeaea;
       transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      box-shadow: 6px 0 28px rgba(0, 0, 0, 0.5);
+      box-shadow: 2px 0 20px rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
     }
@@ -106,8 +106,8 @@
       height: 110px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #5a67d8;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      border: 3px solid #111111;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
       transition: transform 0.2s;
     }
     .profile-sidebar img:hover {
@@ -115,15 +115,12 @@
     }
     .profile-sidebar h3 {
       font-size: 1.5rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-top: 0.8rem;
-      background: linear-gradient(120deg, #ffffff, #c4b5fd);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: #111111;
     }
     .profile-sidebar p {
-      color: #f0b90b;
+      color: #d4af37;
       font-weight: 500;
       font-size: 0.8rem;
       letter-spacing: 0.5px;
@@ -141,7 +138,7 @@
       align-items: center;
       gap: 14px;
       padding: 0.7rem 1rem;
-      color: #cdd9ff;
+      color: #444444;
       font-size: 0.95rem;
       font-weight: 500;
       border-radius: 40px;
@@ -151,16 +148,16 @@
     .sidebar-nav .nav-link i {
       width: 24px;
       font-size: 1.1rem;
-      color: #5a67d8;
+      color: #111111;
     }
     .sidebar-nav .nav-link:hover,
     .sidebar-nav .nav-link.active {
-      background: rgba(90, 103, 216, 0.2);
-      color: white;
+      background: #f5f5f5;
+      color: #000;
     }
     .sidebar-nav .nav-link:hover i,
     .sidebar-nav .nav-link.active i {
-      color: #f0b90b;
+      color: #d4af37;
     }
     .main-content {
       margin-left: 280px;
@@ -175,17 +172,17 @@
       top: 0;
       left: 0;
       width: 100%;
-      background: #0a0c10f2;
-      backdrop-filter: blur(12px);
+      background: #ffffff;
       z-index: 1050;
       padding: 12px 20px;
-      border-bottom: 1px solid rgba(90, 103, 216, 0.4);
+      border-bottom: 1px solid #eaeaea;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
     }
     .menu-btn {
       background: transparent;
       border: none;
       font-size: 28px;
-      color: #5a67d8;
+      color: #111111;
       cursor: pointer;
     }
     .hero-section {
@@ -193,25 +190,22 @@
       display: flex;
       align-items: center;
       position: relative;
-      background: radial-gradient(circle at 20% 30%, #10131f, #07090e);
+      background: #fafafa;
       padding: 4rem 0;
     }
     .hero-img {
       width: 220px;
       height: 220px;
       object-fit: cover;
-      border: 4px solid #5a67d8;
-      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.6);
+      border: 4px solid #111111;
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.08);
       border-radius: 50%;
       transition: all 0.3s ease;
     }
     .hero-content h1 {
       font-size: 3.8rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #ffffff 20%, #c4b5fd 60%, #f0b90b 90%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: #111111;
     }
     .section-padding {
       padding: 5rem 0;
@@ -222,7 +216,7 @@
       margin-bottom: 2rem;
       position: relative;
       display: inline-block;
-      color: #fff;
+      color: #111111;
     }
     .section-title:after {
       content: '';
@@ -231,7 +225,7 @@
       left: 0;
       width: 70px;
       height: 3px;
-      background: linear-gradient(90deg, #5a67d8, #f0b90b);
+      background: #d4af37;
       border-radius: 3px;
     }
     .title-center {
@@ -242,7 +236,7 @@
       left: 50%;
       transform: translateX(-50%);
     }
-    /* Stats Cards */
+    /* Stats Cards - Light */
     .stats-grid {
       display: flex;
       flex-wrap: wrap;
@@ -251,75 +245,73 @@
       margin-top: 2rem;
     }
     .stat-card {
-      background: rgba(18, 22, 35, 0.8);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(90, 103, 216, 0.4);
+      background: #ffffff;
+      border: 1px solid #eeeeee;
       border-radius: 28px;
       padding: 1.2rem 2rem;
       transition: all 0.3s;
       text-align: center;
       min-width: 160px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     }
     .stat-card:hover {
-      border-color: #f0b90b;
+      border-color: #d4af37;
       transform: translateY(-8px);
-      background: #13182a;
-      box-shadow: 0 15px 30px -12px rgba(90, 103, 216, 0.3);
+      background: #ffffff;
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
     }
     .stat-number {
       font-size: 2.5rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #5a67d8, #f0b90b);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      color: #111111;
       line-height: 1.2;
     }
     .stat-label {
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #b9c7ff;
+      color: #666666;
     }
-    /* Education Cards - refined */
+    /* Education Cards */
     .education-card {
-      background: #10131f;
+      background: #ffffff;
       border-radius: 28px;
       padding: 1.6rem;
-      border: 1px solid #262e44;
+      border: 1px solid #eeeeee;
       transition: all 0.3s;
       height: 100%;
       display: flex;
       gap: 1rem;
       align-items: flex-start;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
     }
     .education-card:hover {
-      border-color: #5a67d8;
+      border-color: #d4af37;
       transform: translateY(-5px);
-      background: #151c2c;
-      box-shadow: 0 18px 30px -12px rgba(0, 0, 0, 0.5);
+      background: #ffffff;
+      box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
     }
     .edu-logo {
       width: 55px;
       height: 55px;
-      background: #1b2138;
+      background: #f5f5f5;
       border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 2rem;
-      border: 1px solid #5a67d866;
+      border: 1px solid #eee;
       flex-shrink: 0;
     }
     .edu-degree {
       font-size: 1.2rem;
       font-weight: 700;
-      color: #f0b90b;
+      color: #d4af37;
       margin-bottom: 4px;
     }
     .edu-institution {
       font-size: 0.85rem;
-      color: #b9c7ff;
+      color: #555555;
       margin-bottom: 6px;
       display: flex;
       align-items: center;
@@ -328,7 +320,7 @@
     }
     .edu-institution i {
       font-size: 0.8rem;
-      color: #5a67d8;
+      color: #111111;
     }
     .edu-row-details {
       display: flex;
@@ -338,33 +330,34 @@
       font-size: 0.75rem;
     }
     .edu-badge {
-      background: rgba(90, 103, 216, 0.18);
+      background: #f5f5f5;
       padding: 3px 10px;
       border-radius: 30px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      color: #c4b5fd;
+      color: #333333;
     }
-    /* service, project cards */
+    /* service, project cards - white */
     .service-card, .project-card, .blog-card-2025 {
-      background: #10131f;
+      background: #ffffff;
       border-radius: 24px;
       transition: all 0.3s;
-      border: 1px solid #262e44;
+      border: 1px solid #eeeeee;
       overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     }
     .service-card { padding: 2rem; text-align: center; height: 100%; }
-    .service-card:hover, .project-card:hover, .blog-card-2025:hover { border-color: #5a67d8; transform: translateY(-6px); background: #151c2c; }
-    .service-icon { font-size: 2.8rem; background: linear-gradient(145deg, #5a67d8, #7c3aed); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 1rem; }
-    .project-img { height: 200px; background-size: cover; background-position: center; background-color: #262e44; border-radius: 24px 24px 0 0; }
+    .service-card:hover, .project-card:hover, .blog-card-2025:hover { border-color: #d4af37; transform: translateY(-6px); background: #ffffff; box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1); }
+    .service-icon { font-size: 2.8rem; color: #111111; margin-bottom: 1rem; }
+    .project-img { height: 200px; background-size: cover; background-position: center; background-color: #f5f5f5; border-radius: 24px 24px 0 0; }
     .project-links { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
-    .project-link { color: #5a67d8; text-decoration: none; font-size: 0.85rem; font-weight: 500; }
-    .project-link:hover { color: #f0b90b; text-decoration: underline; }
-    .result-badge { background: rgba(90, 103, 216, 0.2); color: #c4b5fd; padding: 4px 12px; border-radius: 30px; font-size: 0.75rem; display: inline-block; margin-top: 8px; }
+    .project-link { color: #111111; text-decoration: none; font-size: 0.85rem; font-weight: 500; }
+    .project-link:hover { color: #d4af37; text-decoration: underline; }
+    .result-badge { background: #f5f5f5; color: #333; padding: 4px 12px; border-radius: 30px; font-size: 0.75rem; display: inline-block; margin-top: 8px; }
     .skill-badge {
-      background: #13182a;
-      border: 1px solid #2e3a55;
+      background: #f5f5f5;
+      border: 1px solid #eaeaea;
       padding: 0.5rem 1.2rem;
       border-radius: 60px;
       font-size: 0.85rem;
@@ -372,18 +365,18 @@
       align-items: center;
       gap: 8px;
       transition: 0.2s;
-      color: #e0e7ff;
+      color: #111111;
     }
-    .skill-badge:hover { border-color: #f0b90b; background: #1e2742; transform: translateY(-2px); color: white; }
+    .skill-badge:hover { border-color: #d4af37; background: #ffffff; transform: translateY(-2px); color: #000; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
     .skill-group-title {
       font-size: 1.1rem;
       font-weight: 600;
-      color: #f0b90b;
+      color: #111111;
       margin-bottom: 0.8rem;
       display: flex;
       align-items: center;
       gap: 10px;
-      border-left: 3px solid #5a67d8;
+      border-left: 3px solid #d4af37;
       padding-left: 12px;
     }
     .skill-items {
@@ -392,30 +385,30 @@
       gap: 0.8rem;
     }
     .footer-social a {
-      background: #13182a;
+      background: #f5f5f5;
       width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center;
-      border-radius: 50%; margin: 0 8px; transition: 0.2s; color: #5a67d8; text-decoration: none; font-size: 1.3rem;
+      border-radius: 50%; margin: 0 8px; transition: 0.2s; color: #111111; text-decoration: none; font-size: 1.3rem;
     }
-    .footer-social a:hover { background: linear-gradient(145deg, #5a67d8, #7c3aed); color: #fff; transform: translateY(-4px); }
+    .footer-social a:hover { background: #111111; color: #ffffff; transform: translateY(-4px); }
     .contact-form input, .contact-form textarea {
-      background: #13182a; border: 1px solid #2e3a55; border-radius: 30px; padding: 12px 20px;
-      color: white; width: 100%;
+      background: #fafafa; border: 1px solid #eaeaea; border-radius: 30px; padding: 12px 20px;
+      color: #111111; width: 100%;
     }
-    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #5a67d8; box-shadow: 0 0 0 2px rgba(90,103,216,0.3); }
+    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #111111; box-shadow: 0 0 0 2px rgba(0,0,0,0.05); }
     .bg-dark-custom {
-      background: #10131f;
+      background: #ffffff;
     }
-    .blog-img { background-size: cover; background-position: center; height: 190px; background-color: #222a44; border-radius: 20px 20px 0 0; }
+    .blog-img { background-size: cover; background-position: center; height: 190px; background-color: #f0f0f0; border-radius: 20px 20px 0 0; }
     .social-expanded-links a {
-      background: #13182a; width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center;
-      border-radius: 50%; transition: 0.25s; color: #5a67d8; text-decoration: none; font-size: 1.3rem;
+      background: #f5f5f5; width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 50%; transition: 0.25s; color: #111111; text-decoration: none; font-size: 1.3rem;
     }
-    .social-expanded-links a:hover { background: #5a67d8; color: #fff; transform: translateY(-4px); }
+    .social-expanded-links a:hover { background: #111111; color: #fff; transform: translateY(-4px); }
     .toast-custom {
       position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
-      background: #1f2937; backdrop-filter: blur(12px); color: #f0b90b; padding: 12px 26px; border-radius: 60px;
-      font-weight: 500; z-index: 9999; animation: fadeOut 3s forwards; border-left: 4px solid #5a67d8;
-      max-width: 90%; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      background: #111111; color: #ffffff; padding: 12px 26px; border-radius: 60px;
+      font-weight: 500; z-index: 9999; animation: fadeOut 3s forwards; 
+      max-width: 90%; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
     @keyframes fadeOut { 0% { opacity: 1; bottom: 25px; } 70% { opacity: 1; } 100% { opacity: 0; visibility: hidden; } }
     img { max-width: 100%; height: auto; }
@@ -442,13 +435,15 @@
       .hero-content h1 { font-size: 1.9rem; }
     }
     .rounded-4 { border-radius: 28px; }
+    .text-muted-light { color: #666666; }
+    footer { border-top: 1px solid #eeeeee !important; color: #777; }
   </style>
 </head>
 <body>
 
 <div class="mobile-header">
   <button class="menu-btn" id="mobileMenuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
-  <span class="font-weight-bold" style="background:linear-gradient(95deg,#fff,#5a67d8); -webkit-background-clip:text; background-clip:text; color:transparent; font-size:1.3rem;">Subina Thapa</span>
+  <span class="font-weight-bold" style="color:#111111; font-size:1.3rem;">Subina Thapa</span>
   <div></div>
 </div>
 
@@ -477,9 +472,9 @@
       </div>
       <div class="row justify-content-center text-center">
         <div class="col-lg-8 hero-content" data-aos="fade-up">
-          <span class="badge mb-3" style="background:#5a67d822; color:#c4b5fd; border-radius:40px; padding:6px 18px; border:1px solid #5a67d8;">Full Stack Flutter Developer</span>
+          <span class="badge mb-3" style="background:#f5f5f5; color:#111111; border-radius:40px; padding:6px 18px; border:1px solid #eaeaea;">Full Stack Flutter Developer</span>
           <h1>Subina Thapa</h1>
-          <p class="mt-3" style="color:#cdd9ff; max-width: 650px; margin: auto; font-size:1.2rem;">I build scalable mobile & web apps that help businesses grow, automate, and increase revenue.</p>
+          <p class="mt-3" style="color:#444444; max-width: 650px; margin: auto; font-size:1.2rem;">I build scalable mobile & web apps that help businesses grow, automate, and increase revenue.</p>
           <div class="mt-4">
             <a href="#projects" class="btn-custom btn-primary-custom"><i class="fas fa-eye"></i> View Projects</a>
             <a href="#contact" class="btn-custom"><i class="fas fa-rocket"></i> Hire Me →</a>
@@ -503,12 +498,12 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-md-5 mb-4" data-aos="fade-right">
-          <img src="images/gggg.jpg" class="img-fluid rounded shadow-lg" alt="profile" style="border-radius: 32px; width:100%; border: 1px solid #5a67d8;" onerror="this.src='https://via.placeholder.com/400x400'">
+          <img src="images/gggg.jpg" class="img-fluid rounded shadow-sm" alt="profile" style="border-radius: 32px; width:100%; border: 1px solid #eee;" onerror="this.src='https://via.placeholder.com/400x400'">
         </div>
         <div class="col-md-7" data-aos="fade-left">
           <h2 class="section-title">About Me</h2>
-          <p class="mt-3" style="font-size:1.05rem;">I'm <strong class="text-gold">Subina Thapa</strong> — a Full Stack Developer from Kathmandu, Nepal. I specialize in <strong class="text-gold">Flutter, Django, and PostgreSQL</strong>. I focus on building real-world solutions that improve business performance.</p>
-          <p class="mt-2">With 13+ projects completed, I focus on clean code, seamless UX, and backend scalability.</p>
+          <p class="mt-3" style="font-size:1.05rem; color:#444;">I'm <strong class="text-gold">Subina Thapa</strong> — a Full Stack Developer from Kathmandu, Nepal. I specialize in <strong class="text-gold">Flutter, Django, and PostgreSQL</strong>. I focus on building real-world solutions that improve business performance.</p>
+          <p class="mt-2" style="color:#555;">With 13+ projects completed, I focus on clean code, seamless UX, and backend scalability.</p>
           <div class="row mt-4">
             <div class="col-6"><i class="fas fa-check-circle text-gold mr-2"></i> <strong>Name:</strong> Subina Thapa</div>
             <div class="col-6"><i class="fas fa-check-circle text-gold mr-2"></i> <strong>Role:</strong> Full Stack Dev</div>
@@ -519,33 +514,33 @@
     </div>
   </section>
 
-  <section id="services" class="section-padding">
+  <section id="services" class="section-padding" style="background: #ffffff;">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Services I Offer</h2>
-      <p class="text-center mb-5" style="color:#b9c7ff;">What you can hire me for</p>
+      <p class="text-center mb-5" style="color:#666666;">What you can hire me for</p>
       <div class="row">
-        <div class="col-md-4 mb-4" data-aos="fade-up"><div class="service-card"><i class="fas fa-mobile-alt service-icon"></i><h4 class="text-white">Mobile Apps</h4><p>Cross-platform Flutter apps — iOS & Android.</p></div></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100"><div class="service-card"><i class="fas fa-globe service-icon"></i><h4 class="text-white">Web Apps</h4><p>Responsive, fast web apps with React & Next.js.</p></div></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200"><div class="service-card"><i class="fas fa-server service-icon"></i><h4 class="text-white">Backend APIs</h4><p>Scalable REST APIs with Django & PostgreSQL.</p></div></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300"><div class="service-card"><i class="fas fa-database service-icon"></i><h4 class="text-white">DB Design</h4><p>Efficient PostgreSQL schema & optimization.</p></div></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400"><div class="service-card"><i class="fas fa-rocket service-icon"></i><h4 class="text-white">MVPs for Startups</h4><p>Launch your idea fast with production-ready MVP.</p></div></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up"><div class="service-card"><i class="fas fa-mobile-alt service-icon"></i><h4 style="color:#111;">Mobile Apps</h4><p style="color:#555;">Cross-platform Flutter apps — iOS & Android.</p></div></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100"><div class="service-card"><i class="fas fa-globe service-icon"></i><h4 style="color:#111;">Web Apps</h4><p style="color:#555;">Responsive, fast web apps with React & Next.js.</p></div></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200"><div class="service-card"><i class="fas fa-server service-icon"></i><h4 style="color:#111;">Backend APIs</h4><p style="color:#555;">Scalable REST APIs with Django & PostgreSQL.</p></div></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300"><div class="service-card"><i class="fas fa-database service-icon"></i><h4 style="color:#111;">DB Design</h4><p style="color:#555;">Efficient PostgreSQL schema & optimization.</p></div></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400"><div class="service-card"><i class="fas fa-rocket service-icon"></i><h4 style="color:#111;">MVPs for Startups</h4><p style="color:#555;">Launch your idea fast with production-ready MVP.</p></div></div>
       </div>
     </div>
   </section>
 
-  <section id="skills" class="section-padding" style="background:#0a0d14; padding-bottom: 3rem;">
+  <section id="skills" class="section-padding" style="background:#fafafa; padding-bottom: 3rem;">
     <div class="container">
       <h2 class="section-title">Tech Stack & Education</h2>
-      <p class="mb-4" style="color:#b9c7ff;">Core technologies I work with daily</p>
-      <div class="skills-simple p-4 rounded-4" style="background:#10131f; border:1px solid #262e44;" data-aos="fade-up">
-        <div class="skill-group"><div class="skill-group-title">⚡ Core Stack</div><div class="skill-items"><span class="skill-badge"><i class="devicon-flutter-plain colored"></i> Flutter</span><span class="skill-badge"><i class="devicon-dart-plain colored"></i> Dart</span><span class="skill-badge"><i class="devicon-django-plain colored"></i> Django</span><span class="skill-badge"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span></div></div>
-        <div class="skill-group mt-3"><div class="skill-group-title">🌐 Frontend & More</div><div class="skill-items"><span class="skill-badge"><i class="devicon-react-original colored"></i> React</span><span class="skill-badge"><i class="devicon-nextjs-original colored"></i> Next.js</span><span class="skill-badge"><i class="fas fa-fire"></i> Firebase</span></div></div>
-        <div class="skill-group mt-3"><div class="skill-group-title">🛠️ Tools</div><div class="skill-items"><span class="skill-badge"><i class="devicon-git-plain colored"></i> Git</span><span class="skill-badge"><i class="devicon-github-original colored"></i> GitHub</span><span class="skill-badge"><i class="fab fa-figma"></i> Figma</span></div></div>
+      <p class="mb-4" style="color:#666666;">Core technologies I work with daily</p>
+      <div class="skills-simple p-4 rounded-4" style="background:#ffffff; border:1px solid #eeeeee;" data-aos="fade-up">
+        <div class="skill-group"><div class="skill-group-title">⚡ Core Stack</div><div class="skill-items"><span class="skill-badge"><i class="devicon-flutter-plain colored"></i> Flutter</span><span class="skill-badge"><i class="devicon-dart-plain colored"></i> Dart</span><span class="skill-badge"><i class="devicon-django-plain"></i> Django</span><span class="skill-badge"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span></div></div>
+        <div class="skill-group mt-3"><div class="skill-group-title">🌐 Frontend & More</div><div class="skill-items"><span class="skill-badge"><i class="devicon-react-original colored"></i> React</span><span class="skill-badge"><i class="devicon-nextjs-original"></i> Next.js</span><span class="skill-badge"><i class="fas fa-fire"></i> Firebase</span></div></div>
+        <div class="skill-group mt-3"><div class="skill-group-title">🛠️ Tools</div><div class="skill-items"><span class="skill-badge"><i class="devicon-git-plain colored"></i> Git</span><span class="skill-badge"><i class="devicon-github-original"></i> GitHub</span><span class="skill-badge"><i class="fab fa-figma"></i> Figma</span></div></div>
       </div>
       <div class="mt-5" data-aos="fade-up">
-        <div class="d-flex align-items-center mb-4"><i class="fas fa-graduation-cap" style="color:#5a67d8; font-size:2rem; margin-right:12px;"></i> <h3 class="mb-0" style="color:#fff; font-weight:600;">Education</h3></div>
+        <div class="d-flex align-items-center mb-4"><i class="fas fa-graduation-cap" style="color:#111111; font-size:2rem; margin-right:12px;"></i> <h3 class="mb-0" style="color:#111; font-weight:600;">Education</h3></div>
         <div class="row">
-          <div class="col-md-6 mb-4"><div class="education-card"><div class="edu-logo"><i class="fas fa-university" style="color:#5a67d8;"></i></div><div class="edu-content"><div class="edu-degree">Bachelor of Computer Applications (BCA)</div><div class="edu-institution"><i class="fas fa-map-marker-alt"></i> Tribhuvan University (TU), Nepal</div><div class="edu-row-details"><span class="edu-badge"><i class="far fa-calendar-alt"></i> Dec 2023 – Present</span><span class="edu-badge"><i class="fas fa-star-of-life"></i> Semester 5th</span><span class="edu-badge"><i class="fas fa-code"></i> DSA, Web Tech</span></div></div></div></div>
+          <div class="col-md-6 mb-4"><div class="education-card"><div class="edu-logo"><i class="fas fa-university" style="color:#d4af37;"></i></div><div class="edu-content"><div class="edu-degree">Bachelor of Computer Applications (BCA)</div><div class="edu-institution"><i class="fas fa-map-marker-alt"></i> Tribhuvan University (TU), Nepal</div><div class="edu-row-details"><span class="edu-badge"><i class="far fa-calendar-alt"></i> Dec 2023 – Present</span><span class="edu-badge"><i class="fas fa-star-of-life"></i> Semester 5th</span><span class="edu-badge"><i class="fas fa-code"></i> DSA, Web Tech</span></div></div></div></div>
           <div class="col-md-6 mb-4"><div class="education-card"><div class="edu-logo"><i class="fas fa-school"></i></div><div class="edu-content"><div class="edu-degree">+2 (Higher Secondary) – Management with CS</div><div class="edu-institution"><i class="fas fa-map-marker-alt"></i> Nepal Kasthamandap SS College</div><div class="edu-row-details"><span class="edu-badge"><i class="far fa-calendar-alt"></i> 2021 – 2023</span><span class="edu-badge"><i class="fas fa-chart-line"></i> GPA: 3.55/4.0</span><span class="edu-badge"><i class="fas fa-laptop-code"></i> CS Major</span></div></div></div></div>
           <div class="col-md-6 mb-4 mx-auto"><div class="education-card"><div class="edu-logo"><i class="fas fa-trophy"></i></div><div class="edu-content"><div class="edu-degree">Secondary Education (SEE) – Class 10</div><div class="edu-row-details"><span class="edu-badge"><i class="far fa-calendar-alt"></i> 2021</span><span class="edu-badge"><i class="fas fa-star"></i> GPA: 3.65/4.0 (91.25%)</span><span class="edu-badge"><i class="fas fa-medal"></i> Excellence in Math & CS</span></div></div></div></div>
         </div>
@@ -556,24 +551,24 @@
   <section id="projects" class="section-padding">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Featured Projects</h2>
-      <p class="text-center mb-5" style="color:#b9c7ff;">Real solutions. Real impact.</p>
+      <p class="text-center mb-5" style="color:#666666;">Real solutions. Real impact.</p>
       <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up"><div class="project-card"><div class="project-img" style="background-image:url('images/AAAAa.png');"></div><div class="p-3"><h4 class="text-gold">Clinic Management System</h4><p>Patient scheduling, digital records, automated reminders.</p><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100"><div class="project-card"><div class="project-img" style="background-image:url('images/cccc.png');"></div><div class="p-3"><h4 class="text-gold">Cleaning Service Pro</h4><p>Online booking, dynamic pricing, automated invoicing.</p><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200"><div class="project-card"><div class="project-img" style="background-image:url('images/mmm.png');"></div><div class="p-3"><h4 class="text-gold">Montessori Parent Hub</h4><p>Child progress tracking, daily reports, parent-teacher portal.</p><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
+        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up"><div class="project-card"><div class="project-img" style="background-image:url('images/AAAAa.png');"></div><div class="p-3"><h4 style="color:#d4af37;">Clinic Management System</h4><p style="color:#555;">Patient scheduling, digital records, automated reminders.</p><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
+        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100"><div class="project-card"><div class="project-img" style="background-image:url('images/cccc.png');"></div><div class="p-3"><h4 style="color:#d4af37;">Cleaning Service Pro</h4><p style="color:#555;">Online booking, dynamic pricing, automated invoicing.</p><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
+        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200"><div class="project-card"><div class="project-img" style="background-image:url('images/mmm.png');"></div><div class="p-3"><h4 style="color:#d4af37;">Montessori Parent Hub</h4><p style="color:#555;">Child progress tracking, daily reports, parent-teacher portal.</p><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
       </div>
       <div class="text-center mt-4"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-gold"><i class="fab fa-github"></i> All Projects →</a></div>
     </div>
   </section>
 
-  <section id="blogs" class="section-padding" style="background:#0a0d14;">
+  <section id="blogs" class="section-padding" style="background:#fafafa;">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Recent Writings</h2>
-      <p class="text-center mb-5" style="color:#b9c7ff;">Sharing knowledge from my journey</p>
+      <p class="text-center mb-5" style="color:#666666;">Sharing knowledge from my journey</p>
       <div class="row">
-        <div class="col-md-4 mb-4" data-aos="fade-up"><a href="https://medium.com/@subinathapa5510/flutter-app-architecture-mvvm-vs-clean-architecture-complete-guide-for-developers-5389449359fa" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/B.webp');"></div><div class="p-3"><h5 class="text-white">Flutter Architecture</h5><p class="small text-muted">MVVM vs Clean — Complete Guide</p><span class="text-gold">Read →</span></div></div></a></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100"><a href="https://medium.com/@subinathapa5510/how-to-become-a-good-coder-a-step-by-step-guide-8af94c4b9bf4" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/H.png');"></div><div class="p-3"><h5 class="text-white">Become a Good Coder</h5><p class="small text-muted">Step‑by‑step guide</p><span class="text-gold">Read →</span></div></div></a></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200"><a href="https://medium.com/@subinathapa5510/the-timeless-wisdom-of-the-bhagavad-gita-190cfe6b685d" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/yooo.png');"></div><div class="p-3"><h5 class="text-white">Bhagavad Gita Wisdom</h5><p class="small text-muted">Timeless lessons for developers</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up"><a href="https://medium.com/@subinathapa5510/flutter-app-architecture-mvvm-vs-clean-architecture-complete-guide-for-developers-5389449359fa" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/B.webp');"></div><div class="p-3"><h5 style="color:#111;">Flutter Architecture</h5><p class="small text-muted-light">MVVM vs Clean — Complete Guide</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100"><a href="https://medium.com/@subinathapa5510/how-to-become-a-good-coder-a-step-by-step-guide-8af94c4b9bf4" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/H.png');"></div><div class="p-3"><h5 style="color:#111;">Become a Good Coder</h5><p class="small text-muted-light">Step‑by‑step guide</p><span class="text-gold">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200"><a href="https://medium.com/@subinathapa5510/the-timeless-wisdom-of-the-bhagavad-gita-190cfe6b685d" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/yooo.png');"></div><div class="p-3"><h5 style="color:#111;">Bhagavad Gita Wisdom</h5><p class="small text-muted-light">Timeless lessons for developers</p><span class="text-gold">Read →</span></div></div></a></div>
       </div>
     </div>
   </section>
@@ -581,14 +576,14 @@
   <section id="contact" class="section-padding">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Start a Project</h2>
-      <p class="text-center mb-4" style="color:#b9c7ff;">Got an idea? Let's turn it into reality.</p>
+      <p class="text-center mb-4" style="color:#666666;">Got an idea? Let's turn it into reality.</p>
       <div class="row mt-4 justify-content-center">
-        <div class="col-md-8" data-aos="fade-right"><div class="bg-dark-custom p-4 rounded-4" style="border:1px solid #262e44;"><h4 class="text-gold">Tell me about your project</h4><form id="contactFormNew" class="contact-form"><div class="row"><div class="col-6 mb-3"><input type="text" id="nameNew" placeholder="Full Name *" required class="form-control bg-dark text-white border-secondary"></div><div class="col-6 mb-3"><input type="email" id="emailNew" placeholder="Email *" required class="form-control bg-dark text-white border-secondary"></div></div><input type="text" id="subjectNew" placeholder="Subject" class="form-control bg-dark text-white border-secondary mb-3"><textarea id="msgNew" rows="5" placeholder="Tell me about your project..." class="form-control bg-dark text-white border-secondary mb-3"></textarea><button type="submit" class="btn-custom btn-custom-gold w-100"><i class="fas fa-paper-plane"></i> Send Message</button></form></div></div>
-        <div class="col-md-4 mt-4 mt-md-0" data-aos="fade-left"><div class="bg-dark-custom p-4 rounded-4 text-center" style="border:1px solid #262e44; height:100%;"><i class="fas fa-map-marker-alt fa-2x text-gold mb-3"></i><h5 class="text-gold">Get in Touch</h5><p class="mb-2"><i class="fas fa-map-marker-alt text-gold me-2"></i> Kathmandu, Nepal</p><hr class="bg-secondary my-3"><div class="footer-social d-flex justify-content-center flex-wrap"><a href="https://github.com/subinathapa2004" target="_blank"><i class="fab fa-github"></i></a><a href="https://gitlab.com/tsubina57" target="_blank"><i class="fab fa-gitlab"></i></a><a href="https://x.com/ThapaSubina22" target="_blank"><i class="fab fa-twitter"></i></a><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank"><i class="fab fa-linkedin"></i></a><a href="https://www.facebook.com/subina.thapa.769940" target="_blank"><i class="fab fa-facebook"></i></a><a href="https://www.instagram.com/stories/subinathapa22/" target="_blank"><i class="fab fa-instagram"></i></a></div><div class="social-block-expanded mt-3"><p class="text-gold small mb-2"><i class="fas fa-share-alt"></i> More networks</p><div class="social-expanded-links d-flex justify-content-center gap-2"><a href="https://dev.to/thapasubina22" target="_blank"><i class="fab fa-dev"></i></a><a href="https://medium.com/@subinathapa5510" target="_blank"><i class="fab fa-medium"></i></a><a href="https://www.youtube.com/@Subina--11-nxx" target="_blank"><i class="fab fa-youtube"></i></a></div></div></div></div>
+        <div class="col-md-8" data-aos="fade-right"><div class="bg-dark-custom p-4 rounded-4" style="border:1px solid #eeeeee;"><h4 class="text-gold">Tell me about your project</h4><form id="contactFormNew" class="contact-form"><div class="row"><div class="col-6 mb-3"><input type="text" id="nameNew" placeholder="Full Name *" required class="form-control"></div><div class="col-6 mb-3"><input type="email" id="emailNew" placeholder="Email *" required class="form-control"></div></div><input type="text" id="subjectNew" placeholder="Subject" class="form-control mb-3"><textarea id="msgNew" rows="5" placeholder="Tell me about your project..." class="form-control mb-3"></textarea><button type="submit" class="btn-custom btn-custom-gold w-100"><i class="fas fa-paper-plane"></i> Send Message</button></form></div></div>
+        <div class="col-md-4 mt-4 mt-md-0" data-aos="fade-left"><div class="bg-dark-custom p-4 rounded-4 text-center" style="border:1px solid #eeeeee; height:100%;"><i class="fas fa-map-marker-alt fa-2x text-gold mb-3"></i><h5 class="text-gold">Get in Touch</h5><p class="mb-2" style="color:#555;"><i class="fas fa-map-marker-alt text-gold me-2"></i> Kathmandu, Nepal</p><hr class="my-3" style="background:#eee;"><div class="footer-social d-flex justify-content-center flex-wrap"><a href="https://github.com/subinathapa2004" target="_blank"><i class="fab fa-github"></i></a><a href="https://gitlab.com/tsubina57" target="_blank"><i class="fab fa-gitlab"></i></a><a href="https://x.com/ThapaSubina22" target="_blank"><i class="fab fa-twitter"></i></a><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank"><i class="fab fa-linkedin"></i></a><a href="https://www.facebook.com/subina.thapa.769940" target="_blank"><i class="fab fa-facebook"></i></a><a href="https://www.instagram.com/stories/subinathapa22/" target="_blank"><i class="fab fa-instagram"></i></a></div><div class="social-block-expanded mt-3"><p class="text-gold small mb-2"><i class="fas fa-share-alt"></i> More networks</p><div class="social-expanded-links d-flex justify-content-center gap-2"><a href="https://dev.to/thapasubina22" target="_blank"><i class="fab fa-dev"></i></a><a href="https://medium.com/@subinathapa5510" target="_blank"><i class="fab fa-medium"></i></a><a href="https://www.youtube.com/@Subina--11-nxx" target="_blank"><i class="fab fa-youtube"></i></a></div></div></div></div>
       </div>
     </div>
   </section>
-  <footer class="text-center py-4 border-top" style="border-color:#262e44 !important;"><small>© 2026 Subina Thapa · Full Stack Flutter Developer</small></footer>
+  <footer class="text-center py-4 border-top"><small>© 2026 Subina Thapa · Full Stack Flutter Developer</small></footer>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
