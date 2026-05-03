@@ -503,7 +503,7 @@
     .blog-img { background-size: cover; background-position: center; height: 190px; background-color: #f0f0f0; border-radius: 20px 20px 0 0; }
     .social-block-expanded { margin-top: 1.5rem; width: 100%; }
     .social-expanded-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem; margin-top: 0.8rem; }
-    /* WhatsApp button */
+    /* WhatsApp button - no number visible, just direct chat */
     .whatsapp-float {
       position: fixed;
       bottom: 100px;
@@ -522,6 +522,7 @@
       transition: all 0.3s ease;
       text-decoration: none;
       border: none;
+      cursor: pointer;
     }
     .whatsapp-float:hover {
       transform: scale(1.08);
@@ -737,8 +738,8 @@
   <footer class="text-center py-4 border-top" style="border-color:#eee !important;"><small>© 2026 Subina Thapa · Full Stack Flutter Developer</small></footer>
 </div>
 
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/9779741698460?text=Hello%20Subina%2C%20I%20saw%20your%20portfolio%20and%20I'm%20interested%20in%20working%20with%20you." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+<!-- WhatsApp Floating Button - Direct message, number hidden -->
+<a href="https://wa.me/9779741698460?text=Hello%20Subina%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20opportunity." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
 
