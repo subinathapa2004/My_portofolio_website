@@ -503,6 +503,34 @@
     .blog-img { background-size: cover; background-position: center; height: 190px; background-color: #f0f0f0; border-radius: 20px 20px 0 0; }
     .social-block-expanded { margin-top: 1.5rem; width: 100%; }
     .social-expanded-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem; margin-top: 0.8rem; }
+    /* WhatsApp button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 100px;
+      right: 24px;
+      background-color: #25D366;
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+      z-index: 1100;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border: none;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      background-color: #128C7E;
+      color: white;
+    }
+    body.dark-mode .whatsapp-float {
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    }
     .theme-toggle-btn {
       position: fixed;
       bottom: 24px;
@@ -546,6 +574,11 @@
     }
     body.dark-mode .bg-white {
       background: #1e1e1e !important;
+    }
+    /* Adjust for whatsapp button spacing */
+    @media (max-width: 768px) {
+      .whatsapp-float { bottom: 90px; right: 16px; width: 50px; height: 50px; font-size: 1.8rem; }
+      .theme-toggle-btn { bottom: 20px; right: 16px; width: 48px; height: 48px; font-size: 1.4rem; }
     }
   </style>
 </head>
@@ -663,7 +696,7 @@
     </div>
   </section>
 
-  <!-- PROJECTS & BLOGS (same as original) -->
+  <!-- PROJECTS -->
   <section id="projects" class="section-padding">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Featured Projects</h2>
@@ -677,6 +710,7 @@
     </div>
   </section>
 
+  <!-- BLOGS -->
   <section id="blogs" class="section-padding" style="background:#fefcfc;">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Recent Writings</h2>
@@ -689,7 +723,7 @@
     </div>
   </section>
 
-  <!-- CONTACT section same as before -->
+  <!-- CONTACT -->
   <section id="contact" class="section-padding">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Start a Project</h2>
@@ -702,6 +736,11 @@
   </section>
   <footer class="text-center py-4 border-top" style="border-color:#eee !important;"><small>© 2026 Subina Thapa · Full Stack Flutter Developer</small></footer>
 </div>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/9779741698460?text=Hello%20Subina%2C%20I%20saw%20your%20portfolio%20and%20I'm%20interested%20in%20working%20with%20you." class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
 <div class="theme-toggle-btn" id="darkmodeToggle" aria-label="Dark/Light Mode">
   <i class="fas fa-moon"></i>
