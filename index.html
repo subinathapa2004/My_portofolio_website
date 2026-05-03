@@ -4,7 +4,7 @@
   <title>Subina Thapa · Full Stack Flutter Developer</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#ffffff" id="meta-theme-color">
   <meta name="description" content="Full Stack Flutter Developer specializing in Flutter, Django, PostgreSQL. 13+ projects delivered. Hire me for mobile & web apps.">
   <!-- Google Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
   <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    /* ========== GLOBAL RESET - RED & WHITE THEME ========== */
+    /* ========== BASE LIGHT MODE (RED & WHITE) ========== */
     * {
       margin: 0;
       padding: 0;
@@ -29,6 +29,7 @@
       width: 100%;
       max-width: 100%;
       position: relative;
+      transition: background-color 0.25s ease, color 0.2s ease;
     }
     html {
       overflow-x: hidden !important;
@@ -63,7 +64,7 @@
       padding: 2rem 1rem;
       overflow-y: auto;
       border-right: 1px solid rgba(211, 47, 47, 0.2);
-      transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1), background 0.2s, border-color 0.2s;
       box-shadow: 4px 0 25px rgba(0,0,0,0.05);
       display: flex;
       flex-direction: column;
@@ -85,6 +86,7 @@
       font-weight: 600;
       margin-top: 0.8rem;
       color: #111;
+      transition: color 0.2s;
     }
     .profile-sidebar p {
       color: #d32f2f;
@@ -144,6 +146,7 @@
       padding: 12px 20px;
       border-bottom: 1px solid rgba(211,47,47,0.3);
       box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: background 0.2s, border-color 0.2s;
     }
     .menu-btn {
       background: transparent;
@@ -160,6 +163,7 @@
       position: relative;
       background: linear-gradient(135deg, #fef8f8 0%, #ffffff 100%);
       padding: 4rem 0;
+      transition: background 0.2s;
     }
     .hero-img {
       width: 220px;
@@ -177,6 +181,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      transition: background 0.2s;
     }
     .btn-custom {
       background: transparent;
@@ -219,6 +224,7 @@
       position: relative;
       display: inline-block;
       color: #111;
+      transition: color 0.2s;
     }
     .section-title:after {
       content: '';
@@ -274,8 +280,9 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       color: #555;
+      transition: color 0.2s;
     }
-    /* ========== EDUCATION CARD - RED ACCENTS ========== */
+    /* Education card */
     .education-card {
       background: #ffffff;
       border-radius: 28px;
@@ -359,7 +366,6 @@
     .project-links { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
     .project-link { color: #d32f2f; text-decoration: none; font-size: 0.85rem; font-weight: 500; }
     .project-link:hover { color: #b71c1c; text-decoration: underline; }
-    .result-badge { background: rgba(211,47,47,0.1); color: #d32f2f; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; display: inline-block; margin-top: 8px; }
     .skill-badge { background: #fafafa; border: 1px solid #eaeaea; padding: 0.5rem 1.2rem; border-radius: 60px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; color: #2c2c2c; }
     .skill-badge:hover { border-color: #d32f2f; background: #fff4f4; transform: translateY(-2px); }
     .skill-group-title {
@@ -380,9 +386,87 @@
     }
     .footer-social a { background: #f5f5f5; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; margin: 0 8px; transition: 0.2s; color: #d32f2f; text-decoration: none; }
     .footer-social a:hover { background: #d32f2f; color: #ffffff; transform: translateY(-3px); }
-    .contact-form input, .contact-form textarea { background: #fefefe; border: 1px solid #e0e0e0; border-radius: 30px; padding: 12px 20px; color: #111; width: 100%; }
+    .contact-form input, .contact-form textarea { background: #fefefe; border: 1px solid #e0e0e0; border-radius: 30px; padding: 12px 20px; color: #111; width: 100%; transition: background 0.2s, border 0.2s, color 0.2s; }
     .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #d32f2f; box-shadow: 0 0 0 2px rgba(211,47,47,0.1); }
-    /* responsive fix */
+    /* Dark mode styles */
+    body.dark-mode {
+      background: #121212;
+      color: #e0e0e0;
+    }
+    body.dark-mode .sidebar,
+    body.dark-mode .mobile-header,
+    body.dark-mode .stat-card,
+    body.dark-mode .service-card,
+    body.dark-mode .project-card,
+    body.dark-mode .blog-card-2025,
+    body.dark-mode .skills-simple,
+    body.dark-mode .education-card,
+    body.dark-mode .bg-white,
+    body.dark-mode .contact-form input,
+    body.dark-mode .contact-form textarea,
+    body.dark-mode .skill-badge,
+    body.dark-mode .footer-social a,
+    body.dark-mode .social-expanded-links a {
+      background: #1e1e1e;
+      color: #e0e0e0;
+    }
+    body.dark-mode .sidebar {
+      border-right-color: rgba(211,47,47,0.4);
+      background: #1a1a1a;
+    }
+    body.dark-mode .profile-sidebar h3 {
+      color: #f0f0f0;
+    }
+    body.dark-mode .sidebar-nav .nav-link {
+      color: #cccccc;
+    }
+    body.dark-mode .stat-card,
+    body.dark-mode .service-card,
+    body.dark-mode .project-card,
+    body.dark-mode .blog-card-2025,
+    body.dark-mode .skills-simple,
+    body.dark-mode .education-card {
+      background: #1e1e1e;
+      border-color: #333;
+    }
+    body.dark-mode .section-title {
+      color: #ffffff;
+    }
+    body.dark-mode .stat-label {
+      color: #bbbbbb;
+    }
+    body.dark-mode .edu-institution {
+      color: #bcbcbc;
+    }
+    body.dark-mode .hero-section {
+      background: linear-gradient(135deg, #181818 0%, #121212 100%);
+    }
+    body.dark-mode .hero-content h1 {
+      background: linear-gradient(135deg, #ffffff 30%, #ff6b6b 80%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    body.dark-mode .contact-form input,
+    body.dark-mode .contact-form textarea {
+      background: #252525;
+      border-color: #444;
+      color: #fff;
+    }
+    body.dark-mode .skill-badge {
+      background: #2a2a2a;
+      border-color: #444;
+      color: #ddd;
+    }
+    body.dark-mode .footer-social a,
+    body.dark-mode .social-expanded-links a {
+      background: #2a2a2a;
+      color: #d32f2f;
+    }
+    body.dark-mode .theme-toggle-btn {
+      background: #2a2a2a;
+      color: #ffbd39;
+    }
+    /* Responsive */
     @media (max-width: 992px) {
       .sidebar { width: 250px; }
       .main-content { margin-left: 250px; }
@@ -407,7 +491,6 @@
       .section-padding { padding: 3rem 0; }
       .hero-content h1 { font-size: 1.9rem; }
       .section-title { font-size: 1.6rem; }
-      .skill-badge { font-size: 0.75rem; padding: 0.4rem 1rem; }
     }
     .toast-custom {
       position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
@@ -420,10 +503,50 @@
     .blog-img { background-size: cover; background-position: center; height: 190px; background-color: #f0f0f0; border-radius: 20px 20px 0 0; }
     .social-block-expanded { margin-top: 1.5rem; width: 100%; }
     .social-expanded-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem; margin-top: 0.8rem; }
-    .social-expanded-links a { background: #f5f5f5; width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; transition: 0.25s; color: #d32f2f; text-decoration: none; font-size: 1.3rem; }
-    .social-expanded-links a:hover { background: #d32f2f; color: #ffffff; transform: translateY(-4px); }
-    .bg-dark-custom { background: #ffffff; border: 1px solid #eaeaea; }
-    .border-secondary { border-color: #e0e0e0 !important; }
+    .theme-toggle-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #ffffff;
+      border: 1px solid #d32f2f;
+      width: 52px;
+      height: 52px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 1100;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+      transition: all 0.2s;
+      font-size: 1.6rem;
+      color: #d32f2f;
+    }
+    .theme-toggle-btn:hover {
+      transform: scale(1.05);
+      background: #d32f2f;
+      color: white;
+    }
+    body.dark-mode .theme-toggle-btn {
+      background: #2c2c2c;
+      color: #ffaa33;
+      border-color: #d32f2f;
+    }
+    body.dark-mode .mobile-header {
+      background: #1a1a1a;
+      border-bottom-color: #d32f2f;
+    }
+    body.dark-mode .btn-custom {
+      border-color: #d32f2f;
+      color: #d32f2f;
+    }
+    body.dark-mode .btn-custom:hover {
+      background: #d32f2f;
+      color: white;
+    }
+    body.dark-mode .bg-white {
+      background: #1e1e1e !important;
+    }
   </style>
 </head>
 <body>
@@ -519,7 +642,7 @@
     </div>
   </section>
 
-  <!-- SKILLS SECTION + EDUCATION (Red Theme) -->
+  <!-- SKILLS + EDUCATION -->
   <section id="skills" class="section-padding" style="background:#fefcfc; padding-bottom: 3rem;">
     <div class="container">
       <h2 class="section-title">Tech Stack</h2>
@@ -529,47 +652,18 @@
         <div class="skill-group mt-3"><div class="skill-group-title">Other Technologies</div><div class="skill-items"><span class="skill-badge"><i class="devicon-react-original colored"></i> React</span><span class="skill-badge"><i class="devicon-nextjs-original colored"></i> Next.js</span><span class="skill-badge"><i class="fas fa-fire"></i> Firebase</span></div></div>
         <div class="skill-group mt-3"><div class="skill-group-title">Tools & Workflow</div><div class="skill-items"><span class="skill-badge"><i class="devicon-git-plain colored"></i> Git</span><span class="skill-badge"><i class="devicon-github-original colored"></i> GitHub</span><span class="skill-badge"><i class="fab fa-figma"></i> Figma</span><span class="skill-badge"><i class="fas fa-cloud"></i> REST APIs</span></div></div>
       </div>
-
-      <!-- EDUCATION SECTION: White/Red Theme -->
       <div class="mt-5" data-aos="fade-up">
         <div class="d-flex align-items-center mb-4"><i class="fas fa-graduation-cap text-red fa-2x mr-3"></i> <h3 class="mb-0" style="color:#111; font-weight:600;">Education</h3></div>
         <div class="row">
-          <div class="col-md-6 mb-4">
-            <div class="education-card">
-              <div class="edu-logo"><i class="fas fa-university text-red"></i></div>
-              <div class="edu-content">
-                <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
-                <div class="edu-institution"><i class="fas fa-map-marker-alt"></i> Tribhuvan University (TU), Nepal</div>
-                <div class="edu-row-details"><span class="edu-badge"><i class="far fa-calendar-alt"></i> Dec 2023 – Present</span><span class="edu-badge"><i class="fas fa-star-of-life"></i> Semester 5th</span></div>
-                <div class="edu-row-details"><span class="edu-badge"><i class="fas fa-code"></i> Core: DSA, Web Tech, DBMS</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4">
-            <div class="education-card">
-              <div class="edu-logo"><i class="fas fa-school text-red"></i></div>
-              <div class="edu-content">
-                <div class="edu-degree">+2 (Higher Secondary) – Management with CS</div>
-                <div class="edu-institution"><i class="fas fa-map-marker-alt"></i> Nepal Kasthamandap SS College, Kathmandu</div>
-                <div class="edu-row-details"><span class="edu-badge"><i class="far fa-calendar-alt"></i> 2021 – 2023</span><span class="edu-badge"><i class="fas fa-chart-line"></i> GPA: 3.55/4.0 (88.75%)</span><span class="edu-badge"><i class="fas fa-laptop-code"></i> CS Major</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4 mx-auto">
-            <div class="education-card">
-              <div class="edu-logo"><i class="fas fa-trophy text-red"></i></div>
-              <div class="edu-content">
-                <div class="edu-degree">Secondary Education (SEE) – Class 10</div>
-                <div class="edu-row-details"><span class="edu-badge"><i class="far fa-calendar-alt"></i> 2021</span><span class="edu-badge"><i class="fas fa-star"></i> GPA: 3.65/4.0 (91.25%)</span><span class="edu-badge"><i class="fas fa-medal"></i> Excellence in Math, Science & Computer</span></div>
-              </div>
-            </div>
-          </div>
+          <div class="col-md-6 mb-4"><div class="education-card"><div class="edu-logo"><i class="fas fa-university text-red"></i></div><div class="edu-content"><div class="edu-degree">Bachelor of Computer Applications (BCA)</div><div class="edu-institution"><i class="fas fa-map-marker-alt"></i> Tribhuvan University (TU), Nepal</div><div class="edu-row-details"><span class="edu-badge"><i class="far fa-calendar-alt"></i> Dec 2023 – Present</span><span class="edu-badge"><i class="fas fa-star-of-life"></i> Semester 5th</span></div><div class="edu-row-details"><span class="edu-badge"><i class="fas fa-code"></i> Core: DSA, Web Tech, DBMS</span></div></div></div></div>
+          <div class="col-md-6 mb-4"><div class="education-card"><div class="edu-logo"><i class="fas fa-school text-red"></i></div><div class="edu-content"><div class="edu-degree">+2 (Higher Secondary) – Management with CS</div><div class="edu-institution"><i class="fas fa-map-marker-alt"></i> Nepal Kasthamandap SS College, Kathmandu</div><div class="edu-row-details"><span class="edu-badge"><i class="far fa-calendar-alt"></i> 2021 – 2023</span><span class="edu-badge"><i class="fas fa-chart-line"></i> GPA: 3.55/4.0 (88.75%)</span><span class="edu-badge"><i class="fas fa-laptop-code"></i> CS Major</span></div></div></div></div>
+          <div class="col-md-6 mb-4 mx-auto"><div class="education-card"><div class="edu-logo"><i class="fas fa-trophy text-red"></i></div><div class="edu-content"><div class="edu-degree">Secondary Education (SEE) – Class 10</div><div class="edu-row-details"><span class="edu-badge"><i class="far fa-calendar-alt"></i> 2021</span><span class="edu-badge"><i class="fas fa-star"></i> GPA: 3.65/4.0 (91.25%)</span><span class="edu-badge"><i class="fas fa-medal"></i> Excellence in Math, Science & Computer</span></div></div></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS & BLOGS (same as original) -->
   <section id="projects" class="section-padding">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Featured Projects</h2>
@@ -583,7 +677,6 @@
     </div>
   </section>
 
-  <!-- BLOGS -->
   <section id="blogs" class="section-padding" style="background:#fefcfc;">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Recent Writings</h2>
@@ -596,47 +689,22 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT section same as before -->
   <section id="contact" class="section-padding">
     <div class="container">
       <h2 class="section-title title-center" style="display: block; text-align: center;">Start a Project</h2>
       <p class="text-center mb-4" style="color:#666;">Got an idea? Let's turn it into reality.</p>
       <div class="row mt-4 justify-content-center">
-        <div class="col-md-8" data-aos="fade-right">
-          <div class="bg-white p-4 rounded-4" style="border-radius:32px; background:#ffffff; border:1px solid #eee;">
-            <h4 class="text-red">Tell me about your project</h4>
-            <form id="contactFormNew" class="contact-form">
-              <div class="row"><div class="col-6 mb-3"><input type="text" id="nameNew" placeholder="Full Name *" required class="form-control"></div><div class="col-6 mb-3"><input type="email" id="emailNew" placeholder="Email *" required class="form-control"></div></div>
-              <input type="text" id="subjectNew" placeholder="Subject" class="form-control mb-3">
-              <textarea id="msgNew" rows="5" placeholder="Tell me about your project..." class="form-control mb-3"></textarea>
-              <button type="submit" class="btn-custom btn-custom-gold w-100"><i class="fas fa-paper-plane"></i> Send Message</button>
-            </form>
-          </div>
-        </div>
-        <div class="col-md-4 mt-4 mt-md-0 d-flex align-items-stretch" data-aos="fade-left">
-          <div class="bg-white p-4 rounded-4 text-center" style="background:#ffffff; width:100%; border:1px solid #eee;">
-            <i class="fas fa-map-marker-alt fa-2x text-red mb-3"></i>
-            <h5 class="text-red">Get in Touch</h5>
-            <p class="mb-2"><i class="fas fa-map-marker-alt text-red me-2"></i> Kathmandu, Nepal</p>
-            <hr class="my-3" style="background:#eee;">
-            <div class="footer-social d-flex justify-content-center flex-wrap">
-              <a href="https://github.com/subinathapa2004" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="https://gitlab.com/tsubina57" target="_blank"><i class="fab fa-gitlab"></i></a>
-              <a href="https://x.com/ThapaSubina22" target="_blank"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank"><i class="fab fa-linkedin"></i></a>
-              <a href="https://www.facebook.com/subina.thapa.769940" target="_blank"><i class="fab fa-facebook"></i></a>
-              <a href="https://www.instagram.com/stories/subinathapa22/" target="_blank"><i class="fab fa-instagram"></i></a>
-            </div>
-            <div class="social-block-expanded mt-4 pt-2">
-              <p class="text-red small mb-2"><i class="fas fa-share-alt"></i> More networks</p>
-              <div class="social-expanded-links"><a href="https://dev.to/thapasubina22" target="_blank"><i class="fab fa-dev"></i></a><a href="https://medium.com/@subinathapa5510" target="_blank"><i class="fab fa-medium"></i></a><a href="https://www.youtube.com/@Subina--11-nxx" target="_blank"><i class="fab fa-youtube"></i></a></div>
-            </div>
-          </div>
-        </div>
+        <div class="col-md-8" data-aos="fade-right"><div class="bg-white p-4 rounded-4" style="border-radius:32px; background:#ffffff; border:1px solid #eee;"><h4 class="text-red">Tell me about your project</h4><form id="contactFormNew" class="contact-form"><div class="row"><div class="col-6 mb-3"><input type="text" id="nameNew" placeholder="Full Name *" required class="form-control"></div><div class="col-6 mb-3"><input type="email" id="emailNew" placeholder="Email *" required class="form-control"></div></div><input type="text" id="subjectNew" placeholder="Subject" class="form-control mb-3"><textarea id="msgNew" rows="5" placeholder="Tell me about your project..." class="form-control mb-3"></textarea><button type="submit" class="btn-custom btn-custom-gold w-100"><i class="fas fa-paper-plane"></i> Send Message</button></form></div></div>
+        <div class="col-md-4 mt-4 mt-md-0 d-flex align-items-stretch" data-aos="fade-left"><div class="bg-white p-4 rounded-4 text-center" style="background:#ffffff; width:100%; border:1px solid #eee;"><i class="fas fa-map-marker-alt fa-2x text-red mb-3"></i><h5 class="text-red">Get in Touch</h5><p class="mb-2"><i class="fas fa-map-marker-alt text-red me-2"></i> Kathmandu, Nepal</p><hr class="my-3" style="background:#eee;"><div class="footer-social d-flex justify-content-center flex-wrap"><a href="https://github.com/subinathapa2004" target="_blank"><i class="fab fa-github"></i></a><a href="https://gitlab.com/tsubina57" target="_blank"><i class="fab fa-gitlab"></i></a><a href="https://x.com/ThapaSubina22" target="_blank"><i class="fab fa-twitter"></i></a><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank"><i class="fab fa-linkedin"></i></a><a href="https://www.facebook.com/subina.thapa.769940" target="_blank"><i class="fab fa-facebook"></i></a><a href="https://www.instagram.com/stories/subinathapa22/" target="_blank"><i class="fab fa-instagram"></i></a></div><div class="social-block-expanded mt-4 pt-2"><p class="text-red small mb-2"><i class="fas fa-share-alt"></i> More networks</p><div class="social-expanded-links"><a href="https://dev.to/thapasubina22" target="_blank"><i class="fab fa-dev"></i></a><a href="https://medium.com/@subinathapa5510" target="_blank"><i class="fab fa-medium"></i></a><a href="https://www.youtube.com/@Subina--11-nxx" target="_blank"><i class="fab fa-youtube"></i></a></div></div></div></div>
       </div>
     </div>
   </section>
   <footer class="text-center py-4 border-top" style="border-color:#eee !important;"><small>© 2026 Subina Thapa · Full Stack Flutter Developer</small></footer>
+</div>
+
+<div class="theme-toggle-btn" id="darkmodeToggle" aria-label="Dark/Light Mode">
+  <i class="fas fa-moon"></i>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -644,6 +712,36 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 800, once: true, offset: 100 });
+  
+  // Dark mode logic
+  const toggleBtn = document.getElementById('darkmodeToggle');
+  const body = document.body;
+  const metaTheme = document.getElementById('meta-theme-color');
+  
+  function setTheme(isDark) {
+    if (isDark) {
+      body.classList.add('dark-mode');
+      if(metaTheme) metaTheme.setAttribute('content', '#121212');
+      localStorage.setItem('subinaTheme', 'dark');
+      toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+      body.classList.remove('dark-mode');
+      if(metaTheme) metaTheme.setAttribute('content', '#ffffff');
+      localStorage.setItem('subinaTheme', 'light');
+      toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+  }
+  
+  const savedTheme = localStorage.getItem('subinaTheme');
+  if (savedTheme === 'dark') setTheme(true);
+  else setTheme(false);
+  
+  toggleBtn.addEventListener('click', () => {
+    const isDarkNow = body.classList.contains('dark-mode');
+    setTheme(!isDarkNow);
+  });
+
+  // Sidebar and mobile menu
   (function(){
     const sidebar = document.getElementById('sidebar');
     const toggle = document.getElementById('mobileMenuToggle');
