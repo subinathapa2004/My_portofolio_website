@@ -15,7 +15,7 @@
   <!-- AOS Animation -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    /* ========== BASE LIGHT MODE (BLUE & WHITE) ========== */
+    /* ========== GLOBAL RESET ========== */
     * {
       margin: 0;
       padding: 0;
@@ -29,7 +29,7 @@
       width: 100%;
       max-width: 100%;
       position: relative;
-      transition: background-color 0.25s ease, color 0.2s ease;
+      transition: background-color 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1), color 0.3s ease;
     }
     html {
       overflow-x: hidden !important;
@@ -51,6 +51,102 @@
       border-color: #2563EB;
       color: #ffffff;
     }
+
+    /* ========== HOVER & COLOR ANIMATIONS (BEST EFFECTS) ========== */
+    .btn-custom, .service-card, .project-card, .blog-card-2025, .education-card, .skill-badge, .stat-card, .theme-toggle-btn {
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+    }
+    .btn-custom:hover, .btn-custom-blue:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(37,99,235,0.3);
+      background: #2563EB;
+      color: white;
+      border-color: #2563EB;
+    }
+    .service-card:hover, .project-card:hover, .blog-card-2025:hover, .education-card:hover {
+      border-color: #2563EB;
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 24px 36px rgba(37,99,235,0.15);
+    }
+    .skill-badge:hover {
+      background: #2563EB;
+      color: white !important;
+      transform: translateY(-4px);
+      border-color: #2563EB;
+    }
+    .stat-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      border-color: #2563EB;
+      background: linear-gradient(145deg, #ffffff, #f0f9ff);
+      box-shadow: 0 20px 30px rgba(37,99,235,0.12);
+    }
+    .hero-img {
+      transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+    }
+    .hero-img:hover {
+      transform: scale(1.02) rotate(2deg);
+      box-shadow: 0 30px 45px rgba(37,99,235,0.25);
+      border-color: #60a5fa;
+    }
+    .sidebar-nav .nav-link {
+      transition: all 0.3s ease;
+    }
+    .sidebar-nav .nav-link:hover, .sidebar-nav .nav-link.active {
+      background: linear-gradient(95deg, #2563EB, #3b82f6);
+      color: white;
+      transform: translateX(6px);
+      box-shadow: 0 8px 18px rgba(37,99,235,0.2);
+    }
+    .project-link {
+      transition: all 0.25s;
+    }
+    .project-link:hover {
+      color: #1e40af;
+      transform: translateX(5px);
+      display: inline-block;
+    }
+    .theme-toggle-btn {
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.5, 1.2);
+    }
+    .theme-toggle-btn:hover {
+      transform: scale(1.12) rotate(12deg);
+      background: #2563EB;
+      color: white;
+    }
+    /* gradient text animation */
+    .hero-content h1 {
+      background: linear-gradient(135deg, #111827 20%, #2563EB 70%, #3b82f6 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shimmer 5s linear infinite;
+    }
+    @keyframes shimmer {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    /* pulsate subtle badge */
+    .badge-pulse {
+      animation: softPulse 2s infinite;
+    }
+    @keyframes softPulse {
+      0% { box-shadow: 0 0 0 0 rgba(37,99,235,0.3); }
+      70% { box-shadow: 0 0 0 10px rgba(37,99,235,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,99,235,0); }
+    }
+    /* floating animation for stat numbers */
+    .stat-number {
+      display: inline-block;
+      animation: gentleFloat 3s ease-in-out infinite;
+    }
+    @keyframes gentleFloat {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+      100% { transform: translateY(0px); }
+    }
+
     /* ========== SIDEBAR ========== */
     .sidebar {
       position: fixed;
@@ -64,75 +160,23 @@
       padding: 2rem 1rem;
       overflow-y: auto;
       border-right: 1px solid #E5E7EB;
-      transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1), background 0.2s, border-color 0.2s;
+      transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1), background 0.3s, border-color 0.3s;
       box-shadow: 4px 0 25px rgba(0,0,0,0.05);
       display: flex;
       flex-direction: column;
     }
-    .profile-sidebar {
-      text-align: center;
-      margin-bottom: 1.8rem;
-    }
     .profile-sidebar img {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #2563EB;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: all 0.4s;
     }
-    .profile-sidebar h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-top: 0.8rem;
-      color: #111827;
-      transition: color 0.2s;
-    }
-    .profile-sidebar p {
-      color: #2563EB;
-      font-weight: 400;
-      font-size: 0.8rem;
-    }
-    .sidebar-nav {
-      list-style: none;
-      padding: 0;
-      margin-top: 1rem;
-    }
-    .sidebar-nav .nav-item {
-      margin-bottom: 0.4rem;
-    }
-    .sidebar-nav .nav-link {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 0.6rem 1rem;
-      color: #4b5563;
-      font-size: 0.95rem;
-      font-weight: 500;
-      border-radius: 40px;
-      transition: all 0.25s;
-      text-decoration: none;
-    }
-    .sidebar-nav .nav-link i {
-      width: 24px;
-      font-size: 1.1rem;
-      color: #2563EB;
-    }
-    .sidebar-nav .nav-link:hover,
-    .sidebar-nav .nav-link.active {
-      background: #2563EB;
-      color: #ffffff;
-    }
-    .sidebar-nav .nav-link:hover i,
-    .sidebar-nav .nav-link.active i {
-      color: #ffffff;
+    .profile-sidebar img:hover {
+      transform: scale(1.03);
+      border-color: #60a5fa;
+      box-shadow: 0 15px 30px rgba(37,99,235,0.2);
     }
     .main-content {
       margin-left: 280px;
       transition: margin-left 0.3s;
       overflow-x: hidden !important;
-      width: auto;
-      max-width: 100%;
     }
     /* mobile header */
     .mobile-header {
@@ -145,25 +189,23 @@
       z-index: 1050;
       padding: 12px 20px;
       border-bottom: 1px solid #E5E7EB;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-      transition: background 0.2s, border-color 0.2s;
+      transition: all 0.3s;
     }
-    .menu-btn {
-      background: transparent;
-      border: none;
-      font-size: 28px;
-      color: #2563EB;
-      cursor: pointer;
-    }
-    /* Hero section */
+    /* hero section animated gradient */
     .hero-section {
       min-height: 100vh;
       display: flex;
       align-items: center;
       position: relative;
-      background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
-      padding: 4rem 0;
-      transition: background 0.2s;
+      background: linear-gradient(125deg, #f0f9ff 0%, #ffffff 60%, #eef2ff 100%);
+      background-size: 200% 200%;
+      animation: bgShift 12s ease infinite;
+      transition: background 0.3s;
+    }
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     .hero-img {
       width: 220px;
@@ -172,16 +214,6 @@
       border: 4px solid #2563EB;
       box-shadow: 0 25px 40px rgba(0,0,0,0.1);
       border-radius: 50%;
-      transition: all 0.3s ease;
-    }
-    .hero-content h1 {
-      font-size: 3.8rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #111827 30%, #2563EB 80%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      transition: background 0.2s;
     }
     .btn-custom {
       background: transparent;
@@ -197,22 +229,10 @@
       gap: 10px;
       text-decoration: none;
     }
-    .btn-custom:hover, .btn-custom-blue {
-      background: #2563EB;
-      color: #ffffff;
-      border-color: #2563EB;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(37,99,235,0.2);
-    }
     .btn-primary-custom {
       background: #2563EB;
       color: #ffffff;
       border: none;
-    }
-    .btn-primary-custom:hover {
-      background: #1d4ed8;
-      transform: translateY(-3px);
-      color: #fff;
     }
     .section-padding {
       padding: 5rem 0;
@@ -235,139 +255,29 @@
       height: 3px;
       background: #2563EB;
       border-radius: 3px;
+      transition: width 0.5s;
     }
-    .title-center {
-      text-align: center;
-      display: block;
+    .section-title:hover:after {
+      width: 120px;
     }
-    .title-center:after {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    /* Stats & cards */
-    .stats-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .stat-card {
-      background: #ffffff;
-      backdrop-filter: blur(0px);
-      border: 1px solid #E5E7EB;
-      border-radius: 20px;
-      padding: 1.2rem 2rem;
-      transition: all 0.3s;
-      text-align: center;
-      min-width: 160px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    }
-    .stat-card:hover {
-      border-color: #2563EB;
-      transform: translateY(-8px);
-      background: #f8fafc;
-      box-shadow: 0 12px 24px rgba(37,99,235,0.1);
-    }
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: #2563EB;
-      line-height: 1.2;
-    }
-    .stat-label {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #6b7280;
-      transition: color 0.2s;
-    }
-    /* Education card */
-    .education-card {
+    /* cards */
+    .stat-card, .service-card, .project-card, .blog-card-2025, .education-card, .skills-simple {
       background: #ffffff;
       border-radius: 28px;
-      padding: 1.6rem;
       border: 1px solid #E5E7EB;
-      transition: all 0.3s;
-      height: 100%;
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.2);
     }
-    .education-card:hover {
-      border-color: #2563EB;
-      transform: translateY(-5px);
-      background: #f8fafc;
-      box-shadow: 0 20px 30px rgba(37,99,235,0.08);
-    }
-    .edu-logo {
-      width: 55px;
-      height: 55px;
-      background: #eff6ff;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      border: 1px solid #bfdbfe;
-      flex-shrink: 0;
-    }
-    .edu-content {
-      flex: 1;
-    }
-    .edu-degree {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #2563EB;
-      margin-bottom: 4px;
-    }
-    .edu-institution {
+    .skill-badge {
+      background: #f9fafb;
+      border: 1px solid #E5E7EB;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
       font-size: 0.85rem;
-      color: #6b7280;
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-    .edu-institution i {
-      font-size: 0.8rem;
-      color: #2563EB;
-      width: 18px;
-    }
-    .edu-row-details {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 6px;
-      font-size: 0.75rem;
-    }
-    .edu-badge {
-      background: #eff6ff;
-      padding: 3px 10px;
-      border-radius: 30px;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      color: #2563EB;
+      gap: 8px;
+      transition: 0.25s;
     }
-    .service-card, .project-card, .blog-card-2025, .skills-simple {
-      background: #ffffff;
-      border-radius: 24px;
-      transition: all 0.3s;
-      border: 1px solid #E5E7EB;
-      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
-    }
-    .service-card { padding: 2rem; text-align: center; height: 100%; }
-    .service-card:hover, .project-card:hover, .blog-card-2025:hover { border-color: #2563EB; transform: translateY(-6px); box-shadow: 0 12px 22px rgba(37,99,235,0.08); }
-    .service-icon { font-size: 2.5rem; color: #2563EB; margin-bottom: 1rem; }
-    .project-img { height: 200px; background-size: cover; background-position: center; background-color: #f3f4f6; border-radius: 20px 20px 0 0; }
-    .project-links { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
-    .project-link { color: #2563EB; text-decoration: none; font-size: 0.85rem; font-weight: 500; }
-    .project-link:hover { color: #1d4ed8; text-decoration: underline; }
-    .skill-badge { background: #f9fafb; border: 1px solid #E5E7EB; padding: 0.5rem 1.2rem; border-radius: 60px; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; color: #374151; }
-    .skill-badge:hover { border-color: #2563EB; background: #eff6ff; transform: translateY(-2px); }
     .skill-group-title {
       font-size: 1.1rem;
       font-weight: 600;
@@ -379,19 +289,26 @@
       border-left: 3px solid #2563EB;
       padding-left: 12px;
     }
-    .skill-items {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
+    /* contact form input glow */
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: none;
+      border-color: #2563EB;
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.2);
+      transform: translateY(-1px);
     }
-    .footer-social a { background: #f3f4f6; width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; margin: 0 8px; transition: 0.2s; color: #2563EB; text-decoration: none; }
-    .footer-social a:hover { background: #2563EB; color: #ffffff; transform: translateY(-3px); }
-    .contact-form input, .contact-form textarea { background: #ffffff; border: 1px solid #E5E7EB; border-radius: 30px; padding: 12px 20px; color: #111827; width: 100%; transition: background 0.2s, border 0.2s, color 0.2s; }
-    .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #2563EB; box-shadow: 0 0 0 2px rgba(37,99,235,0.1); }
-    /* Dark mode styles - blue themed */
+    /* dark mode extended animations */
     body.dark-mode {
       background: #0f172a;
       color: #e2e8f0;
+    }
+    body.dark-mode .hero-section {
+      background: linear-gradient(125deg, #0f172a 0%, #1e293b 70%, #0f172a 100%);
+      animation: bgShiftDark 12s ease infinite;
+    }
+    @keyframes bgShiftDark {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     body.dark-mode .sidebar,
     body.dark-mode .mobile-header,
@@ -404,63 +321,25 @@
     body.dark-mode .bg-white,
     body.dark-mode .contact-form input,
     body.dark-mode .contact-form textarea,
-    body.dark-mode .skill-badge,
-    body.dark-mode .footer-social a,
-    body.dark-mode .social-expanded-links a {
+    body.dark-mode .skill-badge {
       background: #1e293b;
       color: #e2e8f0;
-    }
-    body.dark-mode .sidebar {
-      border-right-color: #334155;
-      background: #0f172a;
-    }
-    body.dark-mode .profile-sidebar h3 {
-      color: #f1f5f9;
-    }
-    body.dark-mode .sidebar-nav .nav-link {
-      color: #cbd5e1;
-    }
-    body.dark-mode .stat-card,
-    body.dark-mode .service-card,
-    body.dark-mode .project-card,
-    body.dark-mode .blog-card-2025,
-    body.dark-mode .skills-simple,
-    body.dark-mode .education-card {
-      background: #1e293b;
       border-color: #334155;
     }
-    body.dark-mode .section-title {
-      color: #f1f5f9;
+    body.dark-mode .sidebar {
+      background: #0f172a;
+      border-right-color: #334155;
     }
-    body.dark-mode .stat-label {
-      color: #94a3b8;
-    }
-    body.dark-mode .edu-institution {
-      color: #94a3b8;
-    }
-    body.dark-mode .hero-section {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    body.dark-mode .stat-card:hover {
+      background: #334155;
+      border-color: #60a5fa;
     }
     body.dark-mode .hero-content h1 {
-      background: linear-gradient(135deg, #ffffff 30%, #60a5fa 80%);
+      background: linear-gradient(135deg, #ffffff 20%, #60a5fa 60%, #a5f3fc 100%);
+      background-size: 200% auto;
       -webkit-background-clip: text;
       background-clip: text;
-    }
-    body.dark-mode .contact-form input,
-    body.dark-mode .contact-form textarea {
-      background: #334155;
-      border-color: #475569;
-      color: #f1f5f9;
-    }
-    body.dark-mode .skill-badge {
-      background: #334155;
-      border-color: #475569;
-      color: #cbd5e1;
-    }
-    body.dark-mode .footer-social a,
-    body.dark-mode .social-expanded-links a {
-      background: #334155;
-      color: #60a5fa;
+      animation: shimmer 5s linear infinite;
     }
     body.dark-mode .theme-toggle-btn {
       background: #334155;
@@ -470,82 +349,38 @@
       border-color: #60a5fa;
       color: #60a5fa;
     }
-    body.dark-mode .btn-custom:hover {
-      background: #2563EB;
-      color: white;
-    }
-    body.dark-mode .bg-white {
-      background: #1e293b !important;
-    }
     /* Responsive */
-    @media (max-width: 992px) {
-      .sidebar { width: 250px; }
-      .main-content { margin-left: 250px; }
-      .hero-content h1 { font-size: 3rem; }
-    }
     @media (max-width: 768px) {
-      body, html { overflow-x: hidden; width: 100%; }
-      .sidebar { transform: translateX(-100%); width: 270px; z-index: 2000; background: #ffffff; }
+      .sidebar { transform: translateX(-100%); width: 270px; }
       .sidebar.open { transform: translateX(0); }
-      .mobile-header { display: flex; align-items: center; justify-content: space-between; z-index: 1050; width: 100%; }
-      .main-content { margin-left: 0 !important; padding-top: 70px; width: 100%; overflow-x: hidden; }
-      .container { padding-left: 20px !important; padding-right: 20px !important; max-width: 100%; overflow-x: hidden; }
-      .hero-content h1 { font-size: 2.2rem; }
+      .mobile-header { display: flex; align-items: center; justify-content: space-between; }
+      .main-content { margin-left: 0 !important; padding-top: 70px; width: 100%; }
       .hero-img { width: 140px; height: 140px; }
       .section-title { font-size: 1.9rem; }
-      .education-card { flex-direction: column; align-items: center; text-align: center; }
-      .edu-logo { margin-bottom: 8px; }
-      .edu-row-details { justify-content: center; }
-    }
-    @media (max-width: 480px) {
-      .hero-section { padding: 2rem 0; min-height: auto; }
-      .section-padding { padding: 3rem 0; }
-      .hero-content h1 { font-size: 1.9rem; }
-      .section-title { font-size: 1.6rem; }
     }
     .toast-custom {
       position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%);
       background: #2563EB; color: #ffffff; padding: 12px 26px; border-radius: 60px;
       font-weight: 500; z-index: 9999; animation: fadeOut 3s forwards;
-      max-width: 90%; text-align: center; box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
     }
     @keyframes fadeOut { 0% { opacity: 1; bottom: 25px; } 70% { opacity: 1; } 100% { opacity: 0; visibility: hidden; } }
-    img { max-width: 100%; height: auto; }
-    .blog-img { background-size: cover; background-position: center; height: 190px; background-color: #f3f4f6; border-radius: 20px 20px 0 0; }
-    .social-block-expanded { margin-top: 1.5rem; width: 100%; }
-    .social-expanded-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem; margin-top: 0.8rem; }
     .theme-toggle-btn {
       position: fixed;
       bottom: 24px;
       right: 24px;
       background: #ffffff;
-      border: 1px solid #2563EB;
-      width: 52px;
-      height: 52px;
+      border: 2px solid #2563EB;
+      width: 54px;
+      height: 54px;
       border-radius: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       z-index: 1100;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-      transition: all 0.2s;
       font-size: 1.6rem;
       color: #2563EB;
-    }
-    .theme-toggle-btn:hover {
-      transform: scale(1.05);
-      background: #2563EB;
-      color: white;
-    }
-    body.dark-mode .theme-toggle-btn {
-      background: #334155;
-      color: #fbbf24;
-      border-color: #60a5fa;
-    }
-    body.dark-mode .mobile-header {
-      background: #0f172a;
-      border-bottom-color: #334155;
     }
   </style>
 </head>
@@ -559,7 +394,7 @@
 
 <div class="sidebar" id="sidebar">
   <div class="profile-sidebar">
-    <img src="images/gggg.jpg" alt="Subina" onerror="this.src='https://via.placeholder.com/130x130?text=ST'">
+    <img src="https://via.placeholder.com/130x130?text=ST" alt="Subina" style="border-radius: 50%; width:110px; height:110px;">
     <h3>Subina Thapa</h3>
     <p>Full Stack Flutter Developer</p>
   </div>
@@ -575,19 +410,19 @@
 </div>
 
 <div class="main-content">
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section id="home" class="hero-section">
     <div class="container">
-      <div class="hero-image-wrapper text-center mb-4" data-aos="fade-down">
-        <img class="hero-img" src="images/farhinaa.jpg" alt="Subina Thapa" onerror="this.src='https://via.placeholder.com/220x220?text=Subina'">
+      <div class="hero-image-wrapper text-center mb-4" data-aos="fade-down" data-aos-duration="1000">
+        <img class="hero-img" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Subina Thapa" style="border-radius: 50%;">
       </div>
       <div class="row justify-content-center text-center">
-        <div class="col-lg-8 hero-content" data-aos="fade-up">
-          <span class="badge mb-3" style="background:#dbeafe; color:#2563EB; border-radius:40px; padding:6px 18px;">Full Stack Flutter Developer</span>
+        <div class="col-lg-8 hero-content" data-aos="fade-up" data-aos-duration="1200">
+          <span class="badge mb-3 badge-pulse" style="background:#dbeafe; color:#2563EB; border-radius:40px; padding:6px 18px;">✨ Full Stack Flutter Developer ✨</span>
           <h1>Subina Thapa</h1>
           <p class="mt-3" style="color:#4b5563; max-width: 650px; margin: auto; font-size:1.2rem;">I build scalable mobile & web apps that help businesses grow, automate, and increase revenue.</p>
           <div class="mt-4">
-            <a href="#projects" class="btn-custom btn-primary-custom" style="background:#2563EB; color:#fff;"><i class="fas fa-eye"></i> View Projects</a>
+            <a href="#projects" class="btn-custom btn-primary-custom"><i class="fas fa-eye"></i> View Projects</a>
             <a href="#contact" class="btn-custom"><i class="fas fa-rocket"></i> Hire Me →</a>
           </div>
         </div>
@@ -595,13 +430,13 @@
     </div>
   </section>
 
-  <!-- TRUST NUMBERS -->
+  <!-- STATS -->
   <section class="section-padding" style="padding: 2rem 0 3rem 0;">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card" data-aos="zoom-in"><div class="stat-number">13+</div><div class="stat-label">Projects Delivered</div></div>
-        <div class="stat-card" data-aos="zoom-in" data-aos-delay="100"><div class="stat-number">7+</div><div class="stat-label">Happy Clients</div></div>
-        <div class="stat-card" data-aos="zoom-in" data-aos-delay="200"><div class="stat-number">1.5+</div><div class="stat-label">Years Exp</div></div>
+      <div class="stats-grid d-flex flex-wrap justify-content-center gap-4">
+        <div class="stat-card text-center p-4" data-aos="zoom-in"><div class="stat-number">13+</div><div class="stat-label">Projects Delivered</div></div>
+        <div class="stat-card text-center p-4" data-aos="zoom-in" data-aos-delay="100"><div class="stat-number">7+</div><div class="stat-label">Happy Clients</div></div>
+        <div class="stat-card text-center p-4" data-aos="zoom-in" data-aos-delay="200"><div class="stat-number">1.5+</div><div class="stat-label">Years Exp</div></div>
       </div>
     </div>
   </section>
@@ -610,55 +445,41 @@
   <section id="about" class="section-padding">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-md-5 mb-4" data-aos="fade-right">
-          <img src="images/gggg.jpg" class="img-fluid rounded shadow-lg" alt="profile" style="border-radius: 32px; width:100%; border: 1px solid #E5E7EB;" onerror="this.src='https://via.placeholder.com/400x400'">
-        </div>
+        <div class="col-md-5 mb-4" data-aos="fade-right"><img src="https://randomuser.me/api/portraits/women/68.jpg" class="img-fluid rounded shadow-lg" alt="profile" style="border-radius: 32px; border: 2px solid #E5E7EB;"></div>
         <div class="col-md-7" data-aos="fade-left">
           <h2 class="section-title">About Me</h2>
           <p class="mt-3" style="font-size:1.05rem;">I'm <strong class="text-blue">Subina Thapa</strong> — a Full Stack Developer from Kathmandu, Nepal. I specialize in <strong class="text-blue">Flutter, Django, and PostgreSQL</strong>. I focus on building real-world solutions that improve business performance.</p>
-          <p class="mt-2">With 13+ projects completed, I focus on clean code, seamless UX, and backend scalability.</p>
-          <div class="row mt-4">
-            <div class="col-6"><i class="fas fa-check-circle text-blue mr-2"></i> <strong>Name:</strong> Subina Thapa</div>
-            <div class="col-6"><i class="fas fa-check-circle text-blue mr-2"></i> <strong>Role:</strong> Full Stack Dev</div>
-            <div class="col-6 mt-2"><i class="fas fa-map-marker-alt text-blue mr-2"></i> <strong>Based:</strong> Kathmandu, Nepal</div>
-          </div>
+          <p>With 13+ projects completed, I focus on clean code, seamless UX, and backend scalability.</p>
+          <div class="row mt-4"><div class="col-6"><i class="fas fa-check-circle text-blue mr-2"></i> <strong>Name:</strong> Subina Thapa</div><div class="col-6"><i class="fas fa-check-circle text-blue mr-2"></i> <strong>Role:</strong> Full Stack Dev</div><div class="col-6 mt-2"><i class="fas fa-map-marker-alt text-blue mr-2"></i> <strong>Based:</strong> Kathmandu, Nepal</div></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="section-padding">
+  <section id="services" class="section-padding bg-light bg-opacity-25" style="background:#fefefe;">
     <div class="container">
-      <h2 class="section-title title-center" style="display: block; text-align: center;">Services I Offer</h2>
-      <p class="text-center mb-5" style="color:#6b7280;">What you can hire me for</p>
+      <h2 class="section-title title-center text-center w-100">Services I Offer</h2>
+      <p class="text-center mb-5">What you can hire me for</p>
       <div class="row">
-        <div class="col-md-4 mb-4" data-aos="fade-up"><div class="service-card"><i class="fas fa-mobile-alt service-icon"></i><h4>Mobile App Development</h4><p>Cross-platform Flutter apps — iOS & Android.</p></div></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100"><div class="service-card"><i class="fas fa-globe service-icon"></i><h4>Web App Development</h4><p>Responsive, fast web apps with React & Next.js.</p></div></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200"><div class="service-card"><i class="fas fa-server service-icon"></i><h4>Backend APIs</h4><p>Scalable REST APIs with Django & PostgreSQL.</p></div></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300"><div class="service-card"><i class="fas fa-database service-icon"></i><h4>Database Design</h4><p>Efficient PostgreSQL schema & optimization.</p></div></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400"><div class="service-card"><i class="fas fa-rocket service-icon"></i><h4>MVP for Startups</h4><p>Launch your idea fast with production-ready MVP.</p></div></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up"><div class="service-card p-4 text-center"><i class="fas fa-mobile-alt service-icon fa-3x text-blue mb-3"></i><h4>Mobile App Development</h4><p>Cross-platform Flutter apps — iOS & Android.</p></div></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100"><div class="service-card p-4 text-center"><i class="fas fa-globe service-icon fa-3x text-blue mb-3"></i><h4>Web App Development</h4><p>Responsive, fast web apps with React & Next.js.</p></div></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200"><div class="service-card p-4 text-center"><i class="fas fa-server service-icon fa-3x text-blue mb-3"></i><h4>Backend APIs</h4><p>Scalable REST APIs with Django & PostgreSQL.</p></div></div>
       </div>
     </div>
   </section>
 
   <!-- SKILLS + EDUCATION -->
-  <section id="skills" class="section-padding" style="background:#f8fafc; padding-bottom: 3rem;">
+  <section id="skills" class="section-padding" style="background:#f8fafc;">
     <div class="container">
       <h2 class="section-title">Tech Stack</h2>
-      <p class="mb-4" style="color:#6b7280;">Core technologies I work with daily</p>
-      <div class="skills-simple p-4" style="background:#fff; border-radius: 28px;" data-aos="fade-up">
+      <div class="skills-simple p-4" data-aos="fade-up">
         <div class="skill-group"><div class="skill-group-title">Core Stack</div><div class="skill-items"><span class="skill-badge"><i class="devicon-flutter-plain colored"></i> Flutter</span><span class="skill-badge"><i class="devicon-dart-plain colored"></i> Dart</span><span class="skill-badge"><i class="devicon-django-plain colored"></i> Django</span><span class="skill-badge"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</span></div></div>
         <div class="skill-group mt-3"><div class="skill-group-title">Other Technologies</div><div class="skill-items"><span class="skill-badge"><i class="devicon-react-original colored"></i> React</span><span class="skill-badge"><i class="devicon-nextjs-original colored"></i> Next.js</span><span class="skill-badge"><i class="fas fa-fire"></i> Firebase</span></div></div>
-        <div class="skill-group mt-3"><div class="skill-group-title">Tools & Workflow</div><div class="skill-items"><span class="skill-badge"><i class="devicon-git-plain colored"></i> Git</span><span class="skill-badge"><i class="devicon-github-original colored"></i> GitHub</span><span class="skill-badge"><i class="fab fa-figma"></i> Figma</span><span class="skill-badge"><i class="fas fa-cloud"></i> REST APIs</span></div></div>
       </div>
-      <div class="mt-5" data-aos="fade-up">
-        <div class="d-flex align-items-center mb-4"><i class="fas fa-graduation-cap text-blue fa-2x mr-3"></i> <h3 class="mb-0" style="color:#111827; font-weight:600;">Education</h3></div>
-        <div class="row">
-          <div class="col-md-6 mb-4"><div class="education-card"><div class="edu-logo"><i class="fas fa-university text-blue"></i></div><div class="edu-content"><div class="edu-degree">Bachelor of Computer Applications (BCA)</div><div class="edu-institution"><i class="fas fa-map-marker-alt"></i> Tribhuvan University (TU), Nepal</div><div class="edu-row-details"><span class="edu-badge"><i class="far fa-calendar-alt"></i> Dec 2023 – Present</span><span class="edu-badge"><i class="fas fa-star-of-life"></i> Semester 5th</span></div><div class="edu-row-details"><span class="edu-badge"><i class="fas fa-code"></i> Core: DSA, Web Tech, DBMS</span></div></div></div></div>
-          <div class="col-md-6 mb-4"><div class="education-card"><div class="edu-logo"><i class="fas fa-school text-blue"></i></div><div class="edu-content"><div class="edu-degree">+2 (Higher Secondary) – Management with CS</div><div class="edu-institution"><i class="fas fa-map-marker-alt"></i> Nepal Kasthamandap SS College, Kathmandu</div><div class="edu-row-details"><span class="edu-badge"><i class="far fa-calendar-alt"></i> 2021 – 2023</span><span class="edu-badge"><i class="fas fa-chart-line"></i> GPA: 3.55/4.0 (88.75%)</span><span class="edu-badge"><i class="fas fa-laptop-code"></i> CS Major</span></div></div></div></div>
-          <div class="col-md-6 mb-4 mx-auto"><div class="education-card"><div class="edu-logo"><i class="fas fa-trophy text-blue"></i></div><div class="edu-content"><div class="edu-degree">Secondary Education (SEE) – Class 10</div><div class="edu-row-details"><span class="edu-badge"><i class="far fa-calendar-alt"></i> 2021</span><span class="edu-badge"><i class="fas fa-star"></i> GPA: 3.65/4.0 (91.25%)</span><span class="edu-badge"><i class="fas fa-medal"></i> Excellence in Math, Science & Computer</span></div></div></div></div>
-        </div>
+      <div class="mt-5" data-aos="fade-up"><h3><i class="fas fa-graduation-cap text-blue mr-2"></i> Education</h3>
+        <div class="row mt-3"><div class="col-md-6 mb-4"><div class="education-card p-3"><div class="edu-logo bg-light p-2 rounded"><i class="fas fa-university fa-2x text-blue"></i></div><div><h5>Bachelor of Computer Applications (BCA)</h5><p>Tribhuvan University, Nepal | 2023 – Present</p><span class="badge badge-pill bg-blue text-white">Semester 5th</span></div></div></div>
+        <div class="col-md-6 mb-4"><div class="education-card p-3"><div class="edu-logo bg-light p-2 rounded"><i class="fas fa-school fa-2x text-blue"></i></div><div><h5>+2 Management with CS</h5><p>Nepal Kasthamandap College | GPA: 3.55/4.0</p></div></div></div></div>
       </div>
     </div>
   </section>
@@ -666,26 +487,23 @@
   <!-- PROJECTS -->
   <section id="projects" class="section-padding">
     <div class="container">
-      <h2 class="section-title title-center" style="display: block; text-align: center;">Featured Projects</h2>
-      <p class="text-center mb-5" style="color:#6b7280;">Real solutions. Real impact.</p>
+      <h2 class="section-title title-center text-center w-100">Featured Projects</h2>
       <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up"><div class="project-card"><div class="project-img" style="background-image:url('images/AAAAa.png');"></div><div class="p-3"><h4>Clinic Management System</h4><p>Patient scheduling, digital records, automated reminders.</p><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100"><div class="project-card"><div class="project-img" style="background-image:url('images/cccc.png');"></div><div class="p-3"><h4>Cleaning Service Pro</h4><p>Online booking, dynamic pricing, automated invoicing.</p><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200"><div class="project-card"><div class="project-img" style="background-image:url('images/mmm.png');"></div><div class="p-3"><h4>Montessori Parent Hub</h4><p>Child progress tracking, daily reports, parent-teacher portal.</p><div class="project-links"><a href="https://github.com/subinathapa2004" target="_blank" class="project-link"><i class="fab fa-github"></i> Code</a><a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live</a></div></div></div></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up"><div class="project-card p-3"><div class="project-img bg-secondary rounded-top" style="height:180px; background: linear-gradient(145deg, #2563EB30, #3b82f630); border-radius: 20px 20px 0 0;"></div><h4 class="mt-3">Clinic Management System</h4><p>Patient scheduling, digital records.</p><a href="#" class="text-blue">GitHub →</a></div></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100"><div class="project-card p-3"><div class="project-img bg-secondary rounded-top" style="height:180px; background: linear-gradient(145deg, #2563EB30, #60a5fa30); border-radius: 20px 20px 0 0;"></div><h4>Cleaning Service Pro</h4><p>Online booking & dynamic pricing.</p><a href="#" class="text-blue">Live Demo →</a></div></div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200"><div class="project-card p-3"><div class="project-img bg-secondary rounded-top" style="height:180px; background: linear-gradient(145deg, #3b82f630, #2563EB30); border-radius: 20px 20px 0 0;"></div><h4>Montessori Parent Hub</h4><p>Child progress tracking & reports.</p><a href="#" class="text-blue">Details →</a></div></div>
       </div>
-      <div class="text-center mt-4"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-custom btn-custom-blue"><i class="fab fa-github"></i> All Projects →</a></div>
     </div>
   </section>
 
   <!-- BLOGS -->
   <section id="blogs" class="section-padding" style="background:#f8fafc;">
     <div class="container">
-      <h2 class="section-title title-center" style="display: block; text-align: center;">Recent Writings</h2>
-      <p class="text-center mb-5" style="color:#6b7280;">Sharing knowledge from my journey</p>
+      <h2 class="section-title title-center text-center w-100">Recent Writings</h2>
       <div class="row">
-        <div class="col-md-4 mb-4" data-aos="fade-up"><a href="https://medium.com/@subinathapa5510/flutter-app-architecture-mvvm-vs-clean-architecture-complete-guide-for-developers-5389449359fa" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/B.webp');"></div><div class="p-3"><h5 class="text-dark">Flutter Architecture</h5><p class="small text-muted">MVVM vs Clean — Complete Guide</p><span class="text-blue">Read →</span></div></div></a></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100"><a href="https://medium.com/@subinathapa5510/how-to-become-a-good-coder-a-step-by-step-guide-8af94c4b9bf4" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/H.png');"></div><div class="p-3"><h5 class="text-dark">Become a Good Coder</h5><p class="small text-muted">Step‑by‑step guide</p><span class="text-blue">Read →</span></div></div></a></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200"><a href="https://medium.com/@subinathapa5510/the-timeless-wisdom-of-the-bhagavad-gita-190cfe6b685d" target="_blank" style="text-decoration:none;"><div class="blog-card-2025"><div class="blog-img" style="background-image:url('images/yooo.png');"></div><div class="p-3"><h5 class="text-dark">Bhagavad Gita Wisdom</h5><p class="small text-muted">Timeless lessons for developers</p><span class="text-blue">Read →</span></div></div></a></div>
+        <div class="col-md-4 mb-4" data-aos="flip-left"><div class="blog-card-2025 p-3 bg-white rounded"><div style="height:160px; background:#dbeafe; border-radius: 20px;"></div><h5 class="mt-2">Flutter Architecture: MVVM vs Clean</h5><a href="#" class="text-blue">Read more →</a></div></div>
+        <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="100"><div class="blog-card-2025 p-3 bg-white rounded"><div style="height:160px; background:#bfdbfe; border-radius: 20px;"></div><h5 class="mt-2">How to become a good coder</h5><a href="#" class="text-blue">Explore →</a></div></div>
+        <div class="col-md-4 mb-4" data-aos="flip-left" data-aos-delay="200"><div class="blog-card-2025 p-3 bg-white rounded"><div style="height:160px; background:#93c5fd; border-radius: 20px;"></div><h5 class="mt-2">Bhagavad Gita Wisdom for Devs</h5><a href="#" class="text-blue">Inspire →</a></div></div>
       </div>
     </div>
   </section>
@@ -693,97 +511,79 @@
   <!-- CONTACT -->
   <section id="contact" class="section-padding">
     <div class="container">
-      <h2 class="section-title title-center" style="display: block; text-align: center;">Start a Project</h2>
-      <p class="text-center mb-4" style="color:#6b7280;">Got an idea? Let's turn it into reality.</p>
-      <div class="row mt-4 justify-content-center">
-        <div class="col-md-8" data-aos="fade-right"><div class="bg-white p-4 rounded-4" style="border-radius:32px; background:#ffffff; border:1px solid #E5E7EB;"><h4 class="text-blue">Tell me about your project</h4><form id="contactFormNew" class="contact-form"><div class="row"><div class="col-6 mb-3"><input type="text" id="nameNew" placeholder="Full Name *" required class="form-control"></div><div class="col-6 mb-3"><input type="email" id="emailNew" placeholder="Email *" required class="form-control"></div></div><input type="text" id="subjectNew" placeholder="Subject" class="form-control mb-3"><textarea id="msgNew" rows="5" placeholder="Tell me about your project..." class="form-control mb-3"></textarea><button type="submit" class="btn-custom btn-custom-blue w-100"><i class="fas fa-paper-plane"></i> Send Message</button></form></div></div>
-        <div class="col-md-4 mt-4 mt-md-0 d-flex align-items-stretch" data-aos="fade-left"><div class="bg-white p-4 rounded-4 text-center" style="background:#ffffff; width:100%; border:1px solid #E5E7EB;"><i class="fas fa-map-marker-alt fa-2x text-blue mb-3"></i><h5 class="text-blue">Get in Touch</h5><p class="mb-2"><i class="fas fa-map-marker-alt text-blue me-2"></i> Kathmandu, Nepal</p><hr class="my-3" style="background:#E5E7EB;"><div class="footer-social d-flex justify-content-center flex-wrap"><a href="https://github.com/subinathapa2004" target="_blank"><i class="fab fa-github"></i></a><a href="https://gitlab.com/tsubina57" target="_blank"><i class="fab fa-gitlab"></i></a><a href="https://x.com/ThapaSubina22" target="_blank"><i class="fab fa-twitter"></i></a><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank"><i class="fab fa-linkedin"></i></a><a href="https://www.facebook.com/subina.thapa.769940" target="_blank"><i class="fab fa-facebook"></i></a><a href="https://www.instagram.com/stories/subinathapa22/" target="_blank"><i class="fab fa-instagram"></i></a></div><div class="social-block-expanded mt-4 pt-2"><p class="text-blue small mb-2"><i class="fas fa-share-alt"></i> More networks</p><div class="social-expanded-links"><a href="https://dev.to/thapasubina22" target="_blank"><i class="fab fa-dev"></i></a><a href="https://medium.com/@subinathapa5510" target="_blank"><i class="fab fa-medium"></i></a><a href="https://www.youtube.com/@Subina--11-nxx" target="_blank"><i class="fab fa-youtube"></i></a></div></div></div></div>
+      <h2 class="section-title title-center text-center w-100">Start a Project</h2>
+      <div class="row mt-4">
+        <div class="col-md-7" data-aos="fade-right"><div class="bg-white p-4 rounded-4 shadow-sm"><form id="contactFormNew"><input type="text" id="nameNew" class="form-control mb-3" placeholder="Full Name *"><input type="email" id="emailNew" class="form-control mb-3" placeholder="Email *"><input type="text" id="subjectNew" class="form-control mb-3" placeholder="Subject"><textarea id="msgNew" rows="4" class="form-control mb-3" placeholder="Your message *"></textarea><button type="submit" class="btn-custom btn-custom-blue w-100">Send Message →</button></form></div></div>
+        <div class="col-md-5" data-aos="fade-left"><div class="bg-white p-4 rounded-4 text-center"><i class="fas fa-map-marker-alt fa-3x text-blue mb-2"></i><p>Kathmandu, Nepal</p><div class="d-flex justify-content-center gap-3 flex-wrap"><a href="#" class="text-blue mx-2"><i class="fab fa-github fa-2x"></i></a><a href="#" class="text-blue mx-2"><i class="fab fa-linkedin fa-2x"></i></a><a href="#" class="text-blue mx-2"><i class="fab fa-twitter fa-2x"></i></a></div></div></div>
       </div>
     </div>
   </section>
-  <footer class="text-center py-4 border-top" style="border-color:#E5E7EB !important;"><small>© 2026 Subina Thapa · Full Stack Flutter Developer</small></footer>
+  <footer class="text-center py-4 border-top"><small>© 2026 Subina Thapa · Full Stack Flutter Developer</small></footer>
 </div>
 
-<div class="theme-toggle-btn" id="darkmodeToggle" aria-label="Dark/Light Mode">
-  <i class="fas fa-moon"></i>
-</div>
+<div class="theme-toggle-btn" id="darkmodeToggle"><i class="fas fa-moon"></i></div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init({ duration: 800, once: true, offset: 100 });
-  
-  // Dark mode logic
-  const toggleBtn = document.getElementById('darkmodeToggle');
+  AOS.init({ duration: 800, once: false, mirror: true });
+  const toggle = document.getElementById('darkmodeToggle');
   const body = document.body;
   const metaTheme = document.getElementById('meta-theme-color');
-  
-  function setTheme(isDark) {
-    if (isDark) {
+  function setTheme(dark) {
+    if(dark) {
       body.classList.add('dark-mode');
-      if(metaTheme) metaTheme.setAttribute('content', '#0f172a');
-      localStorage.setItem('subinaTheme', 'dark');
-      toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+      if(metaTheme) metaTheme.setAttribute('content','#0f172a');
+      localStorage.setItem('subinaTheme','dark');
+      toggle.innerHTML = '<i class="fas fa-sun"></i>';
     } else {
       body.classList.remove('dark-mode');
-      if(metaTheme) metaTheme.setAttribute('content', '#ffffff');
-      localStorage.setItem('subinaTheme', 'light');
-      toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+      if(metaTheme) metaTheme.setAttribute('content','#ffffff');
+      localStorage.setItem('subinaTheme','light');
+      toggle.innerHTML = '<i class="fas fa-moon"></i>';
     }
   }
-  
-  const savedTheme = localStorage.getItem('subinaTheme');
-  if (savedTheme === 'dark') setTheme(true);
-  else setTheme(false);
-  
-  toggleBtn.addEventListener('click', () => {
-    const isDarkNow = body.classList.contains('dark-mode');
-    setTheme(!isDarkNow);
-  });
+  const saved = localStorage.getItem('subinaTheme');
+  setTheme(saved === 'dark');
+  toggle.addEventListener('click',()=>setTheme(!body.classList.contains('dark-mode')));
 
-  // Sidebar and mobile menu
-  (function(){
-    const sidebar = document.getElementById('sidebar');
-    const toggle = document.getElementById('mobileMenuToggle');
-    if(toggle) toggle.addEventListener('click', ()=> sidebar.classList.toggle('open'));
-    document.querySelectorAll('.sidebar-nav .nav-link').forEach(l=>{
-      l.addEventListener('click', ()=>{ if(window.innerWidth <= 768) sidebar.classList.remove('open'); });
+  // Mobile sidebar
+  const sidebar = document.getElementById('sidebar');
+  document.getElementById('mobileMenuToggle')?.addEventListener('click',()=>sidebar.classList.toggle('open'));
+  document.querySelectorAll('.sidebar-nav .nav-link').forEach(l=>l.addEventListener('click',()=>{if(window.innerWidth<=768) sidebar.classList.remove('open');}));
+  document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+    anchor.addEventListener('click',function(e){
+      const hash = this.getAttribute('href');
+      if(hash==="#") return;
+      const target = document.querySelector(hash);
+      if(target){ e.preventDefault(); window.scrollTo({top:target.offsetTop-70, behavior:'smooth'}); history.pushState(null,null,hash);}
     });
-    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-      anchor.addEventListener('click', function(e){
-        const hash = this.getAttribute('href');
-        if(hash === "#") return;
-        const target = document.querySelector(hash);
-        if(target){ e.preventDefault(); window.scrollTo({top: target.offsetTop - 70, behavior:'smooth'}); history.pushState(null,null,hash); }
-      });
+  });
+  const contactForm = document.getElementById('contactFormNew');
+  if(contactForm){
+    contactForm.addEventListener('submit', async(e)=>{
+      e.preventDefault();
+      const name = document.getElementById('nameNew').value.trim();
+      const email = document.getElementById('emailNew').value.trim();
+      const msg = document.getElementById('msgNew').value.trim();
+      if(!name || !email || !msg){ alert("Required fields missing."); return; }
+      const fd = new FormData();
+      fd.append('name',name); fd.append('email',email); fd.append('message',msg);
+      fd.append('_captcha','false');
+      try{
+        const res = await fetch('https://formsubmit.co/ajax/subinathapa5510@gmail.com',{method:'POST', body:fd});
+        if(res.ok){
+          const toast = document.createElement('div'); toast.className='toast-custom'; toast.innerText = `✨ Thanks ${name}! I'll reply soon.`;
+          document.body.appendChild(toast); contactForm.reset();
+          setTimeout(()=>toast.remove(),3500);
+        } else throw new Error();
+      } catch(err){
+        const errToast = document.createElement('div'); errToast.className='toast-custom'; errToast.innerText = `⚠️ Email directly: subinathapa5510@gmail.com`;
+        document.body.appendChild(errToast); setTimeout(()=>errToast.remove(),3500);
+      }
     });
-    const form = document.getElementById('contactFormNew');
-    if(form){
-      form.addEventListener('submit', async(e)=>{
-        e.preventDefault();
-        const name = document.getElementById('nameNew').value.trim();
-        const email = document.getElementById('emailNew').value.trim();
-        const subj = document.getElementById('subjectNew').value.trim() || "Project Inquiry";
-        const msg = document.getElementById('msgNew').value.trim();
-        if(!name || !email || !msg){ alert("Please fill required fields."); return; }
-        const fd = new FormData();
-        fd.append('name',name); fd.append('email',email); fd.append('subject',subj); fd.append('message',msg);
-        fd.append('_captcha','false');
-        try{
-          const res = await fetch('https://formsubmit.co/ajax/subinathapa5510@gmail.com',{method:'POST', body:fd});
-          if(res.ok){
-            const toast = document.createElement('div'); toast.className='toast-custom'; toast.innerText=`✨ Thanks ${name}! I'll get back soon.`;
-            document.body.appendChild(toast); form.reset();
-            setTimeout(()=>toast.remove(),3800);
-          } else throw new Error();
-        } catch(err){
-          const errToast = document.createElement('div'); errToast.className='toast-custom'; errToast.innerText = `⚠️ Please email directly.`;
-          document.body.appendChild(errToast); setTimeout(()=>errToast.remove(),3500);
-        }
-      });
-    }
-  })();
+  }
 </script>
 </body>
 </html>
