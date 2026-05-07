@@ -91,9 +91,14 @@
       content:''; position:absolute; inset:2.5px; border-radius:50%;
       background:var(--bg2); z-index:1;
     }
-    .sidebar-av-ring img {
-      width:83px; height:83px; border-radius:50%; object-fit:cover;
-      position:relative; z-index:2; display:block; margin:0 auto;
+    /* Placeholder avatar: elegant initials instead of missing image */
+    .sidebar-avatar-placeholder {
+      width:83px; height:83px; border-radius:50%;
+      background: linear-gradient(145deg, #1b3c33, #0e2b23);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fh); font-size: 2.4rem; font-weight: 700;
+      color: var(--teal2); position: relative; z-index: 2;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
     .sidebar-name { font-family:var(--fh); font-size:1.15rem; font-weight:700; color:var(--txt); text-align:center; margin-top:.6rem; letter-spacing:.01em; }
     .sidebar-role { font-size:.7rem; color:var(--teal); text-align:center; margin-top:2px; letter-spacing:.06em; }
@@ -162,7 +167,7 @@
       background-size:65px 65px;
     }
 
-    /* Hero photo — full display at the very top center */
+    /* Hero photo — elegant placeholder without external images */
     .hero-photo-wrap {
       position:relative; display:inline-block; z-index:2;
     }
@@ -175,9 +180,14 @@
     .hero-photo-ring::after {
       content:''; position:absolute; inset:3px; border-radius:50%; background:var(--bg); z-index:1;
     }
-    .hero-photo-ring img {
-      width:204px; height:204px; border-radius:50%; object-fit:cover;
-      position:relative; z-index:2; display:block;
+    .hero-avatar-placeholder {
+      width:204px; height:204px; border-radius:50%;
+      background: linear-gradient(135deg, #10382e, #0b2b22);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--fh); font-size: 4rem; font-weight: bold;
+      color: var(--teal2); position: relative; z-index: 2;
+      backdrop-filter: blur(2px);
+      box-shadow: inset 0 0 15px rgba(52,211,153,0.2), 0 8px 20px rgba(0,0,0,0.3);
     }
     .hero-badge {
       position:absolute; background:var(--surf); border:1px solid var(--bh);
@@ -248,7 +258,15 @@
 
     /* ── ABOUT ── */
     .about-s { background:var(--bg2); }
-    .about-img { width:100%; border-radius:var(--rl); border:1px solid var(--border); object-fit:cover; max-height:460px; }
+    .about-img { width:100%; border-radius:var(--rl); border:1px solid var(--border); object-fit:cover; max-height:460px; background:#0c1f1b; display: flex; align-items: center; justify-content: center; }
+    .about-placeholder {
+      background: linear-gradient(145deg, #14342b, #0b261f);
+      width: 100%; height: 100%; min-height: 380px;
+      border-radius: var(--rl); display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      gap: 12px; color: var(--teal2); border: 1px solid var(--border);
+    }
+    .about-placeholder i { font-size: 3.2rem; opacity: 0.7; }
     .adet { display:flex; align-items:center; gap:11px; margin-bottom:11px; }
     .adet-ic { width:33px; height:33px; border-radius:10px; background:rgba(52,211,153,.07); border:1px solid rgba(52,211,153,.12); display:flex; align-items:center; justify-content:center; font-size:.88rem; color:var(--teal); flex-shrink:0; }
     .adet-tx { font-size:.875rem; color:var(--muted); }
@@ -295,7 +313,7 @@
     /* ── PROJECTS ── */
     .pjc { background:var(--surf); border:1px solid var(--border); border-radius:var(--rl); overflow:hidden; transition:all .3s; height:100%; }
     .pjc:hover { border-color:var(--bh); transform:translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,.3); }
-    .pj-img { height:195px; background-size:cover; background-position:center; background-color:var(--bg3); position:relative; overflow:hidden; }
+    .pj-img { height:195px; background-size:cover; background-position:center; background-color:var(--bg3); position:relative; overflow:hidden; background-image: repeating-linear-gradient(45deg, rgba(52,211,153,.05) 0px, rgba(52,211,153,.05) 2px, transparent 2px, transparent 8px);}
     .pj-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, var(--surf) 0%, transparent 55%); }
     .pj-num { position:absolute; top:13px; left:13px; z-index:1; font-family:var(--fh); font-size:.68rem; font-weight:700; background:rgba(52,211,153,.85); color:#050d0d; padding:2px 9px; border-radius:100px; }
     .pj-body { padding:1.2rem; }
@@ -309,7 +327,7 @@
     .blog-s { background:var(--bg2); }
     .blc { background:var(--surf); border:1px solid var(--border); border-radius:var(--rl); overflow:hidden; transition:all .3s; text-decoration:none; display:block; height:100%; }
     .blc:hover { border-color:var(--bh); transform:translateY(-6px); }
-    .bl-img { height:170px; background-size:cover; background-position:center; background-color:var(--bg3); }
+    .bl-img { height:170px; background-size:cover; background-position:center; background-color:var(--bg3); background-image: repeating-linear-gradient(125deg, rgba(52,211,153,.08) 0px, rgba(52,211,153,.08) 1px, transparent 1px, transparent 12px);}
     .bl-body { padding:1.2rem; }
     .bl-body h5 { font-family:var(--fh); font-size:.96rem; font-weight:700; color:var(--txt); margin-bottom:4px; }
     .bl-body p  { color:var(--muted); font-size:.78rem; margin-bottom:.8rem; }
@@ -361,7 +379,7 @@
       .hero{padding:3rem 0 4rem;}
       .hero-content h1{font-size:2.6rem;}
       .hero-photo-ring{width:160px;height:160px;}
-      .hero-photo-ring img{width:154px;height:154px;}
+      .hero-avatar-placeholder{width:154px;height:154px; font-size: 3rem;}
       .hero-badge{display:none;}
       .sp{padding:3.5rem 0;}
     }
@@ -378,7 +396,6 @@
 <div id="cur"></div>
 <div id="crf"></div>
 
-<!-- Mobile header -->
 <div class="mob-hdr">
   <button class="mob-btn" id="mobBtn"><i class="fas fa-bars"></i></button>
   <span class="mob-name">Subina Thapa</span>
@@ -391,7 +408,7 @@
     <div class="sidebar-cover"></div>
     <div class="sidebar-av-wrap">
       <div class="sidebar-av-ring">
-        <img src="images/farhinaa.jpg" alt="Subina" onerror="this.src='https://via.placeholder.com/83/34d399/050d0d?text=ST'">
+        <div class="sidebar-avatar-placeholder">ST</div>
       </div>
     </div>
     <div class="sidebar-name">Subina Thapa</div>
@@ -400,25 +417,25 @@
   </div>
 
   <ul class="sidebar-nav">
-    <li><a href="#home"     class="active"><i class="fas fa-home"></i>Home</a></li>
-    <li><a href="#about">   <i class="fas fa-user"></i>About</a></li>
+    <li><a href="#home" class="active"><i class="fas fa-home"></i>Home</a></li>
+    <li><a href="#about"><i class="fas fa-user"></i>About</a></li>
     <li><a href="#services"><i class="fas fa-bolt"></i>Services</a></li>
-    <li><a href="#skills">  <i class="fas fa-code"></i>Skills</a></li>
+    <li><a href="#skills"><i class="fas fa-code"></i>Skills</a></li>
     <li><a href="#projects"><i class="fas fa-cubes"></i>Projects</a></li>
-    <li><a href="#blogs">   <i class="fab fa-medium"></i>Blogs</a></li>
-    <li><a href="#contact"> <i class="fas fa-envelope"></i>Contact</a></li>
+    <li><a href="#blogs"><i class="fab fa-medium"></i>Blogs</a></li>
+    <li><a href="#contact"><i class="fas fa-envelope"></i>Contact</a></li>
   </ul>
 
   <div class="sidebar-socials">
-    <a href="https://github.com/subinathapa2004"                  target="_blank" class="ssoc"><i class="fab fa-github"></i></a>
+    <a href="https://github.com/subinathapa2004" target="_blank" class="ssoc"><i class="fab fa-github"></i></a>
     <a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank" class="ssoc"><i class="fab fa-linkedin"></i></a>
-    <a href="https://x.com/ThapaSubina22"                         target="_blank" class="ssoc"><i class="fab fa-twitter"></i></a>
-    <a href="https://medium.com/@subinathapa5510"                  target="_blank" class="ssoc"><i class="fab fa-medium"></i></a>
-    <a href="https://dev.to/thapasubina22"                         target="_blank" class="ssoc"><i class="fab fa-dev"></i></a>
-    <a href="https://gitlab.com/tsubina57"                         target="_blank" class="ssoc"><i class="fab fa-gitlab"></i></a>
-    <a href="https://www.youtube.com/@Subina--11-nxx"              target="_blank" class="ssoc"><i class="fab fa-youtube"></i></a>
-    <a href="https://www.instagram.com/stories/subinathapa22/"     target="_blank" class="ssoc"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/subina.thapa.769940"         target="_blank" class="ssoc"><i class="fab fa-facebook"></i></a>
+    <a href="https://x.com/ThapaSubina22" target="_blank" class="ssoc"><i class="fab fa-twitter"></i></a>
+    <a href="https://medium.com/@subinathapa5510" target="_blank" class="ssoc"><i class="fab fa-medium"></i></a>
+    <a href="https://dev.to/thapasubina22" target="_blank" class="ssoc"><i class="fab fa-dev"></i></a>
+    <a href="https://gitlab.com/tsubina57" target="_blank" class="ssoc"><i class="fab fa-gitlab"></i></a>
+    <a href="https://www.youtube.com/@Subina--11-nxx" target="_blank" class="ssoc"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.instagram.com/stories/subinathapa22/" target="_blank" class="ssoc"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/subina.thapa.769940" target="_blank" class="ssoc"><i class="fab fa-facebook"></i></a>
   </div>
 </aside>
 
@@ -427,286 +444,48 @@
 
   <!-- HERO -->
   <section id="home" class="hero">
-    <div class="hero-bg">
-      <div class="orb1"></div><div class="orb2"></div><div class="orb3"></div>
-      <div class="hero-grid"></div>
-    </div>
+    <div class="hero-bg"><div class="orb1"></div><div class="orb2"></div><div class="orb3"></div><div class="hero-grid"></div></div>
     <div class="container" style="position:relative;z-index:1;">
       <div class="row align-items-center">
-        <!-- Photo LEFT / TOP on mobile -->
         <div class="col-lg-5 text-center mb-5 mb-lg-0 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="900">
-          <div class="hero-photo-wrap" style="display:inline-block;position:relative;">
+          <div class="hero-photo-wrap">
             <div class="hero-photo-ring">
-              <img src="images/farhinaa.jpg" alt="Subina Thapa" onerror="this.src='https://via.placeholder.com/204/34d399/050d0d?text=ST'">
+              <div class="hero-avatar-placeholder">S.T</div>
             </div>
             <div class="hero-badge hb1"><i class="devicon-flutter-plain colored" style="font-size:.95rem"></i> Flutter Dev</div>
             <div class="hero-badge hb2">⚡ 1.5+ Yrs Exp</div>
           </div>
         </div>
-        <!-- Text RIGHT / BOTTOM on mobile -->
         <div class="col-lg-7 hero-content order-2 order-lg-1" data-aos="fade-right" data-aos-duration="900">
           <div class="hero-tag"><span class="tdot"></span>Full Stack Developer · Kathmandu, Nepal</div>
-          <h1>
-            <span class="l1">Hello, I'm</span>
-            <span class="l2">Subina Thapa</span>
-          </h1>
+          <h1><span class="l1">Hello, I'm</span><span class="l2">Subina Thapa</span></h1>
           <p class="hero-desc">I craft scalable mobile &amp; web apps with Flutter, Django &amp; PostgreSQL — turning bold ideas into products that grow businesses.</p>
-          <div class="hero-cta">
-            <a href="#projects" class="btn-t"><i class="fas fa-eye"></i>View Projects</a>
-            <a href="#contact"  class="btn-o"><i class="fas fa-rocket"></i>Hire Me</a>
-          </div>
+          <div class="hero-cta"><a href="#projects" class="btn-t"><i class="fas fa-eye"></i>View Projects</a><a href="#contact" class="btn-o"><i class="fas fa-rocket"></i>Hire Me</a></div>
         </div>
       </div>
     </div>
     <div class="scroll-cue"><span>Scroll</span><div class="scroll-line"></div></div>
   </section>
 
-  <!-- STATS -->
-  <section class="stats-wrap">
-    <div class="container">
-      <div class="stats-row">
-        <div class="sc" data-aos="zoom-in"><div class="sn">13+</div><div class="sl">Projects Delivered</div></div>
-        <div class="sc" data-aos="zoom-in" data-aos-delay="80"><div class="sn">7+</div><div class="sl">Happy Clients</div></div>
-        <div class="sc" data-aos="zoom-in" data-aos-delay="160"><div class="sn">1.5+</div><div class="sl">Years Exp</div></div>
-        <div class="sc" data-aos="zoom-in" data-aos-delay="240"><div class="sn">5★</div><div class="sl">Client Rating</div></div>
-      </div>
-    </div>
-  </section>
+  <!-- STATS (same) -->
+  <section class="stats-wrap"><div class="container"><div class="stats-row"><div class="sc" data-aos="zoom-in"><div class="sn">13+</div><div class="sl">Projects Delivered</div></div><div class="sc" data-aos="zoom-in" data-aos-delay="80"><div class="sn">7+</div><div class="sl">Happy Clients</div></div><div class="sc" data-aos="zoom-in" data-aos-delay="160"><div class="sn">1.5+</div><div class="sl">Years Exp</div></div><div class="sc" data-aos="zoom-in" data-aos-delay="240"><div class="sn">5★</div><div class="sl">Client Rating</div></div></div></div></section>
 
-  <!-- ABOUT -->
-  <section id="about" class="about-s sp">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-5 mb-5 mb-md-0" data-aos="fade-right">
-          <img src="images/gggg.jpg" class="about-img" alt="Subina" onerror="this.src='https://via.placeholder.com/400x460/0e1e1e/34d399?text=Subina'">
-        </div>
-        <div class="col-md-7 pl-md-5" data-aos="fade-left">
-          <div class="slabel">Who I Am</div>
-          <h2 class="stitle">About Me</h2>
-          <div class="sdiv"></div>
-          <p style="color:var(--muted);font-size:.97rem;margin-bottom:1.3rem;line-height:1.9;">I'm a Full Stack Developer from Kathmandu, Nepal, specialising in <strong style="color:var(--teal);font-weight:500;">Flutter, Django &amp; PostgreSQL</strong>. 13+ projects delivered, clean architecture, beautiful UX, production-grade backends.</p>
-          <p style="color:var(--muted2);font-size:.88rem;margin-bottom:1.8rem;line-height:1.9;">Currently in my 5th semester of BCA at Tribhuvan University — balancing academics with real-world client work.</p>
-          <div class="adet"><div class="adet-ic"><i class="fas fa-map-marker-alt"></i></div><div class="adet-tx"><strong>Location:</strong> Kathmandu, Nepal</div></div>
-          <div class="adet"><div class="adet-ic"><i class="fas fa-briefcase"></i></div><div class="adet-tx"><strong>Availability:</strong> Open to freelance &amp; full-time</div></div>
-          <div class="adet"><div class="adet-ic"><i class="fas fa-graduation-cap"></i></div><div class="adet-tx"><strong>Education:</strong> BCA, Tribhuvan University</div></div>
-          <div class="mt-4"><a href="#contact" class="btn-t" style="display:inline-flex;"><i class="fas fa-paper-plane"></i>Get in Touch</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ABOUT section: replaced image with elegant placeholder -->
+  <section id="about" class="about-s sp"><div class="container"><div class="row align-items-center"><div class="col-md-5 mb-5 mb-md-0" data-aos="fade-right"><div class="about-img"><div class="about-placeholder"><i class="fas fa-laptop-code"></i><span>Subina Thapa</span><small style="font-size:.75rem">Flutter & Django Expert</small></div></div></div><div class="col-md-7 pl-md-5" data-aos="fade-left"><div class="slabel">Who I Am</div><h2 class="stitle">About Me</h2><div class="sdiv"></div><p style="color:var(--muted);font-size:.97rem;margin-bottom:1.3rem;line-height:1.9;">I'm a Full Stack Developer from Kathmandu, Nepal, specialising in <strong style="color:var(--teal);font-weight:500;">Flutter, Django &amp; PostgreSQL</strong>. 13+ projects delivered, clean architecture, beautiful UX, production-grade backends.</p><p style="color:var(--muted2);font-size:.88rem;margin-bottom:1.8rem;line-height:1.9;">Currently in my 5th semester of BCA at Tribhuvan University — balancing academics with real-world client work.</p><div class="adet"><div class="adet-ic"><i class="fas fa-map-marker-alt"></i></div><div class="adet-tx"><strong>Location:</strong> Kathmandu, Nepal</div></div><div class="adet"><div class="adet-ic"><i class="fas fa-briefcase"></i></div><div class="adet-tx"><strong>Availability:</strong> Open to freelance &amp; full-time</div></div><div class="adet"><div class="adet-ic"><i class="fas fa-graduation-cap"></i></div><div class="adet-tx"><strong>Education:</strong> BCA, Tribhuvan University</div></div><div class="mt-4"><a href="#contact" class="btn-t" style="display:inline-flex;"><i class="fas fa-paper-plane"></i>Get in Touch</a></div></div></div></div></section>
 
-  <!-- SERVICES -->
-  <section id="services" class="sp">
-    <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <div class="slabel">What I Do</div>
-        <h2 class="stitle">Services I Offer</h2>
-        <div class="sdiv c"></div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 mb-4" data-aos="fade-up">           <div class="svc"><div class="svc-ic"><i class="fas fa-mobile-alt"></i></div><h4>Mobile App Development</h4><p>Cross-platform Flutter apps for iOS &amp; Android — from MVP to production.</p></div></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="80"> <div class="svc"><div class="svc-ic"><i class="fas fa-globe"></i></div><h4>Web App Development</h4><p>Responsive, fast web apps with React &amp; Next.js. Clean UI that converts.</p></div></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="160"><div class="svc"><div class="svc-ic"><i class="fas fa-server"></i></div><h4>Backend APIs</h4><p>Scalable REST APIs with Django &amp; PostgreSQL — secure and production-ready.</p></div></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="240"><div class="svc"><div class="svc-ic"><i class="fas fa-database"></i></div><h4>Database Design</h4><p>Efficient PostgreSQL schema design, query optimisation, data architecture.</p></div></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="320"><div class="svc"><div class="svc-ic"><i class="fas fa-rocket"></i></div><h4>MVP for Startups</h4><p>Launch your idea fast with a fully functional, production-ready MVP.</p></div></div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400"><div class="svc"><div class="svc-ic"><i class="fas fa-paint-brush"></i></div><h4>UI/UX Design</h4><p>Figma wireframes &amp; prototypes — complex flows made intuitive.</p></div></div>
-      </div>
-    </div>
-  </section>
+  <!-- SERVICES, SKILLS, PROJECTS, BLOGS, CONTACT all untouched content wise (only photo removed) -->
+  <section id="services" class="sp"><div class="container"><div class="text-center mb-5" data-aos="fade-up"><div class="slabel">What I Do</div><h2 class="stitle">Services I Offer</h2><div class="sdiv c"></div></div><div class="row"><div class="col-md-4 mb-4" data-aos="fade-up"><div class="svc"><div class="svc-ic"><i class="fas fa-mobile-alt"></i></div><h4>Mobile App Development</h4><p>Cross-platform Flutter apps for iOS &amp; Android — from MVP to production.</p></div></div><div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="80"><div class="svc"><div class="svc-ic"><i class="fas fa-globe"></i></div><h4>Web App Development</h4><p>Responsive, fast web apps with React &amp; Next.js. Clean UI that converts.</p></div></div><div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="160"><div class="svc"><div class="svc-ic"><i class="fas fa-server"></i></div><h4>Backend APIs</h4><p>Scalable REST APIs with Django &amp; PostgreSQL — secure and production-ready.</p></div></div><div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="240"><div class="svc"><div class="svc-ic"><i class="fas fa-database"></i></div><h4>Database Design</h4><p>Efficient PostgreSQL schema design, query optimisation, data architecture.</p></div></div><div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="320"><div class="svc"><div class="svc-ic"><i class="fas fa-rocket"></i></div><h4>MVP for Startups</h4><p>Launch your idea fast with a fully functional, production-ready MVP.</p></div></div><div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400"><div class="svc"><div class="svc-ic"><i class="fas fa-paint-brush"></i></div><h4>UI/UX Design</h4><p>Figma wireframes &amp; prototypes — complex flows made intuitive.</p></div></div></div></div></section>
 
-  <!-- SKILLS + EDUCATION -->
-  <section id="skills" class="skills-s sp">
-    <div class="container">
-      <div class="slabel">What I Know</div>
-      <h2 class="stitle">Tech Stack</h2>
-      <div class="sdiv"></div>
-      <div class="mt-4" data-aos="fade-up">
-        <div class="sg-title">Core Stack</div>
-        <div class="mb-3">
-          <span class="skb"><i class="devicon-flutter-plain colored"></i>Flutter</span>
-          <span class="skb"><i class="devicon-dart-plain colored"></i>Dart</span>
-          <span class="skb"><i class="devicon-django-plain colored"></i>Django</span>
-          <span class="skb"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span>
-        </div>
-        <div class="sg-title">Frontend</div>
-        <div class="mb-3">
-          <span class="skb"><i class="devicon-react-original colored"></i>React</span>
-          <span class="skb"><i class="devicon-nextjs-original"></i>Next.js</span>
-          <span class="skb"><i class="fas fa-fire" style="color:#f66"></i>Firebase</span>
-        </div>
-        <div class="sg-title">Tools &amp; Workflow</div>
-        <div>
-          <span class="skb"><i class="devicon-git-plain colored"></i>Git</span>
-          <span class="skb"><i class="devicon-github-original"></i>GitHub</span>
-          <span class="skb"><i class="fab fa-figma" style="color:#f24e1e"></i>Figma</span>
-          <span class="skb"><i class="fas fa-cloud" style="color:var(--sky)"></i>REST APIs</span>
-          <span class="skb"><i class="devicon-python-plain colored"></i>Python</span>
-        </div>
-      </div>
-      <!-- Education -->
-      <div class="mt-5">
-        <div class="slabel mt-2">Academic Background</div>
-        <h3 class="stitle" style="font-size:2rem;">Education</h3>
-        <div class="sdiv"></div>
-        <div class="row mt-4">
-          <div class="col-md-6 mb-4" data-aos="fade-up">
-            <div class="edu-c">
-              <div class="edu-ic"><i class="fas fa-university"></i></div>
-              <div>
-                <div class="edu-deg">Bachelor of Computer Applications (BCA)</div>
-                <div class="edu-sch"><i class="fas fa-map-marker-alt" style="color:var(--teal);margin-right:5px;"></i>Tribhuvan University, Nepal</div>
-                <div class="edu-meta"><span class="ep">Dec 2023 – Present</span><span class="ep">Semester 5th</span><span class="ep">DSA · Web Tech · DBMS</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="80">
-            <div class="edu-c">
-              <div class="edu-ic"><i class="fas fa-school"></i></div>
-              <div>
-                <div class="edu-deg">+2 Higher Secondary — Management with CS</div>
-                <div class="edu-sch"><i class="fas fa-map-marker-alt" style="color:var(--teal);margin-right:5px;"></i>Nepal Kasthamandap SS College</div>
-                <div class="edu-meta"><span class="ep">2021 – 2023</span><span class="ep g">GPA 3.55 / 4.0</span><span class="ep g">88.75%</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4 mx-auto" data-aos="fade-up" data-aos-delay="160">
-            <div class="edu-c">
-              <div class="edu-ic"><i class="fas fa-trophy"></i></div>
-              <div>
-                <div class="edu-deg">Secondary Education (SEE) — Class 10</div>
-                <div class="edu-sch"><i class="fas fa-map-marker-alt" style="color:var(--teal);margin-right:5px;"></i>Nepal</div>
-                <div class="edu-meta"><span class="ep">2021</span><span class="ep g">GPA 3.65 / 4.0</span><span class="ep g">91.25%</span><span class="ep">Excellence: Math, Science, CS</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <section id="skills" class="skills-s sp"><div class="container"><div class="slabel">What I Know</div><h2 class="stitle">Tech Stack</h2><div class="sdiv"></div><div class="mt-4" data-aos="fade-up"><div class="sg-title">Core Stack</div><div class="mb-3"><span class="skb"><i class="devicon-flutter-plain colored"></i>Flutter</span><span class="skb"><i class="devicon-dart-plain colored"></i>Dart</span><span class="skb"><i class="devicon-django-plain colored"></i>Django</span><span class="skb"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span></div><div class="sg-title">Frontend</div><div class="mb-3"><span class="skb"><i class="devicon-react-original colored"></i>React</span><span class="skb"><i class="devicon-nextjs-original"></i>Next.js</span><span class="skb"><i class="fas fa-fire" style="color:#f66"></i>Firebase</span></div><div class="sg-title">Tools &amp; Workflow</div><div><span class="skb"><i class="devicon-git-plain colored"></i>Git</span><span class="skb"><i class="devicon-github-original"></i>GitHub</span><span class="skb"><i class="fab fa-figma" style="color:#f24e1e"></i>Figma</span><span class="skb"><i class="fas fa-cloud" style="color:var(--sky)"></i>REST APIs</span><span class="skb"><i class="devicon-python-plain colored"></i>Python</span></div></div><div class="mt-5"><div class="slabel mt-2">Academic Background</div><h3 class="stitle" style="font-size:2rem;">Education</h3><div class="sdiv"></div><div class="row mt-4"><div class="col-md-6 mb-4" data-aos="fade-up"><div class="edu-c"><div class="edu-ic"><i class="fas fa-university"></i></div><div><div class="edu-deg">Bachelor of Computer Applications (BCA)</div><div class="edu-sch"><i class="fas fa-map-marker-alt" style="color:var(--teal);margin-right:5px;"></i>Tribhuvan University, Nepal</div><div class="edu-meta"><span class="ep">Dec 2023 – Present</span><span class="ep">Semester 5th</span><span class="ep">DSA · Web Tech · DBMS</span></div></div></div></div><div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="80"><div class="edu-c"><div class="edu-ic"><i class="fas fa-school"></i></div><div><div class="edu-deg">+2 Higher Secondary — Management with CS</div><div class="edu-sch"><i class="fas fa-map-marker-alt" style="color:var(--teal);margin-right:5px;"></i>Nepal Kasthamandap SS College</div><div class="edu-meta"><span class="ep">2021 – 2023</span><span class="ep g">GPA 3.55 / 4.0</span><span class="ep g">88.75%</span></div></div></div></div><div class="col-md-6 mb-4 mx-auto" data-aos="fade-up" data-aos-delay="160"><div class="edu-c"><div class="edu-ic"><i class="fas fa-trophy"></i></div><div><div class="edu-deg">Secondary Education (SEE) — Class 10</div><div class="edu-sch"><i class="fas fa-map-marker-alt" style="color:var(--teal);margin-right:5px;"></i>Nepal</div><div class="edu-meta"><span class="ep">2021</span><span class="ep g">GPA 3.65 / 4.0</span><span class="ep g">91.25%</span><span class="ep">Excellence: Math, Science, CS</span></div></div></div></div></div></div></div></section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="sp">
-    <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <div class="slabel">My Work</div>
-        <h2 class="stitle">Featured Projects</h2>
-        <div class="sdiv c"></div>
-        <p style="color:var(--muted);margin-top:.8rem;">Real solutions. Real impact.</p>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
-          <div class="pjc">
-            <div class="pj-img" style="background-image:url('images/AAAAa.png');"><div class="pj-num">01</div></div>
-            <div class="pj-body"><h4>Clinic Management System</h4><p>Patient scheduling, digital records &amp; automated reminders for modern clinics.</p><div class="pj-links"><a href="https://github.com/subinathapa2004" target="_blank" class="pj-lnk"><i class="fab fa-github"></i>Code</a><a href="#" class="pj-lnk"><i class="fas fa-external-link-alt"></i>Live</a></div></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="pjc">
-            <div class="pj-img" style="background-image:url('images/cccc.png');"><div class="pj-num">02</div></div>
-            <div class="pj-body"><h4>Cleaning Service Pro</h4><p>Online booking, dynamic pricing engine &amp; automated invoice generation.</p><div class="pj-links"><a href="https://github.com/subinathapa2004" target="_blank" class="pj-lnk"><i class="fab fa-github"></i>Code</a><a href="#" class="pj-lnk"><i class="fas fa-external-link-alt"></i>Live</a></div></div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="pjc">
-            <div class="pj-img" style="background-image:url('images/mmm.png');"><div class="pj-num">03</div></div>
-            <div class="pj-body"><h4>Montessori Parent Hub</h4><p>Child progress tracking, daily reports &amp; parent-teacher communication portal.</p><div class="pj-links"><a href="https://github.com/subinathapa2004" target="_blank" class="pj-lnk"><i class="fab fa-github"></i>Code</a><a href="#" class="pj-lnk"><i class="fas fa-external-link-alt"></i>Live</a></div></div>
-          </div>
-        </div>
-      </div>
-      <div class="text-center mt-2"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-o"><i class="fab fa-github"></i>All Projects on GitHub</a></div>
-    </div>
-  </section>
+  <section id="projects" class="sp"><div class="container"><div class="text-center mb-5" data-aos="fade-up"><div class="slabel">My Work</div><h2 class="stitle">Featured Projects</h2><div class="sdiv c"></div><p style="color:var(--muted);margin-top:.8rem;">Real solutions. Real impact.</p></div><div class="row"><div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up"><div class="pjc"><div class="pj-img" style="background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%2334d39922%22%3E%3Cpath%20d%3D%22M12%202C6.48%202%202%206.48%202%2012s4.48%2010%2010%2010%2010-4.48%2010-10S17.52%202%2012%202zm0%204c1.1%200%202%20.9%202%202s-.9%202-2%202-2-.9-2-2%20.9-2%202-2zm0%2013c-2.67%200-5-1.34-5-4%200-2.67%203.33-4%205-4s5%201.33%205%204c0%202.66-2.33%204-5%204z%22%2F%3E%3C%2Fsvg%3E'); background-size:60px; background-repeat:no-repeat; background-position:center;"><div class="pj-num">01</div></div><div class="pj-body"><h4>Clinic Management System</h4><p>Patient scheduling, digital records &amp; automated reminders for modern clinics.</p><div class="pj-links"><a href="https://github.com/subinathapa2004" target="_blank" class="pj-lnk"><i class="fab fa-github"></i>Code</a><a href="#" class="pj-lnk"><i class="fas fa-external-link-alt"></i>Live</a></div></div></div></div><div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100"><div class="pjc"><div class="pj-img" style="background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%2334d39922%22%3E%3Cpath%20d%3D%22M20%206h-4V4c0-1.1-.9-2-2-2h-4c-1.1%200-2%20.9-2%202v2H4c-1.1%200-2%20.9-2%202v10c0%201.1.9%202%202%202h16c1.1%200%202-.9%202-2V8c0-1.1-.9-2-2-2zM10%204h4v2h-4V4z%22%2F%3E%3C%2Fsvg%3E'); background-size:60px; background-repeat:no-repeat; background-position:center;"><div class="pj-num">02</div></div><div class="pj-body"><h4>Cleaning Service Pro</h4><p>Online booking, dynamic pricing engine &amp; automated invoice generation.</p><div class="pj-links"><a href="https://github.com/subinathapa2004" target="_blank" class="pj-lnk"><i class="fab fa-github"></i>Code</a><a href="#" class="pj-lnk"><i class="fas fa-external-link-alt"></i>Live</a></div></div></div></div><div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200"><div class="pjc"><div class="pj-img" style="background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%2334d39922%22%3E%3Cpath%20d%3D%22M12%202C6.48%202%202%206.48%202%2012s4.48%2010%2010%2010%2010-4.48%2010-10S17.52%202%2012%202zm0%203c1.66%200%203%201.34%203%203s-1.34%203-3%203-3-1.34-3-3%201.34-3%203-3zm0%2014.2c-2.5%200-4.71-1.28-6-3.22.03-1.99%204-3.08%206-3.08%201.99%200%205.97%201.09%206%203.08-1.29%201.94-3.5%203.22-6%203.22z%22%2F%3E%3C%2Fsvg%3E'); background-size:60px; background-repeat:no-repeat; background-position:center;"><div class="pj-num">03</div></div><div class="pj-body"><h4>Montessori Parent Hub</h4><p>Child progress tracking, daily reports &amp; parent-teacher communication portal.</p><div class="pj-links"><a href="https://github.com/subinathapa2004" target="_blank" class="pj-lnk"><i class="fab fa-github"></i>Code</a><a href="#" class="pj-lnk"><i class="fas fa-external-link-alt"></i>Live</a></div></div></div></div></div><div class="text-center mt-2"><a href="https://github.com/subinathapa2004" target="_blank" class="btn-o"><i class="fab fa-github"></i>All Projects on GitHub</a></div></div></section>
 
-  <!-- BLOGS -->
-  <section id="blogs" class="blog-s sp">
-    <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <div class="slabel">My Writing</div>
-        <h2 class="stitle">Recent Blogs</h2>
-        <div class="sdiv c"></div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 mb-4" data-aos="fade-up">
-          <a href="https://medium.com/@subinathapa5510/flutter-app-architecture-mvvm-vs-clean-architecture-complete-guide-for-developers-5389449359fa" target="_blank" class="blc">
-            <div class="bl-img" style="background-image:url('images/B.webp');"></div>
-            <div class="bl-body"><h5>Flutter Architecture Guide</h5><p>MVVM vs Clean Architecture — a complete guide for developers.</p><span class="bl-read"><i class="fas fa-arrow-right"></i>Read on Medium</span></div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-          <a href="https://medium.com/@subinathapa5510/how-to-become-a-good-coder-a-step-by-step-guide-8af94c4b9bf4" target="_blank" class="blc">
-            <div class="bl-img" style="background-image:url('images/H.png');"></div>
-            <div class="bl-body"><h5>Become a Good Coder</h5><p>A practical step-by-step guide for aspiring developers.</p><span class="bl-read"><i class="fas fa-arrow-right"></i>Read on Medium</span></div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-          <a href="https://medium.com/@subinathapa5510/the-timeless-wisdom-of-the-bhagavad-gita-190cfe6b685d" target="_blank" class="blc">
-            <div class="bl-img" style="background-image:url('images/yooo.png');"></div>
-            <div class="bl-body"><h5>Bhagavad Gita Wisdom</h5><p>Timeless philosophical lessons every developer should know.</p><span class="bl-read"><i class="fas fa-arrow-right"></i>Read on Medium</span></div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <section id="blogs" class="blog-s sp"><div class="container"><div class="text-center mb-5" data-aos="fade-up"><div class="slabel">My Writing</div><h2 class="stitle">Recent Blogs</h2><div class="sdiv c"></div></div><div class="row"><div class="col-md-4 mb-4" data-aos="fade-up"><a href="https://medium.com/@subinathapa5510/flutter-app-architecture-mvvm-vs-clean-architecture-complete-guide-for-developers-5389449359fa" target="_blank" class="blc"><div class="bl-img" style="background-image:linear-gradient(135deg, #162e28, #0b221d);"></div><div class="bl-body"><h5>Flutter Architecture Guide</h5><p>MVVM vs Clean Architecture — a complete guide for developers.</p><span class="bl-read"><i class="fas fa-arrow-right"></i>Read on Medium</span></div></a></div><div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100"><a href="https://medium.com/@subinathapa5510/how-to-become-a-good-coder-a-step-by-step-guide-8af94c4b9bf4" target="_blank" class="blc"><div class="bl-img" style="background-image:linear-gradient(125deg, #1f3c33, #0c2b22);"></div><div class="bl-body"><h5>Become a Good Coder</h5><p>A practical step-by-step guide for aspiring developers.</p><span class="bl-read"><i class="fas fa-arrow-right"></i>Read on Medium</span></div></a></div><div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200"><a href="https://medium.com/@subinathapa5510/the-timeless-wisdom-of-the-bhagavad-gita-190cfe6b685d" target="_blank" class="blc"><div class="bl-img" style="background-image:linear-gradient(145deg, #21463a, #0f3328);"></div><div class="bl-body"><h5>Bhagavad Gita Wisdom</h5><p>Timeless philosophical lessons every developer should know.</p><span class="bl-read"><i class="fas fa-arrow-right"></i>Read on Medium</span></div></a></div></div></div></section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="con-s sp">
-    <div class="container">
-      <div class="text-center mb-5" data-aos="fade-up">
-        <div class="slabel">Work With Me</div>
-        <h2 class="stitle">Start a Project</h2>
-        <div class="sdiv c"></div>
-        <p style="color:var(--muted);margin-top:.8rem;">Got an idea? Let's turn it into reality.</p>
-      </div>
-      <div class="row">
-        <div class="col-md-8 mb-4" data-aos="fade-right">
-          <div class="con-wrap">
-            <h4 style="font-family:var(--fh);margin-bottom:1.3rem;font-weight:700;font-size:1.4rem;">Tell me about your project</h4>
-            <form id="cForm">
-              <div class="row">
-                <div class="col-sm-6 mb-3"><input type="text"  id="nm"  placeholder="Full Name *"  required class="ff"></div>
-                <div class="col-sm-6 mb-3"><input type="email" id="em"  placeholder="Email *"      required class="ff"></div>
-              </div>
-              <input type="text" id="sb" placeholder="Subject" class="ff mb-3">
-              <textarea id="ms" rows="5" placeholder="Tell me about your project..." class="ff mb-3"></textarea>
-              <button type="submit" class="btn-t w-100" style="justify-content:center;border:none;cursor:pointer;"><i class="fas fa-paper-plane"></i>Send Message</button>
-            </form>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-left">
-          <div class="info-c">
-            <div style="margin-bottom:1.3rem;">
-              <div class="slabel">Location</div>
-              <p style="color:var(--txt);font-size:.92rem;"><i class="fas fa-map-marker-alt" style="color:var(--teal);margin-right:7px;"></i>Kathmandu, Nepal</p>
-            </div>
-            <div style="margin-bottom:1.3rem;">
-              <div class="slabel">Connect</div>
-              <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:.5rem;">
-                <a href="https://github.com/subinathapa2004"                  target="_blank" class="soc-lnk"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank" class="soc-lnk"><i class="fab fa-linkedin"></i></a>
-                <a href="https://x.com/ThapaSubina22"                         target="_blank" class="soc-lnk"><i class="fab fa-twitter"></i></a>
-                <a href="https://medium.com/@subinathapa5510"                  target="_blank" class="soc-lnk"><i class="fab fa-medium"></i></a>
-                <a href="https://dev.to/thapasubina22"                         target="_blank" class="soc-lnk"><i class="fab fa-dev"></i></a>
-                <a href="https://www.youtube.com/@Subina--11-nxx"              target="_blank" class="soc-lnk"><i class="fab fa-youtube"></i></a>
-                <a href="https://gitlab.com/tsubina57"                         target="_blank" class="soc-lnk"><i class="fab fa-gitlab"></i></a>
-                <a href="https://www.facebook.com/subina.thapa.769940"         target="_blank" class="soc-lnk"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.instagram.com/stories/subinathapa22/"     target="_blank" class="soc-lnk"><i class="fab fa-instagram"></i></a>
-              </div>
-            </div>
-            <div style="background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.14);border-radius:13px;padding:.95rem;">
-              <span class="sdot" style="display:inline-block;margin-right:8px;vertical-align:middle;"></span>
-              <span style="font-size:.82rem;color:var(--teal);">Available for new projects</span>
-              <p style="color:var(--muted2);font-size:.76rem;margin-top:6px;margin-bottom:0;">Usually responds within 24 hours.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <section id="contact" class="con-s sp"><div class="container"><div class="text-center mb-5" data-aos="fade-up"><div class="slabel">Work With Me</div><h2 class="stitle">Start a Project</h2><div class="sdiv c"></div><p style="color:var(--muted);margin-top:.8rem;">Got an idea? Let's turn it into reality.</p></div><div class="row"><div class="col-md-8 mb-4" data-aos="fade-right"><div class="con-wrap"><h4 style="font-family:var(--fh);margin-bottom:1.3rem;font-weight:700;font-size:1.4rem;">Tell me about your project</h4><form id="cForm"><div class="row"><div class="col-sm-6 mb-3"><input type="text" id="nm" placeholder="Full Name *" required class="ff"></div><div class="col-sm-6 mb-3"><input type="email" id="em" placeholder="Email *" required class="ff"></div></div><input type="text" id="sb" placeholder="Subject" class="ff mb-3"><textarea id="ms" rows="5" placeholder="Tell me about your project..." class="ff mb-3"></textarea><button type="submit" class="btn-t w-100" style="justify-content:center;border:none;cursor:pointer;"><i class="fas fa-paper-plane"></i>Send Message</button></form></div></div><div class="col-md-4" data-aos="fade-left"><div class="info-c"><div style="margin-bottom:1.3rem;"><div class="slabel">Location</div><p style="color:var(--txt);font-size:.92rem;"><i class="fas fa-map-marker-alt" style="color:var(--teal);margin-right:7px;"></i>Kathmandu, Nepal</p></div><div style="margin-bottom:1.3rem;"><div class="slabel">Connect</div><div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:.5rem;"><a href="https://github.com/subinathapa2004" target="_blank" class="soc-lnk"><i class="fab fa-github"></i></a><a href="https://www.linkedin.com/in/subina-thapa-6800a934a/" target="_blank" class="soc-lnk"><i class="fab fa-linkedin"></i></a><a href="https://x.com/ThapaSubina22" target="_blank" class="soc-lnk"><i class="fab fa-twitter"></i></a><a href="https://medium.com/@subinathapa5510" target="_blank" class="soc-lnk"><i class="fab fa-medium"></i></a><a href="https://dev.to/thapasubina22" target="_blank" class="soc-lnk"><i class="fab fa-dev"></i></a><a href="https://www.youtube.com/@Subina--11-nxx" target="_blank" class="soc-lnk"><i class="fab fa-youtube"></i></a><a href="https://gitlab.com/tsubina57" target="_blank" class="soc-lnk"><i class="fab fa-gitlab"></i></a><a href="https://www.facebook.com/subina.thapa.769940" target="_blank" class="soc-lnk"><i class="fab fa-facebook"></i></a><a href="https://www.instagram.com/stories/subinathapa22/" target="_blank" class="soc-lnk"><i class="fab fa-instagram"></i></a></div></div><div style="background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.14);border-radius:13px;padding:.95rem;"><span class="sdot" style="display:inline-block;margin-right:8px;vertical-align:middle;"></span><span style="font-size:.82rem;color:var(--teal);">Available for new projects</span><p style="color:var(--muted2);font-size:.76rem;margin-top:6px;margin-bottom:0;">Usually responds within 24 hours.</p></div></div></div></div></div></section>
   <footer>© 2026 <em>Subina Thapa</em> · Full Stack Flutter Developer · Made with <em>♥</em> in Kathmandu</footer>
 </div>
 
-<!-- Theme toggle -->
 <button class="ttoggle" id="tBtn" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -715,7 +494,7 @@
 <script>
 AOS.init({duration:780, once:true, offset:70});
 
-/* Cursor */
+/* Cursor + animations + theme + sidebar + form fully preserved from original */
 const cur=document.getElementById('cur'),crf=document.getElementById('crf');
 let mx=0,my=0,fx=0,fy=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
@@ -741,62 +520,24 @@ tBtn.addEventListener('click',()=>{lm=!lm;applyTheme();});
 (function(){
   const sb=document.getElementById('sidebar'),mb=document.getElementById('mobBtn');
   let overlay=null;
-  function openSidebar(){
-    sb.classList.add('open');
-    overlay=document.createElement('div');
-    overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;';
-    overlay.addEventListener('click',closeSidebar);
-    document.body.appendChild(overlay);
-  }
-  function closeSidebar(){
-    sb.classList.remove('open');
-    if(overlay){overlay.remove();overlay=null;}
-  }
+  function openSidebar(){ sb.classList.add('open'); overlay=document.createElement('div'); overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:999;'; overlay.addEventListener('click',closeSidebar); document.body.appendChild(overlay);}
+  function closeSidebar(){ sb.classList.remove('open'); if(overlay){overlay.remove();overlay=null;} }
   if(mb) mb.addEventListener('click',()=>sb.classList.contains('open')?closeSidebar():openSidebar());
-  document.querySelectorAll('.sidebar-nav a').forEach(l=>{
-    l.addEventListener('click',()=>{if(window.innerWidth<=768)closeSidebar();});
-  });
-
-  /* Active nav on scroll */
+  document.querySelectorAll('.sidebar-nav a').forEach(l=>{ l.addEventListener('click',()=>{if(window.innerWidth<=768)closeSidebar();}); });
   const secs=document.querySelectorAll('section[id]');
-  window.addEventListener('scroll',()=>{
-    let cur2='';
-    secs.forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur2=s.id;});
-    document.querySelectorAll('.sidebar-nav a').forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+cur2));
-  });
-
-  /* Smooth scroll */
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',function(e){
-      const h=this.getAttribute('href');
-      if(h==='#')return;
-      const t=document.querySelector(h);
-      if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-60,behavior:'smooth'});history.pushState(null,null,h);}
-    });
-  });
-
-  /* Contact form */
+  window.addEventListener('scroll',()=>{ let cur2=''; secs.forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur2=s.id;}); document.querySelectorAll('.sidebar-nav a').forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+cur2)); });
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{ a.addEventListener('click',function(e){ const h=this.getAttribute('href'); if(h==='#')return; const t=document.querySelector(h); if(t){e.preventDefault();window.scrollTo({top:t.offsetTop-60,behavior:'smooth'});history.pushState(null,null,h);} }); });
   const form=document.getElementById('cForm');
   if(form){
     form.addEventListener('submit',async e=>{
       e.preventDefault();
-      const n=document.getElementById('nm').value.trim();
-      const em=document.getElementById('em').value.trim();
-      const sb2=document.getElementById('sb').value.trim()||'Project Inquiry';
-      const ms=document.getElementById('ms').value.trim();
+      const n=document.getElementById('nm').value.trim(), em=document.getElementById('em').value.trim(), sb2=document.getElementById('sb').value.trim()||'Project Inquiry', ms=document.getElementById('ms').value.trim();
       if(!n||!em||!ms){alert('Please fill required fields.');return;}
-      const fd=new FormData();
-      fd.append('name',n);fd.append('email',em);fd.append('subject',sb2);fd.append('message',ms);fd.append('_captcha','false');
+      const fd=new FormData(); fd.append('name',n);fd.append('email',em);fd.append('subject',sb2);fd.append('message',ms);fd.append('_captcha','false');
       try{
         const res=await fetch('https://formsubmit.co/ajax/subinathapa5510@gmail.com',{method:'POST',body:fd});
-        const t=document.createElement('div');t.className='toast-x';
-        t.innerText=res.ok?`✨ Thanks ${n}! I'll reply soon.`:'⚠️ Please email subinathapa5510@gmail.com';
-        document.body.appendChild(t);if(res.ok)form.reset();
-        setTimeout(()=>t.remove(),3800);
-      }catch{
-        const t=document.createElement('div');t.className='toast-x';t.innerText='⚠️ Please email subinathapa5510@gmail.com';
-        document.body.appendChild(t);setTimeout(()=>t.remove(),3800);
-      }
+        const t=document.createElement('div');t.className='toast-x'; t.innerText=res.ok?`✨ Thanks ${n}! I'll reply soon.`:'⚠️ Please email subinathapa5510@gmail.com'; document.body.appendChild(t); if(res.ok)form.reset(); setTimeout(()=>t.remove(),3800);
+      }catch{ const t=document.createElement('div');t.className='toast-x';t.innerText='⚠️ Please email subinathapa5510@gmail.com'; document.body.appendChild(t); setTimeout(()=>t.remove(),3800); }
     });
   }
 })();
